@@ -3,10 +3,9 @@
 <head>
   <link rel="preload" href="assets/font/f4.woff2" as="font" type="font/woff2" crossorigin>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="theme-color" content="#071936" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%23071936'/%3E%3Cpath d='M9 12h18M9 18h13M9 24h18M24 14l4 4-4 4' stroke='%23F0F9FF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
-  <meta name="format-detection" content="telephone=no" />
   <title>准讯周报 · 2026 年 10 月 31 日刊</title>
   <style>
 @font-face{font-family:"ZhunXunArt";font-weight:100 900;font-style:normal;font-display:swap;src:url("assets/font/f0.woff2") format("woff2")}
@@ -1946,207 +1945,6 @@
       .panel-img.lay-rc .kpi b, .panel-img.lay-lc .kpi b, .hero-banner-panel.panel-img .kpi b { font-size:38px; }
       .panel.panel-img .cap { font-size:11px; }
     }
-
-    /* =========================================================================
-       v2 增强：60 秒速览 / 折叠分层 / 已读标记 / 移动端点击区
-       ========================================================================= */
-    :root { --tap: 44px; }
-
-    .quick60 {
-      position: relative;
-      overflow: hidden;
-      margin: 0 0 28px;
-      padding: 22px 24px 16px;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(125, 211, 252, .30);
-      background: linear-gradient(150deg, #071936 0%, #0D274D 58%, #123A6B 100%);
-      box-shadow: var(--shadow-lg);
-      color: var(--cream);
-    }
-    .quick60::after {
-      content: "";
-      position: absolute;
-      inset: -40% -10% auto auto;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(56, 189, 248, .22), transparent 68%);
-      pointer-events: none;
-    }
-    .quick60-head {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
-    }
-    .quick60-sub {
-      font-family: var(--sans); font-size: 11.5px; font-weight: 700;
-      letter-spacing: .12em; color: #7DD3FC; margin-bottom: 4px;
-    }
-    .quick60-title {
-      font-family: var(--serif); font-size: 21px; font-weight: 900;
-      letter-spacing: .02em; color: var(--cream); line-height: 1.3;
-    }
-    .quick60-progress {
-      font-family: var(--sans); font-size: 11.5px; font-weight: 700;
-      color: #BAE6FD; border: 1px solid rgba(125, 211, 252, .4);
-      border-radius: 999px; padding: 3px 10px; white-space: nowrap;
-    }
-    .quick60-list { display: block; }
-    .quick60-item {
-      display: grid;
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 12px; align-items: start;
-      padding: 13px 6px;
-      border-top: 1px dashed rgba(125, 211, 252, .26);
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background .18s ease;
-    }
-    .quick60-item:hover { background: rgba(125, 211, 252, .10); }
-    .quick60-num {
-      font-family: var(--label); font-size: 21px; font-weight: 700;
-      color: #38BDF8; line-height: 1.1; padding-top: 1px;
-    }
-    .quick60-t {
-      font-family: var(--serif); font-size: 15.5px; font-weight: 900;
-      line-height: 1.45; color: var(--cream);
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .quick60-line {
-      font-family: var(--serif); font-size: 12.8px; line-height: 1.6;
-      color: #B8D4F2; margin-top: 4px;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .quick60-meta {
-      display: flex; align-items: baseline; justify-content: space-between;
-      gap: 8px 14px; flex-wrap: wrap;
-      margin-top: 7px;
-    }
-    .quick60-meta-l {
-      font-family: var(--sans); font-size: 11px; font-weight: 600;
-      color: #7DD3FC; letter-spacing: .02em;
-    }
-    .quick60-kpi {
-      font-family: var(--label); font-size: 15px; font-weight: 700;
-      color: #BAE6FD; white-space: nowrap; line-height: 1.2;
-    }
-    .quick60-item.is-read .quick60-t { color: #94A3B8; }
-    .quick60-foot {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; flex-wrap: wrap;
-      border-top: 1px solid rgba(125, 211, 252, .22);
-      margin-top: 4px; padding-top: 12px;
-    }
-    .quick60-hint { font-family: var(--sans); font-size: 11.5px; color: #93B8D8; }
-    .quick60-toggle {
-      font-family: var(--sans); font-size: 12.5px; font-weight: 800;
-      color: #071936; background: #7DD3FC; border: 0; border-radius: 999px;
-      padding: 8px 16px; cursor: pointer; white-space: nowrap;
-    }
-    .quick60-toggle:hover { background: #BAE6FD; }
-
-    /* 折叠分层 */
-    .collapsible-block {
-      margin-top: 26px;
-      border-top: 1px solid var(--border-color);
-      padding-top: 2px;
-    }
-    .collapsible-summary {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; cursor: pointer; list-style: none;
-      padding: 16px 4px;
-      font-family: var(--sans); font-size: 15px; font-weight: 800;
-      color: var(--text-main); min-height: var(--tap);
-    }
-    .collapsible-summary::-webkit-details-marker { display: none; }
-    .collapsible-summary .c-arrow {
-      color: var(--brand-primary); font-size: 13px;
-      transition: transform .2s ease; flex: 0 0 auto;
-    }
-    .collapsible-block[open] > .collapsible-summary .c-arrow { transform: rotate(90deg); }
-    .collapsible-block[open] > .collapsible-summary { border-bottom: 1px dashed var(--border-color); margin-bottom: 14px; }
-    .collapsible-block > .editorial-hero { margin-bottom: 4px; }
-
-    /* 其余文章速览 */
-    .others-block { margin-top: 4px; }
-    .others-list {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-    .others-row {
-      display: grid; grid-template-columns: 22px minmax(0, 1fr) auto;
-      gap: 10px; align-items: center;
-      padding: 12px 14px; cursor: pointer;
-      border-bottom: 1px solid var(--border-color);
-      min-height: var(--tap);
-    }
-    .others-row:last-child { border-bottom: 0; }
-    .others-row:hover { background: var(--bg-accent-soft); }
-    .others-col { font-size: 14px; }
-    .others-title {
-      font-family: var(--serif); font-size: 13.8px; font-weight: 700;
-      color: var(--text-main); line-height: 1.5;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .others-row.is-read .others-title { color: var(--text-muted); }
-    .others-min {
-      font-family: var(--label); font-size: 11.5px; color: var(--brand-secondary);
-      white-space: nowrap;
-    }
-
-    /* 阅读时长 / 已读 */
-    .read-time-chip {
-      display: inline-block; margin-left: 8px;
-      font-family: var(--sans); font-size: 11px; font-weight: 700;
-      color: var(--brand-secondary);
-      background: var(--bg-amber-soft);
-      border: 1px solid rgba(56, 189, 248, .38);
-      border-radius: 999px; padding: 1px 8px;
-      white-space: nowrap; vertical-align: middle; align-self: flex-start;
-    }
-    .is-read .focus-card-title,
-    .is-read .column-card-title,
-    .is-read .col-article-item-title { opacity: .60; }
-    .is-read .focus-card { position: relative; }
-    .focus-card.is-read::after {
-      content: "已读"; position: absolute; top: 12px; right: 12px;
-      font-family: var(--sans); font-size: 10.5px; font-weight: 800;
-      color: var(--cream); background: rgba(2, 132, 199, .92);
-      border-radius: 999px; padding: 2px 9px; letter-spacing: .06em;
-    }
-    .reader-share-row { margin-top: 14px; text-align: center; }
-
-    /* 移动端 */
-    @media (max-width: 640px) {
-      .quick60 { padding: 16px 14px 12px; border-radius: 14px; margin-bottom: 22px; }
-      .quick60-title { font-size: 17.5px; }
-      .quick60-sub { font-size: 10.5px; }
-      .quick60-item {
-        grid-template-columns: 26px minmax(0, 1fr);
-        gap: 9px; padding: 11px 2px;
-      }
-      .quick60-num { font-size: 17px; }
-      .quick60-t { font-size: 14.5px; line-height: 1.42; }
-      .quick60-line { font-size: 12.5px; }
-      .quick60-meta { gap: 4px 10px; margin-top: 6px; }
-      .quick60-kpi { font-size: 13.5px; }
-      .quick60-toggle { width: 100%; padding: 11px 16px; font-size: 13.5px; }
-      .quick60-hint { display: none; }
-      .collapsible-summary { font-size: 14px; padding: 14px 2px; }
-      .others-row { padding: 12px 10px; gap: 8px; }
-      .others-title { font-size: 13px; }
-      .cat-pill { height: 28px; }
-      .tool-btn { min-height: 30px; }
-      /* 手机端工具栏：去掉斜杠分隔符，搜索框自适应，避免文字被截断 */
-      .toolbar-divider { display: none; }
-      .toolbar-controls { gap: 8px 10px; row-gap: 6px; align-items: center; }
-      .search-box-wrap { flex: 1 1 100%; order: -1; }
-      .search-input, .search-input:focus { width: 100%; height: 30px; font-size: 13px; }
-      .issue-select { height: 28px; }
-      .top-brand-bar .tool-btn { font-size: 11px; padding: 4px 0; letter-spacing: -.02em; }
-      .issue-select { max-width: none; width: auto; font-size: 11px; padding-right: 2px; }
-      .toolbar-controls { gap: 5px 8px; flex-wrap: wrap; }
-      html { -webkit-tap-highlight-color: transparent; scroll-padding-top: 70px; }
-    }
   </style>
 </head>
 <body>
@@ -3645,10 +3443,8 @@
       searchQuery: "",
       dictQuery: "",
       favorites: [],
-      readArticles: [],
       darkMode: false
     };
-    const READ_STORAGE_KEY = "zhunxun_read_v1";
 
     let isTransitioningView = false;
 
@@ -3689,11 +3485,6 @@
         if (themeRaw === "dark") {
           state.darkMode = true;
           document.documentElement.classList.add("dark");
-        }
-        const readRaw = localStorage.getItem(READ_STORAGE_KEY);
-        if (readRaw) {
-          const parsedRead = JSON.parse(readRaw);
-          if (Array.isArray(parsedRead)) state.readArticles = parsedRead;
         }
         const scrollRaw = sessionStorage.getItem("zhunxun_scroll_positions");
         if (scrollRaw) {
@@ -3803,171 +3594,7 @@
       return ARTICLES_DATA.find(a => a.id === artId) || ARTICLES_DATA[0];
     }
 
-    // =========================================================================
-    // 5b. 阅读时长 / 已读进度
-    // =========================================================================
-    function readingMinutes(art) {
-      const text = stripMarkers([art.tldr, art.context, art.facts, art.impact, art.advice].join(""));
-      return Math.max(1, Math.round(text.length / 420));
-    }
-
-    function firstSentence(raw, maxLen) {
-      const t = stripMarkers(raw || "").replace(/\s+/g, " ").trim();
-      const m = t.match(/^[^。！？!?]+[。！？!?]?/);
-      let out = m ? m[0] : t;
-      const lim = maxLen || 48;
-      if (out.length > lim) out = out.slice(0, lim).replace(/[，、；：,;:\s]+$/, "") + "…";
-      return out;
-    }
-
-    function isRead(artId) {
-      return state.readArticles.indexOf(artId) !== -1;
-    }
-
-    function markRead(artId) {
-      if (!artId || isRead(artId)) return;
-      state.readArticles.push(artId);
-      try { localStorage.setItem(READ_STORAGE_KEY, JSON.stringify(state.readArticles)); } catch (_) {}
-    }
-
-    function decorateReadFlags(root) {
-      if (!root) return;
-      root.querySelectorAll("[data-open-article]").forEach(el => {
-        const id = el.getAttribute("data-open-article");
-        if (!id || el.classList.contains("quick60-item") || el.classList.contains("others-row") || el.classList.contains("pager-btn")) return;
-        const art = ARTICLES_DATA.find(a => a.id === id);
-        const read = isRead(id);
-        el.classList.toggle("is-read", read);
-        if (!art || el.querySelector(".read-time-chip")) return;
-        const chip = document.createElement("span");
-        chip.className = "read-time-chip";
-        chip.textContent = (read ? "✓ 已读 · " : "") + "约 " + readingMinutes(art) + " 分钟";
-        const host = el.querySelector(".card-footer-meta")
-          || el.querySelector(".column-card-top")
-          || el.querySelector(".col-article-item-title");
-        (host || el).appendChild(chip);
-      });
-    }
-
-    // =========================================================================
-    // 5c. 首页三层信息梯度（L0 速览 / L1 头条 / L2 速览列表 + 折叠长文）
-    // =========================================================================
-    function buildQuick60(focusArts) {
-      const readCount = focusArts.filter(a => isRead(a.id)).length;
-      const wrap = document.createElement("section");
-      wrap.className = "quick60";
-      wrap.innerHTML = `
-        <div class="quick60-head">
-          <div>
-            <div class="quick60-sub">60 秒速览 · 时间紧只看这里</div>
-            <div class="quick60-title">本周就记住这 3 件事</div>
-          </div>
-          <div class="quick60-progress">已读 ${readCount}/${focusArts.length}</div>
-        </div>
-        <div class="quick60-list">
-          ${focusArts.map((art, i) => {
-            const col = getColumnById(art.columnId);
-            const vm = ARTICLE_VISUAL_META[art.id] || {};
-            const kpi = vm.kpi ? `${vm.kpi[0]}${vm.kpi[1]}` : "";
-            return `<div class="quick60-item" data-open-article="${art.id}">
-              <div class="quick60-num">${String(i + 1).padStart(2, "0")}</div>
-              <div class="quick60-body">
-                <div class="quick60-t">${escapeHtml(art.title)}</div>
-                <div class="quick60-line">${escapeHtml(firstSentence(art.tldr, 54))}</div>
-                <div class="quick60-meta">
-                  <span class="quick60-meta-l">${col.icon} ${escapeHtml(col.shortName)} · 约 ${readingMinutes(art)} 分钟读完</span>
-                  ${kpi ? `<b class="quick60-kpi">${escapeHtml(kpi)}</b>` : ""}
-                </div>
-              </div>
-            </div>`;
-          }).join("")}
-        </div>
-        <div class="quick60-foot">
-          <span class="quick60-hint">点击任意一条直接读全文 · 链接可单独转发</span>
-          <button type="button" class="quick60-toggle" id="btn-home-more">展开全部内容 ↓</button>
-        </div>
-      `;
-      return wrap;
-    }
-
-    function enhanceHome(viewEl) {
-      const hero = viewEl.querySelector(".editorial-hero");
-      const focusGrid = viewEl.querySelector(".focus-grid");
-      const colsGrid = viewEl.querySelector(".columns-grid");
-      const colsHead = colsGrid ? colsGrid.previousElementSibling : null;
-      const focusArts = ARTICLES_DATA
-        .filter(a => a.isFocus)
-        .sort((a, b) => (a.focusOrder || 99) - (b.focusOrder || 99));
-
-      // L0：60 秒速览置顶
-      viewEl.insertBefore(buildQuick60(focusArts), viewEl.firstChild);
-
-      // 卷首导读：移到头条之后，默认折叠
-      if (hero && focusGrid) {
-        const heroText = stripMarkers(hero.textContent || "");
-        const d = document.createElement("details");
-        d.className = "collapsible-block";
-        d.innerHTML = `<summary class="collapsible-summary"><span>📝 卷首导读 · 编辑长文（约 ${Math.max(1, Math.round(heroText.length / 420))} 分钟）</span><span class="c-arrow">▸</span></summary>`;
-        hero.parentNode.removeChild(hero);
-        d.appendChild(hero);
-        focusGrid.parentNode.insertBefore(d, focusGrid.nextSibling);
-      }
-
-      // L2：其余文章一句话速览
-      const others = ARTICLES_DATA.filter(a => !a.isFocus);
-      if (others.length) {
-        const sec = document.createElement("section");
-        sec.className = "others-block";
-        sec.innerHTML = `
-          <div class="section-head">
-            <h2 class="section-title">📋 其余 ${others.length} 篇 · 一句话速览</h2>
-          </div>
-          <div class="others-list">
-            ${others.map(art => {
-              const col = getColumnById(art.columnId);
-              return `<div class="others-row" data-open-article="${art.id}">
-                <span class="others-col">${col.icon}</span>
-                <span class="others-title">${escapeHtml(art.title)}</span>
-                <span class="others-min">${readingMinutes(art)}′</span>
-              </div>`;
-            }).join("")}
-          </div>`;
-        const anchor = viewEl.querySelector(".collapsible-block");
-        if (anchor) anchor.parentNode.insertBefore(sec, anchor.nextSibling);
-        else viewEl.appendChild(sec);
-      }
-
-      // 专栏目录索引：折叠
-      if (colsGrid) {
-        const d = document.createElement("details");
-        d.className = "collapsible-block";
-        d.innerHTML = `<summary class="collapsible-summary"><span>🗂️ 专栏目录索引 · 按栏目浏览（4 个专栏 / ${ARTICLES_DATA.length} 篇）</span><span class="c-arrow">▸</span></summary>`;
-        if (colsHead) colsHead.parentNode.removeChild(colsHead);
-        colsGrid.parentNode.insertBefore(d, colsGrid);
-        d.appendChild(colsGrid);
-      }
-
-      decorateReadFlags(viewEl);
-    }
-
-    function toggleHomeMore(btn) {
-      const viewEl = document.getElementById("view-home");
-      const blocks = viewEl ? viewEl.querySelectorAll(".collapsible-block") : [];
-      const expand = btn.getAttribute("data-expanded") !== "true";
-      blocks.forEach(b => { b.open = expand; });
-      btn.setAttribute("data-expanded", expand ? "true" : "false");
-      btn.textContent = expand ? "收起，只看头条 ↑" : "展开全部内容 ↓";
-      if (expand) {
-        const first = blocks[0];
-        if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }
-
-    // =========================================================================
-    // 5d. 路由：#/home  #/col/:id  #/art/:id  #/dict  #/fav
-    // =========================================================================
+    // ===== hash 路由：#/home  #/col/:id  #/art/:id  #/dict  #/fav =====
     let pendingHash = null;
 
     function routeHashFor(kind, id) {
@@ -4001,16 +3628,6 @@
       pendingHash = null;
       applyRoute();
     });
-
-    function copyCurrentLink() {
-      const url = location.href;
-      const done = () => showToast("🔗 链接已复制，可直接转发");
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done).catch(() => fallbackCopyText(url, done));
-      } else {
-        fallbackCopyText(url, done);
-      }
-    }
 
     // =========================================================================
     // 6. 核心视图渲染器（每次切换页面均自动保存并恢复上次阅读滚动位置）
@@ -4094,7 +3711,6 @@
       `;
       viewEl.classList.remove("hidden");
       StaticImpastoPainter.renderAllPanels(viewEl);
-      decorateReadFlags(viewEl);
       restoreViewScroll(`column:${colId}`);
       syncRoute("column", colId);
     }
@@ -4201,7 +3817,6 @@
         </div>
       `;
 
-      enhanceHome(viewEl);
       viewEl.classList.remove("hidden");
       StaticImpastoPainter.renderAllPanels(viewEl);
       restoreViewScroll("home");
@@ -4313,17 +3928,11 @@
             <span class="back-link-divider">·</span>
             <button type="button" class="plain-small-link" data-action="back-overview">返回总览</button>
           </div>
-
-          <div class="reader-share-row">
-            <button type="button" class="plain-small-link" data-action="share-article">🔗 复制本篇链接（可直接转发）</button>
-          </div>
         </div>
       `;
 
       viewEl.classList.remove("hidden");
       StaticImpastoPainter.renderAllPanels(viewEl);
-      markRead(art.id);
-      decorateReadFlags(viewEl);
       restoreViewScroll(`article:${art.id}`);
       syncRoute("article", art.id);
     }
@@ -4484,7 +4093,6 @@
 
       viewEl.classList.remove("hidden");
       StaticImpastoPainter.renderAllPanels(viewEl);
-      decorateReadFlags(viewEl);
       restoreViewScroll("fav");
       syncRoute("fav");
     }
@@ -4765,20 +4373,6 @@
         e.stopPropagation();
         const artId = favBtn.getAttribute("data-toggle-fav");
         toggleFavorite(artId);
-        return;
-      }
-
-      const moreBtn = e.target.closest("#btn-home-more");
-      if (moreBtn) {
-        e.stopPropagation();
-        toggleHomeMore(moreBtn);
-        return;
-      }
-
-      const shareBtn = e.target.closest('[data-action="share-article"]');
-      if (shareBtn) {
-        e.stopPropagation();
-        copyCurrentLink();
         return;
       }
 
