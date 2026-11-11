@@ -101,9 +101,12 @@
         <span class="hidden sm:inline">·</span>
         <span class="hidden sm:inline">逢周一出版 · 共 12 篇深度调查</span>
       </div>
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="btnArchiveModal" onclick="toggleArchiveModal(true)" class="px-2.5 py-1 text-xs font-semibold bg-red-800 text-white rounded hover:bg-red-900 transition flex items-center gap-1">
+          <span>📚 往期周报</span>
+        </button>
         <div class="relative">
-          <input id="searchInput" type="text" oninput="handleSearchInput(this.value)" placeholder="检索标题、公司、人物..." class="w-40 sm:w-52 px-2.5 py-1 text-xs bg-transparent border border-stone-300 dark:border-stone-700 rounded focus:outline-none focus:border-red-800 dark:focus:border-red-400">
+          <input id="searchInput" type="text" oninput="handleSearchInput(this.value)" placeholder="检索标题、公司、人物..." class="w-36 sm:w-48 px-2.5 py-1 text-xs bg-transparent border border-stone-300 dark:border-stone-700 rounded focus:outline-none focus:border-red-800 dark:focus:border-red-400">
         </div>
         <button id="btnThemeToggle" onclick="toggleTheme()" class="px-2.5 py-1 text-xs border border-stone-300 dark:border-stone-700 rounded hover:bg-stone-200/60 dark:hover:bg-stone-800 transition">
           <span id="themeLabel">夜间墨色</span>
@@ -178,6 +181,60 @@
     <span id="toastMessage">已复制到剪贴板</span>
   </div>
 
+  <!-- Past Issues / Archive Modal -->
+  <div id="archiveModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-paper dark:bg-neutral-900 border-2 border-stone-800 dark:border-stone-700 rounded-lg max-w-lg w-full p-5 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-2.5 news-rule-b">
+        <div>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-red-800 dark:text-red-400">ARCHIVE & PAST ISSUES</div>
+          <h3 class="font-editorial text-lg font-bold">准讯周报 · 往期报纸归档切换</h3>
+        </div>
+        <button id="btnCloseArchive" onclick="toggleArchiveModal(false)" class="px-2.5 py-1 text-xs rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800">
+          关闭 ✕
+        </button>
+      </div>
+
+      <div class="space-y-2.5 max-h-80 overflow-y-auto">
+        <!-- Current Issue -->
+        <div onclick="toggleArchiveModal(false); showFrontPage();" class="p-3 rounded border-2 border-red-800 bg-paperAlt dark:bg-stone-800/70 cursor-pointer flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-1.5 py-0.5 text-[10px] font-bold bg-red-800 text-white rounded">当前最新刊</span>
+              <span class="font-editorial font-bold text-sm">2026-11-10 期（2026.11.03 — 11.10）</span>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 mt-1">Anthropic Fable 5.2 降价 20% 冲刺万亿 IPO · 1.7GW 燃气锁电 · Cybertruck 停产让位 Cybercab</p>
+          </div>
+          <span class="text-xs font-semibold text-red-800 dark:text-red-400 shrink-0 ml-2">当前阅读</span>
+        </div>
+
+        <!-- Previous Issue: 2026-10-31 -->
+        <a id="linkIssue20261031" href="https://mxiaohh.github.io/zhunxun-weekly/2026-10-31/" onclick="return navigateToIssue('2026-10-31', event)" class="block p-3 rounded border border-stone-300 dark:border-stone-700 hover:border-red-800 dark:hover:border-red-400 news-card-hover transition">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-1.5 py-0.5 text-[10px] font-mono bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 rounded">上一期</span>
+                <span class="font-editorial font-bold text-sm">2026-10-31 期（10月下旬刊）</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">点击直接打开 `/2026-10-31/` 历史周报页面（自动适配 GitHub Pages 与本地目录路径）</p>
+            </div>
+            <span class="text-xs font-semibold text-red-800 dark:text-red-400 shrink-0 ml-2">前往阅读 →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Custom Date Folder Jumper -->
+      <div class="pt-3 news-rule-t space-y-2">
+        <div class="text-xs font-semibold text-stone-700 dark:text-stone-300">按日期文件夹直接跳转其他历史期数：</div>
+        <div class="flex items-center gap-2">
+          <input id="customIssueInput" type="text" placeholder="输入期数文件夹名，如 2026-10-31 或 2026-10-24" class="flex-1 px-2.5 py-1.5 text-xs bg-transparent border border-stone-300 dark:border-stone-700 rounded focus:outline-none focus:border-red-800">
+          <button id="btnGoCustomIssue" onclick="jumpToCustomIssue()" class="px-3 py-1.5 text-xs font-semibold bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 rounded hover:opacity-90">
+            跳转期数 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Minimal Newspaper Footer -->
   <footer class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 mt-10 news-rule-t text-xs text-stone-500 dark:text-stone-400 flex flex-col sm:flex-row items-center justify-between gap-2">
     <div>
@@ -185,6 +242,8 @@
     </div>
     <div class="flex items-center gap-4">
       <button onclick="showFrontPage()" class="hover:underline">返回头版概览</button>
+      <span>·</span>
+      <button onclick="toggleArchiveModal(true)" class="text-red-800 dark:text-red-400 font-semibold hover:underline">📚 查看往期周报 (2026-10-31)</button>
       <span>·</span>
       <a href="https://github.com/mxiaohh/zhunxun-weekly" target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub 刊物归档 ↗</a>
     </div>
@@ -1650,10 +1709,76 @@
       `;
     }
 
+    // Smart Past Issue URL Resolver (works in /2026-11-10/, repo root, and Canvas)
+    function resolveIssueUrl(issueFolder) {
+      const cleanFolder = String(issueFolder || '').replace(/^\/+|\/+$/g, '');
+      try {
+        const loc = window.location;
+        if (loc.hostname.endsWith('github.io') || loc.pathname.includes('/zhunxun-weekly')) {
+          const idx = loc.pathname.indexOf('/zhunxun-weekly');
+          if (idx !== -1) {
+            return loc.origin + '/zhunxun-weekly/' + cleanFolder + '/';
+          }
+        }
+        if (loc.protocol === 'http:' || loc.protocol === 'https:') {
+          // If hosted inside a date subfolder like /2026-11-10/index.html
+          if (/\/20\d{2}-\d{2}-\d{2}(\/|$)/.test(loc.pathname)) {
+            return '../' + cleanFolder + '/';
+          }
+          // If hosted at root level like /2026-11-03_11-10.html
+          return './' + cleanFolder + '/';
+        }
+      } catch (e) {}
+      return 'https://mxiaohh.github.io/zhunxun-weekly/' + cleanFolder + '/';
+    }
+
+    function toggleArchiveModal(show) {
+      const modal = document.getElementById('archiveModal');
+      if (!modal) return;
+      if (show) {
+        const linkEl = document.getElementById('linkIssue20261031');
+        if (linkEl) {
+          linkEl.href = resolveIssueUrl('2026-10-31');
+        }
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function navigateToIssue(issueFolder, evt) {
+      const targetUrl = resolveIssueUrl(issueFolder);
+      try {
+        if (window.location.hostname.endsWith('github.io') || window.location.pathname.includes('/zhunxun-weekly')) {
+          window.location.href = targetUrl;
+          if (evt) evt.preventDefault();
+          return false;
+        }
+      } catch (e) {}
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      if (evt) evt.preventDefault();
+      return false;
+    }
+
+    function jumpToCustomIssue() {
+      const inp = document.getElementById('customIssueInput');
+      const val = inp ? inp.value.trim() : '';
+      if (!val) {
+        showToast('请输入期数文件夹名称，例如 2026-10-31');
+        return;
+      }
+      navigateToIssue(val, null);
+    }
+
     // Keyboard & Hash Navigation Support
     window.addEventListener('keydown', (e) => {
-      if (state.view === 'article') {
-        if (e.key === 'Escape') {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('archiveModal');
+        if (modal && !modal.classList.contains('hidden')) {
+          toggleArchiveModal(false);
+          return;
+        }
+        if (state.view === 'article') {
           showFrontPage();
         }
       }
