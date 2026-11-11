@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>准讯周报 ZHUNXUN WEEKLY · 2026.11.03 — 11.10</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif SC"', '"Playfair Display"', '"Songti SC"', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          colors: {
+            paper: '#FBF9F5',
+            paperAlt: '#F3EFE6',
+            ink: '#141413',
+            inkMuted: '#57534E',
+            rule: '#D6D1C7',
+            accentRed: '#991B1B'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FBF9F5;
+      color: #141413;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    html.dark body {
+      background-color: #121211;
+      color: #E7E5E0;
+    }
+    .font-editorial {
+      font-family: 'Noto Serif SC', 'Playfair Display', 'Songti SC', Georgia, serif;
+    }
+    .double-rule-top {
+      border-top: 3px double #141413;
+    }
+    html.dark .double-rule-top {
+      border-top: 3px double #D6D3CD;
+    }
+    .double-rule-bottom {
+      border-bottom: 4px double #141413;
+    }
+    html.dark .double-rule-bottom {
+      border-bottom: 4px double #D6D3CD;
+    }
+    .news-rule-b {
+      border-bottom: 1px solid #D6D1C7;
+    }
+    html.dark .news-rule-b {
+      border-bottom: 1px solid #292826;
+    }
+    .news-rule-t {
+      border-top: 1px solid #D6D1C7;
+    }
+    html.dark .news-rule-t {
+      border-top: 1px solid #292826;
+    }
+    .news-rule-r {
+      border-right: 1px solid #D6D1C7;
+    }
+    html.dark .news-rule-r {
+      border-right: 1px solid #292826;
+    }
+    .news-card-hover {
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    .news-card-hover:hover {
+      background-color: rgba(214, 209, 199, 0.25);
+    }
+    html.dark .news-card-hover:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+    .news-photo {
+      filter: contrast(1.03);
+      transition: transform 0.35s ease;
+    }
+    .group:hover .news-photo {
+      transform: scale(1.015);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-red-900 selection:text-white">
+
+  <!-- ==================== NEWSPAPER MASTHEAD ==================== -->
+  <header class="max-w-7xl w-full mx-auto px-4 sm:px-6 pt-5 pb-2">
+    <!-- Top Utility Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-2 pb-2 text-xs text-stone-600 dark:text-stone-400 news-rule-b">
+      <div class="flex items-center gap-3">
+        <span class="font-semibold tracking-wider uppercase text-red-800 dark:text-red-400">EDITION 2026 · W45</span>
+        <span>2026年11月3日 — 11月10日</span>
+        <span class="hidden sm:inline">·</span>
+        <span class="hidden sm:inline">逢周一出版 · 共 12 篇深度调查</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="btnArchiveModal" onclick="toggleArchiveModal(true)" class="px-2.5 py-1 text-xs font-semibold bg-red-800 text-white rounded hover:bg-red-900 transition flex items-center gap-1">
+          <span>📚 往期周报</span>
+        </button>
+        <div class="relative">
+          <input id="searchInput" type="text" oninput="handleSearchInput(this.value)" placeholder="检索标题、公司、人物..." class="w-36 sm:w-48 px-2.5 py-1 text-xs bg-transparent border border-stone-300 dark:border-stone-700 rounded focus:outline-none focus:border-red-800 dark:focus:border-red-400">
+        </div>
+        <button id="btnThemeToggle" onclick="toggleTheme()" class="px-2.5 py-1 text-xs border border-stone-300 dark:border-stone-700 rounded hover:bg-stone-200/60 dark:hover:bg-stone-800 transition">
+          <span id="themeLabel">夜间墨色</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Center Broadsheet Title -->
+    <div class="py-5 text-center double-rule-bottom">
+      <div class="text-[11px] tracking-[0.28em] uppercase text-stone-500 dark:text-stone-400 mb-1">
+        GLOBAL AI & TECH INTELLIGENCE BROADSHEET
+      </div>
+      <h1 onclick="showFrontPage()" class="font-editorial text-3xl sm:text-5xl md:text-6xl font-black tracking-tight cursor-pointer select-none">
+        准 讯 周 报
+      </h1>
+      <div class="mt-1.5 flex items-center justify-center gap-3 text-xs sm:text-sm text-stone-600 dark:text-stone-400 font-serif italic">
+        <span>ZHUNXUN WEEKLY</span>
+        <span>·</span>
+        <span>全球人工智能与硬科技双层精读报刊</span>
+      </div>
+    </div>
+
+    <!-- Section Navigation Bar & Key Ticker -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 py-2.5 news-rule-b text-xs">
+      <!-- Section Tabs -->
+      <nav class="flex items-center gap-1 overflow-x-auto" id="sectionNav">
+        <button onclick="setSectionFilter('ALL')" id="secBtn-ALL" class="px-3 py-1 rounded font-semibold bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 transition whitespace-nowrap">
+          全部版面 (12)
+        </button>
+        <button onclick="setSectionFilter('A1')" id="secBtn-A1" class="px-3 py-1 rounded font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-200/70 dark:hover:bg-stone-800 transition whitespace-nowrap">
+          A1 头版·模型与资本 (3)
+        </button>
+        <button onclick="setSectionFilter('A2')" id="secBtn-A2" class="px-3 py-1 rounded font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-200/70 dark:hover:bg-stone-800 transition whitespace-nowrap">
+          A2 算力·芯片与能源 (3)
+        </button>
+        <button onclick="setSectionFilter('B1')" id="secBtn-B1" class="px-3 py-1 rounded font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-200/70 dark:hover:bg-stone-800 transition whitespace-nowrap">
+          B1 具身·终端与硬件 (2)
+        </button>
+        <button onclick="setSectionFilter('B2')" id="secBtn-B2" class="px-3 py-1 rounded font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-200/70 dark:hover:bg-stone-800 transition whitespace-nowrap">
+          B2 商业·安全与就业 (4)
+        </button>
+      </nav>
+
+      <!-- Minimalist Key Metrics Ticker -->
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-stone-600 dark:text-stone-400 font-mono">
+        <span>Anthropic目标估值 <strong class="text-red-800 dark:text-red-400">$1.0T–1.5T</strong></span>
+        <span>Fable 5.2 降价 <strong class="text-stone-900 dark:text-stone-100">20%</strong></span>
+        <span>燃气直采锁电 <strong class="text-stone-900 dark:text-stone-100">1.7GW / $34亿</strong></span>
+        <span>四大云CapEx <strong class="text-stone-900 dark:text-stone-100">&gt;$7,250亿</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTAINER ==================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-4">
+
+    <!-- ==================== LAYER 1: FRONT PAGE BROADSHEET OVERVIEW ==================== -->
+    <section id="view-frontpage" class="space-y-8">
+      <!-- Dynamic Broadsheet Content injected by JS -->
+      <div id="frontpageContainer"></div>
+    </section>
+
+    <!-- ==================== LAYER 2: NESTED ARTICLE DETAIL & AI ANALYSIS ==================== -->
+    <section id="view-article" class="hidden">
+      <div id="articleDetailContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 hidden px-4 py-2.5 rounded bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-medium shadow-lg border border-stone-700">
+    <span id="toastMessage">已复制到剪贴板</span>
+  </div>
+
+  <!-- Past Issues / Archive Modal -->
+  <div id="archiveModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-paper dark:bg-neutral-900 border-2 border-stone-800 dark:border-stone-700 rounded-lg max-w-lg w-full p-5 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-2.5 news-rule-b">
+        <div>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-red-800 dark:text-red-400">ARCHIVE & PAST ISSUES</div>
+          <h3 class="font-editorial text-lg font-bold">准讯周报 · 往期报纸归档切换</h3>
+        </div>
+        <button id="btnCloseArchive" onclick="toggleArchiveModal(false)" class="px-2.5 py-1 text-xs rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800">
+          关闭 ✕
+        </button>
+      </div>
+
+      <div class="space-y-2.5 max-h-80 overflow-y-auto">
+        <!-- Current Issue -->
+        <div onclick="toggleArchiveModal(false); showFrontPage();" class="p-3 rounded border-2 border-red-800 bg-paperAlt dark:bg-stone-800/70 cursor-pointer flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-1.5 py-0.5 text-[10px] font-bold bg-red-800 text-white rounded">当前最新刊</span>
+              <span class="font-editorial font-bold text-sm">2026-11-10 期（2026.11.03 — 11.10）</span>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 mt-1">Anthropic Fable 5.2 降价 20% 冲刺万亿 IPO · 1.7GW 燃气锁电 · Cybertruck 停产让位 Cybercab</p>
+          </div>
+          <span class="text-xs font-semibold text-red-800 dark:text-red-400 shrink-0 ml-2">当前阅读</span>
+        </div>
+
+        <!-- Previous Issue: 2026-10-31 -->
+        <a id="linkIssue20261031" href="https://mxiaohh.github.io/zhunxun-weekly/2026-10-31/" onclick="return navigateToIssue('2026-10-31', event)" class="block p-3 rounded border border-stone-300 dark:border-stone-700 hover:border-red-800 dark:hover:border-red-400 news-card-hover transition">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-1.5 py-0.5 text-[10px] font-mono bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 rounded">上一期</span>
+                <span class="font-editorial font-bold text-sm">2026-10-31 期（10月下旬刊）</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">点击直接打开 `/2026-10-31/` 历史周报页面（自动适配 GitHub Pages 与本地目录路径）</p>
+            </div>
+            <span class="text-xs font-semibold text-red-800 dark:text-red-400 shrink-0 ml-2">前往阅读 →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Custom Date Folder Jumper -->
+      <div class="pt-3 news-rule-t space-y-2">
+        <div class="text-xs font-semibold text-stone-700 dark:text-stone-300">按日期文件夹直接跳转其他历史期数：</div>
+        <div class="flex items-center gap-2">
+          <input id="customIssueInput" type="text" placeholder="输入期数文件夹名，如 2026-10-31 或 2026-10-24" class="flex-1 px-2.5 py-1.5 text-xs bg-transparent border border-stone-300 dark:border-stone-700 rounded focus:outline-none focus:border-red-800">
+          <button id="btnGoCustomIssue" onclick="jumpToCustomIssue()" class="px-3 py-1.5 text-xs font-semibold bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 rounded hover:opacity-90">
+            跳转期数 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal Newspaper Footer -->
+  <footer class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 mt-10 news-rule-t text-xs text-stone-500 dark:text-stone-400 flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div>
+      <span class="font-editorial font-bold text-stone-700 dark:text-stone-300">准讯周报 ZHUNXUN WEEKLY</span> · 2026年11月3日—11月10日刊（总第45期）
+    </div>
+    <div class="flex items-center gap-4">
+      <button onclick="showFrontPage()" class="hover:underline">返回头版概览</button>
+      <span>·</span>
+      <button onclick="toggleArchiveModal(true)" class="text-red-800 dark:text-red-400 font-semibold hover:underline">📚 查看往期周报 (2026-10-31)</button>
+      <span>·</span>
+      <a href="https://github.com/mxiaohh/zhunxun-weekly" target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub 刊物归档 ↗</a>
+    </div>
+  </footer>
+
+  <!-- ==================== GROUNDED DATA & APPLICATION CONTROLLER ==================== -->
+  <script>
+    const ARTICLES = [
+      {
+        id: 'evt-01',
+        section: 'A1',
+        sectionName: 'A1 头版 · 模型与资本',
+        date: '2026-11-09',
+        dateline: '旧金山 / 纽约电 · 11月8日—10日',
+        kicker: '头版头条 · 万亿 IPO 前夜的份额总攻',
+        title: 'Anthropic 发布 Claude Fable 5.2 与 Mythos 5.2：API 降价 20%，本周冲刺超万亿美元 IPO 路演',
+        subtitle: '千级智能体 8 天从零构建可启动原型操作系统、30 小时形式化证明费马大定理；前九月营收达 332.4 亿美元（同比 +1200%），以“大众版拦截 + 机构版白名单”铸造合规准入护城河。',
+        brief: 'Anthropic 推出双轨旗舰模型 Claude Fable 5.2 与受控机构版 Mythos 5.2，API 价格下调 20% 至 $8/$40 每百万 Token。预发布测试中千级子智能体 8 天构建可启动操作系统，公司最快本周启动 1 万亿至 1.5 万亿美元估值 IPO 路演。',
+        highlights: [
+          'Fable 5.2 定价降至 $8/$40 每百万 Token（降幅 20%），速度提升 30%，快速模式达 2.5 倍',
+          '约 1,000 个子智能体 8 天从零构建可启动 OS，30 小时完成费马大定理 Lean 机器验证证明',
+          '前九月营收 332.4 亿美元（+1200%），7 月底 ARR 逾 650 亿美元，内部 90% 合并代码由 Claude 编写'
+        ],
+        metrics: [
+          { label: 'IPO 目标估值', value: '$1.0T–1.5T' },
+          { label: '2026 前九月营收', value: '$332.4亿 (+1200%)' },
+          { label: 'API 最新定价', value: '$8 / $40 (-20%)' },
+          { label: '算力与基建承诺', value: '$8,950亿' }
+        ],
+        image: {
+          url: 'https://static.time.com/v3/assets/bltea6093859af6183b/blt828250f73e39f08c/698a572d16d8841f3cc3eb03/time-most-influential-companies-anthropic-dario-amodei.jpg?branch=production',
+          caption: 'Anthropic 联合创始人兼 CEO Dario Amodei。公司在冲刺万亿美元 IPO 路演前夕推出双轨模型 Fable 5.2 与 Mythos 5.2。（图源：TIME）',
+          sourceUrl: 'https://time.com/6990386/anthropic-dario-amodei-interview/'
+        },
+        fullParagraphs: [
+          '11 月 9 日，Anthropic 正式发布新一代双轨旗舰模型——面向公众与常规企业研发的 Claude Fable 5.2（内置网络安全与生物安全自动拦截机制），以及仅面向通过 Cyber 或 Life Sciences 机构资质验证客户开放的 Claude Mythos 5.2。在定价策略上，Fable 5.2 将每百万 Token 输入价格从 Fable 5.1 的 10 美元下调至 8 美元、输出价格从 50 美元下调至 40 美元，整体降幅达 20%；生成速度提升最高 30%，“快速模式”吞吐达 2.5 倍，并同步在 AWS、Google Cloud 与微软 Azure 三大云平台同价上线。',
+          '在多智能体长程协同与形式化推理基准上，Fable 5.2 创下两项工程里程碑：其一，在预发布压力测试中，约 1,000 个子智能体在无人类干预情况下协同工作 8 天，从零构建出一套可在实体笔记本电脑上启动的原型操作系统；其二，模型在 30 小时内完成了费马大定理（Fermat’s Last Theorem）的 Lean 形式化机器验证证明，刷新此前 11 天的纪录，所用动作 Token 减少三分之二，最终证明长度缩短至七分之一。在涵盖 1,829 个历史漏洞的 CVE Rediscovery 测试中，机构版 Mythos 5.2 发现的漏洞数量比 Opus 5.5 高出 10.2%，比 Mythos 5.1 高出 14.4%。独立开发者 Simon Willison 实测发现，在提示词中声明“代码库归模型自己所有（Ownership Prompting）”可将重复代码重构合并率从不足 10% 跃升至约 50%。',
+          '技术发布的背后是紧锣密鼓的资本冲刺。据 Dealroom 与多家财经媒体 11 月 10 日披露，继 10 月 26 日提交招股书后，Anthropic 最快于本周启动正式 IPO 营销路演，目标估值达 1 万亿至 1.5 万亿美元。财务数据显示，Anthropic 2026 年前九个月营收达 332.4 亿美元（同比暴增 1200%），7 月底年化经常性收入（ARR）突破 650 亿美元（其中企业 API 贡献 75%–85%），推理毛利率已从 38% 攀升至 70%–85%，且公司内部 90% 的合并代码已由 Claude 自动生成。'
+        ],
+        timeline: [
+          { date: '11-09', text: 'Anthropic 官宣 Claude Fable 5.2 与 Mythos 5.2，API 降价 20% 至 $8/$40 每百万 Token，三云同步上线。' },
+          { date: '11-09', text: 'Simon Willison 发布 llm-anthropic 0.31 插件，实测披露“代码所有权提示词”可将代码重构合并率提升 5 倍。' },
+          { date: '11-10', text: '媒体披露 Anthropic 最快本周启动正式 IPO 路演，前九月营收 332.4 亿美元，目标估值 1 万亿至 1.5 万亿美元。' }
+        ],
+        aiAnalysis: {
+          realStory: '这不是一次单纯的能力更新，而是 Anthropic 在万亿美元 IPO 路演前夜同时打出的三张资本牌：用降价 20% 抢夺 1–3 年期企业 API 锁单、用“Fable/Mythos 双轨制”把安全叙事变成高毛利合规牌照、用“8天造OS / 30小时证费马大定理”向华尔街递交高估值增长证据。',
+          motivation: 'Anthropic 收入高度依赖企业 API（占 75%–85%），ARR 从 2025 年底 90 亿美元冲至 2026 年 7 月底逾 650 亿美元，推理毛利率升至 70%–85%；但其 S-1 修正案披露算力与基建承诺总额高达 8950 亿美元（The Information 口径算力上限 5170 亿美元 / 14.8GW）。要撑起 1–1.5 万亿美元 IPO 定价，必须在路演前用 20% 降价换取企业长约以锁定 ARR 可见度。同时，赶在欧盟 AI Act 高风险义务落地前，先把高危能力装进 Mythos 机构审核制，将安全合规转化为排他性准入渠道。',
+          chessboard: '直接精准打击 OpenAI（GPT-6 Astra 定价高达 $10/$50 且综合智能指数 61.2 落后于 Fable 5.1 的 65.7），Fable 5.2 降价至 $8/$40 直接击穿 Astra 溢价空间；同时压缩 DeepSeek、Qwen、Kimi 等开源模型自建性价比差距，并将 AWS、Google Cloud、Azure 变成同价标准分销管道。',
+          externality: '对同业初创：降价 20% 叠加千级子智能体自组织能力，直接吞噬套壳 Agent 与多智能体中间件毛利（Sherlocking 效应）；对劳动者：“内部 90% 合并代码由 Claude 编写 + 8 天造 OS”加速压缩初级程序员编制；对普通用户：大众版 Fable 5.2 被裁剪掉高阶安全与生科能力，分层订阅收割周期开启。',
+          roundtable: [
+            { persona: 'Dario Amodei (Anthropic CEO)', stance: '安全牌照化派', view: '随着递归自我改进加速，前沿模型必须施行分级受控发布。将高危网络攻防与生命科学能力封装在 Mythos 5.2 验证体系内，是防止不可逆扩散的唯一负责任路径。' },
+            { persona: 'Simon Willison (独立开发者)', stance: '工程实证派', view: 'Fable 5.2 对代码所有权提示词极其敏感——告诉它“这是你的代码库”，重构合并率会暴增 5 倍；而 30 小时完成费马大定理 Lean 证明展示了千级 Agent 自主协作的工程跃迁。' },
+            { persona: 'Yann LeCun / 开源阵营', stance: '开源制衡派', view: '以生物与网络安全为名把最强能力锁进少数审核机构的白名单，本质是用安全叙事构建合规准入护城河，并借 20% 降价挤压开源自建空间。' }
+          ],
+          prediction: {
+            quote: 'Dario Amodei 预言：2026–2027 年 AI 将接管绝大部分软件工程合并代码，并具备跨周级复杂系统工程与形式化科研自主研发能力。',
+            status: '兑现',
+            evidence: 'Anthropic 披露内部 90% 合并代码由 Claude 编写；1,000 个 Fable 5.2 智能体在 8 天内构建可启动原型 OS，30 小时完成费马大定理 Lean 形式化证明。'
+          },
+          actions: [
+            '企业研发团队：立即在 Claude Code / Agent 提示词中加入明确的代码所有权指令（"This codebase is yours..."），利用 Fable 5.2 降价 20% 窗口开展技术债清理与重复代码合并。',
+            '安全与生科团队：评估申请 Mythos 5.2 的 Cyber / Life Sciences 机构白名单资质，避免大众版 Fable 5.2 默认拦截渗透测试与漏洞复现请求。',
+            '观察哨指标：跟踪纳斯达克最终 IPO 发行市值能否站稳 1 万亿美元以上，以及第三方对 70%–85% 推理毛利率的独立复现。'
+          ]
+        },
+        sources: [
+          { title: 'Anthropic: Introducing Claude Fable 5.2 and Claude Mythos 5.2', url: 'https://www.anthropic.com/claude-fable-and-mythos-5-2', tier: 'T1 官方' },
+          { title: 'The Decoder: Claude Fable 5.2 and Mythos 5.2 cement Anthropic\'s AI lead just before its IPO', url: 'https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo/', tier: 'T2 媒体' },
+          { title: 'Simon Willison: Prompting Claude Fable 5.2', url: 'https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52/', tier: 'T2 工程' },
+          { title: 'Dealroom: Anthropic ships Claude Fable 5.2 days before $1T-plus IPO', url: 'https://dealroom.co/news/170952-anthropic-ships-claude-fable-5-2-days-before-1t-plus-ipo/', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-02',
+        section: 'A1',
+        sectionName: 'A1 头版 · 模型与资本',
+        date: '2026-11-10',
+        dateline: '旧金山 / 西雅图电 · 11月4日—10日',
+        kicker: '多云突围 · 垂直安全矩阵',
+        title: 'OpenAI 连发 GPT-6 Cyber 与 Images 2.6，ChatGPT Enterprise 正式登陆 AWS Marketplace',
+        subtitle: '一周六弹密集出击：推出对齐型网络安全智能体、自主缩减千条 root 提权路径、开源生物湿实验基准，并彻底打破微软单一云分销垄断，直接切入亚马逊企业客户预付账单池。',
+        brief: 'OpenAI 一周内密集发布网络安全智能体 GPT-6 Cyber、图像模型 Images 2.6 及生物湿实验基准 BioBasicsBench，并宣布 ChatGPT Enterprise 正式上架 AWS Marketplace，企业可直接用 AWS 账单额度采购。',
+        highlights: [
+          '发布专为漏洞发现与系统加固训练的对齐型安全智能体 GPT-6 Cyber 及 Images 2.6',
+          'ChatGPT Enterprise 登陆 AWS Marketplace，终结微软 Azure 单一企业分销独占',
+          '联合 Hacktron 开展自动化漏洞审计，开源日常生物湿实验评估基准 BioBasicsBench'
+        ],
+        metrics: [
+          { label: '年化营收规模', value: '$500亿 (目标$700亿)' },
+          { label: '全球聊天流量份额', value: '>81%' },
+          { label: '新一轮目标估值', value: '$1.4万亿' },
+          { label: '2026-30 预计FCF', value: '-$2,780亿' }
+        ],
+        image: {
+          url: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Meeting_with_Masayoshi_Son_and_Sam_Altman_%28February_3%2C_2025%29_%283x4_cropped_on_Altman%29.jpg',
+          caption: 'OpenAI 首席执行官 Sam Altman。OpenAI 本周通过上架 AWS Marketplace 与发布 GPT-6 Cyber 全面发力高毛利 B 端安全与多云市场。（图源：Wikimedia Commons）',
+          sourceUrl: 'https://en.wikipedia.org/wiki/Sam_Altman'
+        },
+        fullParagraphs: [
+          '在竞争对手 Anthropic 冲刺 IPO 的同一周，OpenAI 展开了高密度的产品、安全与渠道矩阵发布。11 月 4 日，OpenAI 推出新一代图像生成与多轮编辑模型 Images 2.6，并发表系统安全研究《A thousand fewer paths to root》，展示如何利用自主智能体系统性收敛操作系统的 root 提权攻击面。11 月 5 日，OpenAI 正式推出专为漏洞挖掘与防御加固训练的对齐型网络安全智能体 GPT-6 Cyber，同步确立负责任 AI 基础设施新标准。',
+          '11 月 6 日，OpenAI 宣布与安全机构 Hacktron 建立深度合作以自动化审计自身系统漏洞，并在生命科学领域发布《Measuring how AI agents handle everyday wet-lab science》（BioBasicsBench），量化评估智能体辅助日常生物湿实验操作的能力与风险边界。',
+          '商业化渠道侧的最大转折发生在 11 月 10 日：OpenAI 宣布 ChatGPT Enterprise 正式上架亚马逊 AWS Marketplace。这意味着全球数以万计的 AWS 企业客户无需另走繁琐的独立采购审批，即可直接调用既有 AWS 企业折扣承诺（EDP）预算额度购买 ChatGPT Enterprise 席位，与 Amazon Bedrock 托管模型形成协同。'
+        ],
+        timeline: [
+          { date: '11-04', text: '发布 Images 2.6 图像模型及《A thousand fewer paths to root》系统提权收敛研究。' },
+          { date: '11-05', text: '推出对齐型网络安全智能体 GPT-6 Cyber 与负责任 AI 基础设施标准。' },
+          { date: '11-06', text: '联手 Hacktron 挖掘系统漏洞，开源生物湿实验基准 BioBasicsBench。' },
+          { date: '11-10', text: 'ChatGPT Enterprise 正式上架 AWS Marketplace，打通亚马逊企业预付云预算池。' }
+        ],
+        aiAnalysis: {
+          realStory: '这是 OpenAI 在 Anthropic 冲刺 IPO 窗口期的“正面截胡战”：用一周连发 6 弹对冲 Claude 5.2 的声量，更重要的是借 AWS Marketplace 把手伸进亚马逊企业客户的预付云预算池，缓解自身 2026–2030 累计 -2780 亿美元自由现金流的失血焦虑。',
+          motivation: 'OpenAI 虽握有全球超 81% 的 AI 聊天流量与 500 亿美元年化营收，但消费者订阅占 65% 以上，且 2026–2030 算力基建开支高达 8560 亿美元、自由现金流预计 -2780 亿美元，2026 年 3 月融到的 1220 亿美元将在 2028 年耗尽。要完成 1.4 万亿美元估值的新一轮 300 亿美元融资，必须向资本市场证明其在高毛利的企业安全（GPT-6 Cyber）与多云分销（AWS）上能跑赢 Anthropic。',
+          chessboard: '与 Anthropic Mythos 5.2 在同一周押注“网络安全 + 生命科学湿实验”两大高客单价受监管赛道；同时 ChatGPT Enterprise 登陆 AWS Marketplace 标志着微软 Azure 对 OpenAI 企业分销独占权的终结，AWS 同时成为 Anthropic 与 OpenAI 的双重收租房东。',
+          externality: '对同业初创：GPT-6 Cyber 联手 Hacktron 入局自动化渗透与加固，直接挤压 AI 安全初创生存空间；对劳动者：企业安全运维与初级生物实验设计岗位开始面临 Agent 替代测试。',
+          roundtable: [
+            { persona: 'Sam Altman (OpenAI CEO)', stance: '规模与平台派', view: '通过将 GPT-6 垂直化到网络安全与生命科学湿实验评估，并打通 AWS Marketplace 采购通道，我们将前沿智能体直接嵌入世界 500 强的现有云预算与工作流。' },
+            { persona: 'Stuart Russell (UC Berkeley 教授)', stance: '安全可证派', view: '用自主智能体消减 1,000 条 root 提权路径证明了防御侧价值，但当 GPT-6 Cyber 与湿实验能力跨过实战阈值，外部独立审计机制仍滞后于模型发布速度。' }
+          ],
+          prediction: {
+            quote: '行业预言：OpenAI 将在 2026 年摆脱对微软 Azure 的单一分销依赖，把企业级产品全面铺向竞争对手 AWS 的核心企业货架。',
+            status: '兑现',
+            evidence: '继 2026-04 重签微软分成协议并向 AWS 承诺八年 1000 亿美元采购后，2026-11-10 ChatGPT Enterprise 正式登陆 AWS Marketplace。'
+          },
+          actions: [
+            'AWS 企业架构师：可通过 AWS Marketplace 直接合并采购 ChatGPT Enterprise，利用既有 AWS 企业承诺折扣（EDP）抵扣 AI 席位支出。',
+            'DevSecOps 团队：参考《A thousand fewer paths to root》自动化加固框架，将 GPT-6 Cyber 引入内部容器与权限收敛审查。',
+            '观察哨指标：AWS Marketplace 渠道在 2027Q1 能否将 OpenAI 企业收入占比从不足 35% 推升至 45% 以上。'
+          ]
+        },
+        sources: [
+          { title: 'OpenAI: GPT-6 Cyber — Advancing the frontier of aligned cybersecurity agents', url: 'https://openai.com/index/introducing-gpt-6-cyber/', tier: 'T1 官方' },
+          { title: 'OpenAI: ChatGPT Enterprise now available in AWS Marketplace', url: 'https://openai.com/index/chatgpt-enterprise-aws-marketplace/', tier: 'T1 官方' },
+          { title: 'OpenAI: Introducing Images 2.6', url: 'https://openai.com/zh-Hans-CN/index/introducing-images-2-6/', tier: 'T1 官方' },
+          { title: 'OpenAI: Measuring how AI agents handle everyday wet-lab science', url: 'https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/', tier: 'T1 官方' },
+          { title: 'OpenAI: A thousand fewer paths to root', url: 'https://openai.com/index/a-thousand-fewer-paths-to-root/', tier: 'T1 官方' }
+        ]
+      },
+      {
+        id: 'evt-03',
+        section: 'A2',
+        sectionName: 'A2 算力 · 芯片与能源',
+        date: '2026-11-08',
+        dateline: '首尔 / 圣克拉拉 / 旧金山电 · 11月8日—9日',
+        kicker: '重工业化 · 锁电与锁主权',
+        title: '算力瓶颈全面转向电力与主权生态：Anthropic 斥资 34 亿美元直采 1.7GW 燃气机组，NVIDIA 携韩国扩建主权 AI',
+        subtitle: '大模型实验室首次越过公网直接买断卡特彼勒重型燃气发电机组；NVIDIA 发布 Dynamo B200 推理方案（吞吐提升 2 倍）并将韩国本土 NPU 纳入 NVLink Fusion，同日董事会发声明护盘黄仁勋留任。',
+        brief: 'Anthropic 斥资 34 亿美元接手 OnePWR 的 1.7GW 卡特彼勒燃气发电机组订单以绕开公网排队；同日 NVIDIA 联合韩国科技信息通信部与 SK、LG 等全面升级主权 AI 合作，董事会就黄仁勋相关争议启动独立核查并确认其留任。',
+        highlights: [
+          'Anthropic 斥资 $34 亿直采 1.7GW 卡特彼勒燃气发电机组，创 AI 实验室最大单笔发电设备订单',
+          'NVIDIA 联合韩国 MSIT、SK Telecom、LG、Rebellions 推进主权 AI，Dynamo 推理性能翻倍',
+          'NVIDIA 董事会 11 月 8 日发表声明启动独立调查并确认黄仁勋留任，众议院要求简报'
+        ],
+        metrics: [
+          { label: '燃气发电直采规模', value: '1.7 GW ($34亿)' },
+          { label: 'NVIDIA Q2营收', value: '$962亿 (+106%)' },
+          { label: 'NVIDIA Q3指引', value: '$1,080亿 (±2%)' },
+          { label: '数据中心毛利率', value: '74.0%–75.0%' }
+        ],
+        image: {
+          url: 'https://blogs.nvidia.com/wp-content/uploads/2025/01/GDOH4382-scaled.jpg',
+          caption: 'NVIDIA 创始人兼 CEO 黄仁勋。本周 NVIDIA 通过 NVLink Fusion 与 Dynamo 框架将韩国主权 AI 与四大开源模型纳入 B200 机柜生态。（图源：NVIDIA Blog）',
+          sourceUrl: 'https://blogs.nvidia.com/blog/ces-2025-jensen-huang/'
+        },
+        fullParagraphs: [
+          '11 月 8 日，据 CNBC 与 Dealroom 披露，Anthropic 斥资约 34 亿美元从能源开发商 OnePWR 手中接手卡特彼勒（Caterpillar）重型燃气发电机组订单，直接锁定 1.7 吉瓦（GW）自备发电产能与配套工程安装能力。这是前沿大模型实验室首次越过公有云厂商与公用电网排队流程，直接以数十亿美元现金买断重型发电设备。',
+          '同日（11月8日—9日），芯片霸主 NVIDIA 宣布与韩国科技信息通信部（MSIT）、SK Telecom、LG AI Research、Upstage 及韩国 AI 芯片初创 Rebellions 全面升级“主权 AI（Sovereign AI）”战略合作。NVIDIA 推出了针对 B200 GPU 深度优化的 NVIDIA Dynamo 分布式推理方案，使韩国四大领先开源模型（A.X K2、K-EXAONE 2.0、Solar Open 2、Motif-3）开箱推理吞吐提升最高 2 倍；同时通过开放 NVLink Fusion 互连标准，将韩国本土 NPU 纳入英伟达机架生态。',
+          '治理层面上，11 月 8 日 NVIDIA 董事会发布正式声明，就针对 CEO 黄仁勋的相关争议启动独立核查，同时明确表态确认黄仁勋继续留任领导公司；美国众议院随后要求获取相关情况简报，引发市场对科技巨头“关键人风险（Key-man Risk）”的关注，NVIDIA 股价当日微幅震荡约 3%。'
+        ],
+        timeline: [
+          { date: '11-08', text: 'CNBC 披露 Anthropic 斥资 34 亿美元接手 OnePWR 的 1.7GW 卡特彼勒燃气发电机组订单。' },
+          { date: '11-08', text: 'NVIDIA 董事会发表声明启动独立核查并确认黄仁勋留任，美众议院要求简报。' },
+          { date: '11-09', text: 'NVIDIA 连发 4 篇官方博客：联合韩国 MSIT 拓展主权 AI、开放 NVLink Fusion 接入 Rebellions、推出 Dynamo B200 推理方案。' }
+        ],
+        aiAnalysis: {
+          realStory: '一边是模型巨头（Anthropic）越过云厂商直接买断 1.7GW 燃气发电机当“电厂老板”，另一边是芯片霸主（NVIDIA）用 NVLink Fusion 和 Dynamo 把韩国本土 NPU 与开源模型收编进 B200 护城河——AI 军备赛已彻底从软件算法演变为上游能源锁单与国家主权算力的资产负债表战争。',
+          motivation: 'NVIDIA Q2 FY2027 营收达 962 亿美元（数据中心 890 亿占 92.5%），但毛利率从 75.0% 指引微降至 74.0%，前三大客户占 44% 营收，且中国数据中心收入在指引中归零。为对冲北美大客户自研 ASIC，NVIDIA 必须借“主权 AI”把软件栈（Dynamo）与互连标准（NVLink Fusion）下沉到国家级模型。而 Anthropic 背负 8950 亿美元基建承诺，若因缺电导致机房空置，万亿 IPO 估值逻辑将直接受损，因此不惜花 34 亿美元现金买断燃气机组。',
+          chessboard: '韩国本土 AI 芯片商（Rebellions 等）名义上获准加入 NVLink Fusion，实则从“替代 NVIDIA”变成“给 NVIDIA 机柜做协处理器”；而董事会 11 月 8 日的独立调查声明则暴露了高度集权下的关键人治理软肋。',
+          externality: '对同业初创：吉瓦级锁电与 B200 多节点集群进一步拉大算力鸿沟；对供应链：重型燃气轮机订单被 AI 巨头高价截胡，传统工业交期拉长；对社区与环境：自备燃气发电引发局部空气污染与电价上行压力（11月3日法官刚裁定允许针对 xAI 燃气轮机污染的诉讼继续推进）。',
+          roundtable: [
+            { persona: 'Jensen Huang (NVIDIA CEO)', stance: '算力工厂派', view: 'AI 基础设施已升级为每个国家的“主权工厂”。通过 NVLink Fusion 与 Dynamo 分布式推理框架，我们把韩国本土电信商、芯片初创和开源模型全部织入 B200 机架生态网。' },
+            { persona: 'Dario Amodei (Anthropic CEO)', stance: '电力锁单派', view: '2026 年之后决定前沿训练节奏的不再只是晶圆配额，而是吉瓦级电力并网速度。直接买断 1.7GW 燃气机组是为了对冲公用电网长达数年的审批延迟。' }
+          ],
+          prediction: {
+            quote: '行业预言：2026 年 AI 扩张的第一硬约束将从台积电 CoWoS 产能正式切换为吉瓦（GW）级电力供应与燃气轮机交付。',
+            status: '兑现',
+            evidence: 'Anthropic 越过云厂商直接斥资 34 亿美元采购 1.7GW 卡特彼勒燃气发电机组；软银亦因美国数据中心电力与社区阻力考虑转向海外建站。'
+          },
+          actions: [
+            '推理基础设施团队：部署多节点开源大模型时，评估引入开源的 NVIDIA Dynamo 分布式推理路由框架，获取最高 2 倍吞吐提升。',
+            '算力与能源投资机构：跟踪重型燃气轮机（Caterpillar / GE Vernova）排产周期及数据中心自备电源（Behind-the-meter）的环保合规风险。',
+            '观察哨指标：11 月 17 日 NVIDIA Q3 FY2027 财报能否突破 1080 亿美元指引且守住 74% 毛利率。'
+          ]
+        },
+        sources: [
+          { title: 'CNBC: Anthropic secures $3.4 billion generator deal for AI data centers', url: 'https://www.cnbc.com/2026/11/08/anthropic-generator-deal-ai-data-centers.html', tier: '核验信源' },
+          { title: 'Dealroom: Anthropic pays $3.4B for 1.7GW of gas-fired generators', url: 'https://dealroom.co/news/170583-anthropic-pays-3-4b-for-1-7gw-of-gas-fired-generators-taking-over-onepwr/', tier: '核验信源' },
+          { title: 'NVIDIA Blog: NVIDIA and Korea Expand Sovereign AI Collaboration', url: 'https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration/', tier: 'T1 官方' },
+          { title: 'NVIDIA Blog: NVIDIA Dynamo Recipes Bring Korea\'s Leading Open Models to Production', url: 'https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/', tier: 'T1 官方' },
+          { title: 'NVIDIA Newsroom: Statement From NVIDIA Board of Directors', url: 'https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors', tier: 'T1 官方' }
+        ]
+      },
+      {
+        id: 'evt-04',
+        section: 'A2',
+        sectionName: 'A2 算力 · 芯片与能源',
+        date: '2026-11-10',
+        dateline: '山景城 / 柏林电 · 11月5日—10日',
+        kicker: '自研芯片外溢 · 政企保密计算',
+        title: 'Google 计划推出 TPU 8tx 与 TPU 8i Max：联手 AMD 切入政企保密计算，上线全球语言交互平台',
+        subtitle: 'TPU 8tx 专为政府及受监管行业保密计算定制且支持与 AMD 芯片协同；TPU 8i Max 专攻超长上下文推理；Google Research 同步开源 LinguaMeta 与 Agile Deliberation 协商框架。',
+        brief: 'Google 曝光两款新自研芯片：面向政企保密计算且支持与 AMD 芯片协同的 TPU 8tx，以及专攻超长上下文应用的 TPU 8i Max；Google Research 同期发布全球数千种语言交互平台 Language Explorer。',
+        highlights: [
+          'TPU 8tx 主打政府与高监管行业保密计算（Confidential Computing），支持与 AMD 芯片协同',
+          'TPU 8i Max 针对百万级超长上下文 AI 推理与训练内存带宽进行专项优化',
+          'Google Research 发布 Agile Deliberation 灰区决策框架与 Language Explorer 多语种平台'
+        ],
+        metrics: [
+          { label: 'Q3 谷歌云营收', value: '$307亿 (+103%)' },
+          { label: '云营业利润率', value: '36.2%' },
+          { label: '云未确认积压订单', value: '$5,610亿' },
+          { label: 'Q3 单季CapEx / FCF', value: '$514亿 / -$91亿' }
+        ],
+        image: {
+          url: 'https://storage.googleapis.com/gweb-cloudblog-publish/images/tpu-v2-6.max-1600x1600.jpg',
+          caption: 'Google Cloud 自研 TPU 超算数据中心集群。Google 正将自研 TPU 从内部算力底座升级为面向政企保密计算与外部云客户的整机商品。（图源：Google Cloud Blog）',
+          sourceUrl: 'https://cloud.google.com/blog/ja/topics/systems/tpu-v4-enables-performance-energy-and-co2e-efficiency-gains'
+        },
+        fullParagraphs: [
+          '11 月 9 日，据媒体披露，Google 计划推出两款新型自研张量处理器——TPU 8tx 与 TPU 8i Max。其中，TPU 8tx 专门针对政府机构、国防及金融等高监管行业的保密计算（Confidential Computing）需求设计，并且在系统架构上支持与 AMD 处理器协同工作；TPU 8i Max 则重点强化高带宽内存与互连架构，专为超长上下文（Long-context）智能体推理与训练场景打造。',
+          '结合 Alphabet 2026Q3 财报背景，谷歌云单季营收已翻倍至 307 亿美元（同比 +103%），营业利润率跃升至 36.2%，未确认积压订单高达 5610 亿美元；但因为提前垫资备货 TPU 整机系统，Q3 单季资本开支飙升至 514 亿美元，导致集团单季自由现金流罕见转为 -91 亿美元。推出 TPU 8tx 与 8i Max 正是为了加速向苹果、Anthropic、Meta、Oracle 及政企客户输出专用整机以回收现金流。',
+          '在基础研究侧，Google Research 于 11 月 5 日发布 Agile Deliberation 框架，帮助人类专家与团队在医学诊断、内容治理等模糊灰色地带高效凝聚共识；11 月 10 日正式上线基于开源 LinguaMeta 数据集的 Language Explorer 平台，覆盖全球数千种语言并在柏林通信博物馆展出。'
+        ],
+        timeline: [
+          { date: '11-05', text: 'Google Research 发布《Agile Deliberation: How AI helps humans define the gray areas》。' },
+          { date: '11-09', text: '媒体披露 Google 将推出 TPU 8tx（政企保密计算、可协同 AMD 芯片）与 TPU 8i Max（长上下文）。' },
+          { date: '11-10', text: 'Google Research 上线基于 LinguaMeta 数据集的 Language Explorer 全球语言探索平台。' }
+        ],
+        aiAnalysis: {
+          realStory: 'Google 推出 TPU 8tx（保密计算+协同 AMD）与 TPU 8i Max（长上下文），本质是配合 Anthropic Mythos 与政企主权 AI 浪潮，把自研 TPU 塞进原本由“NVIDIA + Intel”垄断的高保密政企机房，用硬件外销来填补自身全年 2000 亿美元资本开支造成的自由现金流缺口。',
+          motivation: '2026Q3 谷歌云收入 307 亿美元（+103%）、积压订单 5610 亿美元，但因 TPU 整机外销属于“先垫库存、后收现金”，Q3 单季资本开支高达 514 亿美元，拖累集团单季自由现金流跌至 -91 亿美元。要加快 TPU 库存周转，必须推出满足政府/金融保密计算（TPU 8tx）和超长上下文 Agent（TPU 8i Max）的高溢价型号，扩大外部近百家大客户的采购规模。',
+          chessboard: 'TPU 8tx 明确选择与 AMD 芯片协同工作，等于拉拢“第二供应商”AMD 一起拆解“NVIDIA GPU + Intel CPU”的传统政企机柜标准；同时为 Anthropic Mythos 5.2 等受监管模型在 Google Cloud 上的合规运行提供了底层硬件隔离支撑。',
+          externality: '对同业初创：政企保密计算与百万上下文推理硬件成本下降，但开发者进一步被绑入 Google XLA/TorchTPU 编译链；对供应链：AMD 获得 TPU 整机配套主机芯片增量订单，博通（Broadcom）作为 ASIC 伙伴持续受益。',
+          roundtable: [
+            { persona: 'Jensen Huang (NVIDIA CEO)', stance: '全栈 GPU 派', view: '云厂商自研 ASIC 在特定内部负载上有成本优势，但当它们试图把芯片卖进客户机房时，仍需解决通用编程生态与跨架构协同问题。' },
+            { persona: 'Google Cloud 系统架构派', stance: '全栈自研派', view: 'TPU 8tx 直接支持与 AMD 主机芯片协同并切入政府保密计算，配合 TPU 8i Max 的长上下文内存优化，证明 TPU 已从内部省钱工具变成对外输出的整机商品。' }
+          ],
+          prediction: {
+            quote: '行业预言：Google 将把自研 TPU 从“自家云内部资源”升级为面向受监管政企和外部云分销的独立算力硬件产品线。',
+            status: '兑现',
+            evidence: '继向 Meta 与 Oracle 分销/出租 TPU 后，本周曝光的 TPU 8tx 专门针对政企保密计算并兼容 AMD 处理器。'
+          },
+          actions: [
+            '超长上下文应用团队：评估 TPU 8i Max 在百万级 Token 缓存与长序列推理上的性价比（上代 TPU 8i 推理性价比已提升 80%）。',
+            '多语种 NLP 团队：利用 Google Research 开源的 LinguaMeta 数据集检查低资源语种覆盖盲区。',
+            '观察哨指标：谷歌云 5610 亿美元积压订单在未来 24 个月的兑现率及集团自由现金流何时转正。'
+          ]
+        },
+        sources: [
+          { title: '每日经济新闻：谷歌将推出两款新TPU芯片 TPU 8tx 与 TPU 8i Max', url: 'https://www.mrjjxw.com/articles/2026-11-10/4643164.html', tier: '核验信源' },
+          { title: 'Google Research: Exploring the world\'s languages with Language Explorer', url: 'https://research.google/blog/exploring-the-worlds-languages-with-language-explorer/', tier: 'T1 官方' },
+          { title: 'Google Research: Agile Deliberation — How AI helps humans define the gray areas', url: 'https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/', tier: 'T1 官方' },
+          { title: 'Alphabet Q3 2026 电话会实录：TPU 从谷歌云端走向客户机房', url: 'https://www.163.com/dy/article/LADD2EVS05198UNI.html', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-05',
+        section: 'B2',
+        sectionName: 'B2 商业 · 安全与就业',
+        date: '2026-11-10',
+        dateline: '深圳 / 巴黎电 · 11月9日—10日',
+        kicker: '全球治理路线交锋 · 开源 vs 闭源门禁',
+        title: '腾讯首席 AI 科学家姚顺雨发声：AI 生物武器风险逼近，但封禁开源模型绝非解药',
+        subtitle: '结合 Hugging Face 安全取证案例（智谱开源模型 GLM-5.2 被用于事后取证分析），正面回应北美闭源实验室“一刀切锁死开源权重”游说主张。',
+        brief: '针对前沿 AI 生物安全争论，腾讯首席 AI 科学家姚顺雨公开表态：风险确实逼近，但关闭开源模型并非正确解药，防守方同样依赖开源工具；Hugging Face 同期披露使用开源模型 GLM-5.2 完成安全事件取证。',
+        highlights: [
+          '姚顺雨指出防御者与学界同样依赖开源模型构建安全工具，治理应聚焦高危下游环节',
+          'Hugging Face 安全事件复盘证实：智谱开源模型 GLM-5.2 被用于事后取证分析，阻断攻击仍靠补丁与密钥轮换',
+          '直接回应 Anthropic 拒签开源联名信并借 Mythos 5.2 推行闭源白名单牌照制的立场'
+        ],
+        metrics: [
+          { label: '腾讯 2026H1 CapEx', value: '¥847.20亿' },
+          { label: '腾讯 Q2 单季CapEx', value: '¥527.84亿 (+176%)' },
+          { label: '新AI产品单季利润拖累', value: '约 ¥105亿' },
+          { label: '安全取证调用开源模型', value: 'GLM-5.2' }
+        ],
+        image: {
+          url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Tencent_binghai_building202012.jpg',
+          caption: '位于深圳的腾讯滨海大厦总部。腾讯首席 AI 科学家姚顺雨本周公开阐述“开放防御”立场，反对一刀切封杀开源权重。（图源：Wikimedia Commons）',
+          sourceUrl: 'https://en.wikipedia.org/wiki/Tencent_Binhai_Mansion'
+        },
+        fullParagraphs: [
+          '11 月 10 日，据 The Decoder 报道，围绕前沿大模型是否会加速生物武器设计及高危网络攻击，腾讯首席 AI 科学家姚顺雨（Shunyu Yao）公开发表观点指出：AI 辅助生物武器的风险确实正在逼近，但“将开源模型一刀切封锁绝不是正确答案（closing off models isn’t the answer）”。他强调，安全防御者、学术界与取证团队同样高度依赖开放权重模型来构建防御体系，安全治理应当对准高危下游应用与物理合成环节，而非扼杀开源生态。',
+          '同篇报道披露了 Hugging Face 安全团队对近期一起安全入侵事件的取证复盘：在该事件中，智谱开源的 GLM-5.2 模型仅被用于事后日志取证分析（forensic analysis），而真正阻断攻击的决定性手段依然是传统基础安全工程——修补系统漏洞、重建受感染服务器实例以及轮换泄露密钥。',
+          '这一实证案例与表态，直接同前一日（11月9日）Anthropic 发布闭源审核制模型 Mythos 5.2 形成了鲜明的路线交锋。此前 Anthropic CEO Dario Amodei 曾于今年 7 月拒绝签署由 NVIDIA 等推动的保护开源联名信，坚持主张开源权重一旦发布便无法撤回、对攻击者更有利。'
+        ],
+        timeline: [
+          { date: '11-09', text: 'Anthropic 发布闭源审核制模型 Mythos 5.2，重申开源权重无法撤回的高危扩散风险。' },
+          { date: '11-10', text: 'The Decoder 刊发腾讯首席 AI 科学家姚顺雨表态及 Hugging Face 使用 GLM-5.2 进行安全取证的复盘报告。' }
+        ],
+        aiAnalysis: {
+          realStory: '这场看似关于“生物武器与网络安全”的伦理辩论，底层是中美两大 AI 阵营与算力链的商业模式保卫战：Anthropic 需要用“开源危险论”为 Mythos 5.2 的机构准入高溢价正名，而中国厂商与 NVIDIA 则必须保住开源权重这一打破北美闭源 API 垄断的核心武器。',
+          motivation: '腾讯 2026 上半年资本开支飙升至 847.20 亿元（Q2 单季 527.84 亿，同比 +176%），混元、元宝、小微等新 AI 产品单季拖累经营利润约 105 亿元；姚顺雨统管混元与前沿研究后，国内生态高度依赖国际学术与开源社区的技术流动。一旦欧美以“生物安全”为由将开源权重纳入长臂管辖或算力断供清单，中国模型厂商的出海与技术迭代将直接受阻。',
+          chessboard: '形成“Anthropic 等北美安全游说派” vs “NVIDIA + Hugging Face + 中国大模型厂商（腾讯/阿里/智谱/DeepSeek）”的公开路线对垒；智谱 GLM-5.2 出现在 Hugging Face 官方安全取证案例中，客观上为中国开源模型在海外安全社区赢得了正面背书。',
+          externality: '对同业初创：若开源受限，中小开发者将彻底沦为三大云闭源 API 的附庸；对算力供应链：NVIDIA 坚定支持开源，因为只有繁荣的开源模型才能驱动全球各国与企业自建 GPU 集群。',
+          roundtable: [
+            { persona: '姚顺雨 (腾讯首席 AI 科学家)', stance: '开放防御派', view: 'AI 生物安全风险是真实的，但把模型权重锁起来并不能阻止恶意行为，反而剥夺了学界与防守方低成本构建防御工具的能力。' },
+            { persona: 'Dario Amodei (Anthropic CEO)', stance: '闭源门禁派', view: '托管模型可以实时更新拦截规则，而开源模型权重一旦公开就无法撤回，因此高危能力必须锁入机构验证白名单。' },
+            { persona: 'Hugging Face 安全团队', stance: '实证工程派', view: '实战取证表明 GLM-5.2 等开源模型是取证分析利器，而阻断攻击的核心仍是打补丁、重建实例与轮换密钥等基础工程。' }
+          ],
+          prediction: {
+            quote: '监管与产业预言：2026 年围绕“开源权重是否等同于扩散生化/网络武器”将爆发直接的政策与商业准入割裂。',
+            status: '兑现',
+            evidence: '以 Anthropic 为代表的闭源牌照派与以 NVIDIA、中国大模型阵营及 Hugging Face 为代表的开放权重派在 2026 年 11 月形成公开对垒。'
+          },
+          actions: [
+            '企业安全团队：切勿迷信模型对齐能替代基础运维，必须落实 CI/CD 日志密钥扫描、凭证自动轮换与容器重建；同时可部署本地开源模型（如 GLM-5.2 / Qwen 3.8）辅助日志取证。',
+            '观察哨指标：欧盟 AI Act 实施细则与美国 BIS 是否在 2027 年上半年对万亿参数级开源权重增设生物安全备案门槛。'
+          ]
+        },
+        sources: [
+          { title: 'The Decoder: Tencent\'s AI chief says AI bioweapons are coming, but closing off models isn\'t the answer', url: 'https://the-decoder.com/tencents-ai-chief-says-ai-bioweapons-are-coming-but-closing-off-models-isnt-the-answer/', tier: 'T2 媒体' },
+          { title: '界面新闻：微信，静悄悄地 AI 化（腾讯 AI 投入与组织背景）', url: 'https://www.jiemian.com/article/15205496.html', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-06',
+        section: 'A1',
+        sectionName: 'A1 头版 · 模型与资本',
+        date: '2026-11-10',
+        dateline: '杭州 / 北京 / 香港电 · 11月3日—10日',
+        kicker: '算力快消品化 · 独角兽抢滩港股',
+        title: '双11“囤词元（Token）”破圈与资本冲刺：阿里云百炼五折通用 Key 入局，月之暗面保密递表港交所',
+        subtitle: '天猫“Token 充值中心”聚合六大国产模型，阿里云 19.5 元起通用 Key 一站打通 Claude Code、Cursor 与 DeepSeek Harness；月之暗面（Kimi）ARR 破 10 亿美元后秘密递交港股 A1 申请。',
+        brief: '今年双11大模型词元（Token）作为标准化消费品上架天猫京东，阿里云推出 19.5 元起五折通用 Key 打通 Claude Code、Cursor 与 DeepSeek Harness；同期港媒披露月之暗面（Kimi）已保密向港交所递交 A1 上市申请。',
+        highlights: [
+          '天猫京东上线双 11“Token 充值中心”，阿里云百炼推 19.5 元起五折套餐，单 Key 通用主流编程 Agent',
+          'Simon Willison 实测阿里开源 Qwen 3.8 27B 在笔记本端直接读写并解释神经网络权重',
+          '月之暗面（Kimi）8 月 ARR 突破 10 亿美元、Pre-IPO 估值 500 亿美元，保密递交港交所 A1 申请'
+        ],
+        metrics: [
+          { label: '阿里云 AI ARR', value: '¥358亿 (占外部云30%)' },
+          { label: '阿里 Q2 单季CapEx', value: '¥676.78亿' },
+          { label: 'Kimi 2026.08 ARR', value: '$10亿 (年底目标$20亿)' },
+          { label: 'Kimi Pre-IPO估值', value: '$500亿' }
+        ],
+        image: {
+          url: 'https://landscape.coac.net/sites/default/files/styles/reducir_calidad/public/2025-06/DJI_20240927165659_0154_D.jpg?itok=OoiplRrG',
+          caption: '阿里巴巴杭州西溪全球总部园区。今年双 11 阿里云百炼通过五折通用 Token Plan 将 Qwen 3.8 与 DeepSeek V4 打包塞进各类主流编程工具。（图源：COAC）',
+          sourceUrl: 'https://landscape.coac.net/en/node/11204'
+        },
+        fullParagraphs: [
+          '11 月 10 日，人民网财经刊发专题报道指出，今年“双11”期间大模型词元（Token）首次作为标准化数字消费品登上天猫与京东货架。天猫“Token 充值中心”汇聚了阿里云、DeepSeek、智谱、月之暗面（Kimi）、MiniMax、阶跃星辰等主力厂商，“一人公司”创业者、科研人员与独立开发者成为囤货主力。',
+          '在这场算力零售战中，阿里云百炼推出极具侵略性的 Token Plan 五折大促（新客 19.5 元起），核心卖点是“一个 API Key 跨工具通用抵扣”——开发者无需分别购买各家订阅，即可在 Claude Code、Cursor、Qwen Code、Qoder、Codex 以及开源 Agent 框架 DeepSeek Harness（DSH）中自由调用 Qwen3.8-Max 与 DeepSeek-v4-pro。此前 11 月 3 日，Simon Willison 刚刚实测在个人笔记本上运行阿里开源的 Qwen 3.8 27B，验证了其读写与解释自身神经网络权重的惊人能力。',
+          '与云大厂倾销抢入口形成对照的，是独立独角兽对自建算力资金的渴求。11 月 9 日，香港经济通披露月之暗面（Moonshot AI）已以保密形式向港交所递交 A1 上市申请（公司随后否认沪港双重上市传闻，专注港股）。月之暗面团队仅 300–400 人，其 2.8 万亿参数的开源旗舰 K3 发布 48 小时即打满算力集群被迫暂停 C 端订阅，ARR 已从今年 3 月的 1 亿美元飙升至 8 月的 10 亿美元（Pre-IPO 投前估值报 500 亿美元）。'
+        ],
+        timeline: [
+          { date: '11-03', text: 'Simon Willison 实测在笔记本上运行阿里开源 Qwen 3.8 27B 完成权重空间解释实验。' },
+          { date: '11-09', text: '港媒披露月之暗面（Kimi）已以保密形式向港交所递交 A1 上市申请，否认沪港双重上市。' },
+          { date: '11-10', text: '人民网财经报道双 11“囤词元”破圈，阿里云百炼上线 19.5 元起跨编码工具通用 Token Plan。' }
+        ],
+        aiAnalysis: {
+          realStory: '天猫双 11 卖“词元套餐”与月之暗面保密递表港交所，本质是同一枚硬币的两面：国内大模型正在把算力变成按克零售的快消品，云大厂（阿里云）用五折通用 Key 倾销收编开发者入口，而独立独角兽（Kimi）则必须赶在算力账单压垮现金流前去港股募资买卡。',
+          motivation: '阿里云 AI 相关收入已占外部云收入 30%（ARR 358 亿元），但阿里 2026Q2 单季资本开支高达 676.78 亿元、自由现金流净流出 446.70 亿元，吴泳铭直言“服务器内几乎没有一张卡是空的”，必须用百炼通用 Key 把所有编码工具的流量锁死在自家结算体系内。而月之暗面虽实现 10 亿美元 ARR，但长期租云算力的软肋使其在 K3 爆火时遭遇算力挤兑，必须通过港股 IPO 将高估值兑换为自有算力机架。',
+          chessboard: '阿里云百炼打包 Qwen3.8-Max + DeepSeek-v4-pro 并兼容 Claude Code/Cursor，直接抹平二线闭源 API 厂商价差；月之暗面继智谱（市值逾 5500 亿港元）、MiniMax 之后冲刺港股，中国大模型独角兽全面进入二级市场财报透明化大考。',
+          externality: '对同业初创：五折 Token Plan 击穿行业成本线，二线模型厂失去独立定价权；对劳动者：“一人公司”借助低价 Token + DeepSeek Harness 放大产出，传统中低端外包开发工作室订单萎缩；对消费者：需留意不同模型分词器与倍率不统一带来的隐性消耗差异。',
+          roundtable: [
+            { persona: 'Simon Willison (独立开发者)', stance: '端侧与工具链实测派', view: 'Qwen 3.8 27B 能在笔记本上跑通权重解释实验，加上阿里云用一个 Key 打通 Claude Code、Cursor 和 DeepSeek Harness，中国开源与 MaaS 生态对独立开发者的工具链友好度极高。' },
+            { persona: '盘和林 (产业经济学者)', stance: '商业理性派', view: '词元上架电商货架降低了尝鲜门槛，但各家分词器与计费权重互不兼容，真正决定模型厂生死的仍是 B 端 API 留存与算力折旧账单。' }
+          ],
+          prediction: {
+            quote: '行业预言：以月之暗面（Kimi）为代表的独立独角兽将从“不急于上市”急转为抢跑港股 IPO，以兑换自建算力机架资金。',
+            status: '兑现',
+            evidence: '12 个月前杨植麟内部信称“短期不着急上市”，但随着 K3 算力打满、ARR 冲至 10 亿美元，本周已保密向港交所递交 A1。'
+          },
+          actions: [
+            '独立开发者与一人公司：利用双 11 阿里云百炼通用 Key 优惠，在 Cursor / Claude Code / DeepSeek Harness 中配置多模型路由以压降编码 Token 成本。',
+            'MaaS 创业团队：留意 Kimi K3 开源协议的商业分成红线（关联方年营收超 2000 万美元须签署最高 30% 分成协议）。',
+            '观察哨指标：月之暗面港交所招股书公开后的净留存率与云厂商分成到账比例；阿里云年底能否达成 300 亿元 MaaS ARR 目标。'
+          ]
+        },
+        sources: [
+          { title: '人民网财经：今年“双11”，你“囤词元”了吗？', url: 'http://finance.people.com.cn/n1/2026/1110/c1004-40830906.html', tier: '核验信源' },
+          { title: '阿里云开发者社区：2026年阿里云千问AI双11来了，Token Plan 19.5元起', url: 'https://developer.aliyun.com/article/1781376', tier: 'T2 社区' },
+          { title: '经济通：月之暗面否认拟于沪港双重上市（保密递交港交所 A1）', url: 'http://content.etnet.com.hk/content/iq/compinfo/tc/ci_ipo_news_detail.php?newsid=ETN360911840', tier: '核验信源' },
+          { title: '钛媒体：AI 变天，Kimi 怎么补齐“月之暗面”？', url: 'https://m.tmtpost.com/8149256.html', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-07',
+        section: 'B1',
+        sectionName: 'B1 具身 · 终端与硬件',
+        date: '2026-11-09',
+        dateline: '奥斯汀 / 杭州 / 剑桥电 · 11月6日—10日',
+        kicker: '产线大腾挪 · 具身智能冰火分化',
+        title: '特斯拉拟停产 Cybertruck 让位 Cybercab、Optimus 手部遇阻，宇树科技市值重返 3224 亿元',
+        subtitle: '马斯克确认约 8 个月后关停 Cybertruck 产线并退还订金；Waymo 因软件更新后仍违规超越校车遭美 NHTSA 召回质询；A 股宇树科技借苹果 HALO 与大模型东风较十月低点反弹近 100%。',
+        brief: '马斯克宣布约 8 个月后停产 Cybertruck 并退还订金，腾出产线给无人驾驶出租车 Cybercab，同时 Optimus 在灵巧手环节遇阻；Waymo 因非法超越校车遭 NHTSA 质询；A 股宇树科技股价升至 797 元，市值重返 3224 亿元。',
+        highlights: [
+          '特斯拉拟 2027 年中关停 Cybertruck 产线并退还订金以让位 Cybercab，12 月 3 日将表决马斯克 $1584 亿薪酬案',
+          'Optimus 虽周产数百台但灵巧手（hands）遇阻，工厂工人穿戴动捕服训练引发抱怨',
+          'Waymo 遭 NHTSA 校车违规二次调查；宇树科技股价涨至 797 元/股、市值重返 3224 亿元；MIT 发布机器人非字面意图推理平台'
+        ],
+        metrics: [
+          { label: '特斯拉 Q3 营业利润率', value: '2.6% (同比腰斩)' },
+          { label: '宇树科技最新市值', value: '¥3,224亿 (797元/股)' },
+          { label: '宇树前三季扣非净利', value: '¥3.49亿 (-18.78%)' },
+          { label: '马斯克待表决薪酬案', value: '$1,583.59亿 (12/03)' }
+        ],
+        image: {
+          url: 'https://helios-i.mashable.com/imagery/articles/04i0L93UeQa61TkQWxJ26tX/hero-image.fill.size_1248x702.v1728626356.png',
+          caption: '特斯拉自营无人驾驶出租车 Cybercab。为保住 Cybercab 量产进度，特斯拉宣布将于 2027 年中停产 Cybertruck 并退还预订金。（图源：Mashable / Tesla）',
+          sourceUrl: 'https://mashable.com/article/tesla-cybercab-robotaxi',
+          secondaryUrl: 'https://humanoid.guide/wp-content/uploads/2024/11/Humanoidguide_G1_wm.webp',
+          secondaryCaption: '宇树科技 Unitree G1 人形机器人（9.9万元级）。受苹果 HALO 框架在 G1 上实现 91% 成功率带动，宇树市值重回 3224 亿元。（图源：Humanoid.guide）'
+        },
+        fullParagraphs: [
+          '本周具身智能与自动驾驶赛道密集曝出结构性分化。11 月 6 日—9 日，据 CNN 报道及马斯克本人确认，特斯拉计划在约 8 个月后（2027 年年中）正式关停电动皮卡 Cybertruck 生产线，并向大量排队预订的客户退还订金，以便将得州超级工厂的宝贵产能腾挪给自营无人驾驶出租车 Cybercab。与此同时，The Next Web 披露特斯拉人形机器人 Optimus 虽已实现周产数百台，但在最关键的“灵巧手（hands）”工程环节遭遇瓶颈，且让工厂工人长时间穿戴动作捕捉服采集训练数据引发了内部员工不满。特斯拉还定于 12 月 3 日召开股东大会，再次表决马斯克高达 1583.59 亿美元的薪酬方案。',
+          '在自动驾驶监管侧，美国国家公路交通安全管理局（NHTSA）于 11 月 6 日对 Alphabet 旗下的 Waymo 发出召回质询（Recall Query）：尽管 Waymo 此前宣称已通过软件更新修复问题，但其无人驾驶出租车仍在得州奥斯汀学区发生至少 5 起非法超越停靠校车的违规事件。',
+          '与中国供应链和 A 股市场联动方面，“科创板人形机器人第一股”宇树科技（Unitree）在经历 10 月中旬回调后强劲反弹近 100%，11 月 10 日收盘股价达 797 元/股（居 A 股股价第三），总市值重返 3224 亿元。这轮暴涨受到苹果 HALO 框架在宇树 G1 上实现 91% 任务成功率、摩根大通上调目标价至 995 元以及大模型突破的共同催化。此外，MIT CSAIL 于 11 月 9 日发布了帮助机器人超越字面指令、理解人类隐含意图的新型 AI 辅助学习平台。'
+        ],
+        timeline: [
+          { date: '11-06', text: 'CNN 报道特斯拉计划 2027 年中停产 Cybertruck 让位 Cybercab；同日 NHTSA 就 Waymo 非法超校车启动召回质询。' },
+          { date: '11-07', text: 'The Next Web 披露特斯拉 Optimus 在灵巧手环节遇阻，工人穿戴动捕服引发抱怨。' },
+          { date: '11-09', text: '马斯克确认退还大量 Cybertruck 订金；MIT 发布机器人超越字面指令意图推理平台。' },
+          { date: '11-10', text: 'A 股宇树科技涨至 797 元/股，总市值重回 3224 亿元。' }
+        ],
+        aiAnalysis: {
+          realStory: '特斯拉砍掉 Cybertruck 并让工人穿动捕服喂养 Optimus，是在整车营业利润率跌至 2.6% 的绝境下，用“机器人与 Robotaxi 叙事”为 12 月 3 日马斯克 1584 亿美元薪酬案拉票；而宇树科技重返 3224 亿市值，则是 A 股借海外大模型“长脑子”叙事对稀缺整机标的的极致溢价。',
+          motivation: '特斯拉 2026Q3 营收 280.46 亿美元持平，营业利润率腰斩至 2.6%，但 Cybercab、Optimus、Terafab、Semi 四条战线同时抽血，只能砍掉年内销量不足 3.7 万辆的 Cybertruck 腾产线。而宇树科技 2026 前三季营收 18.17 亿元（+55.71%），但扣非净利仅 3.49 亿元（同比 -18.78%）、经营现金流 -54.69%，3224 亿高估值完全系于“全球人形出货第一 + 大模型赋予机器人大脑”的预期。',
+          chessboard: 'Robotaxi 赛道上 Waymo 遭遇 NHTSA 校车违规二次调查，给了特斯拉纯视觉路线喘息窗口；人形机器人赛道上特斯拉 Optimus 灵巧手卡壳且拟延至 2027 年底以 3 万美元交付，给了宇树科技（G1 仅 9.9 万元）宝贵的商业化时间差。',
+          externality: '对供应链：Cybertruck 模具与零部件供应商面临订单提前终止减值；对劳动者：得州与加州工厂工人穿动作捕捉服训练最终将替代自己的 Optimus，而宇树背后同样依赖计件外包的遥操作数据采集员；对消费者：大量 Cybertruck 预订者等待数年后仅获退还订金。',
+          roundtable: [
+            { persona: 'Elon Musk (Tesla CEO)', stance: '端到端自营运力派', view: '继停产 Model S/X 让位 Optimus 后，关停 Cybertruck 产线是为了全力保 Cybercab 与 Robotaxi 自营车队上量；FSD 北美新车搭载率已超 75%。' },
+            { persona: 'MIT CSAIL 具身智能团队', stance: '大脑算法突破派', view: '机器人的瓶颈正从底层运控转向理解人类模糊指令背后的真实意图，大模型与物理仿真结合正在让机器人真正“长脑子”。' }
+          ],
+          prediction: {
+            quote: '行业预言：特斯拉将不断砍掉低规模硬件车型以腾挪资本开支，而宇树科技作为科创板人形机器人唯一标杆将承受极高的估值弹性与基本面分化。',
+            status: '兑现',
+            evidence: '特斯拉 Q3 营业利润率跌至 2.6%，被迫宣布停产 Cybertruck；宇树前三季扣非净利 3.49 亿元（-18.78%），但市值冲上 3224 亿元。'
+          },
+          actions: [
+            '具身智能研发团队：跟踪 MIT CSAIL 非字面指令推理框架与苹果 HALO 在宇树 G1（9.9 万元级基座）上的迁移范式，优先在标准化本体上做算法验证。',
+            '硬件供应链与投资者：警惕宇树科技 3224 亿市值与前三季 3.49 亿扣非净利之间的估值透支风险，以及 Optimus 灵巧手方案变更对丝杠/电机供应商的波动。',
+            '观察哨指标：12 月 3 日特斯拉股东大会 1584 亿美元薪酬表决结果；NHTSA 对 Waymo 校车事件的最终处罚。'
+          ]
+        },
+        sources: [
+          { title: 'CNN: Tesla set to wind down production of Cybertruck', url: 'https://www.cnn.com/2026/11/06/business/tesla-winding-down-production-of-cybertruck', tier: '核验信源' },
+          { title: 'The Next Web: Tesla\'s Optimus production hits snags with hands', url: 'https://thenextweb.com/news/tesla-optimus-production-hands-suppliers', tier: '核验信源' },
+          { title: 'TechCrunch: Waymo robotaxis kept illegally passing school buses after software fix, feds say', url: 'https://techcrunch.com/2026/11/09/waymo-robotaxis-kept-illegally-passing-school-buses-after-software-fix-feds-say/', tier: 'T2 媒体' },
+          { title: 'MIT News: AI-assisted learning platform helps robots reason beyond literal commands', url: 'https://news.mit.edu/2026/ai-assisted-learning-platform-helps-robots-reason-beyond-literal-commands-1109', tier: 'T1 研究' },
+          { title: '网易财经：反弹近100%！宇树科技，A股第三（市值3224亿）', url: 'https://www.163.com/dy/article/LBCB1FEM053469RG.html', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-08',
+        section: 'A2',
+        sectionName: 'A2 算力 · 芯片与能源',
+        date: '2026-11-08',
+        dateline: '圣克拉拉 / 圣迭戈电 · 11月4日—10日',
+        kicker: '第二算力极 · 垫资换份额的代价',
+        title: 'AMD Q3 数据中心营收暴增 97% 且 MI450/Helios 量产，高通汽车破 20 亿美元并锚定数据中心 50 亿目标',
+        subtitle: 'AMD 机架系统打入 OpenAI、Anthropic、Meta 等五大巨头机房，但备货库存激增 35% 致自由现金流暴跌 64%；高通手机收入跌 13%，联手亚马逊开辟云推理第二曲线。',
+        brief: 'AMD 披露 Q3 营收 133.77 亿美元（+45%），数据中心大涨 97%，MI450 与 Helios 机柜在五大巨头上线，但因垫资备货致自由现金流跌 64% 至 5.54 亿美元；高通手机芯片下滑 13%，汽车芯片首破 20 亿美元并锚定 FY27 数据中心 50 亿美元目标。',
+        highlights: [
+          'AMD Q3 数据中心暴增 97%，MI450 与 Helios 机柜在 Anthropic、Meta、微软、OpenAI、甲骨文上线',
+          '为抢份额大举垫资备货，AMD 库存激增 35%（+30亿美元），自由现金流锐减 64% 至 5.54 亿美元',
+          '高通 FY26 手机收入跌 13% 至 240.72 亿美元，Q4 汽车芯片首破 20 亿美元（+89%），联手亚马逊冲刺 FY27 数据中心 50 亿目标'
+        ],
+        metrics: [
+          { label: 'AMD Q3 营收', value: '$133.77亿 (+45%)' },
+          { label: 'AMD 数据中心增速', value: '+97% (Q4指引环比+50%)' },
+          { label: 'AMD Q3 自由现金流', value: '$5.54亿 (-64%)' },
+          { label: '高通 Q4 汽车芯片', value: '>$20亿 (+89%)' }
+        ],
+        image: {
+          url: 'https://www.amd.com/content/dam/amd/en/images/photography/corporate/lisa-su/gallery/2321130-lisa-su-holding-chip.jpg',
+          caption: 'AMD 董事会主席兼 CEO 苏姿丰（Lisa Su）。AMD 通过 MI450 与 Helios 整机柜进入五大巨头核心集群，但背负了沉重的备货库存占用。（图源：AMD）',
+          sourceUrl: 'https://www.amd.com/ja/corporate/leadership/lisa-su.html'
+        },
+        fullParagraphs: [
+          '本周非英伟达阵营的两大芯片巨头相继交出关键成绩单。11 月 4 日，AMD 披露 2026Q3 财报：单季营收达 133.77 亿美元（同比增长 45%），其中数据中心业务同比暴增 97%，管理层预计 Q4 数据中心还将环比再增 50%。最核心的工程里程碑在于，AMD 的 MI450 系列 GPU 与 Helios 机架级系统已正式量产出货，并在 Anthropic、Meta、微软、OpenAI 与甲骨文五大巨头机房上线运行。然而，亮眼营收背后是沉重的资金占用：为配合大客户整机柜交付，AMD 库存同比激增 35%（增加近 30 亿美元），导致当季自由现金流同比暴跌 64% 至 5.54 亿美元（远低于华尔街预期的 19.7 亿美元）。',
+          '11 月 8 日至 10 日，高通（Qualcomm）披露 FY2026 全年及 Q4 业绩：全年总营收 431.20 亿美元，受全球智能手机换机萎缩冲击，手机芯片业务全年收入下滑 13% 至 240.72 亿美元。',
+          '为了摆脱对手机大盘的依赖，高通在两大新赛道加速突围：一是 Q4 汽车芯片单季收入首次突破 20 亿美元大关（同比猛增 89%）；二是宣布与亚马逊达成深度合作，正式锚定 FY2027 数据中心业务实现 50 亿美元营收的战略目标。'
+        ],
+        timeline: [
+          { date: '11-04', text: 'AMD 披露 Q3 财报：营收 133.77 亿美元（+45%）、数据中心 +97%，Helios 机柜上线五大巨头，FCF 跌 64% 至 5.54 亿美元。' },
+          { date: '11-08', text: '高通披露 Q4 汽车芯片单季收入首破 20 亿美元（+89%），联手亚马逊锚定 FY27 数据中心 50 亿美元目标。' },
+          { date: '11-10', text: '高通披露 FY2026 全年手机业务收入下滑 13% 至 240.72 亿美元。' }
+        ],
+        aiAnalysis: {
+          realStory: 'AMD 数据中心暴增 97% 却伴随自由现金流暴跌 64%，揭示了英伟达阴影下“第二供应商”的真实生存法则：云巨头之所以扶植 AMD 和高通，不是为了换掉英伟达，而是需要一张不用自己垫库存的“压价备胎牌”。',
+          motivation: 'AMD 游戏业务已萎缩至单季 7.73 亿美元，数据中心是唯一增长极（目标 2027 年占比超 80%）；为了虎口夺食，AMD 不得不先自己掏钱找台积电与存储厂备货 30 亿美元库存，甚至向 OpenAI 提供最多 1.6 亿股认股权证绑定 6GW 采购。高通则面临全球智能机出货同比大跌 20% 的寒冬，必须靠智驾座舱与云推理芯片自救。',
+          chessboard: 'NVIDIA 守住 74%–75% 毛利率并享受客户预付款，而 AMD 承担了整机柜备货的资金压力；不过 Google 本周曝光的 TPU 8tx 明确支持与 AMD 芯片协同，反哺了 AMD 在非英伟达机房的主机 CPU 生态位。',
+          externality: '对同业初创：“送股权+垫库存”把 AI 芯片准入门槛抬高到百亿美元级，中小 AI 芯片初创彻底出局；对消费者：游戏显卡与 PC 芯片产能被数据中心严重挤压。',
+          roundtable: [
+            { persona: 'AMD 机架生态派', stance: '开放互连替代派', view: '通过台积电 2nm EPYC + MI450 + Helios 整机柜打包交付，我们已经进入 OpenAI、Anthropic 和 Meta 的核心生产集群，预计 Q4 数据中心环比再增 50%。' },
+            { persona: '华尔街财务审视派', stance: '现金流核查派', view: 'AMD 账面营收增长 97% 的代价是库存暴增 30 亿美元、自由现金流缩水 64%，外加向大客户发放认股权证“以股权换订单”，二供地位是靠垫资换来的。' }
+          ],
+          prediction: {
+            quote: '行业预言：AMD 将在 2026 下半年通过 Helios 机架实现大客户突破，但“垫库存+给期权”模式将严重挤压当期自由现金流。',
+            status: '兑现',
+            evidence: '2026-11-04 财报证实五大巨头首批 Helios 机柜已运行，但同期库存 +35%、FCF 仅 5.54 亿美元（远低于 19.7 亿美元预期）。'
+          },
+          actions: [
+            '算力采购负责人：利用 AMD MI450 / Helios 量产及 Google TPU 8tx 兼容 AMD 的契机，在 2027 年度算力招标中引入双供应商比价，压降 NVIDIA 整柜溢价。',
+            '观察哨指标：AMD Q4 数据中心环比 +50% 指引能否兑现并带动库存周转天数回落；高通 FY27 数据中心 50 亿美元目标中亚马逊订单的实际占比。'
+          ]
+        },
+        sources: [
+          { title: '东方财富：AMD 三季度营收增 45%，数据中心大涨 97%', url: 'https://finance.eastmoney.com/a/202611043922122965.html', tier: '核验信源' },
+          { title: '至顶网：高通手机业务收入下滑 13%（FY2026 财报）', url: 'https://www.zhiding.cn/ai-inspired/2026/1110/3205253.shtml', tier: '核验信源' },
+          { title: '斟酌全球：高通汽车业务首次突破 20 亿美元，锚定 FY27 数据中心 50 亿目标', url: 'https://www.zhenzhuoglobal.com/article/117944.html', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-09',
+        section: 'B1',
+        sectionName: 'B1 具身 · 终端与硬件',
+        date: '2026-11-07',
+        dateline: '库比蒂诺 / 深圳电 · 11月3日—7日',
+        kicker: '存储刺客与形态溢价 · 果链分化',
+        title: 'Apple 史上最强财报被内存涨价拖后腿：急砸 330 亿美元锁产能，折叠机 iPhone Duo 首销三天激活 12.46 万台',
+        subtitle: 'FY26 全年净利 1321.75 亿美元创纪录，但“前所未有”的内存高价迫使下季毛利率指引下调至 45%–46%；靠 15,999 元起的 iPhone Duo 拉高客单价对冲，上游果链三季报冰火分化。',
+        brief: 'Apple 交出史上最强 FY26 财报（净利 1321.75 亿美元），但受内存涨价冲击将下季毛利率指引下调至 45%–46% 并新增 330 亿美元采购承诺；售价 15,999 元起的折叠机 iPhone Duo 首销三天激活 12.46 万台，备货上调至 1500 万台。',
+        highlights: [
+          'Apple FY26 营收 4788.34 亿美元、Q4 营收 1145 亿美元（大中华区 +21%），因内存暴涨下调毛利率指引至 45%–46%',
+          'iPhone Duo（15,999–26,499 元）首销三天激活 12.46 万台，总备货从 1000 万台上调至 1500 万台',
+          '果链三季报分化：立讯精密前三季净利 130.57 亿元（经营现金流 -64.34 亿），蓝思科技净利同比腰斩（-50.06%）'
+        ],
+        metrics: [
+          { label: 'Apple FY26 净利润', value: '$1,321.75亿' },
+          { label: '下季毛利率指引', value: '45%–46% (前值47.9%)' },
+          { label: 'iPhone Duo 三天激活', value: '12.46万台 (备货1500万)' },
+          { label: '新增制造采购承诺', value: '$330亿' }
+        ],
+        image: {
+          url: 'https://i.insider.com/66e1b13883b8099cf9fd7d8b?width=700',
+          caption: '位于加州库比蒂诺的 Apple Park 总部。面对 AI 算力抢夺存储产能引发的内存暴涨，苹果单季追加 330 亿美元采购承诺并借超高端折叠机转嫁成本。（图源：Business Insider）',
+          sourceUrl: 'https://www.businessinsider.com/apple-observatory-underground-event-building-hobbit-hole-2024-9'
+        },
+        fullParagraphs: [
+          '11 月 3 日，据澎湃新闻报道，Apple 公布了创历史纪录的 FY2026 第四财季及全年财报：全年营收达 4788.34 亿美元、净利润达 1321.75 亿美元；Q4 单季营收 1145 亿美元，其中 iPhone 收入 575.8 亿美元（同比 +17.5%），服务收入达 1233.01 亿美元，大中华区营收强劲反弹 21%。然而在财报电话会上，苹果管理层罕见警告当前 DRAM 与 NAND 内存价格处于“前所未有（unprecedented）”的高位，直接导致下一财季毛利率指引从 47.9% 下调至 45%–46%，且苹果单季被迫新增 330 亿美元制造采购承诺以锁定上游产能。',
+          '为了对冲上游存储芯片涨价对硬件毛利的侵蚀，苹果祭出了超高端折叠形态溢价策略。11 月 7 日天极网披露，定价高达 15,999 元至 26,499 元的苹果首款折叠屏手机 iPhone Duo 首销前三天激活量达 12.46 万台，苹果随即将其总备货量从 1000 万大幅上调至 1500 万台，并对关键铰链组件加单 30%–40%，目前已有超 10 万款应用完成折叠分屏适配。',
+          '然而，苹果链主地位下的成本控制与产线切换，让上游“果链”代工厂在 11 月 3 日披露的三季报中出现剧烈分化：立讯精密前三季营收 2850.12 亿元、净利 130.57 亿元，但因备货垫资导致经营现金流净流出 64.34 亿元；歌尔股份 Q3 营收下滑 7.8%；蓝思科技前三季净利更是同比腰斩（-50.06%，扣非净利暴跌 63.07%）。'
+        ],
+        timeline: [
+          { date: '11-03', text: '苹果披露 FY26 创纪录财报，但因内存价格暴涨将下季毛利率指引降至 45%–46%，单季新增 330 亿美元采购承诺。' },
+          { date: '11-03', text: '果链三巨头披露三季报：立讯精密净利 130.57 亿但经营现金流 -64.34 亿，蓝思科技净利同比下跌 50.06%。' },
+          { date: '11-07', text: 'iPhone Duo（15,999 元起）首销三天激活 12.46 万台，总备货上调至 1500 万台，铰链加单 30%–40%。' }
+        ],
+        aiAnalysis: {
+          realStory: 'AI 吞噬全球存储产能的隐性税单，终于寄到了消费电子之王的桌上：苹果一边掏出 330 亿美元锁产能、接受毛利率指引下调，一边用 15,999 元起的折叠机 iPhone Duo 向高端消费者加征“形态溢价税”，并把新品节奏波动的代价留给净利腰斩的果链供应商。',
+          motivation: '苹果 FY2026 净利 1321.75 亿美元创历史新高，但 iPad 与可穿戴下滑，增长完全依赖拉高 iPhone 均价（ASP）与服务抽成。苹果最大的结构性软肋是没有自有存储产能——当三星、SK 海力士、美光把晶圆全线切向高毛利 HBM4 时，连苹果也不得不承受内存涨价冲击。',
+          chessboard: '在大中华区依靠 iPhone Duo 与华为终端三折叠正面争夺超高端人群，带动大中华区单季反弹 21%；同时苹果用 330 亿美元现金锁死上游存储颗粒配额，导致拿不到便宜内存的中低端手机厂被迫减产（2026Q3 全球智能机出货同比大跌 20%）。',
+          externality: '对同业中小厂商：上游存储配额被苹果包圆，中小品牌面临缺芯涨价双重挤压；对果链工人与厂商：AB 角比价与加砍单导致蓝思科技净利腰斩、立讯经营现金流转负；对消费者：顶配折叠机售价推高至 26,499 元。',
+          roundtable: [
+            { persona: 'Apple 管理层', stance: '超高端溢价派', view: '通过 iPhone Duo 开创 1.6 万至 2.6 万元的超高端折叠新形态，加上 1233 亿美元高毛利服务收入托底，苹果有能力消化存储芯片周期的成本冲击。' },
+            { persona: '供应链政治经济学派', stance: '链主转嫁审视派', view: 'AI 数据中心抽干了全球先进 DRAM 产能，苹果用 330 亿美元长约锁住存储排队权，再通过产线调整与高定价把成本转嫁给果链代工厂和消费者。' }
+          ],
+          prediction: {
+            quote: '行业预言：AI 算力引发的存储涨价将穿透至消费电子终端，导致整机厂毛利率承压并加速向超高端高溢价机型集中。',
+            status: '兑现',
+            evidence: '2026Q3 全球智能机出货同比跌 20%，而苹果靠 15,999 元起的 iPhone Duo 逆势拉升营收，同时因内存成本下调毛利率指引。'
+          },
+          actions: [
+            'iOS 与跨端开发者：立即针对 iPhone Duo 的双屏/折叠分屏 API 进行适配（已超 10 万款适配），抢占高净值早期机主红利。',
+            '硬件采购团队：鉴于苹果单季追加 330 亿美元锁产能，中小硬件厂商需提前锁定 2027 上半年存储颗粒长约。',
+            '观察哨指标：iPhone Duo 首销热潮后在 2027Q1 的真实留存与铰链良率；苹果 45% 毛利率底线能否守住。'
+          ]
+        },
+        sources: [
+          { title: '澎湃新闻：苹果史上最好财报，却被内存拖住了后腿', url: 'https://www.thepaper.cn/newsDetail_forward_34431195', tier: '核验信源' },
+          { title: '天极网：iPhone Duo 首销三天激活 12.46 万台，备货上调至 1500 万台', url: 'https://mobile.yesky.com/428/382428.shtml', tier: '核验信源' },
+          { title: '证券时报：多重因素共振“果链”三巨头三季度业绩出现分化', url: 'https://stcn.com/article/detail/4328334.html', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-10',
+        section: 'B2',
+        sectionName: 'B2 商业 · 安全与就业',
+        date: '2026-11-10',
+        dateline: '伯班克 / 圣何塞电 · 11月9日—10日',
+        kicker: '版权隔离定制 · 好莱坞降本风暴',
+        title: '迪士尼与 Adobe 达成多年期定制 AI 协议：全面接入影视与主题公园，伴随年内第四轮裁员',
+        subtitle: '在经历 OpenAI 关停 Sora 与 Character.AI 破产风波后，迪士尼转投 Adobe Firefly Foundry 训练自有版权安全模型，同步推进每年削减 20% 成本的裁员计划。',
+        brief: '迪士尼宣布与 Adobe 签署多年期协议，采用 Firefly Foundry 基于自有 IP 训练“品牌安全”定制模型，覆盖主题公园、影视 StudioLAB 与 ESPN；彭博同期披露迪士尼正推进年内第四轮裁员、每年削减 20% 成本。',
+        highlights: [
+          'Adobe 通过 Firefly Foundry 为迪士尼定制专属模型，严格隔离在自有 IP 语料内以规避版权风险',
+          '全面接入迪士尼主题公园（Imagineering）、邮轮、影视制作（StudioLAB）与体育媒体（ESPN Edge）',
+          '弃用 OpenAI 通用方案（Sora 已于今年 3 月关停），同步推进年内第四轮裁员与年度 20% 降本'
+        ],
+        metrics: [
+          { label: '迪士尼年度降本目标', value: '-20% (年内第四轮裁员)' },
+          { label: 'Adobe 总 ARR', value: '$275亿 (+11.2%)' },
+          { label: 'Adobe AI-first ARR', value: '>$6.5亿 (+150%)' },
+          { label: 'Adobe 净新增ARR增速', value: '-36% 至 -37%' }
+        ],
+        image: {
+          url: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Walt_Disney_Studios_Alameda_Entrance.jpg',
+          caption: '位于加州伯班克的华特迪士尼制片厂总部。迪士尼选择 Adobe Firefly Foundry 定制版权安全模型，同时启动年内第四轮裁员。（图源：Wikimedia Commons）',
+          sourceUrl: 'https://en.wikipedia.org/wiki/Walt_Disney_Studios_(Burbank)'
+        },
+        fullParagraphs: [
+          '11 月 9 日—10 日，据 The Decoder 与每日经济新闻报道，迪士尼在 Adobe MAX 大会上正式宣布与 Adobe 签署多年期战略合作协议。根据协议，Adobe 将利用其企业级定制平台 Firefly Foundry，严格基于迪士尼自有的角色、场景与视觉风格资产库，为迪士尼训练专属的生成式 AI 模型，确保生成内容 100% 符合“商业与品牌安全（brand-safe）”标准。',
+          '这套定制 AI 系统将全面嵌入迪士尼娱乐帝国的四大核心板块：主题公园幻想工程（Walt Disney Imagineering）、迪士尼邮轮业务、影视后期与虚拟制作实验室（StudioLAB）以及体育流媒体（ESPN Edge）。值得注意的是，迪士尼此前曾尝试与 OpenAI 合作，但随着 OpenAI 于今年 3 月关停高成本视频模型 Sora，加之迪士尼此前卷入 Character.AI 破产相关的版权风波，这家好莱坞巨头最终倒向了提供严密版权隔离的 Adobe。',
+          '然而，技术合规化的背面是冷酷的组织缩编：据彭博社同期披露，迪士尼正在推进年内的第四轮裁员，计划削减数千个工作岗位，目标是将相关业务年度运营成本压缩 20%。'
+        ],
+        timeline: [
+          { date: '11-09', text: '迪士尼与 Adobe 官宣多年期战略合作，采用 Firefly Foundry 训练专属品牌安全模型。' },
+          { date: '11-10', text: '媒体披露迪士尼在经历 OpenAI 关停 Sora 后转投 Adobe 的内幕，并同步推进年内第四轮裁员与 20% 降本。' }
+        ],
+        aiAnalysis: {
+          realStory: '迪士尼与 Adobe 签下的不是一份“创意赋能协议”，而是一份好莱坞工业化裁员的合规免责书：用 Adobe Firefly 的“自有版权隔离训练”绕开通用大模型的侵权雷区，再顺理成章地推进年内第四轮裁员与每年 20% 的成本削减。',
+          motivation: 'Adobe 2026Q3 虽实现总 ARR 275 亿美元（+11.2%），但核心命门是“净新增 ARR 同比暴跌 36%–37%”，且定于 2026 年 12 月 1 日更换 CEO。净新增 ARR 腰斩的根源在于 AI 让企业客户“少雇美工、少买 Creative Cloud 人头席位”。Adobe 必须靠 Firefly Foundry 拿下迪士尼这种按企业级定制收费的标杆大单，填补设计师人头席位萎缩的窟窿。',
+          chessboard: '在 OpenAI 3 月突然关停 Sora、Midjourney 深陷片厂版权诉讼证据开示拉锯的背景下，Adobe 稳住了企业级创意工作流底座，证明在严苛版权行业“法务合规比模型参数规模更值钱”。',
+          externality: '对同业初创：缺乏正版图库与大厂法务背书的独立视觉生成工具被排除在大型传媒采购门外；对劳动者：迪士尼用历代画师的历史作品训练出内部模型，直接转化为在职创意白领的第四轮裁员。',
+          roundtable: [
+            { persona: 'Adobe 企业商业派', stance: '版权合规护城河派', view: '好莱坞巨头最终明白，靠抓取全网侵权数据训练的通用大模型无法用于商业大片。Firefly Foundry 在客户自有 IP 边界内定制模型，是唯一零诉讼风险的路径。' },
+            { persona: '影视美术与创意工会代表', stance: '劳工权益派', view: '所谓“品牌安全模型”只保护了迪士尼公司的 IP 产权，却用历代画师的历史作品训练出了替代在职员工的工具——同一周宣布 AI 进驻 StudioLAB 与第四轮裁员 20% 揭示了真相。' }
+          ],
+          prediction: {
+            quote: '行业预言：随着通用视频模型（如 Sora）商业化受挫，好莱坞与大型 IP 集团将转向“自有语料库封闭微调 + 激进裁撤内部美术中台”的组合拳。',
+            status: '兑现',
+            evidence: '迪士尼弃用 OpenAI 通用方案，转投 Adobe Firefly Foundry 定制内部模型，并同步推进每年 20% 成本削减与第四轮裁员。'
+          },
+          actions: [
+            '企业品牌与法务团队：采购视觉生成工具时，优先选择支持自有资产隔离训练且提供版权赔偿条款的方案，规避版权取证诉讼。',
+            '数字美术从业者：向多智能体管线编排、3D 资产合成与复合叙事导演方向转型，摆脱易被品牌风格库批量生成的单一概念图绘制环节。',
+            '观察哨指标：12 月 1 日 Adobe 新 CEO 上任后是否将商业模式从“按人头席位”全面转向“按 Firefly 生成量/企业定制计费”。'
+          ]
+        },
+        sources: [
+          { title: 'The Decoder: Disney bets on Adobe\'s Firefly to create brand-safe AI models for its entertainment empire', url: 'https://the-decoder.com/disney-bets-on-adobes-firefly-to-create-brand-safe-ai-models-for-its-entertainment-empire/', tier: 'T2 媒体' },
+          { title: '每日经济新闻：迪士尼携手 Adobe 开发定制 AI 模型', url: 'https://www.mrjjxw.com/articles/2026-11-10/4643164.html', tier: '核验信源' },
+          { title: 'Motley Fool: Adobe Q3 2026 Earnings Call Transcript', url: 'https://www.fool.com/earnings/call-transcripts/2026/09/11/adobe-adbe-q3-2026-earnings-call-transcript/', tier: '核验信源' }
+        ]
+      },
+      {
+        id: 'evt-11',
+        section: 'B2',
+        sectionName: 'B2 商业 · 安全与就业',
+        date: '2026-11-09',
+        dateline: '华盛顿 / 丹佛 / 渥太华电 · 11月3日—9日',
+        kicker: '白领阶梯断裂 · 企业软件算账期',
+        title: 'RAND 智库揭示初级编码员“学徒管道断层”，Palantir 美国商业收入暴涨 148% 但新签合同骤降',
+        subtitle: '田野调查证实 AI 消除简单练手任务正摧毁新手成长为专家的培训阶梯；Palantir 美国商业营收首超政府业务但新签合同增速从 153% 跌至 11%，Shopify 因 Sidekick AI 侵蚀毛利大跌 8.7%。',
+        brief: '权威智库 RAND 发布实证报告指出 AI 接管初级任务正摧毁医疗与信息行业培养资深专家的“学徒培训管道”；同期 Palantir 披露美国商业收入暴涨 148% 首超政府业务，但新签商业合同仅增 11%，Shopify 亦因免费 AI 助手侵蚀订阅毛利下跌 8.7%。',
+        highlights: [
+          'RAND 智库实证研究：AI 自动化初级编码与文书任务，导致新手失去成长为高阶专家的“学徒培训管道”',
+          'Palantir Q3 营收 23.1 亿美元（近+100%），美国商业收入 9.84 亿美元（+148%）首超政府业务，但新签商业合同仅增 11%',
+          'Shopify Q3 GMV 达 1191.5 亿美元（+29%），但内置 AI 助手 Sidekick 算力成本侵蚀订阅毛利，股价跌 8.7%'
+        ],
+        metrics: [
+          { label: 'Palantir Q3 营收', value: '$23.1亿 (~+100%)' },
+          { label: '美商业收入 vs 新签TCV', value: '+148% vs +11%' },
+          { label: 'Shopify Q3 GMV', value: '$1,191.5亿 (+29%)' },
+          { label: '初级开发者招聘降幅', value: '-23% (学徒断层)' }
+        ],
+        image: {
+          url: 'https://www.palantir.com/assets/xrfr7uokpv1b/jwzbbzhxuqnlVBM75mP9Y/de86586dec9e28ea4fcaffd9f854b047/Karp_Headshot.jpg',
+          caption: 'Palantir 联合创始人兼 CEO Alex Karp。Palantir 第三季度美国商业收入暴增 148% 首次超越国防政府业务，但新签合同增速放缓引发市场对企业 AI 预算见顶的审视。（图源：Palantir Newsroom）',
+          sourceUrl: 'https://www.palantir.com/newsroom/media/lobs3-13-2023/'
+        },
+        fullParagraphs: [
+          '11 月 9 日，权威智库兰德公司（RAND Corporation）发表重磅实证研究《Three Essays on Artificial Intelligence and Work in the U.S.》。研究结合美国宏观就业统计与医院医疗编码员（medical coders）深度田野调查指出一个严峻的结构性悖论：AI 越是高效地接管初级编码、分类与文书等简单任务，企业就越需要高阶人类专家来处理复杂异常与最终审核；然而，由于原本供新人练手的初级任务被 AI 彻底消除，各行业培养下一代专家的“学徒培训管道（training pipeline）”正在发生断裂。',
+          '与智库预警相呼应的，是本周企业级 AI 软件龙头披露的三季报呈现“存量客户深度收割、新增签单边际放缓”的特征。Palantir 披露 2026Q3 营收翻倍至 23.1 亿美元、净利润达 11.3 亿美元，其中美国商业收入达 9.84 亿美元（同比暴涨 148%），历史上首次超越美国政府业务（9.53 亿美元，+96%）；但华尔街敏锐发现其美国商业新签合同总价值（TCV）同比仅增长 11%（上一季度为 +153%），导致股价单日下跌约 8%。',
+          '另一家电商 SaaS 巨头 Shopify 披露 Q3 GMV 达 1191.5 亿美元（+29%）、营收增长 32%，自由现金流利润率达 22%；但由于将高频消耗 Token 的 AI 助手 Sidekick 作为商家标配免费内置，推理算力成本直接侵蚀了核心订阅业务毛利率，股价同日下跌 8.7%。'
+        ],
+        timeline: [
+          { date: '11-03', text: 'Palantir 披露 Q3 财报：营收 23.1 亿美元，美国商业 +148% 首超政府业务，但新签商业合同仅 +11%。' },
+          { date: '11-03', text: 'Shopify 披露 Q3 财报：GMV 1191.5 亿美元（+29%），但因 Sidekick AI 成本侵蚀订阅毛利跌 8.7%。' },
+          { date: '11-09', text: 'RAND 智库发表美国 AI 与就业实证报告，揭示初级岗位自动化导致的“学徒培训管道断层”。' }
+        ],
+        aiAnalysis: {
+          realStory: 'RAND 智库的报告与 Palantir、Shopify 的三季报拼出了 2026 年企业 AI 落地的真实切片：头部大企业正用 Palantir AIP 狂砍中基层分析与初级学徒岗（美国商业收入 +148%），但新签合同骤降至 +11% 与 Shopify 毛利受侵蚀说明——第一波最好啃的“裁员增效预算”已被瓜分完毕，企业软件进入算账深水区。',
+          motivation: 'Palantir 靠把军工级 Ontology 复制给美国大企业实现了单季营收 23.1 亿美元、净利 11.3 亿美元的惊人盈利，但新签商业合同增速从上季的 +153% 断崖式跌至 +11%，暴露出高客单价定制模式向中腰部企业下沉的阻力。而 Shopify 则因为把 AI 助手 Sidekick 做成免费标配，自己替商家扛下了大模型推理账单，导致订阅毛利率受损。',
+          chessboard: 'Palantir 与 Snowflake、Databricks 争夺企业数据与 Agent 编排层预算；而 SaaS 行业普遍面临“不加 AI 丢客户、加了 AI 亏毛利”的两难困局。',
+          externality: '对劳动者：RAND 报告点破了最深远的社会外部性——初级编码员与初级白领的“学徒阶梯”被拆毁，未来 3–5 年将出现全行业资深人才断档；对中小企业：缺乏驻场工程师预算的中小企业难以复制巨头 AI 降本红利。',
+          roundtable: [
+            { persona: 'RAND 智库劳动经济学研究者', stance: '人力资本预警派', view: '我们的田野调查发现了一个危险悖论：AI 越擅长处理初级编码任务，对高阶人类专家审核的需求就越大；但因为初级任务被 AI 接管，新手失去了在实践中成长为专家的阶梯。' },
+            { persona: 'Alex Karp (Palantir CEO)', stance: 'Ontology 效率派', view: '美国大企业不是在买花哨的聊天框，而是在用 AIP + Ontology 直接重构运营决策流——美国商业收入暴增 148% 并首次超越国防政府业务就是明证。' }
+          ],
+          prediction: {
+            quote: '行业预言：AI 编码与企业 Agent 将率先导致初级岗位（Entry-level）结构性萎缩，而企业 SaaS 将面临 AI 推理成本反噬毛利的阵痛。',
+            status: '兑现',
+            evidence: 'RAND 11月9日报告实证医疗与信息行业初级培训管道受损；Shopify 因内置免费 AI 助手 Sidekick 侵蚀订阅毛利遭资本市场惩罚。'
+          },
+          actions: [
+            '技术团队管理者：重构新人培养机制——不再用简单 CRUD 选拔培养应届生，建立基于代码审查（Code Review）、形式化验证与复杂系统调试的仿真学徒训练营。',
+            'SaaS 产品负责人：吸取 Shopify Sidekick 侵蚀订阅毛利的教训，避免将高 Token 消耗的 Agent 能力无上限免费打包进基础订阅费。',
+            '观察哨指标：Palantir 2026Q4 美国商业新签合同增速能否回升至 40% 以上；Shopify 是否在 2027 年对 Sidekick 高频功能单独按量计费。'
+          ]
+        },
+        sources: [
+          { title: 'RAND Corporation: Three Essays on Artificial Intelligence and Work in the U.S.', url: 'https://www.rand.org/pubs/rgs_dissertations/RGSDA5507-1.html', tier: 'T1 智库' },
+          { title: 'Tanjug: Palantir Q3 2026 Revenue Doubles to $2.31B, U.S. Commercial +148%', url: 'https://www.tanjug.rs/ekonomija/srbija/294757/prihodi-palantira-porasli-gotovo-100-odsto-na-231-milijardu-dolara-akcije-ipak-u-padu/vest', tier: '核验信源' },
+          { title: 'Shopify IR: Shopify Sustains Rapid Growth with Revenue Up 32% and FCF Margin of 22%', url: 'https://www.shopify.com/investors/press-releases/shopify-sustains-rapid-growth-with-revenue-up-32-and-free-cash-flow-margin-of-22', tier: 'T1 官方' }
+        ]
+      },
+      {
+        id: 'evt-12',
+        section: 'B2',
+        sectionName: 'B2 商业 · 安全与就业',
+        date: '2026-11-09',
+        dateline: '旧金山电 · 11月5日—9日',
+        kicker: '生产级护栏 · 网关与密钥审计',
+        title: 'AI 工程工具链升级：Databricks 打通 Claude Code/Codex SSH 隧道并迭代 DeepSeek V4.1，GitHub 上线日志密钥扫描',
+        subtitle: 'Databricks 经由 Unity Gateway 统一纳管头部编程 Agent，并将 DeepSeek V4 Flash (0731) 迭代至 V4.1 Flash (1017)；GitHub Actions 自动拦截自动化流水线日志中裸奔的 API Key。',
+        brief: 'Databricks 11月更新支持在 SSH 隧道会话中直接运行 Claude Code 与 OpenAI Codex（经由 Unity Gateway 统一鉴权），并将 DeepSeek V4 Flash 升级切换至 V4.1 Flash (1017)；GitHub Actions 同期上线工作流运行日志密钥扫描预览。',
+        highlights: [
+          'Databricks 支持在 SSH 隧道内运行 Claude Code 与 Codex，由 Unity Gateway 统一路由与权限管控',
+          'Databricks 正式退役 DeepSeek V4 Flash (0731) 并平滑切换至 DeepSeek V4.1 Flash (1017)，支持 5 天内恢复误删 metastore',
+          'GitHub Actions 上线工作流运行日志密钥扫描（Secret Scanning in Workflow Logs），防堵 Agent 与 CI/CD 泄露 Token'
+        ],
+        metrics: [
+          { label: '模型版本退役周期', value: '约 3 个月 (0731→1017)' },
+          { label: 'Metastore 误删恢复窗', value: '5 天内凭 ID 恢复' },
+          { label: 'CLI 最低版本要求', value: 'Databricks CLI 1.23.0+' },
+          { label: '新增安全扫描范围', value: 'GitHub Actions 运行日志' }
+        ],
+        image: null,
+        fullParagraphs: [
+          '本周开发者与企业数据基础设施平台完成多项面向 AI Agent 生产环境的工程护栏升级。11 月 5 日—6 日，Databricks 发布 2026 年 11 月平台更新：正式支持开发者在远程 SSH 隧道会话中直接运行 Anthropic 的 Claude Code 与 OpenAI 的 Codex 编码智能体，所有模型请求均通过 Databricks Unity Gateway 进行统一身份鉴权、配额路由与审计。',
+          '在托管模型生命周期管理上，Databricks 自 11 月 5 日起正式退役三个月前上线的 DeepSeek V4 Flash (0731)，并引导企业工作负载平滑迁移至最新的 DeepSeek V4.1 Flash (1017)；同时新增支持在 5 天窗口期内通过唯一 ID 恢复被自动化脚本误删的 Unity Catalog metastore。',
+          '与此同时，针对 AI 编码智能体接管大量 PR 与构建脚本后频发的密钥泄露隐患，GitHub 于 11 月 9 日宣布将 Secret Scanning（密钥扫描）正式扩展至 GitHub Actions 工作流运行日志（公开预览），自动检测并警告构建与 Agent 执行日志中意外打印的云服务与大模型 API Key。'
+        ],
+        timeline: [
+          { date: '11-05', text: 'Databricks 上线 SSH 隧道内 Claude Code 与 Codex 支持（经 Unity Gateway），退役 DeepSeek V4 Flash (0731) 切换至 V4.1 Flash (1017)。' },
+          { date: '11-06', text: 'Databricks 支持在 5 天内通过 ID 恢复误删的 Unity Catalog metastore。' },
+          { date: '11-09', text: 'GitHub Changelog 宣布 Secret Scanning 扩展至 GitHub Actions 工作流运行日志。' }
+        ],
+        aiAnalysis: {
+          realStory: 'Databricks 把 Claude Code 和 Codex 装进自家 Unity Gateway，GitHub 给 Actions 日志加上密钥扫描，揭示了 AI 编程进入生产环境后的真实生态位：基座模型的保鲜期已缩短到三个月（从 0731 到 1017），只有管住权限、数据和日志审计的网关才是铁打的收租人。',
+          motivation: 'Databricks 的核心商业逻辑是“无论客户用哪家大模型或编程 Agent，只要贴近企业数据湖运行，就必须消耗 Databricks 的 DBU 算力并走 Unity Catalog 鉴权”。而 GitHub 在 AI Agent 接管大量 PR 后，日志泄露 API Key 已成为头号安全事故源，把 Secret Scanning 扩到 Actions 日志是提升 GitHub Advanced Security 企业增购的核心抓手。',
+          chessboard: 'Databricks 用中立网关同时接入 Claude Code、Codex 与中国开源旗舰 DeepSeek V4.1 Flash，对冲单一模型厂锁定；DeepSeek V4.1 Flash 作为标准托管组件在 AWS/Databricks 跨国生产环境中按季度滚动迭代，印证了中国开源模型在海外企业推理侧的渗透深度。',
+          externality: '对同业初创：独立 Agent 网关与日志安全扫描小工具被平台原生功能吸收；对企业运维：模型版本退役周期缩短至 3 个月，企业需承担常态化回归测试成本。',
+          roundtable: [
+            { persona: 'Simon Willison (独立开发者)', stance: '工程纪律派', view: '一边是 Claude Code 与 Codex 直接跑进数据湖的 SSH 隧道，另一边是自动化脚本把 API Key 打进 Actions 日志——Agent 权限越大，平台级护栏与回滚机制就越重要。' },
+            { persona: 'Databricks 平台架构派', stance: '数据网关中立派', view: '通过 Unity Gateway 把 Claude Code、Codex 与 DeepSeek V4.1 Flash 统一纳入企业数据治理边界，谁的编程 Agent 好用，客户就在我们的底座上调谁。' }
+          ],
+          prediction: {
+            quote: '行业预言：2026 年下半年海外主流云数仓将把中国开源旗舰（DeepSeek V4 系列）作为标准托管模型按季滚动迭代，并与 Claude Code / Codex 共存。',
+            status: '兑现',
+            evidence: 'Databricks on AWS 官方发行说明显示 DeepSeek V4 Flash (0731) 按标准生命周期退役并由 DeepSeek V4.1 Flash (1017) 接替。'
+          },
+          actions: [
+            '数据工程团队：若在 Databricks 上使用 DeepSeek V4 Flash (0731)，立即将端点迁移至 DeepSeek V4.1 Flash (1017)，并升级 Databricks CLI 至 1.23.0+。',
+            'GitHub 企业管理员：进入 Enterprise Settings -> Policies -> Advanced Security，开启 GitHub Actions 工作流日志密钥扫描预览。',
+            '观察哨指标：Databricks 与 Snowflake 在企业 AI Agent 托管网关上的客户净留存率对比。'
+          ]
+        },
+        sources: [
+          { title: 'Databricks on AWS: November 2026 Release Notes (Claude Code/Codex SSH & DeepSeek V4.1 Flash)', url: 'https://docs.databricks.com/aws/ja/release-notes/product/2026/november', tier: 'T1 官方' },
+          { title: 'GitHub Changelog: Secret scanning detects secrets in GitHub Actions workflow logs', url: 'https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs/', tier: 'T1 官方' }
+        ]
+      }
+    ];
+
+    // Application State
+    const state = {
+      view: 'frontpage', // 'frontpage' | 'article'
+      activeArticleId: 'evt-01',
+      sectionFilter: 'ALL',
+      searchQuery: '',
+      aiTab: 'all', // 'all' | 'motivation' | 'roundtable' | 'actions'
+      darkMode: false
+    };
+
+    // Load saved theme preference safely
+    try {
+      const savedTheme = localStorage.getItem('zhunxun_newspaper_theme');
+      if (savedTheme === 'dark') {
+        state.darkMode = true;
+      }
+    } catch (e) {}
+
+    function applyTheme() {
+      const htmlEl = document.documentElement;
+      const labelEl = document.getElementById('themeLabel');
+      if (state.darkMode) {
+        htmlEl.classList.add('dark');
+        if (labelEl) labelEl.textContent = '纸质原色';
+      } else {
+        htmlEl.classList.remove('dark');
+        if (labelEl) labelEl.textContent = '夜间墨色';
+      }
+    }
+
+    function toggleTheme() {
+      state.darkMode = !state.darkMode;
+      try {
+        localStorage.setItem('zhunxun_newspaper_theme', state.darkMode ? 'dark' : 'light');
+      } catch (e) {}
+      applyTheme();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const textEl = document.getElementById('toastMessage');
+      if (!toast || !textEl) return;
+      textEl.textContent = msg;
+      toast.classList.remove('hidden');
+      if (window._toastTimer) clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2400);
+    }
+
+    function copyText(text, msg) {
+      const done = () => showToast(msg || '已复制到剪贴板');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        if (cb) cb();
+      } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    // Navigation & View Switching
+    function setSectionFilter(sec) {
+      state.sectionFilter = sec;
+      const sections = ['ALL', 'A1', 'A2', 'B1', 'B2'];
+      sections.forEach(s => {
+        const btn = document.getElementById('secBtn-' + s);
+        if (!btn) return;
+        if (s === sec) {
+          btn.className = 'px-3 py-1 rounded font-semibold bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 transition whitespace-nowrap';
+        } else {
+          btn.className = 'px-3 py-1 rounded font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-200/70 dark:hover:bg-stone-800 transition whitespace-nowrap';
+        }
+      });
+      if (state.view !== 'frontpage') {
+        showFrontPage(false);
+      } else {
+        renderFrontPage();
+      }
+    }
+
+    function handleSearchInput(val) {
+      state.searchQuery = (val || '').trim().toLowerCase();
+      if (state.view !== 'frontpage') {
+        showFrontPage(false);
+      } else {
+        renderFrontPage();
+      }
+    }
+
+    function resetFilters() {
+      state.sectionFilter = 'ALL';
+      state.searchQuery = '';
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      setSectionFilter('ALL');
+    }
+
+    function showFrontPage(scrollToTop = true) {
+      state.view = 'frontpage';
+      const fp = document.getElementById('view-frontpage');
+      const ar = document.getElementById('view-article');
+      if (fp) fp.classList.remove('hidden');
+      if (ar) ar.classList.add('hidden');
+      try {
+        if (location.hash && location.hash.startsWith('#/article/')) {
+          history.replaceState(null, '', '#/');
+        }
+      } catch (e) {}
+      renderFrontPage();
+      if (scrollToTop) window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openArticle(articleId, aiTab = 'all') {
+      const found = ARTICLES.find(a => a.id === articleId);
+      if (!found) return;
+      state.view = 'article';
+      state.activeArticleId = articleId;
+      state.aiTab = aiTab;
+      const fp = document.getElementById('view-frontpage');
+      const ar = document.getElementById('view-article');
+      if (fp) fp.classList.add('hidden');
+      if (ar) ar.classList.remove('hidden');
+      try {
+        history.replaceState(null, '', '#/article/' + articleId);
+      } catch (e) {}
+      renderArticleDetail();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setAiAnalysisTab(tabName) {
+      state.aiTab = tabName;
+      renderArticleDetail();
+    }
+
+    function copyArticleBrief(articleId) {
+      const art = ARTICLES.find(a => a.id === articleId);
+      if (!art) return;
+      const text = [
+        `【准讯周报 · ${art.sectionName}】${art.title}`,
+        `日期：${art.date}`,
+        `核心概览：${art.brief}`,
+        `AI 本质穿透：${art.aiAnalysis.realStory}`,
+        `一手信源：${art.sources[0].url}`
+      ].join('\n');
+      copyText(text, '已复制本篇新聞与 AI 核心内参');
+    }
+
+    // Image helper with clean fallback
+    function renderPhotoBlock(imageObj, aspectClass = 'aspect-[16/10]', showCaption = true) {
+      if (!imageObj || !imageObj.url) return '';
+      return `
+        <figure class="space-y-1.5">
+          <div class="overflow-hidden bg-stone-200 dark:bg-stone-800 border border-stone-300/80 dark:border-stone-800 ${aspectClass}">
+            <img src="${imageObj.url}" alt="${imageObj.caption || ''}" loading="lazy"
+                 onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center p-4 text-xs text-stone-500 font-serif italic text-center\\'>[新闻档案影像 · 准讯周报]</div>';"
+                 class="w-full h-full object-cover object-top news-photo">
+          </div>
+          ${showCaption && imageObj.caption ? `
+            <figcaption class="text-[11px] leading-snug text-stone-500 dark:text-stone-400 font-sans">
+              ▲ ${imageObj.caption}
+            </figcaption>
+          ` : ''}
+        </figure>
+      `;
+    }
+
+    // ==================== RENDER LAYER 1: FRONT PAGE BROADSHEET ====================
+    function renderFrontPage() {
+      const container = document.getElementById('frontpageContainer');
+      if (!container) return;
+
+      const isFiltered = state.sectionFilter !== 'ALL' || state.searchQuery !== '';
+      const filteredList = ARTICLES.filter(a => {
+        if (state.sectionFilter !== 'ALL' && a.section !== state.sectionFilter) return false;
+        if (state.searchQuery) {
+          const hay = (a.title + ' ' + a.subtitle + ' ' + a.brief + ' ' + a.sectionName + ' ' + a.kicker).toLowerCase();
+          if (!hay.includes(state.searchQuery)) return false;
+        }
+        return true;
+      });
+
+      if (filteredList.length === 0) {
+        container.innerHTML = `
+          <div class="py-16 text-center space-y-3 news-rule-b">
+            <div class="font-editorial text-xl font-bold">未检索到匹配的新闻篇目</div>
+            <p class="text-xs text-stone-500">请尝试清空检索词或切换至“全部版面”。</p>
+            <button onclick="resetFilters()" class="px-4 py-1.5 text-xs font-semibold bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 rounded">
+              返回完整头版
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      // Filtered Grid Mode (when user selects a specific section tab or types a search query)
+      if (isFiltered) {
+        container.innerHTML = `
+          <div class="space-y-6">
+            <div class="flex items-center justify-between pb-2 news-rule-b text-xs text-stone-500">
+              <span>当前筛选共 <strong class="text-stone-900 dark:text-stone-100">${filteredList.length}</strong> 篇报道（点击任意篇目展开全文与 AI 深度剖析）</span>
+              <button onclick="resetFilters()" class="text-red-800 dark:text-red-400 hover:underline font-medium">返回完整报纸头版 ↺</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${filteredList.map(art => `
+                <article onclick="openArticle('${art.id}')" class="group cursor-pointer p-4 rounded border border-stone-300/80 dark:border-stone-800 news-card-hover flex flex-col justify-between space-y-3">
+                  <div class="space-y-2.5">
+                    <div class="flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400">
+                      <span class="font-semibold text-red-800 dark:text-red-400">${art.sectionName}</span>
+                      <span class="font-mono">${art.date}</span>
+                    </div>
+                    ${art.image ? renderPhotoBlock(art.image, 'aspect-[16/10]', false) : ''}
+                    <h2 class="font-editorial text-lg font-bold leading-snug group-hover:text-red-800 dark:group-hover:text-red-400 transition">
+                      ${art.title}
+                    </h2>
+                    <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                      ${art.brief}
+                    </p>
+                  </div>
+                  <div class="pt-2 news-rule-t flex items-center justify-between text-xs font-medium text-red-800 dark:text-red-400">
+                    <span>展开全文与 AI 深度剖析</span>
+                    <span class="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // Full Newspaper Broadsheet Mode (Default Layer 1 Overview)
+      const lead = ARTICLES[0]; // evt-01 Anthropic
+      const secondaries = [ARTICLES[1], ARTICLES[2]]; // evt-02 OpenAI, evt-03 NVIDIA/Anthropic Gas
+      const middleRow = [ARTICLES[3], ARTICLES[6], ARTICLES[7], ARTICLES[8]]; // evt-04 Google TPU, evt-07 Tesla/Unitree, evt-08 AMD/Qualcomm, evt-09 Apple
+      const bottomRow = [ARTICLES[4], ARTICLES[5], ARTICLES[9], ARTICLES[10], ARTICLES[11]]; // evt-05 Tencent, evt-06 Alibaba/Kimi, evt-10 Disney/Adobe, evt-11 RAND/Palantir, evt-12 Databricks/GitHub
+
+      container.innerHTML = `
+        <!-- ZONE 1: TOP BROADSHEET (Lead Story + 2 Secondary Illustrated Columns) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 news-rule-b">
+          
+          <!-- Lead Story Column (7 cols) -->
+          <article onclick="openArticle('${lead.id}')" class="lg:col-span-7 lg:pr-6 lg:news-rule-r group cursor-pointer space-y-4">
+            <div class="flex items-center gap-2 text-xs">
+              <span class="px-2 py-0.5 bg-red-800 text-white font-semibold tracking-wide uppercase text-[11px]">头版头条</span>
+              <span class="text-red-800 dark:text-red-400 font-semibold">${lead.kicker}</span>
+              <span class="text-stone-400">·</span>
+              <span class="text-stone-500 dark:text-stone-400 font-mono">${lead.date}</span>
+            </div>
+
+            <h2 class="font-editorial text-2xl sm:text-3xl lg:text-4xl font-black leading-tight group-hover:text-red-800 dark:group-hover:text-red-400 transition">
+              ${lead.title}
+            </h2>
+
+            <p class="font-serif text-sm sm:text-base text-stone-700 dark:text-stone-300 leading-relaxed">
+              ${lead.subtitle}
+            </p>
+
+            ${renderPhotoBlock(lead.image, 'aspect-[16/9]', true)}
+
+            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pt-1">
+              ${lead.brief}
+            </p>
+
+            <ul class="space-y-1.5 pt-2 news-rule-t text-xs text-stone-700 dark:text-stone-300">
+              ${lead.highlights.map(h => `
+                <li class="flex items-start gap-2">
+                  <span class="text-red-800 dark:text-red-400 font-bold">▪</span>
+                  <span>${h}</span>
+                </li>
+              `).join('')}
+            </ul>
+
+            <div class="pt-2 flex items-center justify-between text-xs">
+              <span class="font-semibold text-red-800 dark:text-red-400 group-hover:underline">
+                阅读全文、时间线与 AI 深度分析 →
+              </span>
+              <span class="text-stone-400 font-mono">4 个一手核验信源</span>
+            </div>
+          </article>
+
+          <!-- Right Secondary Stories Column (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+            ${secondaries.map((sec, idx) => `
+              <article onclick="openArticle('${sec.id}')" class="group cursor-pointer space-y-3 ${idx === 0 ? 'pb-6 news-rule-b' : ''}">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-semibold text-red-800 dark:text-red-400">${sec.sectionName} · ${sec.kicker}</span>
+                  <span class="text-stone-500 font-mono">${sec.date}</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-3.5 items-start">
+                  <div class="sm:col-span-7 space-y-2">
+                    <h3 class="font-editorial text-lg sm:text-xl font-bold leading-snug group-hover:text-red-800 dark:group-hover:text-red-400 transition">
+                      ${sec.title}
+                    </h3>
+                    <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                      ${sec.brief}
+                    </p>
+                  </div>
+                  <div class="sm:col-span-5">
+                    ${renderPhotoBlock(sec.image, 'aspect-[4/3]', false)}
+                    <div class="text-[10px] text-stone-500 dark:text-stone-400 mt-1 line-clamp-2">
+                      ▲ ${sec.image.caption}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-1 flex items-center justify-between text-xs text-red-800 dark:text-red-400 font-medium">
+                  <span>展开全文与 AI 分析 →</span>
+                  <span class="text-stone-400 font-mono">${sec.metrics[0].label}: ${sec.metrics[0].value}</span>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- ZONE 2: SECOND PAGE ILLUSTRATED COLUMNS (算力芯片 · 具身智能 · 消费终端) -->
+        <div class="space-y-4 pb-8 news-rule-b">
+          <div class="flex items-center justify-between">
+            <h2 class="font-editorial text-base sm:text-lg font-bold tracking-wide uppercase flex items-center gap-2">
+              <span class="w-2 h-2 bg-red-800 inline-block"></span>
+              <span>二版 & 三版要闻 · 算力基建、具身智能与硬件终端</span>
+            </h2>
+            <span class="text-xs text-stone-500">点击任意报道进入第二层深度阅读</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-1">
+            ${middleRow.map((art, i) => `
+              <article onclick="openArticle('${art.id}')" class="group cursor-pointer flex flex-col justify-between space-y-3 ${i < 3 ? 'lg:pr-5 lg:news-rule-r' : ''}">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between text-[11px] text-stone-500">
+                    <span class="font-semibold text-red-800 dark:text-red-400">${art.kicker}</span>
+                    <span class="font-mono">${art.date}</span>
+                  </div>
+                  ${renderPhotoBlock(art.image, 'aspect-[16/10]', false)}
+                  <div class="text-[10px] text-stone-500 dark:text-stone-400 line-clamp-1">
+                    ▲ ${art.image.caption}
+                  </div>
+                  <h3 class="font-editorial text-base sm:text-lg font-bold leading-snug group-hover:text-red-800 dark:group-hover:text-red-400 transition">
+                    ${art.title}
+                  </h3>
+                  <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                    ${art.brief}
+                  </p>
+                </div>
+                <div class="pt-2 news-rule-t flex items-center justify-between text-xs">
+                  <span class="font-medium text-red-800 dark:text-red-400 group-hover:underline">阅读全文与 AI 剖析 →</span>
+                  <span class="font-mono text-[11px] text-stone-500">${art.metrics[0].value}</span>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- ZONE 3: FOURTH PAGE EDITORIAL COLUMNS (开源治理 · 词元经济 · 版权与就业冲击) -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="font-editorial text-base sm:text-lg font-bold tracking-wide uppercase flex items-center gap-2">
+              <span class="w-2 h-2 bg-stone-900 dark:bg-stone-200 inline-block"></span>
+              <span>四版观察 · 开源生物安全、词元经济、版权定制与就业断层</span>
+            </h2>
+            <span class="text-xs text-stone-500">图文混排概览</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pt-1">
+            ${bottomRow.map((art, i) => `
+              <article onclick="openArticle('${art.id}')" class="group cursor-pointer flex flex-col justify-between space-y-3 ${i < 4 ? 'lg:pr-5 lg:news-rule-r' : ''}">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between text-[11px] text-stone-500">
+                    <span class="font-semibold text-red-800 dark:text-red-400">${art.kicker}</span>
+                    <span class="font-mono">${art.date}</span>
+                  </div>
+                  ${art.image ? `
+                    ${renderPhotoBlock(art.image, 'aspect-[16/10]', false)}
+                    <div class="text-[10px] text-stone-500 dark:text-stone-400 line-clamp-1">
+                      ▲ ${art.image.caption}
+                    </div>
+                  ` : `
+                    <div class="p-3 bg-stone-200/60 dark:bg-stone-900 border-l-2 border-red-800 text-[11px] font-serif italic text-stone-700 dark:text-stone-300">
+                      “基座模型的保鲜期已缩短到三个月（从 0731 到 1017），只有管住权限、数据和日志审计的网关才是铁打的收租人。”
+                    </div>
+                  `}
+                  <h3 class="font-editorial text-base font-bold leading-snug group-hover:text-red-800 dark:group-hover:text-red-400 transition">
+                    ${art.title}
+                  </h3>
+                  <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                    ${art.brief}
+                  </p>
+                </div>
+                <div class="pt-2 news-rule-t flex items-center justify-between text-xs">
+                  <span class="font-medium text-red-800 dark:text-red-400 group-hover:underline">展开全文与 AI 分析 →</span>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // ==================== RENDER LAYER 2: NESTED ARTICLE DETAIL & AI ANALYSIS ====================
+    function renderArticleDetail() {
+      const container = document.getElementById('articleDetailContainer');
+      if (!container) return;
+
+      const idx = ARTICLES.findIndex(a => a.id === state.activeArticleId);
+      const art = ARTICLES[idx >= 0 ? idx : 0];
+      const prevArt = ARTICLES[(idx - 1 + ARTICLES.length) % ARTICLES.length];
+      const nextArt = ARTICLES[(idx + 1) % ARTICLES.length];
+      const tab = state.aiTab || 'all';
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          <!-- Sticky Sub-Header Navigation for Layer 2 -->
+          <div class="sticky top-0 z-20 py-3 px-4 -mx-4 sm:mx-0 sm:rounded bg-paper/95 dark:bg-neutral-900/95 backdrop-blur border-b sm:border border-stone-300 dark:border-stone-800 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div class="flex items-center gap-3">
+              <button onclick="showFrontPage()" class="px-3 py-1.5 rounded bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 font-semibold hover:opacity-90 transition flex items-center gap-1.5">
+                <span>← 返回报纸头版概览</span>
+              </button>
+              <span class="hidden md:inline text-stone-400">|</span>
+              <span class="hidden md:inline font-semibold text-red-800 dark:text-red-400">${art.sectionName}</span>
+              <span class="hidden sm:inline text-stone-500 font-mono">第 ${idx + 1} / ${ARTICLES.length} 篇</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="openArticle('${prevArt.id}')" class="px-2.5 py-1 rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition" title="${prevArt.title}">
+                ← 上一篇
+              </button>
+              <button onclick="openArticle('${nextArt.id}')" class="px-2.5 py-1 rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition" title="${nextArt.title}">
+                下一篇 →
+              </button>
+              <button onclick="copyArticleBrief('${art.id}')" class="px-2.5 py-1 rounded border border-red-800/40 text-red-800 dark:text-red-400 hover:bg-red-900/10 font-medium transition">
+                复制内参摘要
+              </button>
+            </div>
+          </div>
+
+          <!-- Article Header Banner -->
+          <div class="space-y-3 pb-5 news-rule-b">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="px-2 py-0.5 bg-red-800 text-white font-semibold uppercase">${art.sectionName}</span>
+              <span class="text-red-800 dark:text-red-400 font-semibold">${art.kicker}</span>
+              <span class="text-stone-400">·</span>
+              <span class="text-stone-500 dark:text-stone-400 font-mono">${art.dateline}</span>
+            </div>
+
+            <h1 class="font-editorial text-2xl sm:text-4xl font-black leading-tight">
+              ${art.title}
+            </h1>
+
+            <p class="font-serif text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed">
+              ${art.subtitle}
+            </p>
+
+            <!-- Key Metrics Strip -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
+              ${art.metrics.map(m => `
+                <div class="p-3 rounded bg-paperAlt dark:bg-stone-900 border border-stone-300/70 dark:border-stone-800">
+                  <div class="text-[11px] text-stone-500 dark:text-stone-400">${m.label}</div>
+                  <div class="font-editorial text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 mt-0.5">${m.value}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Two-Column Nested Body: Left = Full Article & Sources (7 cols), Right = AI Deep Analysis (5 cols) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- LEFT COLUMN: FULL ARTICLE TEXT, PHOTOS, TIMELINE & SOURCES -->
+            <div class="lg:col-span-7 lg:pr-6 lg:news-rule-r space-y-6">
+              ${art.image ? `
+                <div class="space-y-4">
+                  ${renderPhotoBlock(art.image, 'aspect-[16/9]', true)}
+                  ${art.image.secondaryUrl ? `
+                    <figure class="space-y-1.5 pt-2">
+                      <div class="overflow-hidden bg-stone-200 dark:bg-stone-800 border border-stone-300/80 dark:border-stone-800 aspect-[16/10]">
+                        <img src="${art.image.secondaryUrl}" alt="${art.image.secondaryCaption || ''}" loading="lazy" class="w-full h-full object-contain bg-white dark:bg-stone-900 news-photo">
+                      </div>
+                      <figcaption class="text-[11px] leading-snug text-stone-500 dark:text-stone-400">
+                        ▲ ${art.image.secondaryCaption}
+                      </figcaption>
+                    </figure>
+                  ` : ''}
+                </div>
+              ` : ''}
+
+              <!-- Full Article Copy -->
+              <div class="space-y-4">
+                <div class="text-xs font-bold uppercase tracking-wider text-red-800 dark:text-red-400 news-rule-b pb-1.5">
+                  详细报道全文 · FULL REPORT
+                </div>
+                <div class="space-y-4 text-sm sm:text-base leading-relaxed text-stone-800 dark:text-stone-200 font-serif">
+                  ${art.fullParagraphs.map((p, pIdx) => `
+                    <p class="${pIdx === 0 ? 'first-letter:text-3xl first-letter:font-bold first-letter:mr-1 first-letter:float-left first-letter:leading-none' : ''}">${p}</p>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Key Highlights Box -->
+              <div class="p-4 rounded bg-paperAlt dark:bg-stone-900 border border-stone-300/80 dark:border-stone-800 space-y-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
+                  核心事实要点
+                </div>
+                <ul class="space-y-1.5 text-xs sm:text-sm text-stone-700 dark:text-stone-300">
+                  ${art.highlights.map(h => `
+                    <li class="flex items-start gap-2">
+                      <span class="text-red-800 dark:text-red-400 font-bold">▪</span>
+                      <span>${h}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+
+              <!-- Event Timeline -->
+              <div class="space-y-3 pt-2 news-rule-t">
+                <div class="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
+                  事件演进时间线 · TIMELINE
+                </div>
+                <div class="space-y-2.5 border-l-2 border-stone-300 dark:border-stone-700 pl-4 ml-1">
+                  ${art.timeline.map(t => `
+                    <div class="text-xs sm:text-sm">
+                      <span class="font-mono font-bold text-red-800 dark:text-red-400 mr-2">2026-${t.date}</span>
+                      <span class="text-stone-700 dark:text-stone-300">${t.text}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Verified Primary Sources -->
+              <div class="space-y-2.5 pt-4 news-rule-t">
+                <div class="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
+                  权威一手信源与出处链接 (${art.sources.length})
+                </div>
+                <div class="grid grid-cols-1 gap-2">
+                  ${art.sources.map(s => `
+                    <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded border border-stone-300/80 dark:border-stone-800 hover:border-red-800 dark:hover:border-red-400 transition flex items-center justify-between gap-2 text-xs group">
+                      <div class="flex items-center gap-2 truncate">
+                        <span class="px-1.5 py-0.5 rounded bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-mono text-[10px] shrink-0">${s.tier}</span>
+                        <span class="font-medium text-stone-800 dark:text-stone-200 group-hover:text-red-800 dark:group-hover:text-red-400 truncate">${s.title}</span>
+                      </div>
+                      <span class="text-stone-400 shrink-0">查看原文 ↗</span>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STRUCTURED AI DEEP ANALYSIS PANEL -->
+            <aside class="lg:col-span-5 space-y-5">
+              <div class="p-5 rounded-lg bg-paperAlt dark:bg-stone-900/90 border-2 border-stone-800 dark:border-stone-700 space-y-4">
+                <!-- AI Panel Header & Dimension Switcher -->
+                <div class="space-y-2.5 pb-3 news-rule-b">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold tracking-wider uppercase px-2 py-0.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900">
+                      AI 深度分析专栏 · DEEP INTELLIGENCE
+                    </span>
+                    <span class="text-[11px] text-stone-500 font-mono">双轨三透镜 × 利益穿透</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <button onclick="setAiAnalysisTab('all')" class="px-2.5 py-1 rounded text-[11px] font-semibold transition ${tab === 'all' ? 'bg-red-800 text-white' : 'bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300'}">
+                      全部维度
+                    </button>
+                    <button onclick="setAiAnalysisTab('motivation')" class="px-2.5 py-1 rounded text-[11px] font-semibold transition ${tab === 'motivation' ? 'bg-red-800 text-white' : 'bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300'}">
+                      1. 商业命门与棋局
+                    </button>
+                    <button onclick="setAiAnalysisTab('roundtable')" class="px-2.5 py-1 rounded text-[11px] font-semibold transition ${tab === 'roundtable' ? 'bg-red-800 text-white' : 'bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300'}">
+                      2. 圆桌交锋与预言
+                    </button>
+                    <button onclick="setAiAnalysisTab('actions')" class="px-2.5 py-1 rounded text-[11px] font-semibold transition ${tab === 'actions' ? 'bg-red-800 text-white' : 'bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300'}">
+                      3. 行动指南与观察哨
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Always-visible Core Thesis (一句话穿透本质) -->
+                <div class="p-3.5 rounded bg-paper dark:bg-neutral-950 border-l-4 border-red-800 space-y-1">
+                  <div class="text-[11px] font-bold text-red-800 dark:text-red-400 uppercase">
+                    AI 一针见血 · THE REAL STORY
+                  </div>
+                  <p class="text-xs sm:text-sm font-serif font-semibold leading-relaxed text-stone-900 dark:text-stone-100">
+                    ${art.aiAnalysis.realStory}
+                  </p>
+                </div>
+
+                <!-- Dimension 1: Motivation, Chessboard & Externalities -->
+                <div class="${tab === 'all' || tab === 'motivation' ? 'space-y-4' : 'hidden'}">
+                  <div class="space-y-1.5">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+                      <span>① 商业与财务命门拆解</span>
+                    </h3>
+                    <p class="text-xs leading-relaxed text-stone-700 dark:text-stone-300">
+                      ${art.aiAnalysis.motivation}
+                    </p>
+                  </div>
+
+                  <div class="space-y-1.5 pt-3 news-rule-t">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+                      ② 产业棋局与对手反制
+                    </h3>
+                    <p class="text-xs leading-relaxed text-stone-700 dark:text-stone-300">
+                      ${art.aiAnalysis.chessboard}
+                    </p>
+                  </div>
+
+                  <div class="space-y-1.5 pt-3 news-rule-t">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+                      ③ 权力外溢与社会外部性
+                    </h3>
+                    <p class="text-xs leading-relaxed text-stone-700 dark:text-stone-300">
+                      ${art.aiAnalysis.externality}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Dimension 2: Virtual Roundtable & Prediction Verification -->
+                <div class="${tab === 'all' || tab === 'roundtable' ? 'space-y-4 pt-3 news-rule-t' : 'hidden'}">
+                  <div class="space-y-2">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+                      ④ 虚拟圆桌立场交锋
+                    </h3>
+                    <div class="space-y-2">
+                      ${art.aiAnalysis.roundtable.map(rt => `
+                        <div class="p-3 rounded bg-paper dark:bg-neutral-950 border border-stone-300/80 dark:border-stone-800 space-y-1 text-xs">
+                          <div class="flex items-center justify-between">
+                            <span class="font-bold text-stone-900 dark:text-stone-100">${rt.persona}</span>
+                            <span class="px-1.5 py-0.5 rounded bg-stone-200 dark:bg-stone-800 text-[10px] font-medium">${rt.stance}</span>
+                          </div>
+                          <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-serif">“${rt.view}”</p>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+
+                  <div class="p-3 rounded bg-paper dark:bg-neutral-950 border border-stone-300/80 dark:border-stone-800 space-y-1.5 text-xs">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold text-stone-900 dark:text-stone-100">⑤ 历史预言兑现检验</span>
+                      <span class="px-2 py-0.5 rounded bg-emerald-800/15 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 font-bold text-[11px]">
+                        检验结果：${art.aiAnalysis.prediction.status}
+                      </span>
+                    </div>
+                    <blockquote class="italic text-stone-600 dark:text-stone-400 border-l-2 border-stone-400 pl-2">
+                      ${art.aiAnalysis.prediction.quote}
+                    </blockquote>
+                    <p class="text-stone-700 dark:text-stone-300 pt-1">
+                      <strong>核验依据：</strong>${art.aiAnalysis.prediction.evidence}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Dimension 3: Actionable Guide & Watchlist -->
+                <div class="${tab === 'all' || tab === 'actions' ? 'space-y-2.5 pt-3 news-rule-t' : 'hidden'}">
+                  <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+                    ⑥ 决策行动指南与观察哨
+                  </h3>
+                  <ul class="space-y-2 text-xs">
+                    ${art.aiAnalysis.actions.map(act => `
+                      <li class="p-2.5 rounded bg-paper dark:bg-neutral-950 border border-stone-300/80 dark:border-stone-800 flex items-start gap-2 text-stone-700 dark:text-stone-300 leading-relaxed">
+                        <span class="text-red-800 dark:text-red-400 font-bold">→</span>
+                        <span>${act}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </div>
+              </div>
+            </aside>
+
+          </div>
+
+          <!-- Bottom More Articles Strip -->
+          <div class="pt-8 news-rule-t space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-editorial text-base font-bold uppercase">本期其他要闻概览 · MORE IN THIS ISSUE</h3>
+              <button onclick="showFrontPage()" class="text-xs text-red-800 dark:text-red-400 font-semibold hover:underline">
+                返回头版查看全部 12 篇 →
+              </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              ${ARTICLES.filter(a => a.id !== art.id).slice(0, 4).map(other => `
+                <div onclick="openArticle('${other.id}')" class="p-3.5 rounded border border-stone-300/80 dark:border-stone-800 news-card-hover cursor-pointer flex flex-col justify-between space-y-2">
+                  <div class="space-y-1">
+                    <div class="text-[10px] font-semibold text-red-800 dark:text-red-400">${other.sectionName}</div>
+                    <div class="font-editorial text-sm font-bold leading-snug line-clamp-2">${other.title}</div>
+                  </div>
+                  <div class="text-[11px] text-stone-500 flex items-center justify-between pt-1">
+                    <span>${other.date}</span>
+                    <span class="text-red-800 dark:text-red-400">阅读 →</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Smart Past Issue URL Resolver (works in /2026-11-10/, repo root, and Canvas)
+    function resolveIssueUrl(issueFolder) {
+      const cleanFolder = String(issueFolder || '').replace(/^\/+|\/+$/g, '');
+      try {
+        const loc = window.location;
+        if (loc.hostname.endsWith('github.io') || loc.pathname.includes('/zhunxun-weekly')) {
+          const idx = loc.pathname.indexOf('/zhunxun-weekly');
+          if (idx !== -1) {
+            return loc.origin + '/zhunxun-weekly/' + cleanFolder + '/';
+          }
+        }
+        if (loc.protocol === 'http:' || loc.protocol === 'https:') {
+          // If hosted inside a date subfolder like /2026-11-10/index.html
+          if (/\/20\d{2}-\d{2}-\d{2}(\/|$)/.test(loc.pathname)) {
+            return '../' + cleanFolder + '/';
+          }
+          // If hosted at root level like /2026-11-03_11-10.html
+          return './' + cleanFolder + '/';
+        }
+      } catch (e) {}
+      return 'https://mxiaohh.github.io/zhunxun-weekly/' + cleanFolder + '/';
+    }
+
+    function toggleArchiveModal(show) {
+      const modal = document.getElementById('archiveModal');
+      if (!modal) return;
+      if (show) {
+        const linkEl = document.getElementById('linkIssue20261031');
+        if (linkEl) {
+          linkEl.href = resolveIssueUrl('2026-10-31');
+        }
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function navigateToIssue(issueFolder, evt) {
+      const targetUrl = resolveIssueUrl(issueFolder);
+      try {
+        if (window.location.hostname.endsWith('github.io') || window.location.pathname.includes('/zhunxun-weekly')) {
+          window.location.href = targetUrl;
+          if (evt) evt.preventDefault();
+          return false;
+        }
+      } catch (e) {}
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      if (evt) evt.preventDefault();
+      return false;
+    }
+
+    function jumpToCustomIssue() {
+      const inp = document.getElementById('customIssueInput');
+      const val = inp ? inp.value.trim() : '';
+      if (!val) {
+        showToast('请输入期数文件夹名称，例如 2026-10-31');
+        return;
+      }
+      navigateToIssue(val, null);
+    }
+
+    // Keyboard & Hash Navigation Support
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('archiveModal');
+        if (modal && !modal.classList.contains('hidden')) {
+          toggleArchiveModal(false);
+          return;
+        }
+        if (state.view === 'article') {
+          showFrontPage();
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyTheme();
+      try {
+        const h = location.hash || '';
+        if (h.startsWith('#/article/')) {
+          const targetId = h.replace('#/article/', '').trim();
+          if (ARTICLES.some(a => a.id === targetId)) {
+            openArticle(targetId);
+            return;
+          }
+        }
+      } catch (e) {}
+      renderFrontPage();
+    });
+  </script>
+</body>
+</html>
