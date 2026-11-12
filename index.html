@@ -3,22 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>准讯周报 · 最新一期</title>
-  <meta http-equiv="refresh" content="0; url=./2026-11-10/" />
-  <link rel="canonical" href="./2026-11-10/" />
+  <title>准讯周报 · 刊期目录</title>
+  <meta name="theme-color" content="#071936" />
+  <link rel="canonical" href="./" />
+  <noscript><meta http-equiv="refresh" content="0; url=./2026-11-10/" /></noscript>
   <style>
-    html,body{margin:0;height:100%;background:#071936;color:#F0F9FF;
-      font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
-      display:flex;align-items:center;justify-content:center;text-align:center}
-    a{color:#7DD3FC}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;min-height:100%}
+    body{
+      background:radial-gradient(1100px 620px at 50% -12%,#12345f 0%,#071936 58%,#041122 100%);
+      color:#F0F9FF;
+      font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      display:flex;align-items:center;justify-content:center;
+      padding:48px 20px 40px;
+    }
+    .wrap{width:100%;max-width:760px}
+    .kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#7DD3FC;text-align:center;margin-bottom:18px}
+    h1{font-size:clamp(34px,7vw,56px);font-weight:900;letter-spacing:.16em;text-align:center;margin:0 0 10px}
+    .sub{text-align:center;color:#9FC3E4;font-size:14px;margin:0 0 8px}
+    .rule{width:56px;height:2px;background:linear-gradient(90deg,transparent,#38BDF8,transparent);margin:20px auto 30px;border:0}
+    .label{font-size:12px;letter-spacing:.14em;color:#7DD3FC;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .label::after{content:"";flex:1;height:1px;background:rgba(125,211,252,.2)}
+    #issue-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    .card{
+      display:block;position:relative;padding:20px 20px 18px;border-radius:14px;
+      border:1px solid rgba(125,211,252,.22);background:rgba(255,255,255,.045);
+      text-decoration:none;color:inherit;transition:transform .16s ease,background .16s ease,border-color .16s ease;
+    }
+    .card:hover{transform:translateY(-3px);background:rgba(56,189,248,.12);border-color:rgba(125,211,252,.6)}
+    .card.latest{border-color:rgba(56,189,248,.55);background:rgba(2,132,199,.14)}
+    .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;padding:3px 9px;border-radius:999px;background:#0284C7;color:#fff;margin-bottom:12px}
+    .badge.plain{background:rgba(125,211,252,.16);color:#BAE6FD}
+    .card h2{font-size:19px;font-weight:800;margin:0 0 6px;letter-spacing:.02em}
+    .card p{font-size:12.5px;color:#9FC3E4;margin:0 0 18px}
+    .go{font-size:12px;font-weight:700;color:#7DD3FC;display:flex;align-items:center;justify-content:space-between}
+    .go span:last-child{font-size:11px;color:#6E96BC;font-weight:500}
+    .foot{margin-top:28px;text-align:center;font-size:12.5px;color:#8FB6D8;line-height:2}
+    .foot a{color:#7DD3FC}
+    .btn{
+      font-family:inherit;font-size:12px;color:#BAE6FD;background:transparent;
+      border:1px solid rgba(125,211,252,.35);border-radius:999px;padding:5px 14px;cursor:pointer;margin-left:8px;
+    }
+    .btn:hover{background:rgba(125,211,252,.14)}
+    .tip{margin-top:22px;text-align:center;font-size:11px;color:#5C86AC;letter-spacing:.04em}
   </style>
 </head>
-<body>
-  <div>
-    <div style="font-size:15px;letter-spacing:.08em;color:#7DD3FC;margin-bottom:10px">准讯周报</div>
-    <div style="font-size:20px;font-weight:800;margin-bottom:16px">正在打开最新一期（2026-11-10）…</div>
-    <div style="margin-bottom:12px"><a href="./2026-11-10/">若未自动跳转，点此进入最新一期 (2026-11-10) →</a></div>
-    <div style="font-size:13px;opacity:0.8"><a href="./2026-10-31/">查看上一期 (2026-10-31) →</a></div>
+<body data-zxsw-page="index">
+  <div class="wrap">
+    <div class="kicker">ZHUNXUN WEEKLY · ARCHIVE</div>
+    <h1>准讯周报</h1>
+    <p class="sub">全球人工智能与硬科技 · 双层精读</p>
+    <hr class="rule" />
+
+    <div class="label">全部刊期 <span id="issue-count"></span></div>
+    <div id="issue-list"></div>
+
+    <div class="foot">
+      <div id="redirect-note">
+        <span id="countdown">5</span> 秒后自动进入最新一期
+        <button class="btn" id="btn-cancel" type="button">留在本页</button>
+      </div>
+      <div>
+        在任意一期页面右下角的「切换刊期」按钮，或按 <strong>Alt + 数字</strong>，可随时跳到其他刊期。
+      </div>
+      <div><a href="https://github.com/mxiaohh/zhunxun-weekly" target="_blank" rel="noopener noreferrer">GitHub 刊物仓库 ↗</a></div>
+    </div>
+    <div class="tip">刊期清单统一维护在 site-nav.js，新增一期只需改一处</div>
   </div>
+
+  <script src="./site-nav.js"></script>
+  <script>
+    (function () {
+      var Z = window.ZXSW;
+      var box = document.getElementById('issue-list');
+      var issues = (Z && Z.issues) || [];
+
+      document.getElementById('issue-count').textContent = '· 共 ' + issues.length + ' 期';
+
+      // site-nav.js 缺失时给出明确提示，而不是白屏
+      if (!issues.length) {
+        box.innerHTML = '<div class="card"><h2>刊期清单未加载</h2>' +
+          '<p>请确认 site-nav.js 已与 index.html 一起上传到同一目录。</p>' +
+          '<div class="go"><a href="./2026-11-10/" style="color:#7DD3FC">直接进入最新一期 →</a></div></div>';
+        document.getElementById('redirect-note').textContent = '已取消自动跳转';
+        return;
+      }
+
+      box.innerHTML = issues.map(function (it, i) {
+        var isNew = i === 0;
+        return '<a class="card' + (isNew ? ' latest' : '') + '" href="' + Z.issueUrl(it.dir) + '">' +
+          '<span class="badge' + (isNew ? '' : ' plain') + '">' + (isNew ? '最新一期' : '往期归档') + '</span>' +
+          '<h2>' + it.title + '</h2>' +
+          '<p>' + (it.sub || '') + '</p>' +
+          '<div class="go"><span>进入阅读 →</span><span>' + it.dir + ' · Alt+' + (i + 1) + '</span></div>' +
+        '</a>';
+      }).join('');
+
+      // 可取消的自动跳转（JS 关闭时由 <noscript> 的 meta refresh 兜底）
+      var left = 5;
+      var el = document.getElementById('countdown');
+      var timer = setInterval(function () {
+        left -= 1;
+        if (left <= 0) {
+          clearInterval(timer);
+          location.href = Z.issueUrl(issues[0].dir);
+          return;
+        }
+        el.textContent = left;
+      }, 1000);
+
+      document.getElementById('btn-cancel').addEventListener('click', function () {
+        clearInterval(timer);
+        document.getElementById('redirect-note').innerHTML = '已停留在本页 · 可自由选择刊期';
+      });
+
+      // Alt+数字直达，与站内切换器保持一致
+      window.addEventListener('keydown', function (e) {
+        if (!e.altKey || e.ctrlKey || e.metaKey || !/^[0-9]$/.test(e.key)) return;
+        var n = parseInt(e.key, 10);
+        if (n === 0 || !issues[n - 1]) return;
+        e.preventDefault();
+        clearInterval(timer);
+        location.href = Z.issueUrl(issues[n - 1].dir);
+      });
+    })();
+  </script>
 </body>
 </html>
