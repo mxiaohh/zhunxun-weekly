@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>准讯周报 · 2026年11月15日刊｜AI与科技深度周刊</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink-primary: #0F172A;
+      --ink-secondary: #334155;
+      --ink-muted: #64748B;
+      --accent-blue: #1D4ED8;
+      --paper-bg: #F8FAFC;
+      --paper-sheet: #FFFFFF;
+    }
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--paper-bg);
+      color: var(--ink-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif-cn {
+      font-family: 'Noto Serif SC', 'Songti SC', 'STSong', Georgia, serif;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .news-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      background-color: #F1F5F9;
+    }
+    .news-photo-img {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .group:hover .news-photo-zoom {
+      transform: scale(1.03);
+    }
+    /* Article Prose */
+    .article-prose p {
+      margin-bottom: 1.25rem;
+      line-height: 1.9;
+      color: #1E293B;
+      text-align: justify;
+    }
+    .article-prose > p:first-of-type::first-letter {
+      float: left;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.85rem;
+      line-height: 0.92;
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-bottom: 2px;
+      font-weight: 900;
+      color: #0F172A;
+    }
+    .article-prose a {
+      color: #1D4ED8;
+      text-decoration: underline;
+      text-decoration-color: #BFDBFE;
+      text-underline-offset: 3px;
+      font-weight: 500;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+    .article-prose a:hover {
+      color: #0F172A;
+      text-decoration-color: #1D4ED8;
+    }
+    .font-scale-sm .article-prose p,
+    .font-scale-sm .analysis-text {
+      font-size: 0.94rem;
+      line-height: 1.82;
+    }
+    .font-scale-md .article-prose p,
+    .font-scale-md .analysis-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+    .font-scale-lg .article-prose p,
+    .font-scale-lg .analysis-text {
+      font-size: 1.16rem;
+      line-height: 1.98;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-700 selection:text-white">
+
+  <!-- Minimalist Sticky Top Bar -->
+  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-3 text-xs">
+      <button id="nav-brand-btn" type="button" class="flex items-center gap-2.5 text-left group focus:outline-none">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-serif-cn font-bold text-xs flex items-center justify-center group-hover:bg-blue-700 transition-colors">准</span>
+        <span class="font-serif-cn font-bold text-sm text-slate-900 tracking-wide">准讯周报</span>
+      </button>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="top-back-home-btn" type="button" class="hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 hover:bg-blue-700 text-white font-medium transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>返回头版</span>
+        </button>
+
+        <button id="open-matrix-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:border-slate-900 text-slate-700 hover:text-slate-900 font-medium transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          <span>视角矩阵</span>
+        </button>
+
+        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 font-mono-num">
+          <strong id="read-count-badge" class="text-blue-700 font-bold">0</strong>
+          <span>/ 12 已读</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+    <!-- ==================== VIEW 1: MINIMALIST FRONT PAGE ==================== -->
+    <div id="view-home" class="bg-white border border-slate-200/90 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] p-5 sm:p-10 lg:p-12">
+
+      <!-- Clean Minimalist Masthead -->
+      <header class="pb-6">
+        <div class="flex items-center justify-between text-xs text-slate-400 font-mono-num pb-4 border-b border-slate-100">
+          <span>2026年11月15日 · 第 46 期</span>
+          <a href="https://aihot.news/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-sans font-medium transition-colors">AIHOT 信源直采 ↗</a>
+        </div>
+
+        <div class="py-8 sm:py-10 text-center">
+          <h1 class="font-serif-cn font-black text-4xl sm:text-5xl lg:text-6xl tracking-[0.18em] text-slate-900 leading-none">
+            准讯周报
+          </h1>
+          <p class="mt-3 text-xs sm:text-sm text-slate-500 tracking-widest">
+            AI 与科技深度周刊
+          </p>
+        </div>
+
+        <!-- Clean 4-Item Key Metrics Strip -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-slate-200/80 border-y border-slate-200">
+          <button type="button" onclick="openArticle(1)" class="py-3.5 px-4 text-left hover:bg-slate-50/80 transition-colors group">
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-serif-cn font-black text-xl sm:text-2xl text-slate-900 group-hover:text-blue-700 transition-colors">2500亿</span>
+              <span class="text-[11px] font-medium text-blue-700">担保砍半</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1 truncate">黄仁勋辞任英伟达 CEO</p>
+          </button>
+
+          <button type="button" onclick="openArticle(2)" class="py-3.5 px-4 text-left hover:bg-slate-50/80 transition-colors group">
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-serif-cn font-black text-xl sm:text-2xl text-slate-900 group-hover:text-blue-700 transition-colors">58%</span>
+              <span class="text-[11px] font-medium text-blue-700">算力占营收比</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1 truncate">Anthropic 招股书摊牌成本</p>
+          </button>
+
+          <button type="button" onclick="openArticle(3)" class="py-3.5 px-4 text-left hover:bg-slate-50/80 transition-colors group">
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-serif-cn font-black text-xl sm:text-2xl text-slate-900 group-hover:text-blue-700 transition-colors">6800亿</span>
+              <span class="text-[11px] font-medium text-blue-700">AI 基建债</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1 truncate">美联储：87%机构列为头号风险</p>
+          </button>
+
+          <button type="button" onclick="openArticle(8)" class="py-3.5 px-4 text-left hover:bg-slate-50/80 transition-colors group">
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-serif-cn font-black text-xl sm:text-2xl text-slate-900 group-hover:text-blue-700 transition-colors">6款</span>
+              <span class="text-[11px] font-medium text-blue-700">开源模型</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1 truncate">权重取证检出 Blackwell 指纹</p>
+          </button>
+        </div>
+      </header>
+
+      <!-- Clean Category Tabs & Search -->
+      <section class="py-4 border-b border-slate-200 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0" id="category-tabs">
+          <button type="button" data-cat="all" class="cat-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-colors whitespace-nowrap">
+            全部 (12)
+          </button>
+          <button type="button" data-cat="算力与资本账本" class="cat-tab px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors whitespace-nowrap">
+            算力与资本账本 (3)
+          </button>
+          <button type="button" data-cat="前沿模型与芯片" class="cat-tab px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors whitespace-nowrap">
+            前沿模型与芯片 (3)
+          </button>
+          <button type="button" data-cat="智能体与开源生态" class="cat-tab px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors whitespace-nowrap">
+            智能体与开源生态 (4)
+          </button>
+          <button type="button" data-cat="安全与底座风险" class="cat-tab px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors whitespace-nowrap">
+            安全与底座风险 (2)
+          </button>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <label class="inline-flex items-center gap-1.5 cursor-pointer select-none text-xs text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            <input type="checkbox" id="focus-only-toggle" class="w-3.5 h-3.5 rounded border-slate-300 text-blue-700 focus:ring-blue-700">
+            <span>仅看焦点</span>
+          </label>
+          <div class="relative flex-1 sm:w-56">
+            <input type="text" id="search-input" placeholder="搜索标题、人物或公司..." class="w-full pl-8 pr-7 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-full focus:outline-none focus:border-slate-400 focus:bg-white transition-colors">
+            <svg class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <button type="button" id="clear-search-btn" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section A: Front-Page Focus -->
+      <section id="focus-section" class="pt-8 pb-10 border-b border-slate-200">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="font-serif-cn font-bold text-lg text-slate-900 tracking-wide">头版焦点</h2>
+          <span class="text-xs font-mono-num text-slate-400 uppercase tracking-wider">Front Page</span>
+        </div>
+
+        <div id="focus-cards-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:divide-x lg:divide-slate-200/80">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </section>
+
+      <!-- Section B: Weekly Dispatch Grid -->
+      <section id="grid-section" class="pt-8">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="font-serif-cn font-bold text-lg text-slate-900 tracking-wide">本期专稿</h2>
+          <span id="grid-count-label" class="text-xs font-mono-num text-slate-400">共 9 篇</span>
+        </div>
+
+        <div id="regular-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </section>
+
+      <!-- Empty Filter State -->
+      <div id="empty-filter-state" class="hidden py-16 text-center">
+        <p class="font-serif-cn font-bold text-base text-slate-900">未检索到匹配的文章</p>
+        <p class="text-xs text-slate-500 mt-1 mb-4">请尝试清空检索词或切回全部分类</p>
+        <button type="button" id="reset-filters-btn" class="px-4 py-1.5 rounded-full bg-slate-900 hover:bg-blue-700 text-white text-xs font-medium transition-colors">
+          重置筛选
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ==================== VIEW 2: NESTED ARTICLE DETAIL PAGE ==================== -->
+    <div id="view-article" class="hidden font-scale-md">
+      <div class="max-w-4xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] overflow-hidden">
+
+        <div class="border-b border-slate-200 px-5 sm:px-8 py-3.5 bg-slate-50/70 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <button type="button" onclick="showHome()" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              <span>返回头版</span>
+            </button>
+            <span class="text-slate-300">|</span>
+            <span id="detail-breadcrumb" class="text-xs font-mono-num text-slate-500">NO.01 / 12</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <div class="inline-flex items-center rounded-full border border-slate-200 bg-white p-0.5 text-xs">
+              <button type="button" onclick="setFontSize('sm')" id="font-btn-sm" class="px-2.5 py-0.5 rounded-full text-slate-500 hover:text-slate-900 transition-colors">小</button>
+              <button type="button" onclick="setFontSize('md')" id="font-btn-md" class="px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-medium transition-colors">标准</button>
+              <button type="button" onclick="setFontSize('lg')" id="font-btn-lg" class="px-2.5 py-0.5 rounded-full text-slate-500 hover:text-slate-900 transition-colors">大</button>
+            </div>
+
+            <div class="inline-flex items-center gap-1">
+              <button type="button" id="top-prev-btn" class="px-3 py-1 rounded-full border border-slate-200 bg-white hover:border-slate-400 text-xs font-medium text-slate-700 transition-colors">
+                ← 上一篇
+              </button>
+              <button type="button" id="top-next-btn" class="px-3 py-1 rounded-full border border-slate-200 bg-white hover:border-slate-400 text-xs font-medium text-slate-700 transition-colors">
+                下一篇 →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <article id="article-sheet" class="p-6 sm:p-10 lg:p-12 space-y-8">
+          <!-- Populated dynamically by JS -->
+        </article>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== MODAL: 12-ARTICLE METHODOLOGY MATRIX ==================== -->
+  <div id="matrix-modal" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white max-w-5xl w-full max-h-[85vh] flex flex-col shadow-2xl rounded-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
+        <div>
+          <h3 class="font-serif-cn font-bold text-base sm:text-lg tracking-wide">本期 12 篇报道分析视角矩阵</h3>
+          <p class="text-xs text-slate-300 mt-0.5">每篇报道均配附专属理论框架与行业领袖观点交锋</p>
+        </div>
+        <button type="button" id="close-matrix-btn" class="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="text-slate-500 border-b border-slate-200">
+                <th class="py-2.5 px-3 font-mono-num font-semibold whitespace-nowrap">版号</th>
+                <th class="py-2.5 px-3 font-serif-cn font-semibold">新闻议题</th>
+                <th class="py-2.5 px-3 font-serif-cn font-semibold">分析视角</th>
+                <th class="py-2.5 px-3 font-serif-cn font-semibold">交锋人物</th>
+                <th class="py-2.5 px-3 font-serif-cn font-semibold text-right whitespace-nowrap">阅读</th>
+              </tr>
+            </thead>
+            <tbody id="matrix-table-body" class="divide-y divide-slate-100">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimalist Footer -->
+  <footer class="mt-8 border-t border-slate-200 bg-white/70 py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div class="flex items-center gap-2.5">
+        <span class="font-serif-cn font-bold text-slate-800">准讯周报</span>
+        <span>·</span>
+        <span>2026年11月15日刊（11.09–11.14）</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://aihot.news/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">AIHOT 信源</a>
+        <span>·</span>
+        <span>Wikimedia Commons 实拍图源</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const ARTICLES = [
+      {
+        id: 1,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Jensen_Huang_(cropped).jpg?width=900",
+        secondaryImageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/NVIDIA_Headquarters.jpg?width=900",
+        imageCaption: "图 01｜英伟达（NVIDIA）联合创始人黄仁勋（Jensen Huang）及位于加州圣克拉拉的英伟达总部大楼（实拍图源：Wikimedia Commons / CC BY-SA）",
+        imageCredit: "Wikimedia Commons · 人物与总部实拍",
+        entityBadge: "人物 · 黄仁勋 / NVIDIA",
+        orderLabel: "01",
+        isFocus: true,
+        focusRank: "头版头条",
+        category: "算力与资本账本",
+        date: "2026-11-12 ~ 11-14",
+        readTime: "6 分钟",
+        metricNum: "2500",
+        metricUnit: "亿美元担保砍半",
+        metricTag: "33年创始人时代谢幕",
+        analysisMethodName: "政治经济学 × 卖铲人“影子银行”信用链审视",
+        analysisMethodReason: "本事件表面是高管私生活与涉密调查引发的治理危机，实则是英伟达从“高毛利卖卡商”异化为“算力金融担保方”后的资产负债表反噬，适合用政治经济学中的产业资本金融化与信用循环视角穿透。",
+        title: "黄仁勋辞任英伟达 CEO 并退出董事会：33 年帝国谢幕背后，2500 亿美元算力担保风险浮出水面",
+        subtitle: "CFO Colette Kress 接任临时 CEO 并火速将 OpenAI 俄亥俄数据中心财务担保承诺砍半；数百名员工联署挽留，创投圈担忧 AI 初创融资出现巨额缺口。",
+        quote: "「如果您的数据中心有 1 吉瓦的电力，就是 1 吉瓦，不会更多。在这个约束下，每瓦效能即营收。」——黄仁勋（NVIDIA 创始人）",
+        tldr: "执掌英伟达 33 年、将其带上 5 万亿美元市值巅峰的黄仁勋于 11 月 12 日突然辞去总裁、CEO 及董事职务，盘中股价一度暴跌 14%。尽管导火索是其与新加坡数据中心运营商 Megaspeed 前高管（被美方指控涉及情报活动及 75 亿美元芯片转运）的婚外情风波，但《华尔街日报》披露，董事会痛下决心的深层原因在于黄仁勋主导的高风险“算力财务担保”——包括对 OpenAI 俄亥俄数据中心高达 2500 亿美元的担保承诺，临时 CEO Colette Kress 上任后已第一时间将该承诺削减一半。",
+        newsContext: "自 1993 年联合创办英伟达以来，黄仁勋凭借对 CUDA 生态的孤注一掷与机架级系统（NVL72）的垂直锁定，将英伟达打造成全球首家突破 5 万亿美元市值、占标普 500 指数权重约 6% 的算力帝国。然而进入 2026 年下半年，随着云厂商自研芯片提速与出口管制收紧，英伟达为维持超高速增长，越来越深地介入下游客户的融资链条——不仅出资参投 OpenAI、入股 CoreWeave，还直接为数据中心开发商提供巨额财务担保以换取营收分成。",
+        newsFacts: [
+          "<strong>闪电辞任与接班安排</strong>：11 月 12 日，<a href=\"https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition\" target=\"_blank\" rel=\"noopener noreferrer\">英伟达董事会正式宣布</a>黄仁勋辞去总裁、CEO 及董事职务，即刻生效；执行副总裁兼 CFO Colette Kress 出任临时 CEO，前 Synopsys CEO Harvey Jones 出任公司首任董事长，同时接触 Arm CEO Rene Haas 等潜在继任人选。消息公布后，<a href=\"https://www.theguardian.com/technology/2026/nov/12/nvidia-ceo-jensen-huang-resigns\" target=\"_blank\" rel=\"noopener noreferrer\">英伟达股价开盘暴跌 13%–14%</a>，单周市值蒸发约 4900 亿美元，回落至 4 万亿美元关口。",
+          "<strong>情报风波与内部震荡</strong>：此前《纽约时报》与 <a href=\"https://apnews.com/live/nvidia-ceo-jensen-huang-resignation-news-updates-11-12-2026\" target=\"_blank\" rel=\"noopener noreferrer\">AP News 报道</a>称，美国情报机构认定新加坡 Megaspeed 前高管 Alice Huang（黄乐）受募刺探芯片信息，The Information 称相关网络向中国买家转手约 75 亿美元硬件；黄仁勋在内部信中承认婚外情，随后又被曝出与直接下属的第二段恋情。离任后，内部建议箱帖文获超 1600 条员工评论请愿其回归，但应用深度学习研究副总裁 Bryan Catanzaro 公开辟谣网传“要求董事会复职的联名信”系伪造，并表态全力支持新任临时 CEO Colette Kress。",
+          "<strong>高风险财务担保与创投断流隐忧</strong>：据《华尔街日报》与 The Decoder 披露，董事会罢免黄仁勋的核心动因并非私生活，而是其在未充分对冲风险的情况下，向 AI 云厂商与数据中心提供数十亿美元财务担保以换取收入分成，其中最大一笔为对 OpenAI 俄亥俄数据中心的 <strong>2500 亿美元担保</strong>，Colette Kress 接任后已将该承诺减半。此外，<a href=\"https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/\" target=\"_blank\" rel=\"noopener noreferrer\">TechCrunch</a> 与 Interconnects 指出，英伟达今年已参与 105 轮 AI 创投，CFO 出身的 Kress 风格趋于财务稳健，美国开源模型生态与 AI 初创融资恐面临资金缺口。"
+        ],
+        companyProfile: {
+          name: "NVIDIA（英伟达）商业底牌与命门",
+          summary: "表面是手握 75% 毛利率的“算力过路费”征收者（FY27 Q2 营收 962 亿美元，数据中心占比高达 92.5%），实则在 2026 年演变为 AI 算力体系的“最后信用提供方”。",
+          points: [
+            "<strong>客户高度集中与毛利拐点</strong>：上半财年三大直接客户分别占营收 16%、15%、13%，Q3 毛利率指引已从 75.0% 微降至 74.0%。",
+            "<strong>“自己出钱帮客户买自己卡”的循环脆弱性</strong>：2026 年英伟达联合黑石、KKR、高盛等动员 5000 亿美元基建资本，买入 CoreWeave 20 亿美元并参投 OpenAI。当卖铲人开始用自身资产负债表为淘金者的 2500 亿美元机房做担保时，任何下游现金流波动都会直接反噬英伟达自身信用。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、穿透表象：为什么真正让董事会按下切割键的是“2500亿美元担保”？",
+            body: "如果只把黄仁勋的离任当成硅谷桃色八卦或地缘政治猎巫，就会错失整场风波最核心的商业信号。在英伟达市值冲上 5 万亿美元的过程中，支撑其估值神话的是“算力需求无限、客户排队打款”的卖方市场叙事。然而，当黄仁勋主导对 OpenAI 俄亥俄数据中心提供高达 2500 亿美元的财务担保以换取分成时，英伟达的商业性质发生了根本改变——它不再只是收取现金的设备商，而成了替客户背负表外债务的“影子银行”。CFO 出身的 Colette Kress 接任临时 CEO 后的第一刀，就是把这笔 2500 亿美元承诺直接砍半，这恰恰说明董事会与审计委员会意识到：靠供应商信用膨胀撑起的算力订单，已经触及了上市公司风险敞口的红线。"
+          },
+          {
+            heading: "二、生态连锁反应：从“远见型帝国扩张”退守“现金流交付”",
+            body: "黄仁勋一人身兼产品定义者、超级销售员与全球生态庄家三重角色。他在任时，英伟达每年将数十亿美元利润回流至 AI 创投（仅 2026 年就参投 105 轮）并资助美国开源模型社区，本质上是在用资本播种未来的 GPU 消耗量。随着财务纪律优先的职业经理人接管，英伟达短期内必将收缩高风险担保、放缓非核心开源资助与早期创投，把重心转向稳住 CoWoS/HBM4 供应链交付与改善资产负债表。对 AMD、Google TPU 而言，英伟达在政治游说与生态补贴上的战略收缩，打开了千载难逢的抢单窗口；但若英伟达收紧信贷担保导致下游数据中心建设放缓，整个 AI 硬件赛道的蛋糕增速也将同步降温。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "黄仁勋（NVIDIA 创始人）",
+            role: "算力即营收的扩张逻辑",
+            quote: "「如果您的数据中心有 1 吉瓦的电力，就是 1 吉瓦，不会更多。在这个约束下，每瓦效能即营收。」",
+            sourceUrl: "https://m.tmtpost.com/8010173.html",
+            comment: "黄仁勋将“物理电力与算力容量”直接等同于营收，这一信念驱动他不惜用 2500 亿美元担保去催熟超级机房；但当下游客户的商业化变现跟不上机房扩建速度时，“算力即营收”就会异化为“担保即坏账风险”。"
+          },
+          {
+            person: "Satya Nadella（微软董事长兼 CEO）",
+            role: "宏观需求侧的冷酷约束",
+            quote: "「这笔钱最终必须由全球实际 GDP 增长的拐点来偿付。」",
+            sourceUrl: "https://eu.36kr.com/en/p/4044987101762441",
+            comment: "Nadella 的判断一针见血地解释了英伟达董事会的恐惧：如果终端企业和真实 GDP 没有长出足以偿付数千亿美元机房的现金流，靠芯片厂左手倒右手做担保，终究无法通过公开市场的财务检验。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>算力采购与 AI 基础设施团队</strong>：密切评估英伟达缩减融资担保后，二线 GPU 云服务商（Neoclouds）的资金链稳定性与机房交付延期风险，在长期算力租约中增加多云与 Google TPU / AMD 备选条款。",
+          "<strong>AI 创业者与开源开发者</strong>：英伟达战略投资与开源社区补贴在职业经理人过渡期内大概率明显收紧，依赖硬件厂商生态经费的团队需尽快转向自造血或拓展多元化资本渠道。"
+        ],
+        sources: [
+          { label: "AIHOT 热点榜：黄仁勋辞任英伟达CEO并退出董事会", url: "https://aihot.news/hot" },
+          { label: "NVIDIA 官方公告：NVIDIA Announces CEO Transition (2026-11-12)", url: "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" },
+          { label: "The Guardian：Jensen Huang resigns as Nvidia CEO after alleged affairs", url: "https://www.theguardian.com/technology/2026/nov/12/nvidia-ceo-jensen-huang-resigns" },
+          { label: "TechCrunch：Nvidia's Jensen Huang resigns, chipmaker names CFO Colette Kress as interim CEO", url: "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/" },
+          { label: "AP News：Nvidia CEO Jensen Huang resigns after affair live updates", url: "https://apnews.com/live/nvidia-ceo-jensen-huang-resignation-news-updates-11-12-2026" }
+        ]
+      },
+      {
+        id: 2,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Dario_Amodei_at_TechCrunch_Disrupt_2023_01_(cropped_2).jpg?width=900",
+        imageCaption: "图 02｜Anthropic 联合创始人兼 CEO 达里奥·阿莫迪（Dario Amodei）在公开活动上谈前沿模型算力与商业化（实拍图源：TechCrunch / Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 人物实拍",
+        entityBadge: "人物 · Dario Amodei / Anthropic",
+        orderLabel: "02",
+        isFocus: true,
+        focusRank: "头版二条",
+        category: "算力与资本账本",
+        date: "2026-11-09 ~ 11-14",
+        readTime: "6 分钟",
+        metricNum: "58%",
+        metricUnit: "算力占营收比",
+        metricTag: "8954亿美元刚性算力承诺",
+        analysisMethodName: "佩蕾丝技术-经济范式 × 招股书算力账本与能源圈地审计",
+        analysisMethodReason: "Anthropic 冲刺史上最大规模科技 IPO 之一，首次将头部大模型实验室的真实成本结构与长期合同义务置于 SEC 聚光灯下，适合用技术-经济范式转换（从金融狂热导入期转向生产成本核算期）拆解其估值重定价。",
+        title: "Anthropic 启动纳斯达克 IPO 路演：估值回调至 1.25 万亿美元起，招股书揭开 58% 算力成本与 34 亿美元买电底牌",
+        subtitle: "拟以代码 ANT 上市募资最高 904 亿美元；Q3 营收猛增至 170 亿美元却转亏 5.67 亿美元，身背 8954 亿美元基建长约，并亲自下场接盘 1.7GW 卡特彼勒燃气发电机组。",
+        quote: "「我们只赚六倍利润的情况下，开源是不会有什么影响的。」——梁文锋（DeepSeek 创始人，对比硅谷天价算力账本的定价锚）",
+        tldr: "Anthropic 正式启动纳斯达克 IPO 路演（股票代码 ANT，发行价区间 70–78 美元），计入谷歌、英伟达、AMD、微软、台积电等基石私募后总募资规模最高可达 904 亿美元。但在二级市场机构投资者的严苛审视下，其目标估值已从 9 月期望的 2 万亿美元下调至 1.25 万亿–1.75 万亿美元（部分机构甚至压价至 1 万亿）。更新版 S-1/A 招股书首次摊开了昂贵的底牌：Q3 营收虽达 170 亿美元，但因算力成本占营收比例从 48% 飙升至 58%，单季经营利润由盈转亏（-5.67 亿美元），且背负高达 8954 亿美元的算力与基础设施合同承诺；公司甚至斥资 34 亿美元直接买下 1.7GW 燃气发电机组。",
+        newsContext: "2026 年是大模型独角兽从一级市场叙事走向二级市场交卷的决战年。Anthropic 凭借企业级 API 与编程工具 Claude Code 的爆发，年化收入从 2025 年底的 90 亿美元一路狂飙，并在 2026 年 5 月拿下 9000 亿美元估值。然而，一级市场看的是“ARR 增速斜率”，二级市场看的却是“扣除算力折旧后的真实自由现金流”。当 S-1/A 文件把成本明细公之于众，华尔街第一次看清了前沿大模型的真实账本。",
+        newsFacts: [
+          "<strong>募资结构与估值回调</strong>：据 <a href=\"https://aihot.news/hot\" target=\"_blank\" rel=\"noopener noreferrer\">AIHOT 汇总路透社与《金融时报》报道</a>，Anthropic 拟发行 8.25 亿股 A 类普通股（每股 70–78 美元），公开市场募资最多 644 亿美元，叠加谷歌、英伟达、AMD、博通、美光、微软、台积电等 260 亿美元私募认购，合计募资最高达 <strong>904 亿美元</strong>。由于投资者担忧估值过高并追问 10 月最新营收增速，<a href=\"https://www.163.com/dy/article/LBC598M705198CJN.html\" target=\"_blank\" rel=\"noopener noreferrer\">CEO Dario Amodei 已接受将目标估值下调至 1.25 万亿–1.75 万亿美元</a>。",
+          "<strong>S-1/A 招股书里的盈亏反转与万亿长约</strong>：更新版 S-1/A 显示，Anthropic 2026 年 Q3 营收达 <strong>170 亿美元</strong>（去年同期的 12 倍），但经营利润从 Q2 的盈利 9.74 亿美元转为<strong>亏损 5.67 亿美元</strong>（若计入公允价值变动等口径净亏损达 233 亿美元）。核心原因在于算力成本占营收比重从 48% 跃升至 <strong>58%</strong>。更震撼的是资产负债表外的刚性约束：公司已签下约 <strong>8954 亿美元</strong>的算力与基础设施合同承诺（另有最高 1750 亿美元未定价）。",
+          "<strong>34 亿美元直接买下 1.7GW 燃气轮机与现货算力策略</strong>：面对电力瓶颈，<a href=\"https://www.163.com/dy/article/LB9DSK5305198UNI.html\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic 斥资 34 亿美元接手了原属 OnePWR Solutions 的 1.7GW 卡特彼勒（Caterpillar）重型燃气发电机组订单</a>，创下 AI 实验室最大单笔发电设备采购纪录。在摩根大通直播对谈中，Amodei 向 Jamie Dimon 解释称，公司只提前锁定适中规模的低价算力，若需求超预期将通过“现货市场”短期租用，以规避需求不及预期时的闲置风险。"
+        ],
+        companyProfile: {
+          name: "Anthropic 商业底牌与命门",
+          summary: "以“企业级安全与编程工作流（Claude Code）”为核心引擎（企业 API 占收入 75%–85%），用十年期算力长约把三大云厂商与芯片巨头绑成 IPO 共同承销人。",
+          points: [
+            "<strong>多云同盟与同业租卡奇观</strong>：同时绑定 AWS（Project Rainier 逾百万颗 Trainium2）、Google Cloud（百万级 TPU）与微软 Azure（449 亿美元照付不议承诺），甚至向竞争对手 xAI 每月支付 12.5 亿美元租用孟菲斯 Colossus 超算。",
+            "<strong>最大财务命门</strong>：刚性算力承诺（近 9000 亿美元）相对当前营收规模极度超前。一旦企业 API 收入增速从三位数回落，庞大的长约折旧将迅速吞噬毛利。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、佩蕾丝范式视角：当“讲故事的金融导入期”撞上“算细账的公开市场”",
+            body: "技术经济学家卡萝塔·佩蕾丝（Carlota Perez）指出，每一次技术革命都会经历金融资本主导的狂热导入期，随后在资产价格重估中进入讲究投入产出比的展开期。Anthropic 的 S-1/A 招股书正是这一转折点的标志性文件：当一家年化收入冲向 680 亿美元的明星企业，把 58% 的营收直接交还给算力供应商，并在二季度短暂盈利后再度因算力成本膨胀而转亏，二级市场投资者立刻看清了一个残酷事实——大模型公司目前更像是替云厂商和芯片厂打工的“高周转算力二房东”。估值从 2 万亿预期回撤至 1.25 万亿区间，不是市场否定 AI 的价值，而是公开市场拒绝为尚未证明边际成本递减的“重资产租约”支付无限溢价。"
+          },
+          {
+            heading: "二、从买芯片到买燃气轮机：AI 军备竞赛的终极硬约束已锁定在能源端",
+            body: "为什么谷歌、英伟达、AMD、微软、台积电愿意在 IPO 中集体掏出 260 亿美元当基石投资者？因为 Anthropic 账上那 8954 亿美元的基建采购承诺，本身就是这些巨头未来五年的订单来源——这是一场典型的“供应商出资保卫大客户上市”的资本闭环。而 Anthropic 豪掷 34 亿美元直接买下 1.7GW 卡特彼勒燃气发电机组，则彻底撕开了 2026 年底的行业真相：哪怕你有钱买得到 GPU 和 TPU，电网审批与变电站排队也跟不上机房交付。头部实验室被迫把重型发电设备直接塞进自己的资产负债表，意味着中小玩家连参与下一代基座模型训练的物理入场券都已被焊死。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Sam Altman（OpenAI CEO）",
+            role: "算力即收入的激进扩张观",
+            quote: "「我们想建一座工厂，每周产出 1 吉瓦的新 AI 基础设施。」",
+            sourceUrl: "https://blog.samaltman.com/abundant-intelligence",
+            comment: "Anthropic 抢购 1.7GW 燃气发电机组与签下近 9000 亿美元长约，在行动上完全印证了 Altman 的“吉瓦级算力军备”逻辑；但 S-1/A 披露的亏损反转也把“新增算力能否覆盖边际折旧”的考卷摆上了台面。"
+          },
+          {
+            person: "Satya Nadella（微软董事长兼 CEO）",
+            role: "警惕模型商品化侵蚀溢价",
+            quote: "「这笔钱最终必须由全球实际 GDP 增长的拐点来偿付。」",
+            sourceUrl: "https://eu.36kr.com/en/p/4044987101762441",
+            comment: "Nadella 认为当模型能力触及企业日常任务饱和点后，低价与开源模型将迅速侵蚀溢价。若按此推演，Anthropic 58% 的算力成本占比与巨额长约将是沉重的成本敞口。"
+          },
+          {
+            person: "梁文锋（DeepSeek 创始人）",
+            role: "以工程效率改写定价锚",
+            quote: "「我们只赚六倍利润的情况下，开源是不会有什么影响的。」",
+            sourceUrl: "https://www.c114.net/industry/103264.html",
+            comment: "相比硅谷动辄万亿美元的算力预支，梁文锋按“买设备十个月回本”倒推 API 定价。当 Anthropic 被迫在招股书里向华尔街解释算力成本时，“每美元算力的有效 Token 产出率”正取代“总算力规模”成为真正的生死线。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>企业技术采购负责人</strong>：Anthropic 上市后每个季度的财报都将面临华尔街对“单位算力毛利率”的严苛拷问，这意味着补贴期即将结束，未来 6–12 个月内企业级 API 的分层涨价与照付不议（Take-or-Pay）最低消费条款将更加普遍，建议在当前路演锁客窗口期谈定多年期费率上限。",
+          "<strong>二级市场与行业观察者</strong>：紧盯 Anthropic 上市首日表现及 2027 Q1 算力成本占比能否回落至 50% 以下——这将直接决定随后排队的 OpenAI 与 SpaceX 能否顺利从二级市场抽走数千亿美元流动性。"
+        ],
+        sources: [
+          { label: "AIHOT 热点榜：Anthropic启动IPO路演，估值预期回落至1.25–1.75万亿美元", url: "https://aihot.news/hot" },
+          { label: "证券时报：AI新王诞生！Anthropic投后估值与财务拆解", url: "https://stcn.com/article/detail/3911868.html" },
+          { label: "网易财经：无惧市场情绪降温！Anthropic拟冲刺IPO", url: "https://www.163.com/dy/article/LBC598M705198CJN.html" },
+          { label: "网易科技：Anthropic斥资34亿美元买下1.7GW燃气发电机", url: "https://www.163.com/dy/article/LB9DSK5305198UNI.html" }
+        ]
+      },
+      {
+        id: 3,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Marriner_S._Eccles_Federal_Reserve_Board_Building.jpg?width=1000",
+        imageCaption: "图 03｜位于华盛顿特区的美国联邦储备委员会总部马里纳·S·埃克尔斯大楼（Eccles Building），本期半年度《金融稳定报告》发布机构（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 机构建筑实拍",
+        entityBadge: "机构 · 美联储总部大楼",
+        orderLabel: "03",
+        isFocus: true,
+        focusRank: "头版三条",
+        category: "算力与资本账本",
+        date: "2026-11-13 ~ 11-14",
+        readTime: "5 分钟",
+        metricNum: "87%",
+        metricUnit: "列AI为头号风险",
+        metricTag: "6800亿美元AI基建债务",
+        analysisMethodName: "宏观金融风险传导 × 算力高杠杆周期与社区邻避效应",
+        analysisMethodReason: "美联储半年度《金融稳定报告》首次将 AI 推上系统性金融风险榜首，必须跳出单纯的技术视角，从信贷扩张、银行资产负债表敞口与美国地方选民反噬的宏观政经链条切入。",
+        title: "美联储《金融稳定报告》拉响警报：87% 华尔街受访者将 AI 列为头号风险，基建债务飙破 6800 亿美元",
+        subtitle: "前 10 个月 AI 与数据中心相关债务融资达 2023 全年的 5 倍，占投资级企业借贷 31%；大型银行风险敞口逼近 1 万亿美元，叠加美国中期选举 43 项数据中心暂停令通过。",
+        quote: "「该基金借入的资金规模，大约是其资本规模的 3 倍。」——Leopold Aschenbrenner（Situational Awareness 创始人，谈算力热潮中的杠杆押注）",
+        tldr: "美国联邦储备委员会于 11 月 13 日发布的半年度《金融稳定报告》显示，高达 87% 的受访市场人士将人工智能列为金融体系面临的头号风险（较今年春季的 50% 飙升 37 个百分点）。报告披露，截至 2026 年 10 月，与数据中心及 AI 基础设施挂钩的债务融资已超过 6800 亿美元，是 2023 年全年（1300 亿美元）的 5 倍以上，占美国投资级企业借贷总额的约 31%；华尔街最大几家银行对科技巨头、数据中心建设及特殊融资工具的总风险敞口已逼近 1 万亿美元。",
+        newsContext: "过去三年，AI 算力建设主要依靠科技巨头的自有经营现金流（如微软、谷歌、Meta 的账面现金）与风险投资输血。但到了 2026 年，随着单座数据中心集群造价迈向数百亿乃至上千亿美元，四大云厂商自由现金流纷纷承压，AI 基础设施建设迅速演变为一场由投资级公司债、私募信贷（Private Credit）、算力抵押贷款与特殊目的载体（SPV）驱动的债务杠杆游戏。与此同时，数据中心吞噬地方电网推高居民电价，也在美国基层引发了剧烈的政治反噬。",
+        newsFacts: [
+          "<strong>87% 市场共识与估值泡沫预警</strong>：根据 <a href=\"https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">美联储 2026 年 11 月《金融稳定报告》官方文件</a>及纽约联储在 8 月底至 10 月下旬开展的市场调查，<a href=\"https://mlq.ai/news/fed-financial-stability-report-finds-ai-is-now-the-top-worry-for-the-financial-system-cited-by-87-of-market-contacts/\" target=\"_blank\" rel=\"noopener noreferrer\">87% 的受访金融市场人士将 AI 点名为首要金融稳定风险</a>，跃居所有风险因子之首。报告警告，市场对“超级智能”的狂热推高了资产估值，一旦对 AI 生产力兑现的预期降温，可能触发剧烈的资产价格修正。",
+          "<strong>6800 亿美元发债潮与近 1 万亿银行敞口</strong>：<a href=\"https://ceo.com.pl/en/fed-ai-infrastructure-debt-financial-risks-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">报告核实数据显示</a>，2026 年前 10 个月 AI 与数据中心相关债务发行量突破 <strong>6800 亿美元</strong>（2023 全年仅 1300 亿美元），占同期投资级企业债券发行量的 <strong>31%</strong>。更令监管层警惕的是，科技巨头、私募基金与金融机构之间通过合资企业、租赁担保和结构化票据交织成复杂网络，美国最大几家银行的相关风险敞口合计已接近 <strong>1 万亿美元</strong>。",
+          "<strong>地方选民反噬与美联储理事的不平等警告</strong>：与金融杠杆同步收紧的是物理与政治边界——据 <a href=\"https://aihot.news/weekly\" target=\"_blank\" rel=\"noopener noreferrer\">AIHOT 周报汇总 The Verge 与 404 Media 报道</a>，在刚结束的美国中期选举中，全美 44 项地方数据中心暂停提案中有 <strong>43 项获得通过</strong>（NBC 民调显示 76% 选民反对在社区新建数据中心），曾触发美股单日蒸发 3.2 万亿美元。同日（11 月 14 日），美联储理事迈克尔·巴尔在耶鲁大学演讲警告，若少数 AI 企业主导市场，短期内将压低劳动收入占比并加剧社会不平等。"
+        ],
+        companyProfile: {
+          name: "全球算力资本开支与信贷网络底牌",
+          summary: "2026 年 Google、Microsoft、Amazon、Meta 四大巨头资本开支合计超 7000 亿美元，开始从“烧自由现金流”全面转向“发债 + SPV 结构化融资”。",
+          points: [
+            "<strong>云巨头现金流拐点已现</strong>：Alphabet 2026 Q3 单季资本开支 514 亿美元，导致单季自由现金流转为 -91 亿美元；微软 CFO 亦仅承诺 2027 财年“维持自由现金流为正”。",
+            "<strong>表外杠杆与邻避效应夹击</strong>：Google 与黑石合建 Crux AI、英伟达联合六大资管动员 5000 亿美元，大量算力负债被装入表外工具；而全美 43 项地方数据中心禁建/限电令通过，直接拉长了在建项目的回本周期。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、为什么 AI 从“科技股故事”变成了美联储眼中的“系统性信贷风险”？",
+            body: "2000 年互联网泡沫破裂时，受损的主要是股权投资者（VC 与散户），商业银行体系几乎毫发无伤，因为当年的互联网初创公司轻资产、借不到银行贷款。但 2026 年的 AI 浪潮截然不同：每一座十万卡集群都是重资产的钢铁、铜缆、变压器与燃气轮机。当 2026 年前 10 个月 AI 基建发债冲到 6800 亿美元、占去全美投资级企业借贷的三分之一，且华尔街大行敞口逼近 1 万亿美元时，AI 算力就已经通过“GPU 抵押贷款、数据中心 REITs、算力照付不议租约”深度嵌入了美国银行与保险资金的底层资产池。一旦下游软件公司的 AI 收入无法覆盖高昂的机房租金，违约将不再局限于硅谷，而会沿着信贷链条冲击华尔街资产负债表。"
+          },
+          {
+            heading: "二、物理电网的“民意天花板”：43 项地方暂停令意味着什么？",
+            body: "金融杠杆最怕遇到建设周期拉长。此前科技巨头假设只要有钱就能无限扩建数据中心，但今年 11 月美国中期选举给出了冰冷的政治回答：76% 的选民反对在家门口建数据中心，44 项地方暂停提案通过了 43 项，6 个城市直接禁建，12 个城市锁死兆瓦上限。居民不愿为训练大模型承担上涨的电费账单与水资源消耗。地方审批冻结意味着大量已发债融完资的数据中心项目将面临延期并网甚至搁浅，财务利息空转将进一步放大美联储报告所警告的债务脆弱性。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Leopold Aschenbrenner（Situational Awareness 创始人）",
+            role: "高杠杆押注算力基建的激进代表",
+            quote: "「该基金借入的资金规模，大约是其资本规模的 3 倍。」",
+            sourceUrl: "https://www.eet-china.com/mp/a521090.html",
+            comment: "Aschenbrenner 坚信 2027 年模型将具备 AI 研究员能力，因此以 3 倍杠杆重仓电力与算力基建；美联储报告点名的恰恰是这种建立在“超级智能线性到来”假设上的高杠杆敞口。"
+          },
+          {
+            person: "Anton Korinek（弗吉尼亚大学经济学教授 / 布鲁金斯学会学者）",
+            role: "宏观分配与税基冲击视角",
+            quote: "「如果已接近实现 AGI，工资会先停滞、再下降，甚至可能崩塌，因为机器能做到我们能做的一切。」",
+            sourceUrl: "https://www.frbsf.org/news-and-media/events/2025/04/anton-korinek-economics-of-transformative-ai/",
+            comment: "与美联储理事巴尔的耶鲁演讲相呼应，Korinek 提醒我们：算力狂飙在金融端制造债务集中，在民生端则通过电价挤出与岗位替代引发选民反弹——那 43 张地方否决票正是社会承受力触顶的早期信号。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>科技与金融从业者</strong>：在评估 AI 基础设施项目或算力租赁商时，不能再只看“拿到了多少张卡或多少份意向书”，必须核查其电力并网许可（是否处于通过暂停令的州县）以及债务到期结构。",
+          "<strong>企业技术战略规划</strong>：随着美国本土新建数据中心受阻与融资成本上升，推理算力价格的下降斜率可能阶段性放缓，通过模型蒸馏、小模型路由与端侧卸载降低单任务 Token 消耗将变得更为紧迫。"
+        ],
+        sources: [
+          { label: "美联储官方文件：Financial Stability Report (November 2026 PDF)", url: "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf" },
+          { label: "AIHOT 首页精选：美联储发布金融稳定报告，87%市场人士将AI列为首要金融风险", url: "https://aihot.news/" },
+          { label: "MLQ.ai：Fed financial stability report finds AI is now the top worry for the financial system", url: "https://mlq.ai/news/fed-financial-stability-report-finds-ai-is-now-the-top-worry-for-the-financial-system-cited-by-87-of-market-contacts/" },
+          { label: "CEO.com.pl：AI Infrastructure Debt Tops $680 Billion, Fed Warns", url: "https://ceo.com.pl/en/fed-ai-infrastructure-debt-financial-risks-2026/" }
+        ]
+      },
+      {
+        id: 4,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Dario_Amodei_in_2023.jpg?width=800",
+        imageCaption: "图 04｜Anthropic CEO 达里奥·阿莫迪（Dario Amodei），公司于 IPO 前夕同步推出大众防护版 Claude Fable 5.2 与特许机构版 Mythos 5.2（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 人物实拍",
+        entityBadge: "公司与人物 · Anthropic",
+        orderLabel: "04",
+        isFocus: false,
+        focusRank: "",
+        category: "前沿模型与芯片",
+        date: "2026-11-09 ~ 11-14",
+        readTime: "5 分钟",
+        metricNum: "-20%",
+        metricUnit: "API调用费下调",
+        metricTag: "8天零手写造出原型OS",
+        analysisMethodName: "制度主义与合规寻租 × 双轨制牌照壁垒与官方吞噬分析",
+        analysisMethodReason: "Anthropic 将同一底层模型拆成大众防护版 Fable 与机构特许版 Mythos，并在路演前夜降价 20%，是典型的“用制度合规构建商业壁垒 + 用价格战锁死企业长约”的双重操作。",
+        title: "Anthropic 赶在上市前夜双发 Claude Fable 5.2 与 Mythos 5.2：API 降价 20%，把“安全审核”做成准入牌照",
+        subtitle: "同一底层模型拆为大众防护版与机构审核版；官方展示 1000 个子智能体 8 天从零构建可启动操作系统、30 小时完成费马大定理形式化证明，前研究员却爆料重训算力已大幅下降。",
+        quote: "「所以我们正处在可解释性与模型智能之间的一场赛跑中。」——Dario Amodei（Anthropic 联合创始人兼 CEO）",
+        tldr: "11 月 9 日，Anthropic 推出新一代前沿模型 Claude Fable 5.2 与 Claude Mythos 5.2。两款模型共享同一底层架构，但实行严格的双轨分发：Fable 5.2 面向所有用户开放，内置网络安全与生物安全拦截，API 定价下调 20%（每百万 Token 输入 8 美元、输出 40 美元）、生成速度提升 30%；而解除高危能力限制的 Mythos 5.2 仅对通过 Cyber 或 Life Sciences 审核验证的机构开放。与此同时，前 Anthropic 研究员 Jacob Coxon 离职爆料称，由于算法效率呈超指数提升，如今仅需最初一小部分算力即可重新训练出 Mythos 级别的模型。",
+        newsContext: "在 GPT-6 Astra 把 API 价格上调 2.5 倍（输入 10 美元/输出 50 美元）、Google Gemini 4 依托自研 TPU 大打性价比的夹击下，即将登陆纳斯达克的 Anthropic 需要在招股书路演周向华尔街证明两件事：第一，它依然握有最顶尖的编码与科研 Agent 能力；第二，它能用更低的价格从 OpenAI 手里抢下更多三年期企业合同，同时规避欧美监管机构的“前沿风险”问责。",
+        newsFacts: [
+          "<strong>双轨分发与降价 20% 抢单</strong>：据 <a href=\"https://www.anthropic.com/news\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic 官方发布</a>与 <a href=\"https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo/\" target=\"_blank\" rel=\"noopener noreferrer\">The Decoder 报道</a>，Claude Fable 5.2 已在 AWS、Google Cloud 和 Microsoft Azure 同步上线，API 费用较 Fable 5.1 下降 20%（$8 / $40 每百万 Token），快速模式下吞吐提速最高达 2.5 倍；而同源模型 <a href=\"https://www.eigent.ai/blog/claude-fable-5-2-mythos-5-2\" target=\"_blank\" rel=\"noopener noreferrer\">Claude Mythos 5.2</a> 则将高风险生物与攻防能力锁入审核白名单，仅对获批科研与安全机构开放。",
+          "<strong>8 天搓出原型 OS 与 30 小时证明费马大定理</strong>：在官方预发布展示中，Fable 5.2 独立设计出三款可运行的电子硬件设备；协调逾 1000 个子智能体，在 <strong>8 天内从零编写并构建出可在笔记本电脑上实际启动的原型操作系统</strong>；并调动约 1000 个代理在 30 小时内完成了费马大定理的 Lean 形式化数学证明（将此前 11 天的纪录缩短逾 88%）。",
+          "<strong>前研究员离职爆料与医药巨头冷泼水</strong>：据 <a href=\"https://aihot.news/all\" target=\"_blank\" rel=\"noopener noreferrer\">AIHOT 动态流汇总 The Decoder 与 IT之家报道</a>，前 OpenAI 及 Anthropic 研究员 Jacob Coxon 透露，Anthropic 路演幻灯片显示算法效率正在超指数跃升，“如今只需当初一小部分算力即可重训 Mythos”，这促使他因担忧前沿加速失控而离职。另一边，针对 Amodei“AI 有望在十年内攻克癌症与阿尔茨海默病”的乐观预测，礼来（Eli Lilly）董事长兼 CEO 戴夫·里克斯在 X 平台公开回应称“愿景令人向往但不太可能实现”，指出人体随机临床试验与生物学未知空白仍是不可逾越的物理瓶颈。"
+        ],
+        companyProfile: {
+          name: "Anthropic 产品矩阵与合规护城河",
+          summary: "在企业 LLM 市场以 32% 对 25% 的份额压制 OpenAI，核心武器是将“安全对齐”转化为受监管行业的采购准入标准。",
+          points: [
+            "<strong>发布即路演的节奏大师</strong>：每次关键融资或 IPO 节点前必有旗舰模型发布，用降价 20% 换取企业客户签下 1–3 年长约，做厚 ARR 可见度。",
+            "<strong>官方吞噬（Sherlocking）效应</strong>：公司自述内部逾 90% 的合并代码已由 Claude 编写；此次展示 1000 个子智能体协同造 OS，直接将多智能体编排与垂直开发工具的价值内化进基础模型层。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、制度主义拆解：“Fable + Mythos”双轨制如何把安全监管变成商业牌照？",
+            body: "在传统认知里，安全护栏往往意味着“阉割模型能力、增加合规成本”。但 Anthropic 用 Fable 5.2 与 Mythos 5.2 的双轨设计完成了一次精妙的制度转换：底层只花一份预训练算力的钱，对外却切出两个商品——给大众和普通企业的 Fable 5.2 内置严格拦截，既防住了越狱滥用引发的诉讼风险，又用降价 20% 正面狙击 GPT-6 Astra（$10/$50）；而把不加限制的完整能力包装成 Mythos 5.2，仅向通过生命科学与网络安全资质审查的机构开放。这等于把“安全审核权”变成了 Anthropic 私有的“特许经营牌照”，在欧盟 AI Act 高风险条款生效前，先把合规门槛变成了高净值机构客户的锁定机制。"
+          },
+          {
+            heading: "二、当前研究员戳破“重训算力骤降”：技术折旧速度才是最大的商业秘密",
+            body: "值得玩味的是前研究员 Jacob Coxon 披露的细节：路演 PPT 里的训练曲线表明，由于算法与数据配方快速迭代，今天重训一个 Mythos 级别模型所需的算力只有最初的一小部分。这对科学界是好消息，但对背负 8954 亿美元算力长约的商业公司却是双刃剑——如果五个月前花百亿美元训练出的旗舰模型，五个月后竞争对手或开源社区用十分之一的算力就能复现，那么闭源模型的“能力溢价窗口期”就会被极度压缩。这也解释了为什么 Anthropic 不敢像 OpenAI 那样涨价，反而必须在上市前夜主动降价 20% 来抢先锁定企业工作流。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Dario Amodei（Anthropic CEO）",
+            role: "以生物学加速与安全护栏支撑万亿叙事",
+            quote: "「AI 驱动的生物学与医学，将把人类生物学家未来 50–100 年才能取得的进步压缩进 5–10 年。」",
+            sourceUrl: "https://darioamodei.com/essay/machines-of-loving-grace",
+            comment: "Mythos 5.2 专门设立生命科学验证通道，正是为了兑现 Amodei 的“压缩世纪进步”叙事；但礼来 CEO 戴夫·里克斯的公开反驳提醒市场：数字空间的推理可以加速 10 倍，现实世界的湿实验与三期临床试验却无法快进。"
+          },
+          {
+            person: "Ethan Mollick（沃顿商学院教授）",
+            role: "能力边界扩张与专家工作流重构",
+            quote: "「我们正从“非专家用聊天机器人补缺口”，转向“专家用 Agent 把活干完”。」",
+            sourceUrl: "https://www.oneusefulthing.org/p/the-twilight-of-the-chatbots",
+            comment: "30 小时完成费马大定理 Lean 证明与 8 天构建原型 OS，标志着大模型的主战场已彻底告别日常闲聊，进入由顶尖专家指挥千级子智能体军团攻克复杂工程的深水区。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>AI 应用层创业团队</strong>：警惕基础模型厂商的“官方吞噬”——当 Fable 5.2 原生支持千级子智能体协同开发与长程任务编排时，单纯做“多 Agent 提示词外壳”的中间件将失去生存空间，必须扎根进模型拿不到的行业私有上下文与物理执行闭环。",
+          "<strong>企业研发团队</strong>：利用 Fable 5.2 降价 20% 后的价格窗口（$8/$40），将原本跑在 GPT-6 Astra（$10/$50）上的常规代码审查与自动化测试管线做 AB 迁移评测，直接可节省约 20% 的推理预算。"
+        ],
+        sources: [
+          { label: "AIHOT 日报（11月10日头条）：Anthropic发布Claude Fable 5.2与Claude Mythos 5.2", url: "https://aihot.news/daily" },
+          { label: "Anthropic Newsroom：Introducing Claude Fable 5.2 and Claude Mythos 5.2", url: "https://www.anthropic.com/news" },
+          { label: "The Decoder：Claude Fable 5.2 and Mythos 5.2 cement Anthropic's AI lead just before its IPO", url: "https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo/" },
+          { label: "Eigent AI：Claude Fable 5.2 and Mythos 5.2: What's New, Explained", url: "https://www.eigent.ai/blog/claude-fable-5-2-mythos-5-2" }
+        ]
+      },
+      {
+        id: 5,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Tensor_Processing_Unit_3.0.jpg?width=900",
+        secondaryImageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_7_(cropped).jpg?width=800",
+        imageCaption: "图 05｜Google 自研张量处理单元（TPU）算力板卡实拍，以及诺奖得主、Google DeepMind CEO 德米斯·哈萨比斯（Demis Hassabis）（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 硬件与人物实拍",
+        entityBadge: "硬件与人物 · Google TPU & DeepMind",
+        orderLabel: "05",
+        isFocus: false,
+        focusRank: "",
+        category: "前沿模型与芯片",
+        date: "2026-11-09 ~ 11-13",
+        readTime: "6 分钟",
+        metricNum: "4款",
+        metricUnit: "第八代TPU一年齐发",
+        metricTag: "384GB HBM / 17.2TB/s带宽",
+        analysisMethodName: "垂直整合产业经济学 × “去英伟达化”算力整机突围",
+        analysisMethodReason: "Google 在同一周打出“底座芯片（TPU 8tx/8i Max）+ 高速智能体模型（Gemini 4 Hydrogen）+ 全网搜索分发”组合拳，最适合用产业经济学中的全栈垂直整合与价值链利润转移视角剖析。",
+        title: "Google 全栈铁幕合拢：发布 Gemini 4 Hydrogen 接入全球搜索，一年连交四款第八代 TPU 正面分食英伟达蛋糕",
+        subtitle: "Gemini 4 Hydrogen 取代 3.8 Flash 成为 Antigravity、Cursor 与 Devin 的高速智能体主力；TPU 8i Max 实现单封装双芯 384GB HBM，TPU 8tx 联手 AMD 开启硬件级机密推理。",
+        quote: "「我认为它大约相当于工业革命影响的 10 倍，但以 10 倍速度发生，大概在十年而非一个世纪内展开。」——Demis Hassabis（Google DeepMind CEO）",
+        tldr: "本周 Google 在模型层与芯片层同步发起总攻：11 月 12–13 日，Google DeepMind 正式发布针对高频编码与智能体工作流优化的 Gemini 4 Hydrogen（衍生自旗舰模型 Gemini 4 Carbon），上线首日即面向全球 Google Search、AI Studio、Antigravity 以及第三方工具 Cursor、Devin 全量开放。而在硬件底座上，Google 于 11 月 9 日新增 TPU 8tx（搭载第五代 AMD EPYC 实现硬件级机密计算）与 TPU 8i Max（单封装双芯片、384GB HBM、17.2 TB/s 内存带宽），实现一年内交付四款第八代 TPU 系统，外部 TPU 大客户数量已逼近 100 家。",
+        newsContext: "在硅谷 AI 巨头中，OpenAI 与 Anthropic 均受制于“无自有芯片、租用三大云”的算力外包结构，而英伟达则独占 75% 的硬件毛利。Google 是全球唯一一家同时自持“自研芯片（TPU）—自有云（GCP）—前沿模型（Gemini 4）—十亿级终端分发（Search/Android/Workspace）”四层全栈的巨头。当英伟达陷入领导层震荡、同行被算力成本压得喘不过气时，Google 的全栈闭环终于到了收割成本优势的时刻。",
+        newsFacts: [
+          "<strong>Gemini 4 Hydrogen 全量接管搜索与智能体工作流</strong>：据 <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/\" target=\"_blank\" rel=\"noopener noreferrer\">Google 官方博客</a>与 <a href=\"https://deepmind.google/models/model-cards/gemini-4-hydrogen/\" target=\"_blank\" rel=\"noopener noreferrer\">DeepMind 模型卡</a>披露，由首席 AI 架构师 Koray Kavukcuoglu 宣布的 Gemini 4 Hydrogen 基于旗舰模型 <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini 4 Carbon</a> 蒸馏与适配而来，全面取代 Gemini 3.8 Flash。它支持可配置的思考深度（Configurable thinking levels），不仅作为 Google Search 迄今最大规模的模型升级向全球用户开放，更成为 Google Antigravity 智能体平台默认模型，并同步上线 Cursor 与 Cognition 的 Devin Desktop/CLI。",
+          "<strong>一年四款第八代 TPU：384GB HBM 怪兽与 AMD 机密计算合体</strong>：在算力底座侧，<a href=\"https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/\" target=\"_blank\" rel=\"noopener noreferrer\">Google 正式推出 TPU 8tx 与 TPU 8i Max</a>，与今年 4 月发布的 TPU 8t、8i 共同构成完整的第八代产品矩阵。其中 <a href=\"https://futurumgroup.com/insights/google-adds-tpu-8tx-and-8i-max-as-tpu-customers-approach-100/\" target=\"_blank\" rel=\"noopener noreferrer\">TPU 8i Max 在单封装内集成两颗 TPU 8i 芯片</a>，配备 <strong>384GB HBM 与 17.2 TB/s 内存带宽</strong>，搭载自研 Arm 架构 Axion 主机 CPU，专攻百万级长上下文推理；而 <a href=\"https://www.servethehome.com/google-tpu-8tx-8i-max-amd-epyc-turin/\" target=\"_blank\" rel=\"noopener noreferrer\">TPU 8tx 则引入第五代 AMD EPYC Turin 处理器</a>，成为首款支持硬件强制机密计算（数据与模型权重在运行中全程加密隔离）的云端 TPU。",
+          "<strong>开源 TorchTPU 与 KV 传输延迟骤降 90%</strong>：为打破英伟达 CUDA 的软件护城河，Google 宣布开放 TorchTPU 以原生运行 PyTorch 与 Hugging Face 模型，并开源 TPU Sync 将长上下文推理中的 KV Cache 传输延迟降低超过 <strong>90%</strong>。"
+        ],
+        companyProfile: {
+          name: "Google Cloud（谷歌云）与 Alphabet 全栈底牌",
+          summary: "2026 Q3 谷歌云营收 307 亿美元（同比暴增 103%），营业利润率从 23.7% 跃升至 36.2%，未确认订单储备高达 5610 亿美元，增速居三大云之首。",
+          points: [
+            "<strong>从“自用省钱”变成“军火批发商”</strong>：目前已有近 100 家企业客户使用 TPU（包括苹果用最新一代 TPU 扩大基础模型预训练、Anthropic 签下百万级 TPU 协议、Meta 租用 TPU，以及 2027 年起向甲骨文 OCI 供货整机）。",
+            "<strong>流量与推理吞吐怪兽</strong>：Gemini 第一方模型 API 每分钟处理近 320 亿 Token（同比增超 4 倍），Gemini 应用月活突破 10 亿，Gemini Enterprise 已售出逾 1 亿个企业知识工作席位。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、产业经济学视角：为什么英伟达真正忌惮的头号对手已经从 AMD 变成了 Google？",
+            body: "在半导体价值链上，单卖芯片的厂商永远面临下游大客户的“纵向一体化替代”。过去外界认为 TPU 只是 Google 关起门来给自己省成本的内部工具，因为外部开发者习惯了 PyTorch 和 CUDA。但本周的发布彻底改写了竞争剧本：一方面，TPU 8i Max 给出了 384GB HBM 与 17.2 TB/s 带宽的极致推理密度，TPU 8tx 补齐了金融与政务客户最看重的硬件级机密计算（甚至拉来 AMD EPYC 结盟）；另一方面，TorchTPU 直接消除了 PyTorch 迁移摩擦。当苹果、Meta、Anthropic 都在用 Google 的 TPU 跑核心负载，且谷歌云营业利润率一年内跳涨 12.5 个百分点至 36.2% 时，Google 已经实质上把英伟达 75% 的卖铲毛利切走了一大块。"
+          },
+          {
+            heading: "二、“Argon + Carbon + Hydrogen”三阶矩阵：用推理成本差吃掉日常 Agent 市场",
+            body: "如果说 Gemini 4 Argon 和 Carbon 是用来在学术榜单和复杂科研上立威的“重炮”，那么上线即全量铺开的 Gemini 4 Hydrogen 就是收割日常编码与高频 Agent 流量的“制式步枪”。由于底层直接跑在自家免交“英伟达税”的第八代 TPU 8i/8i Max 集群上，Google 完全有底气将 Hydrogen 免费塞进全球数十亿人的 Google Search，并以极高性价比攻入 Cursor 与 Devin 等主流编程工具——对手每被调用一次都要替芯片厂交租，而 Google 每多跑一亿 Token 都在摊薄自家 TPU 产线的固定折旧。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Demis Hassabis（Google DeepMind CEO）",
+            role: "全栈整合驱动十年十倍速变革",
+            quote: "「AGI（通用人工智能）已经出现在地平线上，也许就在未来五年内。」",
+            sourceUrl: "https://dig.watch/event/india-ai-impact-summit-2026/keynote-demis-hassabis",
+            comment: "Hassabis 将 DeepMind 的前沿探索与 Google 工程架构深度合流，一年内跑通 Gemini 4 三款模型与第八代四款 TPU 的协同迭代，展现出全栈巨头恐怖的工程兑现力。"
+          },
+          {
+            person: "Mark Zuckerberg（Meta 创始人兼 CEO）",
+            role: "算力容量主权的重要性",
+            quote: "「把算力全部卖掉、只拿短期利润，那才是愚蠢的做法。」",
+            sourceUrl: "https://www.cnbc.com/2026/07/29/zuckerberg-metas-ai-capacity-dilemma-what-to-sell-vs-what-to-keep.html",
+            comment: "连坚持自建集群的 Meta 在 2026 年都不得不向 Google 租用 TPU 补充产能，反向印证了 Google 提前十年布局自研 TPU 所换来的战略主动权。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>工程与研发负责人</strong>：Gemini 4 Hydrogen 已在 AI Studio 与 Cursor/Devin 中全量开放，支持动态调节思考深度（Thinking Levels），建议将其纳入高频、低延迟 Agent 工具调用链路的基准测试，对比 Claude Haiku/Sonnet 与 GPT-6 mini 系列的单位任务耗时与成本。",
+          "<strong>受监管行业（金融、医疗、政务）架构师</strong>：关注搭载 AMD EPYC 的 TPU 8tx 机密计算方案，其运行期内存与模型权重全程硬件加密隔离机制，为高敏感私有数据上云推理提供了新的合规解法。"
+        ],
+        sources: [
+          { label: "AIHOT 热点榜 No.2：Google发布Gemini 4 Hydrogen，接入搜索与编程工具", url: "https://aihot.news/hot" },
+          { label: "Google Blog：Introducing Gemini 4 Hydrogen for Agentic Workflows (2026-11-13)", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" },
+          { label: "Google Blog：Our newest TPUs: 8tx and 8i Max, built for the agentic era (2026-11-09)", url: "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/" },
+          { label: "Futurum Group：Google Adds TPU 8tx and 8i Max as TPU Customers Approach 100", url: "https://futurumgroup.com/insights/google-adds-tpu-8tx-and-8i-max-as-tpu-customers-approach-100/" },
+          { label: "ServeTheHome：Google TPU 8tx Pairs AMD EPYC Turin Hosts with Confidential Computing", url: "https://www.servethehome.com/google-tpu-8tx-8i-max-amd-epyc-turin/" }
+        ]
+      },
+      {
+        id: 6,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Sam_Altman_TechCrunch_SF_2019_Day_2_Oct_3_(cropped).jpg?width=900",
+        imageCaption: "图 06｜OpenAI 联合创始人兼 CEO 萨姆·奥特曼（Sam Altman），公司本周联手 Visa、Mastercard 与美国运通推出 ChatGPT Wallet（实拍图源：TechCrunch / Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 人物实拍",
+        entityBadge: "人物与产品 · Sam Altman / OpenAI",
+        orderLabel: "06",
+        isFocus: false,
+        focusRank: "",
+        category: "智能体与开源生态",
+        date: "2026-11-13 ~ 11-14",
+        readTime: "5 分钟",
+        metricNum: "12亿",
+        metricUnit: "周活接入AI钱包",
+        metricTag: "Visa / 万事达 / 运通联手",
+        analysisMethodName: "双边市场平台经济学 × Agent 交易入口与互联网税基重分配",
+        analysisMethodReason: "OpenAI 推出 ChatGPT Wallet 让智能体直接代客结账，同日 Google 将 Google Wallet 接入 Gemini 做只读财务分析，两家巨头的不同切口恰好揭示了 AI 接管“消费者钱袋子”时的利益冲突与商业模式分野。",
+        title: "OpenAI 联手三大卡组织推出 ChatGPT Wallet：当智能体开始替你刷卡结账，谁的商业模式最先失血？",
+        subtitle: "内置于 ChatGPT Pro 的 dot 智能体可通过一次性虚拟令牌完成选品与支付，商户与 AI 均不接触真实卡号；同日 Google Gemini 接入 Google Wallet 主打只读个人财务管家。",
+        quote: "「我认为“业务应用作为独立实体存在”这件事，大概会在 agent 时代整体坍塌。」——Satya Nadella（微软董事长兼 CEO）",
+        tldr: "11 月 13 日，OpenAI 正式宣布联合 Visa、Mastercard 与美国运通（American Express）推出 ChatGPT Wallet，率先向美国年满 18 岁的 ChatGPT Pro 订阅用户开放。用户将现有银行卡绑定至钱包后，名为“dot”的个人智能体即可在用户通过面部或指纹生物识别批准后，以加密虚拟令牌（Tokenized Card）代为完成网购结账，商户与智能体全程无法看到真实卡号。耐人寻味的是，几乎在同一时间，Google 宣布将 Google Wallet 接入 Gemini 个人智能，但严格限制为“只读模式”（仅分析账单、揪出遗忘订阅，不可转账或付款）。",
+        newsContext: "目前全球每周有超过 12 亿用户使用 ChatGPT 查询商品评测、对比参数与制定采购计划，ChatGPT 占据了全球 AI 聊天机器人流量的 81% 以上。然而，OpenAI 预计 2026–2030 年累计自由现金流高达 -2780 亿美元，单靠每月 20 美元或 200 美元的订阅费远不足以填补算力黑洞。打通“从问答导购到最后一公里刷卡支付”的交易闭环，是 OpenAI 把庞大 C 端流量转化为交易佣金与商业生态控制权的必经之路。",
+        newsFacts: [
+          "<strong>三大卡组织背书与令牌化隔离支付</strong>：据 <a href=\"https://openai.com/zh-Hans-CN/index/introducing-chatgpt-wallet/\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI 官方公告</a>与 <a href=\"https://help.openai.com/en/articles/20001654-making-purchases-with-chatgpt-wallet\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI 帮助中心文档</a>，ChatGPT Wallet 与美国运通、Mastercard 和 Visa 深度合作构建（The Verge 报道亦涵盖 Chase），初期免收交易佣金。当用户让 ChatGPT Work、Codex 或个人智能体 <code>dot</code> 选购商品时，智能体使用替代真实卡号的安全令牌完成支付，每笔交易均需通过安全检查及用户的生物识别（FaceID/指纹）确认。",
+          "<strong>从“逐笔审批”走向“预设限额全权委托”</strong>：<a href=\"https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/\" target=\"_blank\" rel=\"noopener noreferrer\">TechCrunch</a> 与 <a href=\"https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet/\" target=\"_blank\" rel=\"noopener noreferrer\">The Decoder</a> 援引 OpenAI 规划称，未来版本将允许用户预先设定消费限额、商品类别或时间窗口，让智能体在规则范围内无需每次弹窗即可自动完成补货与比价下单。",
+          "<strong>Google 的保守对照：Gemini 接入 Google Wallet 仅限“只读查账”</strong>：同日据 <a href=\"https://aihot.news/hot\" target=\"_blank\" rel=\"noopener noreferrer\">AIHOT 热点榜 No.9</a> 报道，Google 将 Google Wallet 及 Plaid 银行接口接入 Gemini 个人智能，用户输入 <code>@Google Wallet</code> 即可生成现金流图表、排查涨价或遗忘的周期性订阅，但 Google 明确设定 Gemini“只能读取授权信息，无法执行转账、管理资金或付款”。"
+        ],
+        companyProfile: {
+          name: "OpenAI 流量变现压力与双边收租逻辑",
+          summary: "手握全球超 81% 的 AI 聊天流量与 10 亿级活跃用户，但 65% 收入仍靠单一订阅，急需切入万亿美元级电商与本地生活交易流水。",
+          points: [
+            "<strong>现金流倒逼商业化提速</strong>：2026 年 OpenAI 关停烧算力却难变现的 Sora 视频项目，并于 12 月起将 ChatGPT 与 Codex 合并为统一 Token 额度，一切资源向高客单价企业服务与交易闭环集中。",
+            "<strong>绕开传统电商货架</strong>：与 Visa/Mastercard 直接在底层卡组织协议层打通令牌支付，意味着 dot 智能体可以直接在全网独立站完成结账，无需看亚马逊等电商巨头的脸色。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、为什么 OpenAI 敢让 Agent 直接刷卡，而 Google 却把 Gemini 锁在“只读模式”？",
+            body: "两家巨头在同一天对待“AI + 钱包”的截然相反态度，暴露了它们底层商业模式的根本冲突。Google 的核心现金牛依然是每年上千亿美元的搜索竞价广告与购物广告（Google Shopping）——如果让 Gemini 直接替用户全自动比价并静默完成付款，用户就不再点击搜索结果页上的商家广告链接，Google 等于亲手砸掉自己的广告印钞机。相反，OpenAI 没有历史广告包袱，它的 12 亿周活流量此前一直在替亚马逊、谷歌和独立站做“免费导购”。通过 ChatGPT Wallet 截留结账动作，OpenAI 哪怕初期免收佣金，一旦养成用户“只对 dot 说一句话就买好东西”的习惯，未来无论是收交易路由费还是竞价推荐费，都将直接抽走传统搜索与货架电商的税基。"
+          },
+          {
+            heading: "二、当购物不再经过人类眼球：“品牌溢价”与“凑单营销”将双双失效",
+            body: "在传统电商App里，平台靠瀑布流、满减弹窗和视觉包装诱导冲动消费；但在 Agent 代购模式下，dot 智能体只读取结构化的商品参数、历史底价、退换货条款与真实评价。当用户开启下一阶段的“预设限额自动采购”时，消费品行业的竞争逻辑将被迫从“讨好人的多巴胺（做精美详情页）”转向“讨好智能体的算法权重（提供机器可读的接口、最优性价比与履约确定性）”。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Satya Nadella（微软董事长兼 CEO）",
+            role: "独立应用前端在 Agent 时代的消亡",
+            quote: "「我认为“业务应用作为独立实体存在”这件事，大概会在 agent 时代整体坍塌。」",
+            sourceUrl: "https://www.computerworld.com/article/3981415/does-agentic-ai-spell-doom-for-saas.html",
+            comment: "ChatGPT Wallet 把这句话从企业 SaaS 延伸到了消费互联网：当 dot 智能体能直接跨网站调取库存并用虚拟令牌结账时，各类垂直比价 App 与电商前端界面正在沦为后台纯数据库（CRUD）。"
+          },
+          {
+            person: "Ethan Mollick（沃顿商学院教授）",
+            role: "从问答咨询走向闭环执行",
+            quote: "「我们正从“非专家用聊天机器人补缺口”，转向“专家用 Agent 把活干完”。」",
+            sourceUrl: "https://www.oneusefulthing.org/p/the-twilight-of-the-chatbots",
+            comment: "支付权限的下放是 Agent “把活干完”的最后一道制度门槛——没有支付能力的助手只是顾问，握有受控钱包令牌的 dot 才真正成为了代理。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>跨境电商与独立站品牌商</strong>：尽快检查自家网店是否支持标准化的机器可读商品目录与无摩擦结账流程（如配合 Shopify 自动启用的 Poppy 协议与主流卡组织令牌支付），因为不能被 Agent 顺畅读取和下单的商品将在 AI 导购时代直接“隐身”。",
+          "<strong>个人消费者</strong>：在体验 Gemini 连接 Google Wallet 或 ChatGPT Wallet 时，善用 Gemini 的“只读查账”排查隐形扣费订阅，同时对代购智能体坚持开启“逐笔生物识别确认”，暂缓开放全自动无感扣款。"
+        ],
+        sources: [
+          { label: "OpenAI 官方公告：Introducing ChatGPT Wallet (2026-11-14)", url: "https://openai.com/zh-Hans-CN/index/introducing-chatgpt-wallet/" },
+          { label: "OpenAI Help Center：Making purchases with ChatGPT Wallet", url: "https://help.openai.com/en/articles/20001654-making-purchases-with-chatgpt-wallet" },
+          { label: "TechCrunch：ChatGPT's new Wallet lets AI agents shop and check out for you", url: "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/" },
+          { label: "AIHOT 热点榜：OpenAI推出ChatGPT Wallet & Gemini接入Google Wallet", url: "https://aihot.news/hot" }
+        ]
+      },
+      {
+        id: 7,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/DeepSeek_MoE_and_MLA_(DeepSeek-V2).svg",
+        secondaryImageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/DeepSeek_logo.svg",
+        imageCaption: "图 07｜DeepSeek（深度求索）标志性混合专家（MoE）与多头潜在注意力（MLA）官方架构图谱，支撑此次全家桶 API 极致推理性价比（图源：DeepSeek / Wikimedia Commons）",
+        imageCredit: "DeepSeek 官方架构与标识 · Wikimedia Commons",
+        entityBadge: "公司与产品 · DeepSeek 深度求索",
+        orderLabel: "07",
+        isFocus: false,
+        focusRank: "",
+        category: "智能体与开源生态",
+        date: "2026-11-13 ~ 11-14",
+        readTime: "5 分钟",
+        metricNum: "<8%",
+        metricUnit: "联网搜索价格比",
+        metricTag: "1:1复刻完整官方App能力",
+        analysisMethodName: "技术扩散与公共品定价 × 中间层挤压与服务端控制权博弈",
+        analysisMethodReason: "DeepSeek 将官方 App 的联网搜索、文件解析、OCR、语音等整套工程管线直接打包进低价 API，同时在前端埋下 C 端 Coding Plan 付费伏笔，适合从技术扩散速度与产业链毛利重分配角度切入。",
+        title: "DeepSeek 开放全家桶应用 API：联网搜索价格不足海外 8%，人人可 1:1 复刻官方 App",
+        subtitle: "V4.1-Flash 接口原生集成深度思考搜索、文件输入、阅读链接与 OCR/语音独立接口；服务端接管采样参数引发工程界热议，前端代码浮现首个 C 端订阅方案信号。",
+        quote: "「只要有想法，每个人随时可以调用训练集群的卡，不需要审批。」——梁文锋（DeepSeek 创始人）",
+        tldr: "11 月 13 日，DeepSeek 宣布正式向开发者开放“全家桶应用 API”，将此前仅限官方网页端与 App 独享的联网搜索、深度思考搜索、文件上传解析（PDF/Office/图片）、网页链接抓取以及 OCR、ASR、TTS 等底层能力全部开放，并开源了支持导入历史对话的轻量前端（chat-demo）。其中联网搜索调用成本不到 OpenAI 与 Claude 同类工具的 8%。与此同时，开发者在 DeepSeek 网页端前端代码中发现了完整的额度轮询逻辑与名为“Coding Plan”的套餐指向，预示其或将首次推出 C 端付费订阅。",
+        newsContext: "长期以来，许多企业和独立开发者发现：虽然自己调用的是同一个开源或 API 模型，做出来的问答效果却远不如 DeepSeek 官方 App 好用。原因在于官方 App 背后有一整套复杂的“深度思考搜索（边推理边多轮搜索）、网页去噪抓取、长文档混排解析与上下文拼接”工程管线。此前开发者若想自建这套管线，必须额外购买昂贵的第三方搜索 API（如 Tavily/Perplexity/Exa）与文档解析服务。此次 DeepSeek 直接把整套官方基建拆成 API 参数卖给全行业。",
+        newsFacts: [
+          "<strong>一行参数开启官方同款“边想边搜”与文档解析</strong>：据 <a href=\"https://api-docs.deepseek.com/zh-cn/news/news261113\" target=\"_blank\" rel=\"noopener noreferrer\">DeepSeek API 官方公告</a>与 <a href=\"https://www.ithome.com/1/026/960.htm\" target=\"_blank\" rel=\"noopener noreferrer\">IT之家报道</a>，开发者在调用 <code>deepseek-flash</code>（基于 552B 总参数、输入激活 8B/输出激活 16B、KV Cache 压缩至 1/4 的 V4.1-Flash 模型）时，只需开启 <code>deepseek_web_search</code>、<code>deepseek_read_url</code> 等参数，服务端即可自动完成多步推理搜索、网页抓取与 PDF/Office/图片混排解析，配套开源前端 <a href=\"https://api-docs.deepseek.com/zh-cn/guides/build_a_chatbot\" target=\"_blank\" rel=\"noopener noreferrer\">chat-demo</a> 可 1:1 还原官方 App 体验。",
+          "<strong>联网搜索价格不足海外 8%，但服务端强制接管部分采样参数</strong>：据 <a href=\"https://t.cj.sina.cn/articles/view/1746173800/68147f6801901s2oa\" target=\"_blank\" rel=\"noopener noreferrer\">新浪财经深度实测</a>，DeepSeek 联网搜索的调用定价不到 OpenAI 与 Anthropic 同类托管搜索的 <strong>8%</strong>，且同时提供独立的 Search、Fetch、OCR、ASR、TTS 原子接口。但技术文档显示，一旦开启托管工具或安全参数，<code>temperature</code>、<code>top_p</code>、<code>seed</code> 及 <code>max_tool_calls</code> 等参数将由服务端强制接管（忽略客户端传参），且对外提供服务的开发者须开启安全校验并承担大模型登记与 AI 标识义务。",
+          "<strong>前端代码曝出 Coding Plan 订阅逻辑</strong>：据 <a href=\"https://aihot.news/all\" target=\"_blank\" rel=\"noopener noreferrer\">AIHOT 动态流</a>披露，开发者在 <code>chat.deepseek.com</code> 前端代码中发现每 5 分钟一次的额度状态轮询、额度耗尽提示以及名为 <code>Coding Plan</code> 的套餐标识，引发社区对其即将打破 C 端全免费惯例、推出面向程序员的高频订阅方案的广泛关注（官方尚未公布定价与上线日期）。"
+        ],
+        companyProfile: {
+          name: "DeepSeek（深度求索）商业底牌与转型命门",
+          summary: "以 82.9% 的超高 API 毛利率（靠极致推理架构压缩成本而非高标价）把控开源与低价标准，并在 2026 年从“不融资实验室”转向“百亿级重资产基建”。",
+          points: [
+            "<strong>资本开支九倍跃升倒逼商业化闭环</strong>：2026 年前 7 个月 DeepSeek 在 AI 基础设施上投入 110 亿元（为 2025 全年 12 亿元的 9 倍多），并完成首轮约 500 亿元融资、推进第二轮融资。",
+            "<strong>没有自有流量巨舰的破局法</strong>：不同于拥有抖音的字节和拥有微信的腾讯，DeepSeek 通过把官方 App 能力拆成极致低价的“全家桶 API”，让成千上万第三方应用成为自己的算力分销管道。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、再次“掀桌”：把 RAG、搜索 API 与 OCR 中间商的溢价一次性抹平",
+            body: "如果说此前 DeepSeek V3/V4 开源权重打穿的是“基础模型推理差价”，那么这次开放全家桶应用 API 打穿的就是“AI 工具链中间层差价”。过去两年，围绕大模型长出了一批专门给开发者卖联网搜索接口、网页清洗抓取（Fetch）和 PDF 图文解析（OCR）的创业公司，单次搜索收费往往比模型本身的 Token 还要贵。DeepSeek 直接把自己服务数千万日活用户的内部搜索与解析引擎做成可插拔 API，且把搜索价格压到海外巨头的 8% 以内，等于把“应用层基建”也变成了微利公共品。"
+          },
+          {
+            heading: "二、“黑盒托管便利”与“工程可控性”的边界：为什么服务端要锁死 temperature？",
+            body: "在开发者社区引发热议的一个技术细节是：开启托管工具后，服务端会忽略开发者传入的 <code>temperature</code>、<code>seed</code> 和 <code>max_tool_calls</code>。这揭示了 Agent 工程化的深层规律——“边推理边搜索”并非简单的外部函数拼接，模型的采样温度与思考深度必须与搜索返回结果的置信度严格耦合，否则极易陷入死循环或幻觉放大。因此 DeepSeek 给出了精明的双层设计：想省事做标准助手的团队直接用黑盒托管参数；需要对搜索域名、执行可审计性和固定随机种子做严格控制的金融/企业级产品，则调用独立开放的 Search 与 Fetch 原子接口自行编排。而前端浮现的 <code>Coding Plan</code>，则说明面对消耗算力最凶猛的编程 Agent 场景，即便是 DeepSeek 也需要引入分级订阅来平衡算力账本。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "梁文锋（DeepSeek 创始人）",
+            role: "成本透明化与合理利润锚定",
+            quote: "「我们只赚六倍利润的情况下，开源是不会有什么影响的。」",
+            sourceUrl: "https://www.c114.net/industry/103264.html",
+            comment: "将官方 App 的护城河能力毫无保留地塞进 API 并开源前端 chat-demo，再次延续了梁文锋“不靠信息差或外壳锁客，只赚底层算力与工程效率钱”的一贯打法。"
+          },
+          {
+            person: "杨植麟（月之暗面创始人兼 CEO）",
+            role: "Token 效率决定 Agent 上限",
+            quote: "「把 Token 效率与长上下文的优化结合起来，最终才能实现更高水平的 Agent 智能。」",
+            sourceUrl: "http://api.aitntnews.com/newDetail.html?newId=21495",
+            comment: "V4.1-Flash 通过非对称架构将 KV Cache 压缩至上一代的 1/4，正是其能够低成本承载多轮联网搜索与百万上下文文档拼接的底层技术支点。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>企业与独立应用开发者</strong>：如果团队正在为高昂的第三方 AI 搜索 API 或 PDF 解析接口买单，建议立即用 DeepSeek 独立开放的 <code>Search</code>、<code>Fetch</code> 与 <code>OCR</code> 接口进行替换压测；若对结果可复现性（固定 <code>seed</code>/<code>temperature</code>）有严格要求，切勿使用一键托管模式，应采用“独立调用 Search/Fetch + 自行拼接上下文”的分步编排模式。",
+          "<strong>重度 AI 编程用户</strong>：提前关注 DeepSeek <code>Coding Plan</code> 的正式上线动态，作为 Claude Code 与 Codex 额度合并涨价后的高性价比备选。"
+        ],
+        sources: [
+          { label: "DeepSeek API 官方文档：DeepSeek 发布全家桶应用 API (2026-11-13)", url: "https://api-docs.deepseek.com/zh-cn/news/news261113" },
+          { label: "DeepSeek API 指南：构建 Chatbot 与开源 chat-demo", url: "https://api-docs.deepseek.com/zh-cn/guides/build_a_chatbot" },
+          { label: "新浪财经：官方App全套能力开放API，联网搜索价格不到OpenAI、Claude的8%", url: "https://t.cj.sina.cn/articles/view/1746173800/68147f6801901s2oa" },
+          { label: "IT之家：DeepSeek发布全家桶应用API：开发者将能1:1复刻完整App体验", url: "https://www.ithome.com/1/026/960.htm" },
+          { label: "AIHOT 热点榜 No.5：DeepSeek 开放App能力API，扩展调用另收费", url: "https://aihot.news/hot" }
+        ]
+      },
+      {
+        id: 8,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Nvidia_DGX_Spark_oblique_view_dllu.jpg?width=900",
+        secondaryImageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/NVIDIA_H100_(%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan)_016.png?width=900",
+        imageCaption: "图 08｜NVIDIA 高性能计算硬件实拍（DGX 系统与数据中心加速芯片核心），前 OpenAI 研究员通过 Philox 伪随机数分布对开源模型权重进行架构指纹取证（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 算力硬件实拍",
+        entityBadge: "硬件产品 · NVIDIA 算力芯片",
+        orderLabel: "08",
+        isFocus: false,
+        focusRank: "",
+        category: "前沿模型与芯片",
+        date: "2026-11-12 ~ 11-14",
+        readTime: "6 分钟",
+        metricNum: "1.2万颗",
+        metricUnit: "估算涉及Blackwell卡",
+        metricTag: "49至1385 Sigma统计置信度",
+        analysisMethodName: "地缘政治与供应链博弈 × 密码学权重取证边界核验",
+        analysisMethodReason: "这是一起极具技术含量的开源模型权重密码学取证事件，舆论场极易将其简单曲解为“走私实锤”或“全面断供”。必须用调查研究中的“证据边界核验法”，严格区分数学指纹证明了什么、没有证明什么。",
+        title: "前 OpenAI 研究员发布开源权重取证报告：六款中国前沿模型检出英伟达 Blackwell 芯片初始化数学指纹",
+        subtitle: "通过公开权重中的 Philox 伪随机数分布，将 DeepSeek-V4、Kimi K3、MiniMax-M3 等匹配至 148-SM / 152-SM 的 Blackwell 架构；但最新 V4.1-Flash 与美团 LongCat-2.0 未检出任何指纹。",
+        quote: "「对研究员来说，对算力的渴求是永无止境的。」——梁文锋（DeepSeek 创始人）",
+        tldr: "11 月 12 日，由前 OpenAI 工程师 Will DePue 创立的非营利研究机构 Unemployment Labs 发布了一份轰动硅谷与华盛顿的权重取证报告。该团队仅利用公开下载的开源模型权重，通过恢复模型参数初始化时的 Philox 伪随机数生成器布局，发现 DeepSeek-V4-Flash/Pro、月之暗面 Kimi K3/K3.1-Pro、MiniMax-M3 及蚂蚁集团 Ling-3.1-flash 共六款中国前沿模型带有仅与英伟达受出口管制的 Blackwell GPU（148-SM 的 B200/B300 或 152-SM 的 GB200/GB300）吻合的数学指纹（统计显著性达 49 至 1385 sigma）。但报告同时坦承：该方法仅能反映权重初始化那一刻的硬件环境，无法证明芯片物理位置（如合法租用海外数据中心），且最新的 DeepSeek-V4.1-Flash 未检出任何指纹。",
+        newsContext: "自美国收紧高端 AI 芯片出口管制以来，华盛顿政客与硅谷鹰派一直争论中国顶尖开源模型究竟是靠“算法效率奇迹 + 存量 Hopper（H100/H800）与国产芯片”炼成的，还是通过海外算力租赁与灰色渠道用上了最新的 Blackwell 架构。此前各方均停留在匿名信源放风，直到 Unemployment Labs 首次端出了一套可由第三方独立复现的“检查点密码学取证（Checkpoint Forensics）”方法。",
+        newsFacts: [
+          "<strong>148-SM 与 152-SM 硬件指纹从何而来</strong>：据 <a href=\"https://explainx.ai/blog/chinese-open-weights-blackwell-gpu-checkpoint-forensics-november-2026\" target=\"_blank\" rel=\"noopener noreferrer\">ExplainX 深度技术拆解</a>与 <a href=\"https://emergent.sh/news/six-chinese-ai-models-show-blackwell-gpu\" target=\"_blank\" rel=\"noopener noreferrer\">Emergent 报道</a>，GPU 在随机初始化模型权重时，并行流多处理器（SM）的数量会直接决定 Philox 伪随机数生成器的步进分块模式——英伟达 Hopper 架构为 132 个 SM，而 Blackwell B200/B300 为 148 个 SM、GB200/GB300 机架系统为 152 个 SM。在部分未被后续梯度更新完全冲刷掉的张量层中，这一初始网格痕迹得以保留。研究团队在 24 个已知硬件的对照模型上实现了 100% 盲测吻合，并租用真实 B300 与 GB200 物理芯片复现了 DeepSeek-V4 与 Kimi K3 的随机种子。",
+          "<strong>哪些模型命中、哪些模型完全无痕</strong>：报告指认 <a href=\"https://mlq.ai/news/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-in-six-chinese-ai-models/\" target=\"_blank\" rel=\"noopener noreferrer\">DeepSeek-V4-Flash、MiniMax-M3 匹配 148-SM（B200/B300）</a>，而 DeepSeek-V4-Pro、Kimi K3、Kimi K3.1-Pro 与蚂蚁 Ling-3.1-flash 匹配 152-SM（GB200/GB300），估算五次训练涉及约 1.2 万颗 Blackwell GPU（价值超 5 亿美元）。然而，同一批实验室更早期的开源权重均显示为 132-SM 的 Hopper；阿里 Qwen、智谱、腾讯、小米、阶跃星辰受检模型也均为 Hopper 或无指纹。更关键的是，11 月 13 日更新显示：<strong>最新的 DeepSeek-V4.1-Flash 与美团 LongCat-2.0 经穷尽搜索未检出任何 Blackwell 指纹</strong>。",
+          "<strong>作者明确划定的科学局限边界</strong>：Will DePue 团队在报告中明确声明三点局限：① 该方法只证明模型权重<strong>初始化（Initialization）</strong>是在 Blackwell 级硬件上执行的，不能直接证明后续数万亿 Token 的完整预训练都在该硬件上完成；② 无法判定芯片的物理所在地（中国企业完全可以通过东南亚、中东等地的数据中心合规或离岸租用算力），不能直接作为违反出口管制的法律证据；③ 若权重在 CPU 上初始化或采用华为昇腾、百度飞桨等不同框架初始化，则不会留下任何 GPU 指纹。"
+        ],
+        companyProfile: {
+          name: "中国独立大模型实验室的“双轨算力生存术”",
+          summary: "在出口管制与国产替代交接期，中国头部模型厂采取“存量/离岸高端 GPU 抢时间窗口 + 深度绑定国产芯片改写底层通信栈”的双轨策略。",
+          points: [
+            "<strong>DeepSeek 与华为昇腾的深度互嵌</strong>：华为工程师已分阶段进驻 DeepSeek 协同设计，DeepSeek 开源了面向昇腾的 TileLang 编译工具，并计划将后续预训练逐步迁向昇腾 950DT/960DT；此次 V4.1-Flash 指纹彻底消失，表明其初始化与训练管线已完成解耦或迁移。",
+            "<strong>美团 LongCat 的异构算力探索</strong>：美团本周刚刚以 MIT 协议开源 1.6 万亿参数的 LongCat-2.5，其前代 LongCat-2.0 在取证中同样无英伟达指纹，并留有昇腾 910 微调配置痕迹。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、技术祛魅：为什么“权重里有门牌号”，以及为什么下一代模型再也不会留下这行指纹？",
+            body: "Unemployment Labs 的报告之所以在密码学与系统工程界引发轰动，是因为它展示了一种意想不到的“旁路取证”：哪怕模型经过了数十万亿 Token 的梯度下降，只要某些特定层（如冻结层、特定 Embedding 或归一化层）保留了初始伪随机数生成器的周期性相位，就能逆推出当年按下“初始化”按钮那台机器的 SM 核心数。但这也恰恰是一次“见光即失效”的取证——只要工程师在 CPU 上花几秒钟生成初始权重文件，或者改用非默认随机数算子，再把权重加载到任何加速卡上训练，硬件指纹就会彻底归零。DeepSeek 最新的 V4.1-Flash 检不出任何指纹，已经证明头部团队的训练基础设施完成了去特征化升级。"
+          },
+          {
+            heading: "二、地缘政治博弈：这份报告真正冲击的是华盛顿的“全面封锁延长线”",
+            body: "这份报告发表的时间点极为微妙——恰逢黄仁勋因涉华芯片转运争议辞职、美国国会推动将出口管制进一步延伸至海外云租赁（Know Your Customer 算力审查）。硅谷受控扩展派（如 Dario Amodei）一直游说政府“只要卡死芯片出口，就能锁死对手的模型代际”；但这篇报告从反面揭示了全球算力市场的流动性现实：在高达数倍溢价的算力套利空间面前，无论是马来西亚、中东的离岸机房租赁，还是跨架构混合训练，算力总能像水一样找到缝隙；而过度的封锁同时也在倒逼中国团队（如清华本周在摩尔线程 MTT S5000 上以 0.2% 误差复现 3.8 亿单细胞模型 ProtCell，以及美团、DeepSeek 的国产算子改造）加速走出英伟达的软件生态。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Dario Amodei（Anthropic CEO）",
+            role: "呼吁严格出口管制的硅谷代表",
+            quote: "「造出在几乎所有事情上比几乎所有人更聪明的 AI，需要数百万颗芯片、至少数百亿美元，且最可能在 2026–2027 年发生。」",
+            sourceUrl: "https://darioamodei.com/post/on-deepseek-and-export-controls",
+            comment: "Amodei 将芯片数量视为决定代际差距的唯一阀门，这份 Blackwell 指纹报告势必被华盛顿管制派引用，作为收紧海外云算力租赁（Cloud KYC）的论据。"
+          },
+          {
+            person: "Yann LeCun（AMI Labs 执行主席 / 纽约大学教授）",
+            role: "开源生态不可封锁的坚定主张者",
+            quote: "「AI 会成为一个平台，而多数平台往往会走向开源。」",
+            sourceUrl: "https://www.technologyreview.com/2026/01/22/1131661/yann-lecuns-new-venture-ami-labs/",
+            comment: "讽刺的是，美国研究人员之所以能对这六款中国模型做权重取证，恰恰是因为中国实验室把顶尖模型权重公开放在了 Hugging Face 上供全球免费下载使用——开源让技术透明，也正在让中国开源模型成为全球开发者的事实底座。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>跨国企业与海外 AI 部署团队</strong>：随着 Blackwell 指纹报告发酵，美国商务部 BIS 针对海外云数据中心（东南亚、中东等地）的算力租赁审计将显著收紧，依赖离岸 GPU 集群训练或微调的团队需提前做好多云备份与合规审查。",
+          "<strong>大模型基础设施工程师</strong>：在发布开源模型权重前，将权重初始化环节统一置于独立 CPU 节点或标准无关随机数发生器中执行，并清理训练检查点中的硬件配置元数据，避免暴露内部集群拓扑信息。"
+        ],
+        sources: [
+          { label: "ExplainX 深度拆解：Blackwell GPU Fingerprints in DeepSeek & Kimi Weights (2026-11-12/13)", url: "https://explainx.ai/blog/chinese-open-weights-blackwell-gpu-checkpoint-forensics-november-2026" },
+          { label: "Emergent：Six Chinese AI Models Show Blackwell GPU Fingerprints", url: "https://emergent.sh/news/six-chinese-ai-models-show-blackwell-gpu" },
+          { label: "MLQ.ai：Former OpenAI researcher says he found Nvidia Blackwell fingerprints in six Chinese AI models", url: "https://mlq.ai/news/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-in-six-chinese-ai-models/" },
+          { label: "AIHOT 首页精选：研究报告称中国最强AI模型使用了被禁出口的Nvidia Blackwell芯片训练", url: "https://aihot.news/" }
+        ]
+      },
+      {
+        id: 9,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/MacBook_Pro_16_(M1_Pro,_2021)_-_Wikipedia_(cropped).jpg?width=900",
+        imageCaption: "图 09｜搭载统一内存架构的 Apple Silicon MacBook Pro 终端实拍——llama.cpp 与 ggml v1.0.0 让超 150 种大模型架构在个人电脑端实现断网本地推理（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 终端硬件实拍",
+        entityBadge: "终端产品 · 本地推理工作站",
+        orderLabel: "09",
+        isFocus: false,
+        focusRank: "",
+        category: "智能体与开源生态",
+        date: "2026-11-13 ~ 11-14",
+        readTime: "4 分钟",
+        metricNum: "v1.0.0",
+        metricUnit: "首个正式稳定大版本",
+        metricTag: "支持超150种模型架构",
+        analysisMethodName: "生产资料所有权分析 × 端侧算力去中心化与资本收编博弈",
+        analysisMethodReason: "在云巨头动辄万亿算力租约的背景下，支撑全球个人电脑与本地服务器断网运行大模型的基石项目 llama.cpp 迈入 1.0 时代，适合用“生产资料（算力与智能）归属权”与开源社区商业化暗线来解读。",
+        title: "本地 AI 基石 llama.cpp 与 ggml 迎来首个正式大版本 v1.0.0：断网跑遍 150 种架构，守住个人算力主权",
+        subtitle: "历时三年半演进，作者 Georgi Gerganov 与 Hugging Face 宣布确立严格语义化版本与 C API/ABI 兼容性承诺；同日 Edge0 开源可在笔记本本地运行的 145B 模型。",
+        quote: "「我预测 2025 年将成为开源模型成为人们最主流开发选择的一年。」——Mark Zuckerberg（Meta 创始人兼 CEO）",
+        tldr: "11 月 13 日，全球最核心的本地大模型推理库 llama.cpp 及其底层张量计算引擎 ggml 正式发布首个大版本 v1.0.0。经历了三年半的高频迭代后，项目创始人 Georgi Gerganov（@ggerganov）与 Hugging Face CEO Clément Delangue 共同宣布：自 1.0.0 起，项目正式实行严格的语义化版本控制，任何破坏 C API 或 ABI 兼容性的变更均需升级主版本号，同时清理了 35 个历史废弃函数，原生支持超过 150 种主流开源模型架构。Delangue 强调，这让每个人都能在手机、笔记本和工作站上免费掌控自己的智能，无需向任何云巨头发送一行数据。",
+        newsContext: "2023 年春，保加利亚开发者 Georgi Gerganov 在一个夜晚用纯 C/C++ 重写了 LLaMA 推理代码，让原本需要昂贵数据中心显卡才能运行的大模型，第一次跑在了普通人的 MacBook 笔记本上。此后三年半，llama.cpp 与 GGUF 量化格式成为了 Ollama、LM Studio、Jan 以及无数端侧 AI 应用的共同底座。没有它，开源模型权重即便公开，普通人和中小企业也只能在云厂商的计费表下仰人鼻息。",
+        newsFacts: [
+          "<strong>告别滚动构建号，确立工业级 API/ABI 稳定契约</strong>：据 <a href=\"https://github.com/ggml-org/llama.cpp\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub ggml-org/llama.cpp 官方仓库</a>与 <a href=\"https://gihyo.jp/article/2026/11/llama.cpp-v1.0.0\" target=\"_blank\" rel=\"noopener noreferrer\">日本技术媒体 gihyo.jp 报道</a>，此前 llama.cpp 一直采用滚动 build 编号，下游软件每次更新都面临接口变更风险。此次 v1.0.0 正式移除 35 个废弃函数，并确立语义化版本规范，保证小版本更新绝不破坏二进制接口（ABI）兼容。",
+          "<strong>覆盖超 150 种模型架构，端侧 145B 模型同步涌现</strong>：据 <a href=\"https://www.ithome.com/1/027/019.htm\" target=\"_blank\" rel=\"noopener noreferrer\">IT之家报道</a>，llama.cpp v1.0.0 已支持超过 <strong>150 种</strong>模型架构（含衍生变体），Cohere 当日即宣布将其集成至 North Micro Vision。同日（11 月 14 日），<a href=\"https://aihot.news/daily\" target=\"_blank\" rel=\"noopener noreferrer\">Edge0 宣布开源 Edge0-145B 与 120B 模型</a>，成为首个可在高配个人笔记本上本地运行的 145B 参数级开源模型。",
+          "<strong>值得留意的资本暗线：ggml 并入 Hugging Face 与英伟达收购案</strong>：据 <a href=\"https://gihyo.jp/article/2026/11/llama.cpp-v1.0.0\" target=\"_blank\" rel=\"noopener noreferrer\">gihyo.jp 梳理的背景材料</a>，主导开发的 ggml.ai 团队已于 2026 年 2 月被 Hugging Face 收购并入；而在 2026 年 9 月 3 日，英伟达已宣布达成对 Hugging Face 的收购协议——这意味着标榜“对抗硅谷中心化垄断”的端侧开源神器，在股权链条上正与全球最大芯片巨头产生微妙交集。"
+        ],
+        companyProfile: {
+          name: "端侧推理生态与大厂暗战底牌",
+          summary: "llama.cpp 是连接“开源模型权重（DeepSeek/Qwen/Llama/Mistral）”与“数十亿台消费级硬件（Apple M系芯片/高通/AMD/Intel/NVIDIA）”的唯一通用转换器。",
+          points: [
+            "<strong>云厂商照付不议账单的天然减压阀</strong>：当企业把日常文档摘要、代码补全与敏感数据处理卸载到搭载 llama.cpp 1.0 的本地工作站或内网服务器时，其边际 Token 税降为零。",
+            "<strong>商业独立性的长期考验</strong>：尽管 Hugging Face 承诺 ggml 社区保持技术与设计自治，但在英伟达推进收购 Hugging Face 的背景下，其对非英伟达硬件（Apple Metal、华为昇腾、AMD ROCm、摩尔线程等）的中立优化优先级值得持续紧盯。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、为什么一个版本号从“0.9”跳到“1.0”对企业落地如此重要？",
+            body: "在开源软件工程中，<code>v1.0.0</code> 不是数字游戏，而是从“极客玩具”迈向“企业生产环境基建”的法律与工程成人礼。过去三年，许多金融、医疗和制造业企业虽然眼馋本地跑开源模型的绝对隐私安全，但工程团队不敢把核心业务直接架在 llama.cpp 上，因为每周几百次提交随时可能改掉底层 C 函数签名，导致上层 C#/Java/Rust/Python 绑定崩溃。现在，ggml 与 llama.cpp 双双锁定 1.0 稳定 ABI，意味着操作系统厂商、芯片原厂驱动团队和企业内网软件可以将其作为稳定的系统动态库（如系统级本地推理服务）长期封装部署。"
+          },
+          {
+            heading: "二、生产资料视角：当云端 AI 走向“寡头收租”，本地推理是最后的议价底牌",
+            body: "把本周的新闻连起来看格外清醒：一边是 Anthropic 背着 8954 亿美元算力合同准备上市收割，另一边是微软 365 故障直接把云端 Claude 与 ChatGPT 连接器整瘫痪一天半。如果所有的智能都只能通过租用三家云厂商的 API 获得，那么企业和个人不仅丧失了数据隐私，更丧失了断网生存能力与定价议价权。llama.cpp v1.0.0 配合量化技术与统一内存笔记本，让“把百亿乃至千亿级模型装进自己硬盘”成为零边际成本的现实——你未必每时每刻都只用本地模型，但“随时可以退回本地运行”的能力，是防止云端 API 漫天要价的唯一保险。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Mark Zuckerberg（Meta 创始人兼 CEO）",
+            role: "开源是防止被闭源平台卡脖子的保险",
+            quote: "「我预测 2025 年将成为开源模型成为人们最主流开发选择的一年。」",
+            sourceUrl: "https://stratechery.com/2025/an-interview-with-meta-ceo-mark-zuckerberg-about-ai-and-the-evolution-of-social-media/",
+            comment: "Zuckerberg 曾多次强调闭源 API 的规则与价格可被上游随时更改；llama.cpp 1.0 则在推理执行层把这份“开源保险”真正落到了每一台终端设备上。"
+          },
+          {
+            person: "Yann LeCun（AMI Labs 执行主席 / 纽约大学教授）",
+            role: "技术底座的开源化铁律",
+            quote: "「AI 会成为一个平台，而多数平台往往会走向开源。」",
+            sourceUrl: "https://www.technologyreview.com/2026/01/22/1131661/yann-lecuns-new-venture-ami-labs/",
+            comment: "正如 Linux 统一了服务器操作系统，支持超 150 种架构的 llama.cpp + ggml 1.0 已经成为端侧与异构硬件推理的事实标准。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>桌面与端侧应用开发者</strong>：尽快将项目依赖升级至 <code>llama.cpp v1.0.0</code> 与 <code>ggml v1.0.0</code>，清理此前针对旧版废弃 API 编写的兼容补丁，利用新的语义化版本规范锁定生产环境的动态链接库。",
+          "<strong>企业安全与知识管理团队</strong>：针对绝不能出内网的法务合同、核心财务报表与研发代码，可基于 llama.cpp 1.0 搭配 Qwen3.8 / DeepSeek-V4-Flash / GLM 等开源权重搭建纯内网离线推理节点，作为云端服务中断（如本周 M365 故障）时的灾备底座。"
+        ],
+        sources: [
+          { label: "GitHub 官方仓库：ggml-org/llama.cpp v1.0.0 Release", url: "https://github.com/ggml-org/llama.cpp" },
+          { label: "IT之家：本地推理引擎llama.cpp 1.0.0史诗级更新：支持超150种模型架构", url: "https://www.ithome.com/1/027/019.htm" },
+          { label: "gihyo.jp：llama.cpp 1.0.0リリース ——API・ABIの非互換変更をメジャーバージョンの更新で明示へ", url: "https://gihyo.jp/article/2026/11/llama.cpp-v1.0.0" },
+          { label: "AIHOT 热点榜 No.7：llama.cpp 与 ggml 发布首个大版本 v1.0.0", url: "https://aihot.news/hot" }
+        ]
+      },
+      {
+        id: 10,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Visual_Studio_Code_1.18.1_on_Windows10.jpg?width=900",
+        imageCaption: "图 10｜Cursor 编辑器底层所基于的 VS Code 集成开发环境与扩展体系界面，此次事故系攻击者污染扩展商店缓存中的 Claude Code 插件所致（图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · IDE 产品界面",
+        entityBadge: "软件产品 · IDE 与扩展生态",
+        orderLabel: "10",
+        isFocus: false,
+        focusRank: "",
+        category: "安全与底座风险",
+        date: "2026-11-13 ~ 11-14",
+        readTime: "5 分钟",
+        metricNum: "5000",
+        metricUnit: "名开发者受波及",
+        metricTag: "训练轨迹泄露反噬插件商店",
+        analysisMethodName: "智能体供应链攻防 × “训练数据泄露反噬生产工具”链路复盘",
+        analysisMethodReason: "Cursor 此次安全事故是 AI 编程时代极具代表性的新型供应链攻击——攻击者不是直接攻破官网，而是通过第三方推理商泄露的“用于模型训练的编程会话轨迹”，反向提取未脱敏密钥并污染插件分发缓存。",
+        title: "Cursor 披露供应链安全事件完整调查：推理商 Fireworks 密钥暴露，致恶意 Claude Code 扩展波及 5000 用户",
+        subtitle: "攻击者从非隐私模式下的历史编程训练轨迹中捞取未脱敏内部凭证，向扩展商店缓存注入带 66 行后门加载器的篡改版插件；Cursor 已将全部推理负载撤出 Fireworks。",
+        quote: "「我曾以为模型的“对齐”会随参数规模扩大自动涌现，现实证明并非如此。」——Satya Nadella（微软董事长兼 CEO）",
+        tldr: "11 月 13 日，全球最热门的 AI 编程工具 Cursor 发布安全事件完整复盘报告：攻击者利用其外部训练与推理供应商 Fireworks AI 暴露的一枚访问密钥，拷贝了一个存有历史编程智能体会话轨迹（Coding-Agent Traces，主要来自 2025 年未开启隐私模式且允许用于模型训练的会话）的只读存储桶。由于部分历史轨迹中含有未彻底脱敏的内部服务凭证，攻击者顺藤摸瓜攻入 Cursor 扩展商店分发缓存，在 10 月 29 日植入了两个带有 66 行恶意加载器的篡改版 Anthropic Claude Code 扩展（v2.1.312 与 v2.1.313），在存续的 11 小时内最多波及约 5000 名 macOS 与 Windows 开发者（少于 0.01% 客户 API 凭证暴露）。事发后，Cursor 已将所有推理服务全面迁出 Fireworks。",
+        newsContext: "2026 年 10 月被云安全机构 Wiz 称为 AI 开发者平台的“黑色十月”——单月内先后有九个 AI 开发平台披露安全事件。而 Cursor 作为三年做到 20 亿美元 ARR、并在 2026 年 8 月被马斯克旗下 SpaceX 以 600 亿美元天价收购的明星编码工具，渗透了《财富》1000 强中约 70% 的企业研发团队。程序员的 IDE（集成开发环境）里存着全公司最核心的源代码、云账号密钥与生产数据库凭证，一旦 IDE 插件供应链被攻破，杀伤力远超普通软件漏洞。",
+        newsFacts: [
+          "<strong>三跳攻击链完整还原：从 Fireworks 泄露密钥到训练轨迹挖矿</strong>：据 <a href=\"https://cursor.com/blog/security-incident-update\" target=\"_blank\" rel=\"noopener noreferrer\">Cursor 官方安全复盘博客</a>与 <a href=\"https://thedefiant.io/frontier/security/cursor-links-extension-attack-to-exposed-credentials\" target=\"_blank\" rel=\"noopener noreferrer\">The Defiant 报道</a>，攻击起点并非 Cursor 主站，而是 Cursor 签发给其模型训练与推理供应商 Fireworks 的一枚访问密钥在 Fireworks 侧暴露。攻击者利用该密钥读取了一个用于模型训练的 coding-agent 会话记录只读存储桶（均为未开启 Privacy Mode 的历史会话），并从这些代码交互记录中提取出未完全脱敏的内部软件服务凭证。",
+          "<strong>污染扩展商店缓存与 66 行静默加载器</strong>：拿到内部凭证后，攻击者进一步获取了 Cursor VS Code 扩展商店分发缓存的写入权限，于 UTC 时间 10 月 29 日 09:27 至 20:35 期间（存续约 11 小时），将带有真实发布者 ID 的 <code>Anthropic.claude-code</code> 2.1.312 与 2.1.313 替换为植入 66 行恶意 loader 的篡改包（软件一启动即执行，无需打开聊天窗口）。",
+          "<strong>影响范围与全面切割 Fireworks</strong>：官方确认最多约 <strong>5000 名用户</strong>下载或更新了受污染版本，少于 0.01% 客户的 API 凭证暴露。Cursor 已重建扩展商店、轮换全部密钥，敦促受影响用户排查持久化后门并轮换本机凭证；同时据 <a href=\"https://fourweekmba.com/ai-cursor-moves-all-inference-off-fireworks-after-key-exposure/\" target=\"_blank\" rel=\"noopener noreferrer\">FourWeekMBA 报道</a>，Cursor 已将所有模型推理业务彻底迁出 Fireworks。"
+        ],
+        companyProfile: {
+          name: "Cursor（Anysphere）高估值下的护城河与安全命门",
+          summary: "三年实现从 0 到 20 亿美元 ARR 的狂飙，2026 年 8 月以 600 亿美元并入 SpaceX，与 xAI 组成“算力+模型+编程入口”同盟。",
+          points: [
+            "<strong>飞轮的核心燃料成了风险源</strong>：AI 编程工具之所以越用越聪明，靠的是收集开发者在编辑器里的多步修改与终端执行轨迹（Agent Traces）做强化学习微调；但开发者的真实工作流里不可避免会夹杂环境变量与密钥。",
+            "<strong>三强肉搏容不得信任裂痕</strong>：面对微软 GitHub Copilot（470 万付费用户）与 Anthropic 官方 Claude Code 的贴身紧逼，企业客户是否敢继续关闭或开启数据共享，直接决定其自研 Composer 模型的迭代速度。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、新型 AI 风险范式：为什么“用来喂模型的训练轨迹”成了黑客的金矿？",
+            body: "这次事故给所有 AI 应用公司敲响了一记警钟。过去软件公司收集的用户日志只是点击流和报错堆栈，哪怕泄露也很难直接攻破系统；但在 Coding Agent 时代，智能体会自动读取本地终端输出、配置文件甚至命令历史，拼进上下文发往云端。如果用户没有开启“隐私模式（Privacy Mode）”，这些包含完整上下文的 Agent 会话轨迹就会被存进训练数据桶，交给 Fireworks 这样的外部推理/微调供应商。一旦脱敏正则规则漏掉哪怕千分之一的内部 Token，训练数据桶就会变成黑客眼中的“明文密码本”。"
+          },
+          {
+            heading: "二、“套娃式生态”的脆弱性：在 Cursor 里装 Claude Code 插件，到底谁对安全负责？",
+            body: "另一个极具时代特征的细节是：受害者是在 Cursor（一家 AI 编程工具）的自建扩展商店里，安装了竞争对手 Anthropic 的 Claude Code 插件，而漏洞源头却是第三家推理服务商 Fireworks。在 2026 年的 AI 开发栈里，工具、模型、插件缓存与托管算力层层嵌套，任何一个外包环节的密钥管理失守，都会沿着信任链条被放大为终端开发者的本机沦陷。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Geoffrey Hinton（图灵奖与诺贝尔物理学奖得主）",
+            role: "对 AI 赋能网络攻防与失控扩散的预警",
+            quote: "「它要求设立一个国际机构，为能实施黑客攻击的 AI 模型制定遏制标准，并记录遏制失败的情况。」",
+            sourceUrl: "https://thenextweb.com/news/geoffrey-hinton-alien-beings-jensen-huang-containment-letter",
+            comment: "当 AI 编程工具本身成为全球数百万程序员的终端入口时，针对 AI 工具链的供应链投毒比单纯的模型越狱更具现实破坏力。"
+          },
+          {
+            person: "Andrej Karpathy（Eureka Labs 创始人 / 前特斯拉 AI 总监）",
+            role: "Software 3.0 时代的权限边界",
+            quote: "「它是用英语编程的，而英语就是最自然的接口。突然间，每个人都成了程序员，因为人人都会说英语这种自然语言。」",
+            sourceUrl: "https://www.ycombinator.com/library/MW-andrej-karpathy-software-is-changing-again",
+            comment: "当自然语言驱动的 Coding Agent 拥有读写文件与执行脚本的最高权限时，开发环境的默认安全隔离（如沙箱化与强制隐私模式）必须跟上 Software 3.0 的普及速度。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>正在使用 Cursor 的研发团队（本周必做）</strong>：立即核查团队成员是否在 10 月 29 日前后安装或更新过 <code>Anthropic.claude-code</code> 扩展版本 <code>2.1.312</code> 或 <code>2.1.313</code>；若命中，不仅要卸载重装扩展，还必须假设该开发机曾被植入持久化访问，立即轮换该机器可触达的所有 SSH 密钥、云 AK/SK 与 API 凭证。",
+          "<strong>企业安全合规策略</strong>：在企业全员使用的 AI 编程工具（Cursor / Windsurf / Copilot）中，通过管理员策略强制全局开启 <code>Privacy Mode</code>（零数据留存、禁止将会话轨迹用于模型训练），并将 AI 辅助编码的工作目录与生产环境密钥严格物理隔离。"
+        ],
+        sources: [
+          { label: "Cursor 官方安全通报：An update on our recent security incident (2026-11-13)", url: "https://cursor.com/blog/security-incident-update" },
+          { label: "The Defiant：Cursor Links Extension Attack to Exposed Credentials", url: "https://thedefiant.io/frontier/security/cursor-links-extension-attack-to-exposed-credentials" },
+          { label: "FourWeekMBA：Cursor Moves All Inference Off Fireworks After Key Exposure", url: "https://fourweekmba.com/ai-cursor-moves-all-inference-off-fireworks-after-key-exposure/" },
+          { label: "AIHOT 首页精选：Cursor披露安全事件调查结果，恶意Claude Code扩展波及最多5000用户", url: "https://aihot.news/" }
+        ]
+      },
+      {
+        id: 11,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Satya_Nadella_(cropped).jpg?width=900",
+        imageCaption: "图 11｜微软（Microsoft）董事长兼 CEO 萨提亚·纳德拉（Satya Nadella），Microsoft 365 持续 36 小时的全球性中断波及下游多家 AI 智能体连接器（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 人物实拍",
+        entityBadge: "人物与企业 · Satya Nadella / Microsoft",
+        orderLabel: "11",
+        isFocus: false,
+        focusRank: "",
+        category: "安全与底座风险",
+        date: "2026-11-12 ~ 11-14",
+        readTime: "5 分钟",
+        metricNum: "36小时",
+        metricUnit: "M365全球级故障",
+        metricTag: "Claude与ChatGPT连接器同步瘫痪",
+        analysisMethodName: "基础设施韧性 × 智能体时代的“旧管道单点故障”悖论",
+        analysisMethodReason: "微软 Microsoft 365 的一次传统云服务宕机，竟然同时把 Anthropic Claude 与 OpenAI ChatGPT 的企业级办公连接器一起拖垮，适合从“前沿 Agent 与传统企业 IT 底座的耦合脆弱性”及微软自身组织重构角度剖析。",
+        title: "微软 Microsoft 365 爆发近年最严重宕机：中断一天半，为何把 Claude 与 ChatGPT 也一起拖下水？",
+        subtitle: "Exchange、Outlook、SharePoint 与 Teams 大面积失联；Anthropic 与 OpenAI 企业连接器因上游断流集体报错，折射出 AI 智能体对传统办公套件的深层依附。",
+        quote: "「想判断 AI 往哪走，别看榜单，看瓶颈：瓶颈一破，后面的能力会一起涌进来。」——Ethan Mollick（沃顿商学院教授）",
+        tldr: "自 11 月 12 日中午起，微软 Microsoft 365 遭遇近年来最严重的全球性服务中断之一，Exchange Online、Outlook、SharePoint 及部分 Teams 服务瘫痪持续近一天半（约 36 小时），微软高管为此公开致歉。更令 AI 行业震动的是，此次故障产生剧烈的跨生态连锁反应：Anthropic 的 Claude Microsoft 365 连接器、Claude for Outlook 插件以及 OpenAI ChatGPT 的企业办公连接器全部因上游服务无响应而陷入高错误率或完全中断。与此同时，Anthropic 本周面向企业推出可作为可见参会者加入视频会议的 Claude Meetings beta，首选接入的却是 Google Meet 而非微软 Teams。",
+        newsContext: "进入 2026 年下半年，大模型脱离单纯的网页对话框、深度嵌入企业日常办公流（读取邮件、检索 SharePoint 文档库、自动安排日历）已成为企业付费的核心理由。然而，不管顶层的模型是 GPT-6 还是 Claude Fable 5.2，它们进入大型企业的唯一合法通道，依然是微软修筑了二十年的“Office 365 席位 + Entra 身份目录 + SharePoint 文档库”三道闸门。",
+        newsFacts: [
+          "<strong>持续一天半的全球办公瘫痪与跨平台波及</strong>：据 <a href=\"https://www.businessinsider.com/microsoft-365-outage-outlook-teams-down-claude-what-we-know-2026-11\" target=\"_blank\" rel=\"noopener noreferrer\">Business Insider</a> 与 <a href=\"https://hyperight.com/claude-experiences-service-disruptions-following-upstream-incident/\" target=\"_blank\" rel=\"noopener noreferrer\">Hyperight 报道</a>，故障始于 UTC 时间 11 月 12 日 17:30 左右，微软 Exchange Online、Outlook、SharePoint 与 Teams 陆续掉线并持续至 11 月 13 日晚间。Anthropic 在 Claude 状态页连发多条通报指出，由于上游 Microsoft 365 服务事故，Claude 的邮件、日历、SharePoint 检索连接器及 Claude for Outlook 插件全面受阻；<a href=\"https://www.inc.com/aaron-mok/the-microsoft-outage-also-hit-chatgpt-and-claude-but-theres-an-easy-workaround/91436228\" target=\"_blank\" rel=\"noopener noreferrer\">Inc. 报道</a>亦确认 ChatGPT 的 Microsoft 365 连接器同步中断。",
+          "<strong>Anthropic 推出 Claude Meetings beta，优先绑定 Google Meet</strong>：恰在同一周，<a href=\"https://aihot.news/hot\" target=\"_blank\" rel=\"noopener noreferrer\">AIHOT 热点榜 No.8</a> 披露 Anthropic 向 Team 与 Enterprise 客户推出 <code>Claude Meetings beta</code>——Claude 可作为可见参与者直接进入视频会议，经确认发言人身份后实时回答口头提问、起草文档并沉淀会议纪要（一旦有外部人员加入通话默认自动退出），但首发仅支持 Google Meet。",
+          "<strong>微软内部的成本重构与资深科学家出走</strong>：就在此次大宕机发生前一个月，微软刚向约 6 万名员工（占总数 27%）发出自愿买断要约以腾出预算支撑全年 1700 亿美元的 AI 资本开支；而 11 月 14 日 Windows Latest 报道称，在微软任职逾 14 年的资深 AI 科学家、AI Frontiers 实验室联合创始人 John Langford 宣布离职，直言内部“研究成果看不到落地路径、创新想法难获认真对待”。"
+        ],
+        companyProfile: {
+          name: "Microsoft（微软）“三重收费站”底座与资源挤出效应",
+          summary: "单季营收 923 亿美元、营业利润 366 亿美元，把全球白领的“办公席位—身份目录—云端算力”串成复合收租机器，但正面临巨额 AI 资本开支对传统业务维护与人力编制的挤压。",
+          points: [
+            "<strong>房东对租客的隐形卡位</strong>：不管是 OpenAI 还是签下 449 亿美元算力承诺的 Anthropic，只要想服务企业白领，就必须调用 Microsoft Graph 与 365 连接器；微软既是算力房东，又是办公入口守门人。",
+            "<strong>资本开支挤压工程冗余</strong>：单季 452 亿美元资本开支与 27% 员工买断计划并行，折射出巨头在全力冲刺 AI 机房时，传统基础软件服务的运维韧性与研究创新正承受结构性压力。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、“木桶效应”的冷酷验证：1000 个子智能体能造操作系统，却过不了一道宕机的 Outlook 网关",
+            body: "本周有两条关于 Anthropic 的新闻放在一起极具讽刺张力：在实验室环境里，Claude Fable 5.2 能指挥 1000 个子智能体在 8 天内从零写出一个可启动的操作系统；但在真实的企业办公环境里，微软 Exchange 和 SharePoint 服务器一挂，企业花重金部署的 Claude 和 ChatGPT 助手就连一封邮件都读不出来、一个日程都排不了。这印证了沃顿商学院教授 Ethan Mollick 反复强调的“木桶瓶颈定律”：企业级 AI 的真实可用性，从来不取决于模型在数学竞赛里考多少分，而取决于它所挂载的最老旧、最脆弱的那根企业 IT 管道。"
+          },
+          {
+            heading: "二、为什么 Anthropic 的会议智能体（Claude Meetings）选择从 Google Meet 破局？",
+            body: "当微软把 Copilot 深度预装进 Teams 并通过 E5 席位捆绑销售（已招致英国 CMA 启动反垄断战略市场地位调查）时，第三方模型厂商在微软生态内始终处于“寄人篱下”的次等公民地位——不仅接口受制于人，连上游宕机都要跟着背锅。Anthropic 此次推出的重量级产品 Claude Meetings（让 AI 作为正式参会者实时协同办公）绕开企业市场份额最大的 Teams，率先在 Google Meet 落地，正是为了与 Google Workspace 结成反制微软 Copilot 席位垄断的侧翼同盟。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "Ethan Mollick（沃顿商学院教授）",
+            role: "盯紧工作流瓶颈而非纸面榜单",
+            quote: "「想判断 AI 往哪走，别看榜单，看瓶颈：瓶颈一破，后面的能力会一起涌进来。」",
+            sourceUrl: "https://www.oneusefulthing.org/p/the-shape-of-ai-jaggedness-bottlenecks",
+            comment: "M365 中断导致各大 AI 助手集体失能表明，当前企业 AI 落地的真正瓶颈不在模型推理智商，而在跨系统连接器（Connectors）的稳定性、权限审计与本地容灾能力。"
+          },
+          {
+            person: "Satya Nadella（微软董事长兼 CEO）",
+            role: "SaaS 坍塌论的自我映照",
+            quote: "「我认为“业务应用作为独立实体存在”这件事，大概会在 agent 时代整体坍塌。」",
+            sourceUrl: "https://www.computerworld.com/article/3981415/does-agentic-ai-spell-doom-for-saas.html",
+            comment: "Nadella 预言传统业务应用将退化为 Agent 背后的底层数据库；但此次长达一天半的故障提醒所有人：如果底层数据库与身份网关本身不够稳固，长在上面的所有 Agent 都会沦为空中楼阁。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>企业 IT 与数字化架构师</strong>：在设计企业级 Agent 工作流时，切勿将关键业务审批与文档读取 100% 强耦合于单一云端 SaaS 连接器；应建立本地缓存镜像或导出回退机制（正如 Inc. 报道指出的，此次故障期间将关键文档导出本地再喂给 AI 是唯一可用的应急方案）。",
+          "<strong>使用 Google Workspace 的团队</strong>：可率先申请试用 Anthropic 新上线的 <code>Claude Meetings beta</code>（beta 期间会议转录、纪要与实时问答免费），但需注意其默认策略会在外部人员参会时自动退会以防泄密。"
+        ],
+        sources: [
+          { label: "AIHOT 热点榜 No.3 & No.8：微软365故障波及Claude & Anthropic推出Claude Meetings beta", url: "https://aihot.news/hot" },
+          { label: "Business Insider：Microsoft Apologizes for Massive Outage That Caused Business Disruption", url: "https://www.businessinsider.com/microsoft-365-outage-outlook-teams-down-claude-what-we-know-2026-11" },
+          { label: "Inc.：The Microsoft Outage Also Hit ChatGPT and Claude", url: "https://www.inc.com/aaron-mok/the-microsoft-outage-also-hit-chatgpt-and-claude-but-theres-an-easy-workaround/91436228" },
+          { label: "Hyperight：Claude Experiences Service Disruptions Following Upstream Incident", url: "https://hyperight.com/claude-experiences-service-disruptions-following-upstream-incident/" }
+        ]
+      },
+      {
+        id: 12,
+        imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Googleplex_HQ_(cropped).jpg?width=1000",
+        secondaryImageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Bret_Taylor_-_TechCrunch_Real-Time_Stream_Crunchup_-_2009.jpg?width=800",
+        imageCaption: "图 12｜位于加州山景城的 Google 总部园区（Googleplex）与 Sierra 联合创始人 Bret Taylor——Google `/teamwork` 与 Sierra Poppy 1.0 同步推进智能体协同协议（实拍图源：Wikimedia Commons）",
+        imageCredit: "Wikimedia Commons · 园区与人物实拍",
+        entityBadge: "公司与人物 · Google & Sierra Bret Taylor",
+        orderLabel: "12",
+        isFocus: false,
+        focusRank: "",
+        category: "智能体与开源生态",
+        date: "2026-11-13 ~ 11-14",
+        readTime: "6 分钟",
+        metricNum: "100+",
+        metricUnit: "企业伙伴接入Poppy 1.0",
+        metricTag: "多智能体攻克信息论猜想",
+        analysisMethodName: "劳动经济学任务框架 × 智能体“内部科研军团”与“外部商业协议”双轨演进",
+        analysisMethodReason: "同日发布的两大进展恰好代表了 Agent 演进的一体两面：Google Antigravity `/teamwork` 解决的是“多个智能体在内部如何分工攻克高难度科研难题”，Sierra 的 Poppy v1.0 解决的是“个人智能体在外部如何合法合规地与企业系统握手交易”，并置分析能完整呈现智能体从单点工具走向社会化协作的图景。",
+        title: "智能体告别单打独斗：Google 开放 `/teamwork` 科研多智能体军团，Sierra 联合 Meta 与 Shopify 发布 Poppy 1.0 协议",
+        subtitle: "Google Research 用 Gemini 4 多智能体协同攻克信息论 Courtade–Kumar 猜想与韦伊猜想形式化验证；Poppy v1.0 让个人智能体不再“伪装成人类点网页”，已在全部 Shopify 商家自动启用。",
+        quote: "「它是一个能调用大模型、访问工具与文件系统、拆解任务并派生多个子智能体的智能体系统。」——黄仁勋（谈智能体作为新一代计算范式）",
+        tldr: "11 月 13–14 日，智能体（Agent）基础设施在“内部深度协同”与“外部跨组织通信”两个维度同时迎来里程碑：在科研与工程端，Google Research 宣布对外开放 Antigravity 平台的 `/teamwork` 多智能体协作工具——此前该系统配合 Gemini 4（Argon/Carbon/Hydrogen）已成功攻克信息论中悬置多年的 Courtade–Kumar 猜想、完成韦伊猜想（Weil conjectures）形式化证明并实现核磁共振分子结构高精度还原；在商业交互端，由 OpenAI 前联创 Bret Taylor 执掌的 Sierra 联合 Meta 与 Shopify 正式发布个人智能体协议 Personal Agent Protocol（Poppy）v1.0，在全部 Shopify 商家与 Meta Muse 智能体上默认启用，定义了个人 Agent 如何通过 `/.well-known/poppy.json` 与 OAuth 权限跟企业合规交互。",
+        newsContext: "2026 年初，人们对 Agent 的想象还停留在“让一个模型看屏幕模拟鼠标点击（Computer Use）”。但半年来的工程实践暴露出两大死穴：第一，单个模型在面对需要几百步推导的数学证明或大型系统优化时，极易陷入思维盲区；第二，当用户的个人 Agent 试图去航空公司改签或去电商退货时，模拟人类点击网页不仅慢且极不稳定，还会被网站的反爬虫验证码（CAPTCHA）当成黑客直接封杀。智能体急需一套“内部协同机制”与一套“外部外交协议”。",
+        newsFacts: [
+          "<strong>Google Antigravity `/teamwork`：多智能体分工攻克数学猜想與内核优化</strong>：据 <a href=\"https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/\" target=\"_blank\" rel=\"noopener noreferrer\">Google Research 官方博客（VP Vahab Mirrokni 撰文）</a>与 <a href=\"https://explainx.ai/blog/google-antigravity-teamwork-open-math-cs-engineering-results-november-2026\" target=\"_blank\" rel=\"noopener noreferrer\">ExplainX 报道</a>，Antigravity 的 <code>/teamwork</code> 框架允许多个由 Gemini 4 驱动的专业子智能体分别扮演“猜想提出者、反例攻击者、Lean 形式化证明校验者与代码优化者”。在与高校学者的合作中，该系统不仅给出了信息论 Courtade–Kumar 猜想的完整证明，还在韦伊猜想形式化验证、核磁共振（NMR）光谱分子结构反演及系统内核优化上取得突破。同日 UT Austin 计算机科学家 Scott Aaronson 感叹，面对 AI 批量产出的上百个数学证明，许多研究生正对如何建立学术职业感到迷茫。",
+          "<strong>Sierra 正式发布 Poppy v1.0：终结“智能体假装人类爬网页”</strong>：据 <a href=\"https://sierra.ai/blog/releasing-poppy\" target=\"_blank\" rel=\"noopener noreferrer\">Sierra 官方博客</a>与 <a href=\"https://www.unite.ai/sierra-releases-poppy-1-0-with-shopify-and-meta-muse-support/\" target=\"_blank\" rel=\"noopener noreferrer\">Unite.AI 报道</a>，由 Sierra 与 Meta 牵头、超 100 家设计伙伴（含 BBVA、HealthEx 等）参与制定的 <strong>Personal Agent Protocol（Poppy）v1.0</strong> 于 11 月 13 日正式上线。企业只需在域名下发布 <code>/.well-known/poppy.json</code>，个人智能体即可按四步标准流程交互：① 发现路由；② 免登录查询库存或退换货政策；③ 按需通过 OAuth 登录客户账户；④ 由用户明确授予只读或写入权限。目前 Poppy v1.0 已对 Meta 旗下 AI 智能体 <strong>Muse</strong> 的全部用户及 <strong>Shopify</strong> 上的每一个商家自动开启。",
+          "<strong>端侧与浏览器基础设施同步跟进</strong>：同日（11 月 13–14 日），Cloudflare 宣布开源专为 AI 智能体打造的低资源消耗浏览器 <code>Kitesurf</code>（替代笨重的 Chromium），Anthropic 亦更新 Claude Code Projects 加入并行 AI worker 与协调员主动汇报机制。"
+        ],
+        companyProfile: {
+          name: "智能体工程栈（Agent Harness & Protocol）生态格局",
+          summary: "竞争焦点已从“单次问答智商”全面转向“多智能体组织编排（Orchestration）”与“跨企业互操作协议标准（MCP / Poppy / A2A）”。",
+          points: [
+            "<strong>科学发现的流水线化</strong>：Google 将 `/teamwork` 塞进开发者付费平台 Antigravity，意味着高阶科研与形式化验证不再是实验室特权，而成了可按 Token 购买的标准化算力服务。",
+            "<strong>商业互联网的“第二套接口层”成型</strong>：如果说过去 30 年网站用 HTML 服务人类眼球，那么以 Poppy v1.0 与 MCP 为代表的协议层，正在为全球商户铺设专门接待“个人 AI 代理”的 VIP 通道。"
+          ]
+        },
+        customAnalysis: [
+          {
+            heading: "一、劳动经济学视角：为什么 `/teamwork` 让顶尖理工科研究生第一次感到“职业眩晕”？",
+            body: "在劳动经济学的任务框架（Task-based Framework）中，过去人们普遍认为 AI 只能替代“低技能、重复性”的文书与客服工作，而数学定理证明、形式化验证、分子结构推导属于人类智力的最坚固堡垒。但 Google Antigravity `/teamwork` 的突破揭示了一个关键机制：单个大模型或许会犯错，但当你在系统里把一个拥有百万上下文的旗舰模型拆成“发散探索 Agent + 严格逻辑证伪 Agent + Lean 编译器校验 Agent”闭环博弈时，搜索空间被以人类无法企及的并发速度穷尽。正如 Scott Aaronson 所言，原本用来训练博士生学术基本功的“中等难度开放问题”被多智能体军团成批扫平——初级科研工作者的核心技能正被迫从“自己推导证明”转向“定义正确的问题并设计验证器”。"
+          },
+          {
+            heading: "二、Poppy v1.0 的制度意义：给每一个智能体发一张“合法的数字身份证”",
+            body: "为什么 Meta、Shopify 和超 100 家企业要力推 Poppy 协议？想象一下，如果每个人都派一个模拟点击或自动打电话的 AI（比如本周 Meta Muse 刚上线的 19.99 美元代打电话功能，结果不少餐厅店员一听是合成语音就直接挂断）去跟商家打交道，互联网和呼叫中心将被海量机器流量挤爆，商家分不清谁是恶意爬虫、谁是真实顾客的代理。Poppy v1.0 通过简单的 <code>/.well-known/poppy.json</code> 声明与 OAuth 授权，让个人 Agent 亮明正身、按章办事。谁掌握了个人 Agent 与商业企业握手的默认协议，谁就掌握了下一代互联网的流量网关。"
+          }
+        ],
+        leaderPerspectives: [
+          {
+            person: "黄仁勋（NVIDIA 创始人）",
+            role: "子智能体派发是全新计算模型",
+            quote: "「它是一个能调用大模型、访问工具与文件系统、拆解任务并派生多个子智能体的智能体系统。」",
+            sourceUrl: "https://eu.36kr.com/en/p/3726473421713925",
+            comment: "无论是 Google 的 `/teamwork` 还是 Anthropic 新发布的常驻智能体五大架构原语，都在将“主协调员 + 并行子智能体”固化为标准软件架构。"
+          },
+          {
+            person: "Andrej Karpathy（Eureka Labs 创始人）",
+            role: "数字智能的独特演化形态",
+            quote: "「我们不是在造动物，而是在造幽灵或灵魂——随你怎么叫，因为我们不是用进化来训练的。」",
+            sourceUrl: "https://dwarkesh.com/p/andrej-karpathy",
+            comment: "不同于受限于单个大脑容量的人类研究者，数字智能可以瞬间分叉（fork）出上百个共享记忆却各自独立探索的子进程，再通过形式化验证器收敛——这是纯粹属于硅基系统的协作形态。"
+          }
+        ],
+        actionableTakeaways: [
+          "<strong>高校科研人员与算法工程师</strong>：登录 Google Antigravity 平台体验最新开放的 <code>/teamwork</code> 工作流，在涉及形式化验证、数学推导或算子内核调优的任务中，采用“生成—反例驳斥—形式化校验”的多 Agent 编排替代单次 Prompt 提问。",
+          "<strong>电商、SaaS 与金融服务架构师</strong>：参考 <a href=\"https://poppy.md/\" target=\"_blank\" rel=\"noopener noreferrer\">Poppy 协议规范</a> 在测试环境配置 <code>/.well-known/poppy.json</code> 路由声明，为即将涌入的 Meta Muse、ChatGPT dot 等个人智能体提供受 OAuth 权限管控的结构化服务接口，避免被屏幕抓取类 Agent 误伤或消耗前端带宽。"
+        ],
+        sources: [
+          { label: "Google Research Blog：Advancing science & engineering with Antigravity's /teamwork (2026-11-13)", url: "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/" },
+          { label: "ExplainX：Antigravity /teamwork: Google's Nov 2026 Math & CS Wins", url: "https://explainx.ai/blog/google-antigravity-teamwork-open-math-cs-engineering-results-november-2026" },
+          { label: "Sierra 官方博客：Releasing Personal Agent Protocol (Poppy) 1.0 (2026-11-13)", url: "https://sierra.ai/blog/releasing-poppy" },
+          { label: "Unite.AI：Sierra Releases Poppy 1.0 With Shopify and Meta Muse Support", url: "https://www.unite.ai/sierra-releases-poppy-1-0-with-shopify-and-meta-muse-support/" },
+          { label: "AIHOT 首页精选：Google展示Antigravity /teamwork成果 & Sierra发布Poppy v1.0", url: "https://aihot.news/" }
+        ]
+      }
+    ];
+
+    // ==================== APPLICATION STATE ====================
+    const state = {
+      view: 'home',
+      activeArticleId: 1,
+      selectedCategory: 'all',
+      searchQuery: '',
+      focusOnly: false,
+      fontSize: 'md',
+      readIds: new Set()
+    };
+
+    try {
+      const saved = localStorage.getItem('zhunxun_read_20261115');
+      if (saved) {
+        JSON.parse(saved).forEach(id => state.readIds.add(id));
+      }
+    } catch (e) {}
+
+    function saveReadState() {
+      try {
+        localStorage.setItem('zhunxun_read_20261115', JSON.stringify(Array.from(state.readIds)));
+      } catch (e) {}
+      const badge = document.getElementById('read-count-badge');
+      if (badge) badge.textContent = String(state.readIds.size);
+    }
+
+    function getCategoryTagStyle(cat) {
+      switch (cat) {
+        case '算力与资本账本':
+          return 'text-slate-700 bg-slate-100';
+        case '前沿模型与芯片':
+          return 'text-blue-700 bg-blue-50';
+        case '智能体与开源生态':
+          return 'text-sky-700 bg-sky-50';
+        case '安全与底座风险':
+          return 'text-slate-700 bg-slate-100';
+        default:
+          return 'text-blue-700 bg-blue-50';
+      }
+    }
+
+    function handleImgError(imgEl, badgeText) {
+      const wrap = imgEl.closest('.news-photo-wrap');
+      if (!wrap) return;
+      imgEl.style.display = 'none';
+      const fallback = document.createElement('div');
+      fallback.className = 'w-full h-full min-h-[160px] flex flex-col items-center justify-center p-4 bg-slate-100 text-slate-500 text-center';
+      fallback.innerHTML = `<div class="font-mono-num text-[11px] uppercase tracking-widest text-slate-400 mb-1">ARCHIVE</div><div class="font-serif-cn font-semibold text-xs">${badgeText || '新闻插图'}</div>`;
+      wrap.appendChild(fallback);
+    }
+    window.handleImgError = handleImgError;
+
+    // ==================== RENDER: FRONT PAGE ====================
+    function renderHome() {
+      const q = state.searchQuery.trim().toLowerCase();
+
+      const filtered = ARTICLES.filter(art => {
+        if (state.selectedCategory !== 'all' && art.category !== state.selectedCategory) {
+          return false;
+        }
+        if (state.focusOnly && !art.isFocus) {
+          return false;
+        }
+        if (q) {
+          const hay = [
+            art.title,
+            art.subtitle,
+            art.tldr,
+            art.category,
+            art.analysisMethodName,
+            art.entityBadge,
+            art.companyProfile.name,
+            ...art.leaderPerspectives.map(p => p.person)
+          ].join(' ').toLowerCase();
+          return hay.includes(q);
+        }
+        return true;
+      });
+
+      const focusArts = filtered.filter(a => a.isFocus);
+      const regularArts = filtered.filter(a => !a.isFocus);
+
+      const focusSection = document.getElementById('focus-section');
+      const gridSection = document.getElementById('grid-section');
+      const emptyState = document.getElementById('empty-filter-state');
+      const focusContainer = document.getElementById('focus-cards-container');
+      const regularContainer = document.getElementById('regular-cards-container');
+      const gridCountLabel = document.getElementById('grid-count-label');
+
+      if (filtered.length === 0) {
+        focusSection.classList.add('hidden');
+        gridSection.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      if (focusArts.length > 0) {
+        focusSection.classList.remove('hidden');
+        const mainLead = focusArts[0];
+        const sideLeads = focusArts.slice(1);
+        const isMainRead = state.readIds.has(mainLead.id);
+
+        const mainLeadHtml = `
+          <div class="${sideLeads.length > 0 ? 'lg:col-span-7' : 'lg:col-span-12'} flex flex-col justify-between group cursor-pointer" onclick="openArticle(${mainLead.id})">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2 text-xs">
+                  <span class="font-mono-num font-bold text-blue-700">${mainLead.focusRank}</span>
+                  <span class="text-slate-300">·</span>
+                  <span class="px-2 py-0.5 rounded-full font-medium ${getCategoryTagStyle(mainLead.category)}">${mainLead.category}</span>
+                  <span class="font-mono-num text-slate-400">${mainLead.date}</span>
+                </div>
+                <span class="font-mono-num text-xs font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full">
+                  ${mainLead.metricNum} ${mainLead.metricUnit}
+                </span>
+              </div>
+
+              <h3 class="font-serif-cn font-black text-2xl sm:text-3xl lg:text-[2rem] text-slate-900 group-hover:text-blue-700 transition-colors leading-snug mb-3">
+                ${mainLead.title}
+              </h3>
+
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-5">
+                ${mainLead.subtitle}
+              </p>
+
+              <figure class="mb-5">
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+                  <div class="${mainLead.secondaryImageUrl ? 'sm:col-span-8' : 'sm:col-span-12'} news-photo-wrap rounded-xl h-64 sm:h-76">
+                    <img src="${mainLead.imageUrl}" alt="${mainLead.entityBadge}" onerror="handleImgError(this, '${mainLead.entityBadge}')" class="news-photo-img news-photo-zoom w-full h-full object-cover object-top">
+                  </div>
+                  ${mainLead.secondaryImageUrl ? `
+                  <div class="sm:col-span-4 news-photo-wrap rounded-xl h-44 sm:h-76">
+                    <img src="${mainLead.secondaryImageUrl}" alt="关联实拍" onerror="handleImgError(this, '关联新闻实拍')" class="news-photo-img news-photo-zoom w-full h-full object-cover">
+                  </div>
+                  ` : ''}
+                </div>
+                <figcaption class="text-xs text-slate-400 mt-2 font-serif-cn truncate">
+                  ${mainLead.imageCaption}
+                </figcaption>
+              </figure>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
+                <p class="line-clamp-4">${mainLead.tldr}</p>
+                <div class="bg-slate-50 rounded-xl border border-slate-200/70 p-4 flex flex-col justify-between">
+                  <div>
+                    <div class="text-[11px] font-mono-num text-blue-700 font-semibold mb-1">分析视角</div>
+                    <div class="font-serif-cn font-bold text-xs sm:text-sm text-slate-900 mb-1">${mainLead.analysisMethodName}</div>
+                    <p class="text-xs text-slate-500 line-clamp-2">${mainLead.analysisMethodReason}</p>
+                  </div>
+                  <div class="mt-3 pt-2.5 border-t border-slate-200/70 flex items-center justify-between text-xs">
+                    <span class="text-slate-400">${isMainRead ? '✓ 已读' : mainLead.readTime}</span>
+                    <span class="font-semibold text-blue-700 group-hover:translate-x-0.5 transition-transform">阅读全文 →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const sideLeadsHtml = sideLeads.length > 0 ? `
+          <div class="lg:col-span-5 lg:pl-8 flex flex-col justify-between divide-y divide-slate-200/80">
+            <div class="pb-5">
+              <div class="text-xs font-mono-num uppercase tracking-wider text-blue-700 font-semibold mb-2">本周社论 · Editorial</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-serif-cn">
+                过去一周，全球 AI 产业迎来了最具分水岭意义的成人礼：黄仁勋辞任揭开 <strong>2500 亿美元算力担保</strong>冰山一角；Anthropic 在敲钟前夜摊开 <strong>58% 算力成本占比</strong>与 <strong>34 亿美元抢购燃气轮机</strong>的账本；叠加美联储 <strong>6800 亿美元 AI 基建债</strong>预警，共同宣告“不计成本烧钱”的时代终结。
+              </p>
+            </div>
+
+            ${sideLeads.map(art => {
+              const isRead = state.readIds.has(art.id);
+              return `
+                <article onclick="openArticle(${art.id})" class="py-5 last:pb-0 cursor-pointer group">
+                  <div class="flex items-center justify-between gap-2 mb-2 text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="font-mono-num font-bold text-blue-700">${art.focusRank}</span>
+                      <span class="text-slate-400">${art.category}</span>
+                    </div>
+                    <span class="font-mono-num font-semibold text-slate-700">${art.metricNum} ${art.metricUnit}</span>
+                  </div>
+
+                  <div class="grid grid-cols-12 gap-4 items-start">
+                    <div class="col-span-7 sm:col-span-8">
+                      <h3 class="font-serif-cn font-bold text-base sm:text-lg text-slate-900 group-hover:text-blue-700 transition-colors leading-snug mb-1.5">
+                        ${art.title}
+                      </h3>
+                      <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                        ${art.subtitle}
+                      </p>
+                    </div>
+                    <div class="col-span-5 sm:col-span-4">
+                      <div class="news-photo-wrap rounded-lg aspect-[4/3] w-full">
+                        <img src="${art.imageUrl}" alt="${art.entityBadge}" onerror="handleImgError(this, '${art.entityBadge}')" class="news-photo-img news-photo-zoom w-full h-full object-cover object-top">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400 font-mono-num">
+                    <span>${art.date} · ${art.readTime}${isRead ? ' · 已读' : ''}</span>
+                    <span class="font-sans font-semibold text-blue-700 group-hover:translate-x-0.5 transition-transform">阅读 →</span>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        ` : '';
+
+        focusContainer.innerHTML = mainLeadHtml + sideLeadsHtml;
+      } else {
+        focusSection.classList.add('hidden');
+      }
+
+      if (regularArts.length > 0) {
+        gridSection.classList.remove('hidden');
+        gridCountLabel.textContent = `共 ${regularArts.length} 篇`;
+        regularContainer.innerHTML = regularArts.map(art => {
+          const isRead = state.readIds.has(art.id);
+          return `
+            <article onclick="openArticle(${art.id})" class="cursor-pointer rounded-xl border border-slate-200/80 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition-all flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono-num font-bold text-slate-400">${art.orderLabel}</span>
+                    <span class="px-2 py-0.5 rounded-full text-[11px] font-medium ${getCategoryTagStyle(art.category)}">${art.category}</span>
+                  </div>
+                  <span class="font-mono-num font-semibold text-blue-700">${art.metricNum} <span class="font-sans font-normal text-slate-500">${art.metricUnit}</span></span>
+                </div>
+
+                <figure class="mb-4">
+                  <div class="news-photo-wrap rounded-lg h-44 w-full">
+                    <img src="${art.imageUrl}" alt="${art.entityBadge}" onerror="handleImgError(this, '${art.entityBadge}')" class="news-photo-img news-photo-zoom w-full h-full object-cover object-center">
+                  </div>
+                </figure>
+
+                <h3 class="font-serif-cn font-bold text-base sm:text-lg text-slate-900 group-hover:text-blue-700 transition-colors leading-snug mb-2">
+                  ${art.title}
+                </h3>
+
+                <p class="text-xs text-slate-500 leading-relaxed line-clamp-3">
+                  ${art.subtitle}
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono-num text-slate-400">
+                <span>${art.date} · ${art.readTime}${isRead ? ' · 已读' : ''}</span>
+                <span class="font-sans font-semibold text-blue-700 group-hover:translate-x-0.5 transition-transform">阅读 →</span>
+              </div>
+            </article>
+          `;
+        }).join('');
+      } else {
+        gridSection.classList.add('hidden');
+      }
+    }
+
+    // ==================== RENDER: ARTICLE DETAIL VIEW ====================
+    function renderArticleDetail(id) {
+      const art = ARTICLES.find(a => a.id === id) || ARTICLES[0];
+      state.activeArticleId = art.id;
+      state.readIds.add(art.id);
+      saveReadState();
+
+      const breadcrumb = document.getElementById('detail-breadcrumb');
+      if (breadcrumb) {
+        breadcrumb.textContent = `NO.${art.orderLabel} / 12 · ${art.category}`;
+      }
+
+      const prevId = art.id > 1 ? art.id - 1 : 12;
+      const nextId = art.id < 12 ? art.id + 1 : 1;
+      const prevArt = ARTICLES.find(a => a.id === prevId);
+      const nextArt = ARTICLES.find(a => a.id === nextId);
+
+      const topPrevBtn = document.getElementById('top-prev-btn');
+      const topNextBtn = document.getElementById('top-next-btn');
+      if (topPrevBtn) topPrevBtn.onclick = () => openArticle(prevId);
+      if (topNextBtn) topNextBtn.onclick = () => openArticle(nextId);
+
+      const sheet = document.getElementById('article-sheet');
+      sheet.innerHTML = `
+        <!-- 1. Article Header -->
+        <header class="border-b border-slate-200 pb-7 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-mono-num font-bold text-slate-400">NO.${art.orderLabel}</span>
+              <span class="px-2.5 py-0.5 rounded-full font-medium ${getCategoryTagStyle(art.category)}">${art.category}</span>
+              ${art.isFocus ? `<span class="px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-medium">${art.focusRank}</span>` : ''}
+              <span class="text-slate-400 font-mono-num">${art.date} · 约 ${art.readTime}</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-mono-num font-semibold">
+              ${art.metricNum} ${art.metricUnit}
+            </span>
+          </div>
+
+          <h1 class="font-serif-cn font-black text-2xl sm:text-3xl lg:text-4xl text-slate-900 leading-tight">
+            ${art.title}
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-serif-cn">
+            ${art.subtitle}
+          </p>
+
+          <figure class="pt-2">
+            <div class="grid grid-cols-1 ${art.secondaryImageUrl ? 'sm:grid-cols-12' : ''} gap-3">
+              <div class="${art.secondaryImageUrl ? 'sm:col-span-8' : ''} news-photo-wrap rounded-xl max-h-[420px]">
+                <img src="${art.imageUrl}" alt="${art.entityBadge}" onerror="handleImgError(this, '${art.entityBadge}')" class="news-photo-img w-full h-full max-h-[420px] object-cover object-top">
+              </div>
+              ${art.secondaryImageUrl ? `
+              <div class="sm:col-span-4 news-photo-wrap rounded-xl max-h-[420px]">
+                <img src="${art.secondaryImageUrl}" alt="关联实拍图" onerror="handleImgError(this, '关联新闻实拍')" class="news-photo-img w-full h-full max-h-[420px] object-cover">
+              </div>
+              ` : ''}
+            </div>
+            <figcaption class="text-xs text-slate-500 mt-2.5 flex flex-wrap items-center justify-between gap-2 font-serif-cn">
+              <span>${art.imageCaption}</span>
+              <span class="font-mono-num text-[11px] text-slate-400">${art.imageCredit}</span>
+            </figcaption>
+          </figure>
+
+          <div class="bg-blue-50/60 rounded-xl border border-blue-100 p-4">
+            <div class="text-xs font-semibold text-blue-800 mb-1">
+              分析框架：${art.analysisMethodName}
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              ${art.analysisMethodReason}
+            </p>
+          </div>
+
+          <blockquote class="border-l-4 border-slate-900 bg-slate-50 rounded-r-xl p-4 sm:p-5 font-serif-cn text-sm sm:text-base text-slate-800 leading-relaxed">
+            ${art.quote}
+          </blockquote>
+        </header>
+
+        <!-- 2. Executive Summary -->
+        <section class="bg-slate-50 rounded-xl border border-slate-200/80 p-5 sm:p-6">
+          <div class="text-xs font-mono-num uppercase tracking-wider text-blue-700 font-semibold mb-2">核心提要 · Executive Summary</div>
+          <p class="analysis-text text-slate-800 leading-relaxed font-medium">
+            ${art.tldr}
+          </p>
+        </section>
+
+        <!-- 3. Full News Story & Context -->
+        <section class="space-y-4">
+          <div class="border-b border-slate-200 pb-2 flex items-baseline justify-between">
+            <h2 class="font-serif-cn font-bold text-lg sm:text-xl text-slate-900">事件还原与来龙去脉</h2>
+            <span class="font-mono-num text-xs text-slate-400">CONTEXT</span>
+          </div>
+
+          <p class="bg-slate-50 border-l-2 border-blue-700 rounded-r-lg p-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong class="text-slate-900">【前情与背景】</strong>${art.newsContext}
+          </p>
+
+          <div class="article-prose pt-1">
+            ${art.newsFacts.map(fact => `<p>${fact}</p>`).join('')}
+          </div>
+        </section>
+
+        <!-- 4. Company Profile Box -->
+        <section class="bg-slate-900 text-white rounded-xl p-6 sm:p-7 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <h3 class="font-serif-cn font-bold text-base sm:text-lg text-white">${art.companyProfile.name}</h3>
+            <span class="text-xs font-mono-num text-blue-300">DOSSIER</span>
+          </div>
+          <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+            ${art.companyProfile.summary}
+          </p>
+          <ul class="space-y-2.5 pt-2 border-t border-slate-800">
+            ${art.companyProfile.points.map(pt => `
+              <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <span class="font-mono-num text-blue-400 font-bold">▪</span>
+                <span>${pt}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </section>
+
+        <!-- 5. Deep Analysis Sections -->
+        <section class="space-y-5">
+          <div class="border-b border-slate-200 pb-2 flex items-baseline justify-between">
+            <h2 class="font-serif-cn font-bold text-lg sm:text-xl text-slate-900">深度拆解与逻辑推演</h2>
+            <span class="font-mono-num text-xs text-slate-400">ANALYSIS</span>
+          </div>
+
+          <div class="space-y-6 divide-y divide-slate-100">
+            ${art.customAnalysis.map(sec => `
+              <div class="pt-5 first:pt-0">
+                <h3 class="font-serif-cn font-bold text-base sm:text-lg text-slate-900 mb-2.5">
+                  ${sec.heading}
+                </h3>
+                <p class="analysis-text text-slate-700 leading-relaxed text-justify">
+                  ${sec.body}
+                </p>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- 6. AI Leaders Perspectives -->
+        <section class="space-y-4">
+          <div class="border-b border-slate-200 pb-2 flex items-baseline justify-between">
+            <h2 class="font-serif-cn font-bold text-lg sm:text-xl text-slate-900">行业领袖观点交锋</h2>
+            <span class="text-xs text-slate-400 font-mono-num">PERSPECTIVES</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${art.leaderPerspectives.map(lp => `
+              <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-5 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="font-serif-cn font-bold text-sm text-slate-900">${lp.person}</span>
+                    <a href="${lp.sourceUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono-num text-blue-700 hover:underline">
+                      出处 ↗
+                    </a>
+                  </div>
+                  <div class="text-xs text-blue-700 font-medium mb-3">${lp.role}</div>
+                  <blockquote class="font-serif-cn text-sm text-slate-800 bg-white p-3.5 rounded-lg border border-slate-200/80 mb-3 leading-relaxed">
+                    ${lp.quote}
+                  </blockquote>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <strong class="text-slate-900">本刊对照：</strong>${lp.comment}
+                </p>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- 7. Actionable Takeaways -->
+        <section class="bg-blue-50/70 rounded-xl border border-blue-100 p-5 sm:p-6 space-y-3">
+          <div class="text-xs font-mono-num uppercase tracking-wider text-blue-800 font-semibold">现实启示与行动参考 · Takeaways</div>
+          <ul class="space-y-2.5">
+            ${art.actionableTakeaways.map(item => `
+              <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <span class="font-mono-num font-bold text-blue-700">→</span>
+                <span>${item}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </section>
+
+        <!-- 8. Verified Original Links -->
+        <section class="pt-4 border-t border-slate-200 space-y-2">
+          <h3 class="text-xs font-mono-num font-semibold text-slate-400 uppercase tracking-wider">一手信源核实链接 (Sources)</h3>
+          <div class="flex flex-col gap-1.5">
+            ${art.sources.map(src => `
+              <a href="${src.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-blue-700 hover:text-slate-900 underline underline-offset-2 break-all">
+                <span>▪ ${src.label}</span>
+              </a>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- 9. Bottom Navigation -->
+        <footer class="pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <button type="button" onclick="openArticle(${prevArt.id})" class="text-left p-3.5 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition-colors group">
+            <div class="text-[11px] font-mono-num text-slate-400 group-hover:text-blue-700">← 上一篇（NO.${prevArt.orderLabel}）</div>
+            <div class="font-serif-cn font-bold text-sm text-slate-900 truncate mt-0.5">${prevArt.title}</div>
+          </button>
+
+          <button type="button" onclick="showHome()" class="p-3.5 rounded-xl bg-slate-900 hover:bg-blue-700 text-white text-xs sm:text-sm font-serif-cn font-bold tracking-wider transition-colors text-center">
+            返回头版总览
+          </button>
+
+          <button type="button" onclick="openArticle(${nextArt.id})" class="text-right p-3.5 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition-colors group">
+            <div class="text-[11px] font-mono-num text-slate-400 group-hover:text-blue-700">下一篇（NO.${nextArt.orderLabel}） →</div>
+            <div class="font-serif-cn font-bold text-sm text-slate-900 truncate mt-0.5">${nextArt.title}</div>
+          </button>
+        </footer>
+      `;
+    }
+
+    // ==================== RENDER: METHODOLOGY MATRIX MODAL ====================
+    function renderMatrixTable() {
+      const tbody = document.getElementById('matrix-table-body');
+      if (!tbody) return;
+      tbody.innerHTML = ARTICLES.map(art => `
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-3 px-3 font-mono-num font-bold text-slate-500 whitespace-nowrap">${art.orderLabel}</td>
+          <td class="py-3 px-3">
+            <div class="font-serif-cn font-bold text-slate-900">${art.title}</div>
+          </td>
+          <td class="py-3 px-3">
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium text-xs">${art.analysisMethodName}</span>
+          </td>
+          <td class="py-3 px-3 text-slate-600 text-xs">
+            ${art.leaderPerspectives.map(p => p.person).join(' × ')}
+          </td>
+          <td class="py-3 px-3 text-right whitespace-nowrap">
+            <button type="button" onclick="closeMatrixAndOpen(${art.id})" class="px-3 py-1 rounded-full bg-slate-900 hover:bg-blue-700 text-white text-xs font-medium transition-colors">
+              阅读 →
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // ==================== VIEW NAVIGATION & HANDLERS ====================
+    function openArticle(id) {
+      state.view = 'article';
+      renderArticleDetail(id);
+      document.getElementById('view-home').classList.add('hidden');
+      document.getElementById('view-article').classList.remove('hidden');
+      const topBackBtn = document.getElementById('top-back-home-btn');
+      if (topBackBtn) {
+        topBackBtn.classList.remove('hidden');
+        topBackBtn.classList.add('inline-flex');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showHome() {
+      state.view = 'home';
+      document.getElementById('view-article').classList.add('hidden');
+      document.getElementById('view-home').classList.remove('hidden');
+      const topBackBtn = document.getElementById('top-back-home-btn');
+      if (topBackBtn) {
+        topBackBtn.classList.add('hidden');
+        topBackBtn.classList.remove('inline-flex');
+      }
+      renderHome();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setFontSize(size) {
+      state.fontSize = size;
+      const container = document.getElementById('view-article');
+      container.classList.remove('font-scale-sm', 'font-scale-md', 'font-scale-lg');
+      container.classList.add(`font-scale-${size}`);
+
+      ['sm', 'md', 'lg'].forEach(s => {
+        const btn = document.getElementById(`font-btn-${s}`);
+        if (!btn) return;
+        if (s === size) {
+          btn.className = 'px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-medium transition-colors';
+        } else {
+          btn.className = 'px-2.5 py-0.5 rounded-full text-slate-500 hover:text-slate-900 transition-colors';
+        }
+      });
+    }
+
+    function closeMatrixAndOpen(id) {
+      document.getElementById('matrix-modal').classList.add('hidden');
+      openArticle(id);
+    }
+
+    window.openArticle = openArticle;
+    window.showHome = showHome;
+    window.setFontSize = setFontSize;
+    window.closeMatrixAndOpen = closeMatrixAndOpen;
+
+    // ==================== INITIALIZATION ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      saveReadState();
+      renderHome();
+      renderMatrixTable();
+
+      document.getElementById('nav-brand-btn').addEventListener('click', showHome);
+      document.getElementById('top-back-home-btn').addEventListener('click', showHome);
+
+      const tabs = document.querySelectorAll('.cat-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          state.selectedCategory = tab.getAttribute('data-cat') || 'all';
+          tabs.forEach(t => {
+            if (t === tab) {
+              t.className = 'cat-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-colors whitespace-nowrap';
+            } else {
+              t.className = 'cat-tab px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors whitespace-nowrap';
+            }
+          });
+          renderHome();
+        });
+      });
+
+      const focusToggle = document.getElementById('focus-only-toggle');
+      focusToggle.addEventListener('change', () => {
+        state.focusOnly = focusToggle.checked;
+        renderHome();
+      });
+
+      const searchInput = document.getElementById('search-input');
+      const clearSearchBtn = document.getElementById('clear-search-btn');
+      searchInput.addEventListener('input', () => {
+        state.searchQuery = searchInput.value;
+        if (state.searchQuery.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+        renderHome();
+      });
+
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        state.searchQuery = '';
+        clearSearchBtn.classList.add('hidden');
+        renderHome();
+      });
+
+      document.getElementById('reset-filters-btn').addEventListener('click', () => {
+        state.selectedCategory = 'all';
+        state.searchQuery = '';
+        state.focusOnly = false;
+        searchInput.value = '';
+        focusToggle.checked = false;
+        clearSearchBtn.classList.add('hidden');
+        tabs.forEach((t, idx) => {
+          if (idx === 0) {
+            t.className = 'cat-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-colors whitespace-nowrap';
+          } else {
+            t.className = 'cat-tab px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors whitespace-nowrap';
+          }
+        });
+        renderHome();
+      });
+
+      const matrixModal = document.getElementById('matrix-modal');
+      document.getElementById('open-matrix-btn').addEventListener('click', () => {
+        matrixModal.classList.remove('hidden');
+      });
+      document.getElementById('close-matrix-btn').addEventListener('click', () => {
+        matrixModal.classList.add('hidden');
+      });
+      matrixModal.addEventListener('click', (e) => {
+        if (e.target === matrixModal) {
+          matrixModal.classList.add('hidden');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!matrixModal.classList.contains('hidden')) {
+          if (e.key === 'Escape') matrixModal.classList.add('hidden');
+          return;
+        }
+        if (state.view === 'article') {
+          if (e.key === 'Escape') {
+            showHome();
+          } else if (e.key === 'ArrowLeft') {
+            const prevId = state.activeArticleId > 1 ? state.activeArticleId - 1 : 12;
+            openArticle(prevId);
+          } else if (e.key === 'ArrowRight') {
+            const nextId = state.activeArticleId < 12 ? state.activeArticleId + 1 : 1;
+            openArticle(nextId);
+          }
+        }
+      });
+    });
+  </script>
+<script src="../site-nav.js"></script>
+</body>
+</html>
