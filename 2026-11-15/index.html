@@ -137,7 +137,7 @@
     <div id="view-home" class="bg-white border border-slate-200/90 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] p-5 sm:p-10 lg:p-12">
 
       <!-- Clean Minimalist Masthead -->
-      <header class="pb-6">
+      <header>
         <div class="flex items-center justify-between text-xs text-slate-400 font-mono-num pb-4 border-b border-slate-100">
           <span>2026年11月15日 · 第 46 期</span>
           <a href="https://aihot.news/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-sans font-medium transition-colors">AIHOT 信源直采 ↗</a>
@@ -187,6 +187,26 @@
           </button>
         </div>
       </header>
+
+      <!-- Classic Quote Section (经典语录) -->
+      <section id="classic-quote-section" aria-label="经典语录" class="py-5 border-b border-slate-200">
+        <figure class="rounded-xl bg-slate-50/80 border border-slate-200/80 px-5 py-4 sm:px-6 sm:py-5">
+          <div class="flex flex-col lg:flex-row lg:items-stretch gap-3 lg:gap-7">
+            <div class="lg:w-36 shrink-0 flex items-baseline justify-between lg:block border-b lg:border-b-0 lg:border-r border-slate-200/80 pb-2.5 lg:pb-0 lg:pr-6">
+              <h2 class="font-serif-cn font-bold text-base text-slate-900 tracking-wide">经典语录</h2>
+              <p class="lg:mt-1 text-xs text-blue-700 font-medium">本期摘录</p>
+            </div>
+            <div class="flex-1 min-w-0">
+              <blockquote class="font-serif-cn text-sm sm:text-[15px] text-slate-800 leading-[1.85]">
+                “所谓预见，不是指某种东西已经大量地普遍地在世界上出现了，在眼前出现了，这时才预见；而常常是要求看得更远，就是说在地平线上刚冒出来一点的时候，刚露出一点头的时候，还是小量的不普遍的时候，就能看见，就能看到它的将来的普遍意义。”
+              </blockquote>
+              <figcaption class="mt-2.5 text-xs text-slate-500 font-serif-cn text-right">
+                —— 毛泽东《在中国共产党第七次全国代表大会上的结论》（1945年5月31日）
+              </figcaption>
+            </div>
+          </div>
+        </figure>
+      </section>
 
       <!-- Clean Category Tabs & Search -->
       <section class="py-4 border-b border-slate-200 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
@@ -1880,6 +1900,5 @@ const ARTICLES = [
       });
     });
   </script>
-<script src="../site-nav.js"></script>
 </body>
 </html>
