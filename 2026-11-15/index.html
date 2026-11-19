@@ -1565,6 +1565,28 @@ const ARTICLES = [
             ${art.subtitle}
           </p>
 
+          <!-- Audio Podcast Player -->
+          <div id="article-audio-bar" class="rounded-xl border border-slate-200 bg-slate-50/90 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <button id="audio-play-btn" type="button" class="w-9 h-9 rounded-full bg-slate-900 hover:bg-blue-700 text-white flex items-center justify-center shrink-0 transition-colors" aria-label="播放或暂停语音朗读">
+                <svg id="audio-icon-play" class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="audio-icon-pause" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="font-serif-cn font-bold text-xs sm:text-sm text-slate-900">语音播报</span>
+                  <span id="audio-status-badge" class="text-[11px] font-mono-num text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">audio/${art.orderLabel}.mp3</span>
+                </div>
+                <div id="audio-time-label" class="text-[11px] font-mono-num text-slate-500 mt-0.5">00:00 / 00:00</div>
+              </div>
+            </div>
+            <div class="flex-1 flex items-center gap-3">
+              <input id="audio-seek-bar" type="range" min="0" max="100" value="0" step="0.1" class="w-full accent-blue-700 cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+              <button id="audio-speed-btn" type="button" class="px-2.5 py-1 rounded-full border border-slate-200 bg-white hover:border-slate-400 text-[11px] font-mono-num font-semibold text-slate-700 shrink-0 transition-colors">1.0x</button>
+            </div>
+            <audio id="article-audio-el" preload="metadata" src="./audio/${art.orderLabel}.mp3"></audio>
+          </div>
+
           <figure class="pt-2">
             <div class="grid grid-cols-1 ${art.secondaryImageUrl ? 'sm:grid-cols-12' : ''} gap-3">
               <div class="${art.secondaryImageUrl ? 'sm:col-span-8' : ''} news-photo-wrap rounded-xl max-h-[420px]">
@@ -1732,6 +1754,7 @@ const ARTICLES = [
           </button>
         </footer>
       `;
+      initArticleAudioPlayer(art.orderLabel);
     }
 
     // ==================== RENDER: METHODOLOGY MATRIX MODAL ====================
@@ -1760,7 +1783,100 @@ const ARTICLES = [
     }
 
     // ==================== VIEW NAVIGATION & HANDLERS ====================
+
+    // ==================== AUDIO PLAYER CONTROLLER ====================
+    const AUDIO_SPEEDS = [1.0, 1.25, 1.5, 2.0];
+    let currentSpeedIdx = 0;
+
+    function formatAudioTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '00:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function stopArticleAudio() {
+      const audio = document.getElementById('article-audio-el');
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+
+    function initArticleAudioPlayer(orderLabel) {
+      const audio = document.getElementById('article-audio-el');
+      const playBtn = document.getElementById('audio-play-btn');
+      const iconPlay = document.getElementById('audio-icon-play');
+      const iconPause = document.getElementById('audio-icon-pause');
+      const seekBar = document.getElementById('audio-seek-bar');
+      const timeLabel = document.getElementById('audio-time-label');
+      const speedBtn = document.getElementById('audio-speed-btn');
+      const statusBadge = document.getElementById('audio-status-badge');
+      if (!audio || !playBtn) return;
+
+      audio.playbackRate = AUDIO_SPEEDS[currentSpeedIdx];
+      speedBtn.textContent = `${AUDIO_SPEEDS[currentSpeedIdx]}x`;
+
+      const syncIcons = () => {
+        if (audio.paused) {
+          iconPlay.classList.remove('hidden');
+          iconPause.classList.add('hidden');
+        } else {
+          iconPlay.classList.add('hidden');
+          iconPause.classList.remove('hidden');
+        }
+      };
+
+      playBtn.onclick = () => {
+        if (audio.paused) {
+          audio.play().catch(() => {
+            statusBadge.textContent = `未找到 audio/${orderLabel}.mp3`;
+            statusBadge.className = 'text-[11px] font-mono-num text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full';
+          });
+        } else {
+          audio.pause();
+        }
+      };
+
+      speedBtn.onclick = () => {
+        currentSpeedIdx = (currentSpeedIdx + 1) % AUDIO_SPEEDS.length;
+        const rate = AUDIO_SPEEDS[currentSpeedIdx];
+        audio.playbackRate = rate;
+        speedBtn.textContent = `${rate}x`;
+      };
+
+      audio.onplay = syncIcons;
+      audio.onpause = syncIcons;
+      audio.onended = () => {
+        syncIcons();
+        seekBar.value = 0;
+      };
+
+      audio.onloadedmetadata = () => {
+        timeLabel.textContent = `00:00 / ${formatAudioTime(audio.duration)}`;
+      };
+
+      audio.ontimeupdate = () => {
+        if (audio.duration) {
+          seekBar.value = (audio.currentTime / audio.duration) * 100;
+          timeLabel.textContent = `${formatAudioTime(audio.currentTime)} / ${formatAudioTime(audio.duration)}`;
+        }
+      };
+
+      audio.onerror = () => {
+        statusBadge.textContent = `待生成 audio/${orderLabel}.mp3`;
+        statusBadge.className = 'text-[11px] font-mono-num text-slate-500 bg-slate-200/70 px-2 py-0.5 rounded-full';
+      };
+
+      seekBar.oninput = () => {
+        if (audio.duration) {
+          audio.currentTime = (seekBar.value / 100) * audio.duration;
+        }
+      };
+    }
+
     function openArticle(id) {
+      stopArticleAudio();
       state.view = 'article';
       renderArticleDetail(id);
       document.getElementById('view-home').classList.add('hidden');
@@ -1774,6 +1890,7 @@ const ARTICLES = [
     }
 
     function showHome() {
+      stopArticleAudio();
       state.view = 'home';
       document.getElementById('view-article').classList.add('hidden');
       document.getElementById('view-home').classList.remove('hidden');
@@ -1911,6 +2028,5 @@ const ARTICLES = [
       });
     });
   </script>
-<script src="../site-nav.js"></script>
 </body>
 </html>
