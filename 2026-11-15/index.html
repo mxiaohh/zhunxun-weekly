@@ -1931,7 +1931,7 @@ const ARTICLES = [
     function injectCss() {
       var st = document.createElement('style');
       st.textContent = [
-        '#zxp{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:2147482000;width:min(92vw,640px);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}',
+        '#zxp{position:fixed;right:calc(var(--zxp-navw,0px) + 30px);bottom:18px;left:auto;transform:none;z-index:2147482000;width:min(640px,calc(100vw - var(--zxp-navw,0px) - 50px));font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}',
         '#zxp-bar{background:rgba(255,255,255,.97);border:1px solid rgba(15,23,42,.12);border-radius:16px;box-shadow:0 10px 30px rgba(15,23,42,.16);padding:9px 10px 9px 9px;backdrop-filter:blur(6px)}',
         '.zxp-top{display:flex;align-items:center;gap:10px}',
         '#zxp-main{width:38px;height:38px;border-radius:9999px;border:0;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .15s}',
@@ -1962,7 +1962,7 @@ const ARTICLES = [
         '.zxp-row.on .zxp-tt{color:#1d4ed8;font-weight:700}',
         '.zxp-row.on .zxp-num{color:#1d4ed8}',
         '.zxp-eq{font-size:10px;color:#1d4ed8;flex-shrink:0;font-weight:700}',
-        '@media (max-width:640px){#zxp{bottom:78px;width:calc(100vw - 24px)}}'
+        '@media (max-width:600px){#zxp{left:12px;right:calc(var(--zxp-navw,0px) + 22px);bottom:12px;width:auto}#zxp-speed{display:none}#zxp-lbl{font-size:12px}#zxp-prog{margin-top:4px}}'
       ].join('\n');
       document.head.appendChild(st);
     }
@@ -2134,10 +2134,33 @@ const ARTICLES = [
       });
     }
 
+    /* 与右下角「切换刊期」按钮对齐同一底线：量出它的实际宽度，给播放器留出位置 */
+    function layout() {
+      var nav = document.getElementById('zxsw-toggle');
+      var w = 0;
+      if (nav) {
+        var r = nav.getBoundingClientRect();
+        if (r.width > 0) w = Math.round(r.width);
+      }
+      document.documentElement.style.setProperty('--zxp-navw', w + 'px');
+    }
+
+    function watchNav() {
+      var nav = document.getElementById('zxsw-toggle');
+      if (!nav || nav.__zxpWatched || !window.MutationObserver) return;
+      nav.__zxpWatched = true;
+      new MutationObserver(layout).observe(nav, { childList: true, subtree: true, characterData: true });
+    }
+
     function init() {
       build();
       syncIcons();
       syncRows();
+      layout();
+      // site-nav.js 在页面末尾才创建按钮，且切换刊期时标签宽度会变，补测几次
+      setTimeout(function () { layout(); watchNav(); }, 150);
+      setTimeout(function () { layout(); watchNav(); }, 800);
+      window.addEventListener('resize', layout);
     }
 
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
