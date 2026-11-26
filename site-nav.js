@@ -25,6 +25,7 @@
    * 1. 刊期清单 —— 唯一需要维护的地方（按时间倒序，最新一期放最前）
    * ================================================================== */
   var ISSUES = [
+    { dir: "2026-11-25", title: "2026-11-16 – 11-25（11月25日刊）", sub: "第 47 期 · AI与科技深度周刊" },
     { dir: "2026-11-15", title: "2026-11-09 – 11-14（11月15日刊）", sub: "第 46 期 · AI与科技深度周刊" },
     { dir: '2026-11-12', title: '2026-11-04 – 11-10 (AIHOT 特刊)', sub: '第 203 期 · 极简报纸嵌套版' },
     { dir: '2026-11-10', title: '2026.11.03 — 11.10', sub: '总第 45 期 · 报纸版' },
@@ -35,7 +36,10 @@
    * 2. 路径推导
    * ================================================================== */
   var scriptEl = document.currentScript;
+  // 页面单独打开、找不到 ../site-nav.js 时，会以内嵌副本运行并通过 ZXSW_ROOT 指定线上站点根地址
+  var FORCED_ROOT = window.ZXSW_ROOT || '';
   var SITE_ROOT = (function () {
+    if (FORCED_ROOT) return FORCED_ROOT;
     try {
       if (scriptEl && scriptEl.src) return new URL('.', scriptEl.src).href;
     } catch (e) { /* 落到兜底 */ }
@@ -43,7 +47,7 @@
     return location.origin + (m ? m[1] : '/');
   })();
 
-  var isFile = location.protocol === 'file:';
+  var isFile = location.protocol === 'file:' && !FORCED_ROOT;
 
   function homeUrl() {
     return SITE_ROOT + (isFile ? 'index.html' : '');
