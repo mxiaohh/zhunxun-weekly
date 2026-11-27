@@ -99,6 +99,60 @@
     latestUrl: latestUrl
   };
 
+  /* 「周报 | 日报」切换：
+   *   1. 页面自带 data-zxsw-kind 链接（新模板生成的周报 / 日报）→ 只填链接；
+   *   2. 旧页面 → 按 KIND_ANCHORS 找到顶栏里的锚点插入切换（标准模板在 Logo 右侧，
+   *      几期版式各异的老刊期插在各自顶部工具栏里）；
+   *   3. 都找不到（将来出现新版式）→ 在右下角「切换刊期」左侧加「看日报 →」按钮兜底（见 buildUI）。
+   * 样式全部内联在 KIND_CSS 里，不依赖页面的 Tailwind。 */
+  var KIND_CSS = [
+    '#zxsw-kind{display:inline-flex;align-items:center;gap:0;padding:2px;margin-right:auto;',
+    '  border:1px solid #E2E8F0;border-radius:999px;background:#fff;flex:none;',
+    '  font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px;line-height:1.5;}',
+    '#zxsw-kind a{display:inline-block;padding:4px 12px;border-radius:999px;color:#64748B;',
+    '  text-decoration:none;font-weight:500;white-space:nowrap;transition:color .15s,background .15s;}',
+    '#zxsw-kind a:hover{color:#0F172A;}',
+    '#zxsw-kind a.is-on{background:#0F172A;color:#fff;cursor:default;}',
+    '#zxsw-kind.is-inline{margin:0 6px 0 0;vertical-align:middle;}',
+    '#zxsw-kind.is-sm{font-size:11px;}',
+    '#zxsw-kind.is-sm a{padding:2px 10px;}'
+  ].join('\n');
+
+  // 顶栏锚点：按顺序尝试，第一个找到的生效。how：after / before 锚点；beforeParent = 锚点父元素之前；prepend = 放进锚点最前
+  var KIND_ANCHORS = [
+    { sel: '#nav-brand-btn', how: 'after', cls: '' },                          // 标准模板（2026-11-15 起）
+    { sel: '#btnArchiveModal', how: 'before', cls: 'is-inline is-sm' },        // 2026-11-10 报纸版：顶部「往期周报」前
+    { sel: 'button[data-c="all"][onclick*="setCol"]', how: 'beforeParent', cls: 'is-inline' }, // 2026-11-12 特刊：栏目标签「头版概览」左侧
+    { sel: '.toolbar-controls', how: 'prepend', cls: 'is-inline' }            // 2026-10-31 科技蓝版：工具栏最前
+  ];
+
+  function injectKindSwitch() {
+    if (document.querySelector('[data-zxsw-kind]')) return;          // 情况 1：页面自带
+    if (!DAILIES.length) return;
+    var anchor = null, rule = null;
+    KIND_ANCHORS.some(function (r) {
+      var el = document.querySelector(r.sel);
+      if (el && el.parentNode && el.parentNode.parentNode) { anchor = el; rule = r; return true; }
+      return false;
+    });
+    if (!anchor) return;                                             // 情况 3 在 buildUI 里处理
+    var st = document.createElement('style');
+    st.id = 'zxsw-kind-style';
+    st.textContent = KIND_CSS;
+    document.head.appendChild(st);
+    var nav = document.createElement('nav');
+    nav.id = 'zxsw-kind';
+    if (rule.cls) nav.className = rule.cls;
+    nav.setAttribute('aria-label', '切换周报或日报');
+    nav.innerHTML =
+      '<a data-zxsw-kind="weekly"' + (KIND === 'weekly' ? ' class="is-on" aria-current="page"' : '') + '>周报</a>' +
+      '<a data-zxsw-kind="daily"' + (KIND === 'daily' ? ' class="is-on" aria-current="page"' : '') + '>日报</a>';
+    if (rule.how === 'after') anchor.parentNode.insertBefore(nav, anchor.nextSibling);
+    else if (rule.how === 'before') anchor.parentNode.insertBefore(nav, anchor);
+    else if (rule.how === 'beforeParent') anchor.parentNode.parentNode.insertBefore(nav, anchor.parentNode);
+    else anchor.insertBefore(nav, anchor.firstChild);
+  }
+
   // 页面里的「周报 | 日报」切换链接：指向各自最新一期；没有日报时隐藏日报入口
   function wireKindLinks() {
     var links = document.querySelectorAll('[data-zxsw-kind]');
@@ -135,6 +189,11 @@
     '  letter-spacing:.02em;box-shadow:0 8px 26px rgba(3,20,45,.34);',
     '  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);',
     '  transition:transform .16s ease,box-shadow .16s ease;}',
+    '#zxsw-root.has-pill{display:flex;align-items:center;gap:8px;}',
+    '#zxsw-pill{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;',
+    '  border:1px solid rgba(125,211,252,.45);background:#fff;color:#0F172A !important;font-size:13px;font-weight:700;',
+    '  box-shadow:0 8px 26px rgba(3,20,45,.18);white-space:nowrap;transition:transform .16s ease;}',
+    '#zxsw-pill:hover{transform:translateY(-2px);}',
     '#zxsw-toggle:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(3,20,45,.45);}',
     '#zxsw-toggle .zxsw-dot{width:8px;height:8px;border-radius:50%;background:#38BDF8;',
     '  box-shadow:0 0 0 3px rgba(56,189,248,.18);flex:none;}',
@@ -263,6 +322,18 @@
         (curLabel ? '<span class="zxsw-cur">' + esc(curLabel) + '</span>' : '') +
       '</button>';
 
+    // 情况 3：老刊期没有顶栏切换时，在「切换刊期」左侧放一个去另一种刊物的按钮
+    var other = KIND === 'daily' ? 'weekly' : 'daily';
+    if (!document.querySelector('[data-zxsw-kind]') && PUBS[other].list.length) {
+      var pill = document.createElement('a');
+      pill.id = 'zxsw-pill';
+      pill.href = latestUrl(other);
+      pill.textContent = '看' + PUBS[other].name + ' →';
+      pill.title = '打开最新一期' + PUBS[other].name;
+      root.classList.add('has-pill');
+      root.insertBefore(pill, root.firstChild);
+    }
+
     document.body.appendChild(root);
 
     var btn = document.getElementById('zxsw-toggle');
@@ -360,6 +431,7 @@
    *    保证原页面脚本已把旧监听器绑完，再替换 select 才不会残留。
    * ================================================================== */
   function init() {
+    try { injectKindSwitch(); } catch (e) { console.error('[准讯] 顶栏周报/日报切换插入失败', e); }
     try { wireKindLinks(); } catch (e) { console.error('[准讯] 周报/日报切换链接初始化失败', e); }
     try { buildUI(); } catch (e) { console.error('[准讯周报] 切换器初始化失败', e); }
     try { patchLegacySelector(); } catch (e) { console.error('[准讯周报] 刊期下拉修正失败', e); }
