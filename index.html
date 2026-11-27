@@ -25,6 +25,10 @@
     .rule{width:56px;height:2px;background:linear-gradient(90deg,transparent,#38BDF8,transparent);margin:20px auto 30px;border:0}
     .label{font-size:12px;letter-spacing:.14em;color:#7DD3FC;margin-bottom:12px;display:flex;align-items:center;gap:10px}
     .label::after{content:"";flex:1;height:1px;background:rgba(125,211,252,.2)}
+    #daily-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+    #daily-list .card{padding:14px 16px}
+    #daily-list .card h2{font-size:16px}
+    #daily-list .card p{margin-bottom:10px}
     #issue-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
     .card{
       display:block;position:relative;padding:20px 20px 18px;border-radius:14px;
@@ -53,10 +57,10 @@
   <div class="wrap">
     <div class="kicker">ZHUNXUN WEEKLY · ARCHIVE</div>
     <h1>准讯周报</h1>
-    <p class="sub">全球人工智能与硬科技 · 双层精读</p>
+    <p class="sub">全球人工智能与硬科技 · 周报精读 · 日报速览</p>
     <hr class="rule" />
 
-    <div class="label">全部刊期 <span id="issue-count"></span></div>
+    <div class="label">准讯周报 · 全部刊期 <span id="issue-count"></span></div>
     <div id="issue-list">
       <a class="card latest" href="./2026-11-25/">
         <span class="badge">最新一期</span>
@@ -93,6 +97,12 @@
         <div class="go"><span>阅读本期 →</span><span>2026-10-31</span></div>
       </a>
     </div>
+    <!-- /issue-list -->
+
+    <div id="daily-block" style="margin-top:30px">
+      <div class="label">准讯日报 <span id="daily-count"></span></div>
+      <div id="daily-list"></div>
+    </div>
 
     <div class="foot">
       <div id="redirect-note">
@@ -115,6 +125,20 @@
       var issues = (Z && Z.issues) || [];
 
       document.getElementById('issue-count').textContent = '· 共 ' + issues.length + ' 期';
+
+      // 日报：最近 12 期（没有日报时整块隐藏）
+      var dailies = (Z && Z.dailies) || [];
+      if (!dailies.length) {
+        document.getElementById('daily-block').style.display = 'none';
+      } else {
+        document.getElementById('daily-count').textContent = '· 共 ' + dailies.length + ' 期';
+        document.getElementById('daily-list').innerHTML = dailies.slice(0, 12).map(function (it, i) {
+          return '<a class="card' + (i === 0 ? ' latest' : '') + '" href="' + Z.dailyUrl(it.dir) + '">' +
+            '<span class="badge' + (i === 0 ? '' : ' plain') + '">' + (i === 0 ? '今日日报' : it.dir) + '</span>' +
+            '<h2>' + it.title + '</h2><p>' + (it.sub || '') + '</p>' +
+            '<div class="go"><span>进入阅读 →</span></div></a>';
+        }).join('');
+      }
 
       // site-nav.js 缺失时给出明确提示，而不是白屏
       if (!issues.length) {

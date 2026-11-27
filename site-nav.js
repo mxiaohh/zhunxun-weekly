@@ -1,13 +1,18 @@
 /*!
- * 准讯周报 · 全站刊期切换器  site-nav.js  v1.0
+ * 准讯周报 / 准讯日报 · 全站刊期切换器  site-nav.js  v2.0
  * ------------------------------------------------------------------
  * 放置位置：仓库根目录（与 index.html 同级）
  * 引入方式：在每个页面的 </body> 前加一行
- *             期次页：<script src="../site-nav.js"></script>
+ *             周报页：<script src="../site-nav.js"></script>      （<日期>/）
+ *             日报页：<script src="../../site-nav.js"></script>   （daily/<日期>/）
  *             首  页：<script src="./site-nav.js"></script>
  *
- * 维护方式：以后每新增一期，只需在下方 ISSUES 数组最前面加一行，
+ * 维护方式：每新增一期周报，在 ISSUES 最前面加一行；每新增一期日报，在 DAILIES
+ *           最前面加一行（build_issue.py / build_daily.py 会自动加）。
  *           所有页面（含老刊期）的切换入口会自动更新，无需再改 HTML。
+ *
+ * 周报 / 日报互切：悬浮面板顶部有「周报 | 日报」两个标签；页面里任何带
+ *           data-zxsw-kind="weekly|daily" 的链接，会被自动指向该刊物的最新一期。
  *
  * 设计要点：
  *   - 站点根地址由「本脚本自身的 URL」推导，自动兼容 GitHub Pages 子路径、
@@ -32,6 +37,11 @@
     { dir: '2026-10-31', title: '2026 年 10 月 31 日刊', sub: '10 月下旬刊 · 科技蓝版' }
   ];
 
+  // 日报：网站路径 daily/<日期>/，同样按时间倒序
+  var DAILIES = [
+    { dir: "2026-11-26", title: "11月26日 · 星期四", sub: "第 1 期 · 12 条要闻 · 4 条快讯" }
+  ];
+
   /* ==================================================================
    * 2. 路径推导
    * ================================================================== */
@@ -43,7 +53,7 @@
     try {
       if (scriptEl && scriptEl.src) return new URL('.', scriptEl.src).href;
     } catch (e) { /* 落到兜底 */ }
-    var m = location.pathname.match(/^(.*\/)(?:20\d{2}-\d{2}-\d{2}\/)?[^/]*$/);
+    var m = location.pathname.match(/^(.*\/)(?:daily\/)?(?:20\d{2}-\d{2}-\d{2}\/)?[^/]*$/);
     return location.origin + (m ? m[1] : '/');
   })();
 
@@ -57,28 +67,56 @@
     return SITE_ROOT + dir + '/' + (isFile ? 'index.html' : '');
   }
 
-  function currentIssue() {
-    var m = location.pathname.match(/(?:^|\/)(20\d{2}-\d{2}-\d{2})(?:\/|$)/);
-    return m ? m[1] : null;
+  function dailyUrl(dir) {
+    return SITE_ROOT + 'daily/' + dir + '/' + (isFile ? 'index.html' : '');
   }
 
-  var CURRENT = currentIssue();
+  // 当前页面是哪种刊物的哪一期：daily/<日期>/ 为日报，<日期>/ 为周报
+  var m0 = location.pathname.match(/(?:^|\/)(daily\/)?(20\d{2}-\d{2}-\d{2})(?:\/|$)/);
+  var CURRENT = m0 ? m0[2] : null;
+  var KIND = m0 && m0[1] ? 'daily' : 'weekly';
+
+  var PUBS = {
+    weekly: { name: '周报', list: ISSUES, url: issueUrl, unit: '期' },
+    daily: { name: '日报', list: DAILIES, url: dailyUrl, unit: '期' }
+  };
+
+  function latestUrl(kind) {
+    var p = PUBS[kind];
+    return p.list.length ? p.url(p.list[0].dir) : homeUrl();
+  }
 
   // 暴露给首页 / 其它脚本复用
   window.ZXSW = {
     issues: ISSUES,
+    dailies: DAILIES,
     root: SITE_ROOT,
     current: CURRENT,
+    kind: KIND,
     homeUrl: homeUrl,
-    issueUrl: issueUrl
+    issueUrl: issueUrl,
+    dailyUrl: dailyUrl,
+    latestUrl: latestUrl
   };
+
+  // 页面里的「周报 | 日报」切换链接：指向各自最新一期；没有日报时隐藏日报入口
+  function wireKindLinks() {
+    var links = document.querySelectorAll('[data-zxsw-kind]');
+    Array.prototype.forEach.call(links, function (a) {
+      var kind = a.getAttribute('data-zxsw-kind');
+      if (!PUBS[kind]) return;
+      if (!PUBS[kind].list.length) { a.style.display = 'none'; return; }
+      if (kind !== KIND || !CURRENT) a.setAttribute('href', latestUrl(kind));
+    });
+  }
 
   // 首页本身就是刊期目录，不再叠加悬浮按钮
   if (document.body && document.body.getAttribute('data-zxsw-page') === 'index') return;
 
   // 清单没跟上新刊期时给出可见提醒（不影响使用）
-  if (CURRENT && !ISSUES.some(function (it) { return it.dir === CURRENT; })) {
-    console.warn('[准讯周报] 当前刊期 ' + CURRENT + ' 尚未登记在 site-nav.js 的 ISSUES 中，请补一行。');
+  if (CURRENT && !PUBS[KIND].list.some(function (it) { return it.dir === CURRENT; })) {
+    console.warn('[准讯] 当前' + PUBS[KIND].name + ' ' + CURRENT + ' 尚未登记在 site-nav.js 的 ' +
+      (KIND === 'daily' ? 'DAILIES' : 'ISSUES') + ' 中，请补一行。');
   }
 
   /* ==================================================================
@@ -116,6 +154,13 @@
     '#zxsw-head strong{font-size:13px;font-weight:800;letter-spacing:.04em;}',
     '#zxsw-head small{display:block;font-size:10.5px;font-weight:400;color:#7DD3FC;',
     '  letter-spacing:.08em;margin-top:2px;}',
+    '#zxsw-tabs{display:flex;gap:6px;padding:10px 15px 0;}',
+    '#zxsw-root .zxsw-tab{flex:1;border:1px solid rgba(125,211,252,.22);background:transparent;',
+    '  color:#93B4D4;font-size:12px;font-weight:700;padding:6px 0;border-radius:8px;letter-spacing:.06em;}',
+    '#zxsw-root .zxsw-tab:hover{border-color:rgba(125,211,252,.5);color:#F0F9FF;}',
+    '#zxsw-root .zxsw-tab.is-on{background:rgba(56,189,248,.2);border-color:rgba(56,189,248,.6);color:#F0F9FF;}',
+    '#zxsw-root .zxsw-tab small{font-weight:500;opacity:.75;margin-left:4px;}',
+    '#zxsw-list .zxsw-empty{padding:18px 8px;text-align:center;color:#93B4D4;font-size:12px;}',
     '#zxsw-close{border:0;background:transparent;color:#7DD3FC;font-size:18px;',
     '  line-height:1;padding:2px 5px;border-radius:6px;}',
     '#zxsw-close:hover{background:rgba(125,211,252,.14);}',
@@ -168,41 +213,52 @@
     root.id = 'zxsw-root';
 
     var curLabel = '';
-    ISSUES.some(function (it) {
-      if (it.dir === CURRENT) { curLabel = it.title; return true; }
+    PUBS[KIND].list.some(function (it) {
+      if (it.dir === CURRENT) { curLabel = PUBS[KIND].name + ' · ' + it.title; return true; }
       return false;
     });
-    if (!curLabel && CURRENT) curLabel = CURRENT;
+    if (!curLabel && CURRENT) curLabel = PUBS[KIND].name + ' · ' + CURRENT;
 
-    var items = ISSUES.map(function (it, i) {
-      var isCur = it.dir === CURRENT;
-      var isNew = i === 0;
-      var badge = isCur
-        ? '<span class="zxsw-badge is-cur">正在阅读</span>'
-        : (isNew ? '<span class="zxsw-badge is-new">最新一期</span>' : '');
-      return '<a class="zxsw-item' + (isCur ? ' is-current' : '') + '"' +
-        ' href="' + esc(issueUrl(it.dir)) + '"' +
-        ' data-zxsw-issue="' + esc(it.dir) + '"' +
-        (isCur ? ' aria-current="page"' : '') + '>' +
-        '<span class="zxsw-top"><span class="zxsw-title">' + esc(it.title) + '</span>' + badge + '</span>' +
-        '<span class="zxsw-sub">' + esc(it.sub || '') + ' · Alt+' + (i + 1) + '</span>' +
-        '</a>';
-    }).join('');
+    function listHtml(kind) {
+      var p = PUBS[kind];
+      if (!p.list.length) return '<div class="zxsw-empty">' + p.name + '尚未发布</div>';
+      return p.list.map(function (it, i) {
+        var isCur = kind === KIND && it.dir === CURRENT;
+        var isNew = i === 0;
+        var badge = isCur
+          ? '<span class="zxsw-badge is-cur">正在阅读</span>'
+          : (isNew ? '<span class="zxsw-badge is-new">最新一期</span>' : '');
+        return '<a class="zxsw-item' + (isCur ? ' is-current' : '') + '"' +
+          ' href="' + esc(p.url(it.dir)) + '"' +
+          ' data-zxsw-issue="' + esc(it.dir) + '"' +
+          (isCur ? ' aria-current="page"' : '') + '>' +
+          '<span class="zxsw-top"><span class="zxsw-title">' + esc(it.title) + '</span>' + badge + '</span>' +
+          '<span class="zxsw-sub">' + esc(it.sub || '') + (i < 9 ? ' · Alt+' + (i + 1) : '') + '</span>' +
+          '</a>';
+      }).join('');
+    }
+
+    var tab = KIND;
+    function tabHtml(kind) {
+      return '<button type="button" class="zxsw-tab' + (kind === tab ? ' is-on' : '') + '" data-zxsw-tab="' + kind + '">' +
+        PUBS[kind].name + '<small>' + PUBS[kind].list.length + ' 期</small></button>';
+    }
 
     root.innerHTML =
       '<div id="zxsw-panel" hidden>' +
         '<div id="zxsw-head">' +
-          '<div><strong>准讯周报 · 切换刊期</strong><small>ALL ISSUES</small></div>' +
+          '<div><strong>准讯 · 切换刊期</strong><small>WEEKLY · DAILY</small></div>' +
           '<button id="zxsw-close" type="button" aria-label="关闭">×</button>' +
         '</div>' +
-        '<div id="zxsw-list">' + items + '</div>' +
+        '<div id="zxsw-tabs" role="tablist">' + tabHtml('weekly') + tabHtml('daily') + '</div>' +
+        '<div id="zxsw-list">' + listHtml(tab) + '</div>' +
         '<div id="zxsw-foot">' +
           '<a href="' + esc(homeUrl()) + '">全部刊期目录 →</a>' +
-          '<span>共 ' + ISSUES.length + ' 期 · Alt+数字直达</span>' +
+          '<span>Alt+数字直达</span>' +
         '</div>' +
       '</div>' +
       '<button id="zxsw-toggle" type="button" aria-expanded="false" aria-controls="zxsw-panel"' +
-        ' title="切换周报刊期（Alt+1~9）">' +
+        ' title="切换周报 / 日报刊期（Alt+1~9）">' +
         '<span class="zxsw-dot"></span><span>切换刊期</span>' +
         (curLabel ? '<span class="zxsw-cur">' + esc(curLabel) + '</span>' : '') +
       '</button>';
@@ -227,6 +283,16 @@
       setOpen(false);
     });
     panel.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    // 周报 / 日报标签切换
+    var tabs = document.getElementById('zxsw-tabs');
+    tabs.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('[data-zxsw-tab]') : null;
+      if (!b) return;
+      tab = b.getAttribute('data-zxsw-tab');
+      tabs.innerHTML = tabHtml('weekly') + tabHtml('daily');
+      document.getElementById('zxsw-list').innerHTML = listHtml(tab);
+    });
     document.addEventListener('click', function () {
       if (!panel.hidden) setOpen(false);
     });
@@ -239,12 +305,13 @@
         e.preventDefault();
         return;
       }
-      // Alt + 1..9 直达对应刊期，Alt + 0 回目录
+      // Alt + 1..9 直达当前标签（周报或日报）下对应刊期，Alt + 0 回目录
       if (e.altKey && !e.ctrlKey && !e.metaKey && /^[0-9]$/.test(e.key)) {
         var t = e.target;
         if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
         var n = parseInt(e.key, 10);
-        var target = n === 0 ? homeUrl() : (ISSUES[n - 1] ? issueUrl(ISSUES[n - 1].dir) : null);
+        var L = PUBS[tab].list;
+        var target = n === 0 ? homeUrl() : (L[n - 1] ? PUBS[tab].url(L[n - 1].dir) : null);
         if (target) {
           e.preventDefault();
           location.href = target;
@@ -293,6 +360,7 @@
    *    保证原页面脚本已把旧监听器绑完，再替换 select 才不会残留。
    * ================================================================== */
   function init() {
+    try { wireKindLinks(); } catch (e) { console.error('[准讯] 周报/日报切换链接初始化失败', e); }
     try { buildUI(); } catch (e) { console.error('[准讯周报] 切换器初始化失败', e); }
     try { patchLegacySelector(); } catch (e) { console.error('[准讯周报] 刊期下拉修正失败', e); }
   }
