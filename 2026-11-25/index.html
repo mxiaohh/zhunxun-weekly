@@ -116,6 +116,16 @@
     .photo-img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; }
     .photo-fallback { z-index: 2; }
 
+    /* 手机上去掉外层「纸张」边框：内容铺满屏宽，只保留内部的文字框 */
+    @media (max-width: 639px) {
+      body { background-color: #FFFFFF; }
+      .zx-sheet { background: transparent !important; border: 0 !important; border-radius: 0 !important;
+                  box-shadow: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+      .zx-sheet .zx-toolbar { padding-left: 0 !important; padding-right: 0 !important; background: transparent !important; }
+      .zx-sheet .zx-article { padding: 1.25rem 0 0 !important; }
+      #view-home.zx-sheet { padding-top: 0.25rem !important; padding-bottom: 0.5rem !important; }
+    }
+
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -125,16 +135,27 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-3 text-xs">
       <button id="nav-brand-btn" type="button" class="flex items-center gap-2.5 text-left group focus:outline-none">
         <span class="brand-logo h-8 transition-transform group-hover:scale-105" role="img" aria-label="准讯周报 Logo"></span>
-        <span class="font-serif-cn font-bold text-sm text-slate-900 tracking-wide">准讯周报</span>
+        <span class="hidden sm:inline font-serif-cn font-bold text-sm text-slate-900 tracking-wide">准讯周报</span>
       </button>
+      <nav class="inline-flex items-center rounded-full border border-slate-200 bg-white p-0.5 mr-auto" aria-label="切换周报或日报">
+        <a data-zxsw-kind="weekly" aria-current="page" class="px-3 py-1 rounded-full bg-slate-900 text-white font-medium">周报</a>
+        <a data-zxsw-kind="daily" href="https://mxiaohh.github.io/zhunxun-weekly/" class="px-3 py-1 rounded-full text-slate-500 hover:text-slate-900 transition-colors">日报</a>
+      </nav>
       <div class="flex items-center gap-2 sm:gap-3">
+        <div class="relative">
+          <button id="zx-font-btn" type="button" aria-haspopup="true" aria-expanded="false" title="调整字号" class="inline-flex items-baseline gap-px px-2.5 py-1 rounded-full border border-slate-200 bg-white hover:border-slate-900 text-slate-700 font-semibold transition-colors"><span class="text-[11px]">A</span><span class="text-[15px] leading-none">A</span><span class="sr-only">调整字号</span></button>
+          <div id="zx-font-menu" class="hidden absolute right-0 top-full mt-2 z-50 rounded-xl border border-slate-200 bg-white shadow-lg p-2 text-xs whitespace-nowrap">
+            <div class="px-1.5 pb-1.5 text-[11px] text-slate-400">字号（周报、日报通用）</div>
+            <div class="zx-font-opts flex items-center gap-1"></div>
+          </div>
+        </div>
         <button id="top-back-home-btn" type="button" class="hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 hover:bg-blue-700 text-white font-medium transition-colors">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
           <span>返回头版</span>
         </button>
-        <button id="open-matrix-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:border-slate-900 text-slate-700 hover:text-slate-900 font-medium transition-colors">
+        <button id="open-matrix-btn" type="button" title="视角矩阵" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:border-slate-900 text-slate-700 hover:text-slate-900 font-medium transition-colors">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
-          <span>视角矩阵</span>
+          <span class="hidden sm:inline">视角矩阵</span>
         </button>
         <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 font-mono-num">
           <strong id="read-count-badge" class="text-blue-700 font-bold">0</strong>
@@ -144,10 +165,10 @@
     </div>
   </header>
 
-  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  <main data-zx-zoom class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
 
     <!-- ==================== VIEW 1: FRONT PAGE ==================== -->
-    <div id="view-home" class="bg-white border border-slate-200/90 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] p-5 sm:p-10 lg:p-12">
+    <div id="view-home" class="zx-sheet bg-white border border-slate-200/90 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] p-5 sm:p-10 lg:p-12">
 
       <header>
         <div class="flex items-center justify-between text-xs text-slate-400 font-mono-num pb-4 border-b border-slate-100">
@@ -235,8 +256,8 @@
 
     <!-- ==================== VIEW 2: ARTICLE PAGE ==================== -->
     <div id="view-article" class="hidden font-scale-md">
-      <div class="max-w-4xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] overflow-hidden">
-        <div class="border-b border-slate-200 px-5 sm:px-8 py-3.5 bg-slate-50/70 flex flex-wrap items-center justify-between gap-3">
+      <div class="zx-sheet max-w-4xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-[0_1px_3px_rgba(15,23,42,0.03)] overflow-hidden">
+        <div class="zx-toolbar border-b border-slate-200 px-5 sm:px-8 py-3.5 bg-slate-50/70 flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center gap-3">
             <button type="button" onclick="showHome()" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
@@ -246,18 +267,13 @@
             <span id="detail-breadcrumb" class="text-xs font-mono-num text-slate-500"></span>
           </div>
           <div class="flex items-center gap-2">
-            <div class="inline-flex items-center rounded-full border border-slate-200 bg-white p-0.5 text-xs">
-              <button type="button" onclick="setFontSize('sm')" id="font-btn-sm" class="px-2.5 py-0.5 rounded-full text-slate-500 hover:text-slate-900 transition-colors">小</button>
-              <button type="button" onclick="setFontSize('md')" id="font-btn-md" class="px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-medium transition-colors">标准</button>
-              <button type="button" onclick="setFontSize('lg')" id="font-btn-lg" class="px-2.5 py-0.5 rounded-full text-slate-500 hover:text-slate-900 transition-colors">大</button>
-            </div>
             <div class="inline-flex items-center gap-1">
               <button type="button" id="top-prev-btn" class="px-3 py-1 rounded-full border border-slate-200 bg-white hover:border-slate-400 text-xs font-medium text-slate-700 transition-colors">← 上一篇</button>
               <button type="button" id="top-next-btn" class="px-3 py-1 rounded-full border border-slate-200 bg-white hover:border-slate-400 text-xs font-medium text-slate-700 transition-colors">下一篇 →</button>
             </div>
           </div>
         </div>
-        <article id="article-sheet" class="p-6 sm:p-10 lg:p-12 space-y-9"></article>
+        <article id="article-sheet" class="zx-article p-6 sm:p-10 lg:p-12 space-y-9"></article>
       </div>
     </div>
   </main>
@@ -1288,7 +1304,12 @@ const ARTICLES = [
     }
 
     // ==================== NAVIGATION ====================
+    // 记住头版的滚动位置：从文章返回时回到原处，而不是回到顶部
+    let homeScrollY = 0;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
     function openArticle(id, anchor) {
+      if (state.view === 'home') homeScrollY = window.scrollY;
       state.view = 'article';
       renderArticleDetail(id);
       document.getElementById('view-home').classList.add('hidden');
@@ -1298,18 +1319,21 @@ const ARTICLES = [
       if (anchor === 'reactions' && document.getElementById('sec-reactions')) {
         setTimeout(() => document.getElementById('sec-reactions').scrollIntoView({ behavior: 'smooth' }), 30);
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
       }
     }
 
     function showHome() {
+      // 已在头版时（如点击报头 Logo）回到顶部；从文章返回时恢复离开前的位置
+      const target = state.view === 'home' ? 0 : homeScrollY;
       state.view = 'home';
       document.getElementById('view-article').classList.add('hidden');
       document.getElementById('view-home').classList.remove('hidden');
       const b = document.getElementById('top-back-home-btn');
       b.classList.add('hidden'); b.classList.remove('inline-flex');
       renderGrid();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (target === 0) window.scrollTo({ top: 0, behavior: 'smooth' });
+      else requestAnimationFrame(() => window.scrollTo({ top: target, behavior: 'auto' }));
     }
 
     function setFontSize(size) {
@@ -1383,7 +1407,14 @@ const ARTICLES = [
     var SPEEDS = [1, 1.25, 1.5, 2];
     var S = { audio: null, idx: -1, panelOpen: false, seeking: false, speedIdx: 0 };
 
-    function list() { return (typeof ARTICLES !== 'undefined') ? ARTICLES : []; }
+    // 曲目：页面可定义 AUDIO_TRACKS = [{ file, num, title, meta }]（日报）；否则按周报 ARTICLES 生成
+    function list() {
+      if (typeof AUDIO_TRACKS !== 'undefined') return AUDIO_TRACKS;
+      if (typeof ARTICLES === 'undefined') return [];
+      return ARTICLES.map(function (a) { return { file: a.orderLabel, num: a.orderLabel, title: a.title, meta: a.readTime }; });
+    }
+    var CONF = (typeof AUDIO_CONF !== 'undefined') ? AUDIO_CONF : {};
+    var UNIT = CONF.unit || '篇';
     function fmt(sec) {
       if (!isFinite(sec) || sec < 0) sec = 0;
       var m = Math.floor(sec / 60), s = Math.floor(sec % 60);
@@ -1420,7 +1451,7 @@ const ARTICLES = [
         '.zxp-row{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;border-top:1px solid #f1f5f9}',
         '.zxp-row:first-child{border-top:0}',
         '.zxp-row:hover{background:#f8fafc}',
-        '.zxp-num{font-size:11px;font-weight:800;color:#94a3b8;width:20px;flex-shrink:0;font-variant-numeric:tabular-nums}',
+        '.zxp-num{font-size:11px;font-weight:800;color:#94a3b8;min-width:20px;flex-shrink:0;font-variant-numeric:tabular-nums}',
         '.zxp-tt{flex:1;min-width:0;font-size:12px;color:#334155;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
         '.zxp-row.on{background:#F1F4F9}',
         '.zxp-row.on .zxp-tt{color:#3563B0;font-weight:700}',
@@ -1437,8 +1468,8 @@ const ARTICLES = [
       root.id = 'zxp';
       root.innerHTML =
         '<div id="zxp-panel">' +
-          '<div class="zxp-ph"><span>收听本期 · 共 <b id="zxp-count">0</b> 篇语音播报</span><span>点任意一篇即可收听</span></div>' +
-          '<div class="zxp-all" id="zxp-all"><span>▶</span><span>从头连播（依次播放全部文章）</span></div>' +
+          '<div class="zxp-ph"><span>收听本期 · 共 <b id="zxp-count">0</b> ' + UNIT + '语音播报</span><span>点任意一' + UNIT + '即可收听</span></div>' +
+          '<div class="zxp-all" id="zxp-all"><span>▶</span><span>' + (CONF.allLabel || '从头连播（依次播放全部文章）') + '</span></div>' +
           '<div class="zxp-list" id="zxp-list"></div>' +
         '</div>' +
         '<div id="zxp-bar">' +
@@ -1448,8 +1479,8 @@ const ARTICLES = [
               '<svg id="zxp-ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>' +
             '</button>' +
             '<div id="zxp-text">' +
-              '<div id="zxp-lbl">收听本期音频</div>' +
-              '<div id="zxp-sub">点 ▶ 从头连播，或展开目录选择文章</div>' +
+              '<div id="zxp-lbl">' + (CONF.idle || '收听本期音频') + '</div>' +
+              '<div id="zxp-sub">点 ▶ 从头连播，或展开目录选择' + (UNIT === '篇' ? '文章' : '新闻') + '</div>' +
             '</div>' +
             '<button id="zxp-speed" type="button" title="切换播放速度">1.0x</button>' +
             '<button id="zxp-menu" type="button">目录 ▾</button>' +
@@ -1478,7 +1509,7 @@ const ARTICLES = [
       document.getElementById('zxp-count').textContent = list().length;
       listEl.innerHTML = list().map(function (art, i) {
         return '<div class="zxp-row" data-i="' + i + '">' +
-          '<span class="zxp-num">' + art.orderLabel + '</span>' +
+          '<span class="zxp-num">' + art.num + '</span>' +
           '<span class="zxp-tt">' + art.title + '</span>' +
           '<span class="zxp-eq"></span>' +
         '</div>';
@@ -1543,7 +1574,7 @@ const ARTICLES = [
         if (S.idx < list().length - 1) { play(S.idx + 1); }
         else {
           lbl.textContent = '本期全部播放完毕';
-          sub.textContent = '共 ' + list().length + ' 篇 · 点 ▶ 可重新收听';
+          sub.textContent = '共 ' + list().length + ' ' + UNIT + ' · 点 ▶ 可重新收听';
           syncIcons(); syncRows();
         }
       });
@@ -1559,7 +1590,7 @@ const ARTICLES = [
       S.audio.addEventListener('pause', function () { syncIcons(); syncRows(); });
       S.audio.addEventListener('error', function () {
         var art = list()[S.idx];
-        sub.textContent = art ? ('音频加载失败：audio/' + art.orderLabel + '.mp3 未找到') : '音频加载失败';
+        sub.textContent = art ? ('音频加载失败：audio/' + art.file + '.mp3 未找到') : '音频加载失败';
         syncRows();
       });
     }
@@ -1570,10 +1601,10 @@ const ARTICLES = [
       ensureAudio();
       S.idx = Math.max(0, Math.min(arts.length - 1, i));
       var art = arts[S.idx];
-      S.audio.src = './audio/' + art.orderLabel + '.mp3';
+      S.audio.src = './audio/' + art.file + '.mp3';
       S.audio.play().catch(function () {});
-      lbl.textContent = '第 ' + (S.idx + 1) + '/' + arts.length + ' 篇 · ' + art.title;
-      sub.textContent = '正在播放 · ' + art.orderLabel + '.mp3 · ' + art.readTime;
+      lbl.textContent = '第 ' + (S.idx + 1) + '/' + arts.length + ' ' + UNIT + ' · ' + art.title;
+      sub.textContent = '正在播放 · ' + art.file + '.mp3' + (art.meta ? ' · ' + art.meta : '');
       progWrap.classList.add('on');
       seekEl.value = 0;
       timeEl.textContent = '00:00 / ' + fmt(S.audio.duration || 0);
@@ -1616,6 +1647,16 @@ const ARTICLES = [
       new MutationObserver(layout).observe(nav, { childList: true, subtree: true, characterData: true });
     }
 
+    // 供页面调用：播放指定文件（如日报详情页的「收听本条」）
+    window.zxpPlay = function (file) {
+      var i = -1;
+      list().some(function (t, k) { if (t.file === file) { i = k; return true; } return false; });
+      if (i < 0) return;
+      if (S.idx === i && S.audio && !S.audio.paused) { S.audio.pause(); return; }
+      if (S.idx === i && S.audio && S.audio.src) { S.audio.play().catch(function () {}); return; }
+      play(i);
+    };
+
     function init() {
       build();
       syncIcons();
@@ -1633,6 +1674,59 @@ const ARTICLES = [
   
   </script>
   <script>
+  /* ==================== 字号调节（周报 / 日报共用） ====================
+   * 顶栏「Aa」按钮 → 小 / 标准 / 大 / 特大。用 CSS zoom 整体缩放正文区（<main data-zx-zoom>），
+   * 文字、间距、图片一起等比放大，不会出现只放大一部分的错位。选择存在 localStorage，
+   * 周报与日报同站共用，换一期、换一种刊物都保持。 */
+  (function () {
+    var LEVELS = [
+      { k: 'sm', label: '小', z: 0.92 },
+      { k: 'md', label: '标准', z: 1 },
+      { k: 'lg', label: '大', z: 1.12 },
+      { k: 'xl', label: '特大', z: 1.25 }
+    ];
+    var KEY = 'zhunxun_font_scale';
+    function get() { try { return localStorage.getItem(KEY) || 'md'; } catch (e) { return 'md'; } }
+    function apply(k) {
+      var L = LEVELS.filter(function (x) { return x.k === k; })[0] || LEVELS[1];
+      Array.prototype.forEach.call(document.querySelectorAll('[data-zx-zoom]'), function (el) {
+        el.style.zoom = L.z === 1 ? '' : String(L.z);
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-zx-font]'), function (b) {
+        var on = b.getAttribute('data-zx-font') === L.k;
+        b.className = 'px-3 py-1 rounded-full transition-colors ' + (on ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:text-slate-900');
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      try { localStorage.setItem(KEY, L.k); } catch (e) {}
+    }
+    window.setFontScale = apply;
+    function init() {
+      var btn = document.getElementById('zx-font-btn');
+      var menu = document.getElementById('zx-font-menu');
+      if (btn && menu) {
+        menu.querySelector('.zx-font-opts').innerHTML = LEVELS.map(function (L) {
+          return '<button type="button" data-zx-font="' + L.k + '">' + L.label + '</button>';
+        }).join('');
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = menu.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        menu.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var b = e.target.closest('[data-zx-font]');
+          if (b) apply(b.getAttribute('data-zx-font'));
+        });
+        document.addEventListener('click', function () { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); });
+      }
+      apply(get());
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+
+  </script>
+  <script>
     window.__zxswFallback = function () {
       window.ZXSW_ROOT = 'https://mxiaohh.github.io/zhunxun-weekly/';
       var s = document.createElement("script");
@@ -1642,15 +1736,20 @@ const ARTICLES = [
   </script>
   <script type="text/plain" id="zxsw-embedded">
 /*!
- * 准讯周报 · 全站刊期切换器  site-nav.js  v1.0
+ * 准讯周报 / 准讯日报 · 全站刊期切换器  site-nav.js  v2.0
  * ------------------------------------------------------------------
  * 放置位置：仓库根目录（与 index.html 同级）
  * 引入方式：在每个页面的 </body> 前加一行
- *             期次页：<script src="../site-nav.js"><\/script>
+ *             周报页：<script src="../site-nav.js"><\/script>      （<日期>/）
+ *             日报页：<script src="../../site-nav.js"><\/script>   （daily/<日期>/）
  *             首  页：<script src="./site-nav.js"><\/script>
  *
- * 维护方式：以后每新增一期，只需在下方 ISSUES 数组最前面加一行，
+ * 维护方式：每新增一期周报，在 ISSUES 最前面加一行；每新增一期日报，在 DAILIES
+ *           最前面加一行（build_issue.py / build_daily.py 会自动加）。
  *           所有页面（含老刊期）的切换入口会自动更新，无需再改 HTML。
+ *
+ * 周报 / 日报互切：悬浮面板顶部有「周报 | 日报」两个标签；页面里任何带
+ *           data-zxsw-kind="weekly|daily" 的链接，会被自动指向该刊物的最新一期。
  *
  * 设计要点：
  *   - 站点根地址由「本脚本自身的 URL」推导，自动兼容 GitHub Pages 子路径、
@@ -1675,6 +1774,11 @@ const ARTICLES = [
     { dir: '2026-10-31', title: '2026 年 10 月 31 日刊', sub: '10 月下旬刊 · 科技蓝版' }
   ];
 
+  // 日报：网站路径 daily/<日期>/，同样按时间倒序
+  var DAILIES = [
+    { dir: "2026-11-26", title: "11月26日 · 星期四", sub: "第 1 期 · 12 条要闻 · 4 条快讯" }
+  ];
+
   /* ==================================================================
    * 2. 路径推导
    * ================================================================== */
@@ -1686,7 +1790,7 @@ const ARTICLES = [
     try {
       if (scriptEl && scriptEl.src) return new URL('.', scriptEl.src).href;
     } catch (e) { /* 落到兜底 */ }
-    var m = location.pathname.match(/^(.*\/)(?:20\d{2}-\d{2}-\d{2}\/)?[^/]*$/);
+    var m = location.pathname.match(/^(.*\/)(?:daily\/)?(?:20\d{2}-\d{2}-\d{2}\/)?[^/]*$/);
     return location.origin + (m ? m[1] : '/');
   })();
 
@@ -1700,28 +1804,110 @@ const ARTICLES = [
     return SITE_ROOT + dir + '/' + (isFile ? 'index.html' : '');
   }
 
-  function currentIssue() {
-    var m = location.pathname.match(/(?:^|\/)(20\d{2}-\d{2}-\d{2})(?:\/|$)/);
-    return m ? m[1] : null;
+  function dailyUrl(dir) {
+    return SITE_ROOT + 'daily/' + dir + '/' + (isFile ? 'index.html' : '');
   }
 
-  var CURRENT = currentIssue();
+  // 当前页面是哪种刊物的哪一期：daily/<日期>/ 为日报，<日期>/ 为周报
+  var m0 = location.pathname.match(/(?:^|\/)(daily\/)?(20\d{2}-\d{2}-\d{2})(?:\/|$)/);
+  var CURRENT = m0 ? m0[2] : null;
+  var KIND = m0 && m0[1] ? 'daily' : 'weekly';
+
+  var PUBS = {
+    weekly: { name: '周报', list: ISSUES, url: issueUrl, unit: '期' },
+    daily: { name: '日报', list: DAILIES, url: dailyUrl, unit: '期' }
+  };
+
+  function latestUrl(kind) {
+    var p = PUBS[kind];
+    return p.list.length ? p.url(p.list[0].dir) : homeUrl();
+  }
 
   // 暴露给首页 / 其它脚本复用
   window.ZXSW = {
     issues: ISSUES,
+    dailies: DAILIES,
     root: SITE_ROOT,
     current: CURRENT,
+    kind: KIND,
     homeUrl: homeUrl,
-    issueUrl: issueUrl
+    issueUrl: issueUrl,
+    dailyUrl: dailyUrl,
+    latestUrl: latestUrl
   };
+
+  /* 「周报 | 日报」切换：
+   *   1. 页面自带 data-zxsw-kind 链接（新模板生成的周报 / 日报）→ 只填链接；
+   *   2. 旧页面 → 按 KIND_ANCHORS 找到顶栏里的锚点插入切换（标准模板在 Logo 右侧，
+   *      几期版式各异的老刊期插在各自顶部工具栏里）；
+   *   3. 都找不到（将来出现新版式）→ 在右下角「切换刊期」左侧加「看日报 →」按钮兜底（见 buildUI）。
+   * 样式全部内联在 KIND_CSS 里，不依赖页面的 Tailwind。 */
+  var KIND_CSS = [
+    '#zxsw-kind{display:inline-flex;align-items:center;gap:0;padding:2px;margin-right:auto;',
+    '  border:1px solid #E2E8F0;border-radius:999px;background:#fff;flex:none;',
+    '  font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px;line-height:1.5;}',
+    '#zxsw-kind a{display:inline-block;padding:4px 12px;border-radius:999px;color:#64748B;',
+    '  text-decoration:none;font-weight:500;white-space:nowrap;transition:color .15s,background .15s;}',
+    '#zxsw-kind a:hover{color:#0F172A;}',
+    '#zxsw-kind a.is-on{background:#0F172A;color:#fff;cursor:default;}',
+    '#zxsw-kind.is-inline{margin:0 6px 0 0;vertical-align:middle;}',
+    '#zxsw-kind.is-sm{font-size:11px;}',
+    '#zxsw-kind.is-sm a{padding:2px 10px;}'
+  ].join('\n');
+
+  // 顶栏锚点：按顺序尝试，第一个找到的生效。how：after / before 锚点；beforeParent = 锚点父元素之前；prepend = 放进锚点最前
+  var KIND_ANCHORS = [
+    { sel: '#nav-brand-btn', how: 'after', cls: '' },                          // 标准模板（2026-11-15 起）
+    { sel: '#btnArchiveModal', how: 'before', cls: 'is-inline is-sm' },        // 2026-11-10 报纸版：顶部「往期周报」前
+    { sel: 'button[data-c="all"][onclick*="setCol"]', how: 'beforeParent', cls: 'is-inline' }, // 2026-11-12 特刊：栏目标签「头版概览」左侧
+    { sel: '.toolbar-controls', how: 'prepend', cls: 'is-inline' }            // 2026-10-31 科技蓝版：工具栏最前
+  ];
+
+  function injectKindSwitch() {
+    if (document.querySelector('[data-zxsw-kind]')) return;          // 情况 1：页面自带
+    if (!DAILIES.length) return;
+    var anchor = null, rule = null;
+    KIND_ANCHORS.some(function (r) {
+      var el = document.querySelector(r.sel);
+      if (el && el.parentNode && el.parentNode.parentNode) { anchor = el; rule = r; return true; }
+      return false;
+    });
+    if (!anchor) return;                                             // 情况 3 在 buildUI 里处理
+    var st = document.createElement('style');
+    st.id = 'zxsw-kind-style';
+    st.textContent = KIND_CSS;
+    document.head.appendChild(st);
+    var nav = document.createElement('nav');
+    nav.id = 'zxsw-kind';
+    if (rule.cls) nav.className = rule.cls;
+    nav.setAttribute('aria-label', '切换周报或日报');
+    nav.innerHTML =
+      '<a data-zxsw-kind="weekly"' + (KIND === 'weekly' ? ' class="is-on" aria-current="page"' : '') + '>周报</a>' +
+      '<a data-zxsw-kind="daily"' + (KIND === 'daily' ? ' class="is-on" aria-current="page"' : '') + '>日报</a>';
+    if (rule.how === 'after') anchor.parentNode.insertBefore(nav, anchor.nextSibling);
+    else if (rule.how === 'before') anchor.parentNode.insertBefore(nav, anchor);
+    else if (rule.how === 'beforeParent') anchor.parentNode.parentNode.insertBefore(nav, anchor.parentNode);
+    else anchor.insertBefore(nav, anchor.firstChild);
+  }
+
+  // 页面里的「周报 | 日报」切换链接：指向各自最新一期；没有日报时隐藏日报入口
+  function wireKindLinks() {
+    var links = document.querySelectorAll('[data-zxsw-kind]');
+    Array.prototype.forEach.call(links, function (a) {
+      var kind = a.getAttribute('data-zxsw-kind');
+      if (!PUBS[kind]) return;
+      if (!PUBS[kind].list.length) { a.style.display = 'none'; return; }
+      if (kind !== KIND || !CURRENT) a.setAttribute('href', latestUrl(kind));
+    });
+  }
 
   // 首页本身就是刊期目录，不再叠加悬浮按钮
   if (document.body && document.body.getAttribute('data-zxsw-page') === 'index') return;
 
   // 清单没跟上新刊期时给出可见提醒（不影响使用）
-  if (CURRENT && !ISSUES.some(function (it) { return it.dir === CURRENT; })) {
-    console.warn('[准讯周报] 当前刊期 ' + CURRENT + ' 尚未登记在 site-nav.js 的 ISSUES 中，请补一行。');
+  if (CURRENT && !PUBS[KIND].list.some(function (it) { return it.dir === CURRENT; })) {
+    console.warn('[准讯] 当前' + PUBS[KIND].name + ' ' + CURRENT + ' 尚未登记在 site-nav.js 的 ' +
+      (KIND === 'daily' ? 'DAILIES' : 'ISSUES') + ' 中，请补一行。');
   }
 
   /* ==================================================================
@@ -1740,6 +1926,11 @@ const ARTICLES = [
     '  letter-spacing:.02em;box-shadow:0 8px 26px rgba(3,20,45,.34);',
     '  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);',
     '  transition:transform .16s ease,box-shadow .16s ease;}',
+    '#zxsw-root.has-pill{display:flex;align-items:center;gap:8px;}',
+    '#zxsw-pill{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;',
+    '  border:1px solid rgba(125,211,252,.45);background:#fff;color:#0F172A !important;font-size:13px;font-weight:700;',
+    '  box-shadow:0 8px 26px rgba(3,20,45,.18);white-space:nowrap;transition:transform .16s ease;}',
+    '#zxsw-pill:hover{transform:translateY(-2px);}',
     '#zxsw-toggle:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(3,20,45,.45);}',
     '#zxsw-toggle .zxsw-dot{width:8px;height:8px;border-radius:50%;background:#38BDF8;',
     '  box-shadow:0 0 0 3px rgba(56,189,248,.18);flex:none;}',
@@ -1759,6 +1950,13 @@ const ARTICLES = [
     '#zxsw-head strong{font-size:13px;font-weight:800;letter-spacing:.04em;}',
     '#zxsw-head small{display:block;font-size:10.5px;font-weight:400;color:#7DD3FC;',
     '  letter-spacing:.08em;margin-top:2px;}',
+    '#zxsw-tabs{display:flex;gap:6px;padding:10px 15px 0;}',
+    '#zxsw-root .zxsw-tab{flex:1;border:1px solid rgba(125,211,252,.22);background:transparent;',
+    '  color:#93B4D4;font-size:12px;font-weight:700;padding:6px 0;border-radius:8px;letter-spacing:.06em;}',
+    '#zxsw-root .zxsw-tab:hover{border-color:rgba(125,211,252,.5);color:#F0F9FF;}',
+    '#zxsw-root .zxsw-tab.is-on{background:rgba(56,189,248,.2);border-color:rgba(56,189,248,.6);color:#F0F9FF;}',
+    '#zxsw-root .zxsw-tab small{font-weight:500;opacity:.75;margin-left:4px;}',
+    '#zxsw-list .zxsw-empty{padding:18px 8px;text-align:center;color:#93B4D4;font-size:12px;}',
     '#zxsw-close{border:0;background:transparent;color:#7DD3FC;font-size:18px;',
     '  line-height:1;padding:2px 5px;border-radius:6px;}',
     '#zxsw-close:hover{background:rgba(125,211,252,.14);}',
@@ -1811,44 +2009,67 @@ const ARTICLES = [
     root.id = 'zxsw-root';
 
     var curLabel = '';
-    ISSUES.some(function (it) {
-      if (it.dir === CURRENT) { curLabel = it.title; return true; }
+    PUBS[KIND].list.some(function (it) {
+      if (it.dir === CURRENT) { curLabel = PUBS[KIND].name + ' · ' + it.title; return true; }
       return false;
     });
-    if (!curLabel && CURRENT) curLabel = CURRENT;
+    if (!curLabel && CURRENT) curLabel = PUBS[KIND].name + ' · ' + CURRENT;
 
-    var items = ISSUES.map(function (it, i) {
-      var isCur = it.dir === CURRENT;
-      var isNew = i === 0;
-      var badge = isCur
-        ? '<span class="zxsw-badge is-cur">正在阅读</span>'
-        : (isNew ? '<span class="zxsw-badge is-new">最新一期</span>' : '');
-      return '<a class="zxsw-item' + (isCur ? ' is-current' : '') + '"' +
-        ' href="' + esc(issueUrl(it.dir)) + '"' +
-        ' data-zxsw-issue="' + esc(it.dir) + '"' +
-        (isCur ? ' aria-current="page"' : '') + '>' +
-        '<span class="zxsw-top"><span class="zxsw-title">' + esc(it.title) + '</span>' + badge + '</span>' +
-        '<span class="zxsw-sub">' + esc(it.sub || '') + ' · Alt+' + (i + 1) + '</span>' +
-        '</a>';
-    }).join('');
+    function listHtml(kind) {
+      var p = PUBS[kind];
+      if (!p.list.length) return '<div class="zxsw-empty">' + p.name + '尚未发布</div>';
+      return p.list.map(function (it, i) {
+        var isCur = kind === KIND && it.dir === CURRENT;
+        var isNew = i === 0;
+        var badge = isCur
+          ? '<span class="zxsw-badge is-cur">正在阅读</span>'
+          : (isNew ? '<span class="zxsw-badge is-new">最新一期</span>' : '');
+        return '<a class="zxsw-item' + (isCur ? ' is-current' : '') + '"' +
+          ' href="' + esc(p.url(it.dir)) + '"' +
+          ' data-zxsw-issue="' + esc(it.dir) + '"' +
+          (isCur ? ' aria-current="page"' : '') + '>' +
+          '<span class="zxsw-top"><span class="zxsw-title">' + esc(it.title) + '</span>' + badge + '</span>' +
+          '<span class="zxsw-sub">' + esc(it.sub || '') + (i < 9 ? ' · Alt+' + (i + 1) : '') + '</span>' +
+          '</a>';
+      }).join('');
+    }
+
+    var tab = KIND;
+    function tabHtml(kind) {
+      return '<button type="button" class="zxsw-tab' + (kind === tab ? ' is-on' : '') + '" data-zxsw-tab="' + kind + '">' +
+        PUBS[kind].name + '<small>' + PUBS[kind].list.length + ' 期</small></button>';
+    }
 
     root.innerHTML =
       '<div id="zxsw-panel" hidden>' +
         '<div id="zxsw-head">' +
-          '<div><strong>准讯周报 · 切换刊期</strong><small>ALL ISSUES</small></div>' +
+          '<div><strong>准讯 · 切换刊期</strong><small>WEEKLY · DAILY</small></div>' +
           '<button id="zxsw-close" type="button" aria-label="关闭">×</button>' +
         '</div>' +
-        '<div id="zxsw-list">' + items + '</div>' +
+        '<div id="zxsw-tabs" role="tablist">' + tabHtml('weekly') + tabHtml('daily') + '</div>' +
+        '<div id="zxsw-list">' + listHtml(tab) + '</div>' +
         '<div id="zxsw-foot">' +
           '<a href="' + esc(homeUrl()) + '">全部刊期目录 →</a>' +
-          '<span>共 ' + ISSUES.length + ' 期 · Alt+数字直达</span>' +
+          '<span>Alt+数字直达</span>' +
         '</div>' +
       '</div>' +
       '<button id="zxsw-toggle" type="button" aria-expanded="false" aria-controls="zxsw-panel"' +
-        ' title="切换周报刊期（Alt+1~9）">' +
+        ' title="切换周报 / 日报刊期（Alt+1~9）">' +
         '<span class="zxsw-dot"></span><span>切换刊期</span>' +
         (curLabel ? '<span class="zxsw-cur">' + esc(curLabel) + '</span>' : '') +
       '</button>';
+
+    // 情况 3：老刊期没有顶栏切换时，在「切换刊期」左侧放一个去另一种刊物的按钮
+    var other = KIND === 'daily' ? 'weekly' : 'daily';
+    if (!document.querySelector('[data-zxsw-kind]') && PUBS[other].list.length) {
+      var pill = document.createElement('a');
+      pill.id = 'zxsw-pill';
+      pill.href = latestUrl(other);
+      pill.textContent = '看' + PUBS[other].name + ' →';
+      pill.title = '打开最新一期' + PUBS[other].name;
+      root.classList.add('has-pill');
+      root.insertBefore(pill, root.firstChild);
+    }
 
     document.body.appendChild(root);
 
@@ -1870,6 +2091,16 @@ const ARTICLES = [
       setOpen(false);
     });
     panel.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    // 周报 / 日报标签切换
+    var tabs = document.getElementById('zxsw-tabs');
+    tabs.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('[data-zxsw-tab]') : null;
+      if (!b) return;
+      tab = b.getAttribute('data-zxsw-tab');
+      tabs.innerHTML = tabHtml('weekly') + tabHtml('daily');
+      document.getElementById('zxsw-list').innerHTML = listHtml(tab);
+    });
     document.addEventListener('click', function () {
       if (!panel.hidden) setOpen(false);
     });
@@ -1882,12 +2113,13 @@ const ARTICLES = [
         e.preventDefault();
         return;
       }
-      // Alt + 1..9 直达对应刊期，Alt + 0 回目录
+      // Alt + 1..9 直达当前标签（周报或日报）下对应刊期，Alt + 0 回目录
       if (e.altKey && !e.ctrlKey && !e.metaKey && /^[0-9]$/.test(e.key)) {
         var t = e.target;
         if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
         var n = parseInt(e.key, 10);
-        var target = n === 0 ? homeUrl() : (ISSUES[n - 1] ? issueUrl(ISSUES[n - 1].dir) : null);
+        var L = PUBS[tab].list;
+        var target = n === 0 ? homeUrl() : (L[n - 1] ? PUBS[tab].url(L[n - 1].dir) : null);
         if (target) {
           e.preventDefault();
           location.href = target;
@@ -1936,6 +2168,8 @@ const ARTICLES = [
    *    保证原页面脚本已把旧监听器绑完，再替换 select 才不会残留。
    * ================================================================== */
   function init() {
+    try { injectKindSwitch(); } catch (e) { console.error('[准讯] 顶栏周报/日报切换插入失败', e); }
+    try { wireKindLinks(); } catch (e) { console.error('[准讯] 周报/日报切换链接初始化失败', e); }
     try { buildUI(); } catch (e) { console.error('[准讯周报] 切换器初始化失败', e); }
     try { patchLegacySelector(); } catch (e) { console.error('[准讯周报] 刊期下拉修正失败', e); }
   }
